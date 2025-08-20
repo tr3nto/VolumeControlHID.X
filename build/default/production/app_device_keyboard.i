@@ -6875,7 +6875,7 @@ extern volatile uint8_t CtrlTrfData[8];
 void APP_LEDUpdateUSBStatus(void);
 # 33 "app_device_keyboard.c" 2
 # 47 "app_device_keyboard.c"
-const struct{uint8_t report[63];}hid_rpt01={
+const struct{uint8_t report[104];}hid_rpt01={
 { 0x05, 0x01,
     0x09, 0x06,
     0xa1, 0x01,
@@ -6907,12 +6907,33 @@ const struct{uint8_t report[63];}hid_rpt01={
     0x19, 0x00,
     0x29, 0x65,
     0x81, 0x00,
-    0xc0}
+    0xc0,
+
+    0x05, 0x0C,
+ 0x09, 0x01,
+ 0xA1, 0x01,
+ 0x85, 0x02,
+ 0x05, 0x0C,
+ 0x15, 0x00,
+ 0x25, 0x01,
+ 0x75, 0x01,
+ 0x95, 0x07,
+ 0x09, 0xB5,
+ 0x09, 0xB6,
+ 0x09, 0xB7,
+ 0x09, 0xCD,
+ 0x09, 0xE2,
+ 0x09, 0xE9,
+ 0x09, 0xEA,
+ 0x81, 0x02,
+ 0x95, 0x01,
+ 0x81, 0x01,
+ 0xC0}
 };
-# 91 "app_device_keyboard.c"
+# 112 "app_device_keyboard.c"
 typedef struct
 {
-# 109 "app_device_keyboard.c"
+# 130 "app_device_keyboard.c"
     union
     {
         uint8_t value;
@@ -6928,9 +6949,9 @@ typedef struct
             unsigned rightGUI :1;
         } bits;
     } modifiers;
-# 132 "app_device_keyboard.c"
+# 153 "app_device_keyboard.c"
     unsigned :8;
-# 176 "app_device_keyboard.c"
+# 197 "app_device_keyboard.c"
     uint8_t keys[6];
 } KEYBOARD_INPUT_REPORT;
 
@@ -6943,13 +6964,13 @@ typedef union
     uint8_t value;
     struct
     {
-# 204 "app_device_keyboard.c"
+# 225 "app_device_keyboard.c"
         unsigned numLock :1;
         unsigned capsLock :1;
         unsigned scrollLock :1;
         unsigned compose :1;
         unsigned kana :1;
-# 219 "app_device_keyboard.c"
+# 240 "app_device_keyboard.c"
         unsigned :3;
     } leds;
 } KEYBOARD_OUTPUT_REPORT;
@@ -7000,7 +7021,7 @@ KEYBOARD_INPUT_REPORT oldInputReport;
 signed int keyboardIdleRate;
 signed int LocalSOFCount;
 static signed int OldSOFCount;
-# 278 "app_device_keyboard.c"
+# 299 "app_device_keyboard.c"
 void APP_KeyboardInit(void)
 {
 
@@ -7153,7 +7174,7 @@ void APP_KeyboardTasks(void)
         }
 
     }
-# 438 "app_device_keyboard.c"
+# 459 "app_device_keyboard.c"
     if(((keyboard.lastOUTTransmission != 0x0000) && ((*(volatile uint8_t*)keyboard.lastOUTTransmission & 0x80) != 0x00)) == 0)
     {
         APP_KeyboardProcessOutputReport();

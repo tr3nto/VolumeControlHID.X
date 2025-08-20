@@ -83,14 +83,14 @@ const uint8_t configDescriptor1[]={
     0x00,                   // Country Code (0x00 for Not supported)
     HID_NUM_OF_DSC,         // Number of class descriptors, see usbcfg.h
     DSC_RPT,                // Report descriptor type
-    DESC_CONFIG_WORD(63),   //sizeof(hid_rpt01),      // Size of the report descriptor
+    DESC_CONFIG_WORD(104),  //(63),   //sizeof(hid_rpt01),      // Size of the report descriptor---------------------------
     
     /* Endpoint Descriptor */
     0x07,/*sizeof(USB_EP_DSC)*/
     USB_DESCRIPTOR_ENDPOINT,    //Endpoint Descriptor
     HID_EP | _EP_IN,            //EndpointAddress
     _INTERRUPT,                       //Attributes
-    DESC_CONFIG_WORD(8),        //size
+    DESC_CONFIG_WORD(9),    //(8),        //size-------------------------------------------------------
     0x01,                        //Interval
 
     /* Endpoint Descriptor */
@@ -98,7 +98,7 @@ const uint8_t configDescriptor1[]={
     USB_DESCRIPTOR_ENDPOINT,    //Endpoint Descriptor
     HID_EP | _EP_OUT,            //EndpointAddress
     _INTERRUPT,                       //Attributes
-    DESC_CONFIG_WORD(8),        //size
+    DESC_CONFIG_WORD(1), //(8),        //size-----------------------------------------------------
     0x01                        //Interval
 
 };
@@ -118,7 +118,7 @@ sizeof(sd001),USB_DESCRIPTOR_STRING,
 //Product string descriptor
 const struct{uint8_t bLength;uint8_t bDscType;uint16_t string[13];}sd002={
 sizeof(sd002),USB_DESCRIPTOR_STRING,
-{'K','e','y','b','o','a','r','d',' ','D','e','m','o'
+{'V','o','l','u','m','e'
 }};
 
 //Array of configuration descriptors

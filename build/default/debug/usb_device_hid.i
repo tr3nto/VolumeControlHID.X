@@ -6839,7 +6839,7 @@ typedef struct
 static uint8_t idle_rate;
 static uint8_t active_protocol;
 
-extern const struct{uint8_t report[63];}hid_rpt01;
+extern const struct{uint8_t report[104];}hid_rpt01;
 # 102 "usb_device_hid.c"
     extern void USBHIDCBSetReportHandler(void);
 # 120 "usb_device_hid.c"
@@ -6871,7 +6871,7 @@ void USBCheckHIDRequest(void)
             case 0x22:
 
                 {
-                    { inPipes[0].pSrc.bRom = (const uint8_t*)&hid_rpt01; inPipes[0].wCount.Val = 63; inPipes[0].info.Val = 0x40 | 0x80 | 0x00; };
+                    { inPipes[0].pSrc.bRom = (const uint8_t*)&hid_rpt01; inPipes[0].wCount.Val = 104; inPipes[0].info.Val = 0x40 | 0x80 | 0x00; };
 
 
 

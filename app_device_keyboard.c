@@ -76,7 +76,28 @@ const struct{uint8_t report[HID_RPT01_SIZE];}hid_rpt01={
     0x19, 0x00,                    //   USAGE_MINIMUM (Reserved (no event indicated))
     0x29, 0x65,                    //   USAGE_MAXIMUM (Keyboard Application)
     0x81, 0x00,                    //   INPUT (Data,Ary,Abs)
-    0xc0}                          // End Collection
+    0xc0,                          // End Collection
+    
+    0x05, 0x0C, /*		Usage Page (Consumer Devices)		*/
+	0x09, 0x01, /*		Usage (Consumer Control)			*/
+	0xA1, 0x01, /*		Collection (Application)			*/
+	0x85, 0x02,	/*		Report ID=2							*/
+	0x05, 0x0C, /*		Usage Page (Consumer Devices)		*/
+	0x15, 0x00, /*		Logical Minimum (0)					*/
+	0x25, 0x01, /*		Logical Maximum (1)					*/
+	0x75, 0x01, /*		Report Size (1)						*/
+	0x95, 0x07, /*		Report Count (7)					*/
+	0x09, 0xB5, /*		Usage (Scan Next Track)				*/
+	0x09, 0xB6, /*		Usage (Scan Previous Track)			*/
+	0x09, 0xB7, /*		Usage (Stop)						*/
+	0x09, 0xCD, /*		Usage (Play / Pause)				*/
+	0x09, 0xE2, /*		Usage (Mute)						*/
+	0x09, 0xE9, /*		Usage (Volume Up)					*/
+	0x09, 0xEA, /*		Usage (Volume Down)					*/
+	0x81, 0x02, /*		Input (Data, Variable, Absolute)	*/
+	0x95, 0x01, /*		Report Count (1)					*/
+	0x81, 0x01, /*		Input (Constant)					*/
+	0xC0}		/*		End Collection						*/
 };
 
 

@@ -157,9 +157,9 @@ please contact mla_licensing@microchip.com
 #define HID_INTF_ID             0x00
 #define HID_EP 					1
 #define HID_INT_OUT_EP_SIZE     1
-#define HID_INT_IN_EP_SIZE      8
+#define HID_INT_IN_EP_SIZE      9 //8
 #define HID_NUM_OF_DSC          1
-#define HID_RPT01_SIZE          63
+#define HID_RPT01_SIZE          104 //63
 //#define USER_GET_REPORT_HANDLER USBHIDCBGetReportHandler	
 #define USER_SET_REPORT_HANDLER USBHIDCBSetReportHandler	
 #define USB_DEVICE_HID_IDLE_RATE_CALLBACK(reportID, newIdleRate)    USBHIDCBSetIdleRateHandler(reportID, newIdleRate)
