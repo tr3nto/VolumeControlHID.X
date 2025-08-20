@@ -36,7 +36,7 @@ please contact mla_licensing@microchip.com
 #else
     #define PACKED __attribute__((packed))
 #endif
-
+//change
 // *****************************************************************************
 // *****************************************************************************
 // Section: File Scope or Global Constants
