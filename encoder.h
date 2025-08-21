@@ -21,55 +21,64 @@
  *******************************************************************/
 
 #include <stdbool.h>
+#include <stdint.h>
 
-#ifndef BUTTONS_H
-#define BUTTONS_H
+#ifndef ENCODER_H
+#define ENCODER_H
 
-/*** Button Definitions *********************************************/
+/*** Encoder Definitions *********************************************/
 typedef enum
 {
-    BUTTON_NONE,
-    BUTTON_S2,
-    BUTTON_S3
-    //S1 is MCLR
-    //Note: S2 and S3 are now used for quadrature encoder channels A and B
-} BUTTON;
-
+    ENCODER_NONE,
+    ENCODER_CW,     // Clockwise (volume up)
+    ENCODER_CCW     // Counter-clockwise (volume down)
+} ENCODER_DIRECTION;
 
 /*********************************************************************
-* Function: bool BUTTON_IsPressed(BUTTON button);
+* Function: void ENCODER_Initialize(void);
 *
-* Overview: Returns the current state of the requested button
+* Overview: Initializes the encoder pins and state machine
 *
-* PreCondition: button configured via BUTTON_SetConfiguration()
+* PreCondition: None
 *
-* Input: BUTTON button - enumeration of the buttons available in
-*        this demo.  They should be meaningful names and not the names 
-*        of the buttons on the silkscreen on the board (as the demo 
-*        code may be ported to other boards).
-*         i.e. - ButtonIsPressed(BUTTON_SEND_MESSAGE);
-*
-* Output: TRUE if pressed; FALSE if not pressed.
-*
-********************************************************************/
-bool BUTTON_IsPressed(BUTTON button);
-
-/*********************************************************************
-* Function: void BUTTON_Enable(BUTTON button);
-*
-* Overview: Returns the current state of the requested button
-*
-* PreCondition: button configured via BUTTON_SetConfiguration()
-*
-* Input: BUTTON button - enumeration of the buttons available in
-*        this demo.  They should be meaningful names and not the names
-*        of the buttons on the silkscreen on the board (as the demo
-*        code may be ported to other boards).
-*         i.e. - ButtonIsPressed(BUTTON_SEND_MESSAGE);
+* Input: None
 *
 * Output: None
 *
 ********************************************************************/
-void BUTTON_Enable(BUTTON button);
+void ENCODER_Initialize(void);
 
-#endif //BUTTONS_H
+/*********************************************************************
+* Function: ENCODER_DIRECTION ENCODER_GetDirection(void);
+*
+* Overview: Reads the encoder and returns the direction of rotation
+*           This function should be called regularly to detect changes
+*
+* PreCondition: ENCODER_Initialize() must be called first
+*
+* Input: None
+*
+* Output: ENCODER_DIRECTION - Direction of encoder rotation
+*         ENCODER_NONE: No movement detected
+*         ENCODER_CW: Clockwise rotation (volume up)
+*         ENCODER_CCW: Counter-clockwise rotation (volume down)
+*
+********************************************************************/
+ENCODER_DIRECTION ENCODER_GetDirection(void);
+
+/*********************************************************************
+* Function: void ENCODER_Task(void);
+*
+* Overview: Encoder processing task that should be called regularly
+*           from the main loop to update encoder state
+*
+* PreCondition: ENCODER_Initialize() must be called first
+*
+* Input: None
+*
+* Output: None
+*
+********************************************************************/
+void ENCODER_Task(void);
+
+#endif //ENCODER_H

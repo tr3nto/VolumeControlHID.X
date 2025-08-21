@@ -13,4 +13,5 @@ usb_device.h  \
 usb_hal.h  \
 usb_hal_pic18.h  \
 usb_device_hid.h  \
-app_led_usb_status.h 
+app_led_usb_status.h  \
+encoder.h 

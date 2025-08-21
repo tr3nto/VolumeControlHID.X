@@ -19,6 +19,7 @@
       <itemPath>usb_device_local.h</itemPath>
       <itemPath>usb_hal.h</itemPath>
       <itemPath>usb_hal_pic18.h</itemPath>
+      <itemPath>encoder.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
@@ -42,6 +43,7 @@
       <itemPath>usb_device.c</itemPath>
       <itemPath>usb_device_hid.c</itemPath>
       <itemPath>usb_events.c</itemPath>
+      <itemPath>encoder.c</itemPath>
     </logicalFolder>
   </logicalFolder>
   <sourceRootList>

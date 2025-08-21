@@ -14,8 +14,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;system.c: 94:             BUTTON_Enable(BUTTON_S2);
 [c E3343 0 1 2 .. ]
 [n E3343 . BUTTON_NONE BUTTON_S2 BUTTON_S3  ]
-"72 ./buttons.h
-[; ;./buttons.h: 72: void BUTTON_Enable(BUTTON button);
+"73 ./buttons.h
+[; ;./buttons.h: 73: void BUTTON_Enable(BUTTON button);
 [v _BUTTON_Enable `(v ~T0 @X0 0 ef1`E3343 ]
 [t ~ __interrupt . k ]
 [t T36 __interrupt ]

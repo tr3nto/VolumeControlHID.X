@@ -3,7 +3,7 @@
 [d edition pro ]
 [d chip 18F4550 ]
 [d frameptr 4065 ]
-"372 D:\OneDrive\Documents\Microchip\Projects\VolumeControlHID.X\app_device_keyboard.c
+"376 D:\OneDrive\Documents\Microchip\Projects\VolumeControlHID.X\app_device_keyboard.c
 [e E3804 . `uc
 DETACHED_STATE 0
 ATTACHED_STATE 1
@@ -13,13 +13,19 @@ ADR_PENDING_STATE 8
 ADDRESS_STATE 16
 CONFIGURED_STATE 32
 ]
-"385
+"392
 [e E3510 . `uc
 BUTTON_NONE 0
 BUTTON_S2 1
 BUTTON_S3 2
 ]
-"624
+"515
+[e E4048 . `uc
+ENCODER_NONE 0
+ENCODER_CW 1
+ENCODER_CCW 2
+]
+"631
 [e E3519 . `uc
 LED_NONE 0
 LED_D1 1
@@ -195,18 +201,24 @@ EVENT_EP0_REQUEST 3
 EVENT_ATTACH 4
 EVENT_TRANSFER_TERMINATED 5
 ]
-"330 D:\OneDrive\Documents\Microchip\Projects\VolumeControlHID.X\app_device_keyboard.c
+"121 D:\OneDrive\Documents\Microchip\Projects\VolumeControlHID.X\encoder.c
+[e E3343 . `uc
+ENCODER_NONE 0
+ENCODER_CW 1
+ENCODER_CCW 2
+]
+"331 D:\OneDrive\Documents\Microchip\Projects\VolumeControlHID.X\app_device_keyboard.c
 [v _APP_KeyboardInit APP_KeyboardInit `(v  1 e 1 0 ]
-"362
+"366
 [v _APP_KeyboardTasks APP_KeyboardTasks `(v  1 e 1 0 ]
-"620
+"627
 [v _APP_KeyboardProcessOutputReport APP_KeyboardProcessOutputReport `(v  1 s 1 APP_KeyboardProcessOutputReport ]
 [v i2_APP_KeyboardProcessOutputReport APP_KeyboardProcessOutputReport `(v  1 s 1 i2_APP_KeyboardProcessOutputReport ]
-"632
+"639
 [v _USBHIDCBSetReportComplete USBHIDCBSetReportComplete `(v  1 s 1 USBHIDCBSetReportComplete ]
-"642
+"649
 [v _USBHIDCBSetReportHandler USBHIDCBSetReportHandler `(v  1 e 1 0 ]
-"653
+"660
 [v _USBHIDCBSetIdleRateHandler USBHIDCBSetIdleRateHandler `(v  1 e 1 0 ]
 "49 D:\OneDrive\Documents\Microchip\Projects\VolumeControlHID.X\app_led_usb_status.c
 [v _APP_LEDUpdateUSBStatus APP_LEDUpdateUSBStatus `(v  1 e 1 0 ]
@@ -244,6 +256,12 @@ EVENT_TRANSFER_TERMINATED 5
 [v ___lmul __lmul `(ul  1 e 4 0 ]
 "91 C:\Program Files\Microchip\xc8\v3.00\pic\sources\c99\common\Umul64.c
 [v ___omul __omul `(uo  1 e 8 0 ]
+"92 D:\OneDrive\Documents\Microchip\Projects\VolumeControlHID.X\encoder.c
+[v _ENCODER_Initialize ENCODER_Initialize `(v  1 e 1 0 ]
+"121
+[v _ENCODER_GetDirection ENCODER_GetDirection `(E4048  1 e 1 0 ]
+"150
+[v _ENCODER_Task ENCODER_Task `(v  1 e 1 0 ]
 "96 D:\OneDrive\Documents\Microchip\Projects\VolumeControlHID.X\leds.c
 [v _LED_On LED_On `(v  1 e 1 0 ]
 [v i2_LED_On LED_On `(v  1 e 1 0 ]
@@ -315,12 +333,12 @@ EVENT_TRANSFER_TERMINATED 5
 "67 D:\OneDrive\Documents\Microchip\Projects\VolumeControlHID.X\usb_events.c
 [v _USER_USB_CALLBACK_EVENT_HANDLER USER_USB_CALLBACK_EVENT_HANDLER `(a  1 e 1 0 ]
 [s S83 . 104 `[104]uc 1 report 104 0 ]
-"47 D:\OneDrive\Documents\Microchip\Projects\VolumeControlHID.X\app_device_keyboard.c
+"48 D:\OneDrive\Documents\Microchip\Projects\VolumeControlHID.X\app_device_keyboard.c
 [v _hid_rpt01 hid_rpt01 `CS83  1 e 104 0 ]
 [s S85 . 6 `*.39v 1 lastINTransmission 2 0 `*.39v 1 lastOUTTransmission 2 2 `uc 1 key 1 4 `a 1 waitingForRelease 1 5 ]
-"283
-[v _keyboard keyboard `S85  1 s 6 keyboard ]
 "284
+[v _keyboard keyboard `S85  1 s 6 keyboard ]
+"285
 [v _consumer consumer `S85  1 s 6 consumer ]
 [s S90 . 1 `uc 1 leftControl 1 0 :1:0 
 `uc 1 leftShift 1 0 :1:1 
@@ -331,7 +349,7 @@ EVENT_TRANSFER_TERMINATED 5
 `uc 1 rightAlt 1 0 :1:6 
 `uc 1 rightGUI 1 0 :1:7 
 ]
-"289
+"290
 [u S99 . 1 `uc 1 value 1 0 `S90 1 bits 1 0 ]
 [s S102 . 9 `uc 1 reportID 1 0 `S99 1 modifiers 1 1 `uc 1 . 1 2 :8:0 
 `[6]uc 1 keys 6 3 ]
@@ -343,7 +361,7 @@ EVENT_TRANSFER_TERMINATED 5
 `uc 1 kana 1 0 :1:4 
 `uc 1 . 1 0 :3:5 
 ]
-"294
+"295
 [u S114 . 1 `uc 1 value 1 0 `S107 1 leds 1 0 ]
 [v _outputReport outputReport `VES114  1 s 1 outputReport ]
 [s S117 . 1 `uc 1 scanNextTrack 1 0 :1:0 
@@ -355,7 +373,7 @@ EVENT_TRANSFER_TERMINATED 5
 `uc 1 volumeDown 1 0 :1:6 
 `uc 1 . 1 0 :1:7 
 ]
-"296
+"297
 [u S126 . 1 `uc 1 value 1 0 `S117 1 bits 1 0 ]
 [s S129 . 2 `uc 1 reportID 1 0 `S126 1 controls 1 1 ]
 [v _consumerReport consumerReport `S129  1 s 2 consumerReport ]
@@ -368,7 +386,7 @@ EVENT_TRANSFER_TERMINATED 5
 `uc 1 rightAlt 1 0 :1:6 
 `uc 1 rightGUI 1 0 :1:7 
 ]
-"312
+"313
 [u S99 . 1 `uc 1 value 1 0 `S90 1 bits 1 0 ]
 [s S102 . 9 `uc 1 reportID 1 0 `S99 1 modifiers 1 1 `uc 1 . 1 2 :8:0 
 `[6]uc 1 keys 6 3 ]
@@ -382,23 +400,23 @@ EVENT_TRANSFER_TERMINATED 5
 `uc 1 volumeDown 1 0 :1:6 
 `uc 1 . 1 0 :1:7 
 ]
-"313
+"314
 [u S126 . 1 `uc 1 value 1 0 `S117 1 bits 1 0 ]
 [s S129 . 2 `uc 1 reportID 1 0 `S126 1 controls 1 1 ]
 [v _oldconsumerReport oldconsumerReport `S129  1 e 2 0 ]
-"314
-[v _keyboardIdleRate keyboardIdleRate `i  1 e 2 0 ]
 "315
-[v _LocalSOFCount LocalSOFCount `i  1 e 2 0 ]
+[v _keyboardIdleRate keyboardIdleRate `i  1 e 2 0 ]
 "316
+[v _LocalSOFCount LocalSOFCount `i  1 e 2 0 ]
+"317
 [v _OldSOFCount OldSOFCount `i  1 s 2 OldSOFCount ]
-"319
-[v _lastConsumerTransmission lastConsumerTransmission `*.39v  1 s 2 lastConsumerTransmission ]
 "320
+[v _lastConsumerTransmission lastConsumerTransmission `*.39v  1 s 2 lastConsumerTransmission ]
+"321
 [v _consumerWaitingForRelease consumerWaitingForRelease `a  1 s 1 consumerWaitingForRelease ]
 "372 C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h
 [v _UIR UIR `VEuc  1 e 1 @3944 ]
-[s S956 . 1 `uc 1 URSTIF 1 0 :1:0 
+[s S973 . 1 `uc 1 URSTIF 1 0 :1:0 
 `uc 1 UERRIF 1 0 :1:1 
 `uc 1 ACTVIF 1 0 :1:2 
 `uc 1 TRNIF 1 0 :1:3 
@@ -407,11 +425,11 @@ EVENT_TRANSFER_TERMINATED 5
 `uc 1 SOFIF 1 0 :1:6 
 ]
 "388
-[u S964 . 1 `S956 1 . 1 0 ]
-[v _UIRbits UIRbits `VES964  1 e 1 @3944 ]
+[u S981 . 1 `S973 1 . 1 0 ]
+[v _UIRbits UIRbits `VES981  1 e 1 @3944 ]
 "428
 [v _UIE UIE `VEuc  1 e 1 @3945 ]
-[s S975 . 1 `uc 1 URSTIE 1 0 :1:0 
+[s S992 . 1 `uc 1 URSTIE 1 0 :1:0 
 `uc 1 UERRIE 1 0 :1:1 
 `uc 1 ACTVIE 1 0 :1:2 
 `uc 1 TRNIE 1 0 :1:3 
@@ -420,8 +438,8 @@ EVENT_TRANSFER_TERMINATED 5
 `uc 1 SOFIE 1 0 :1:6 
 ]
 "444
-[u S983 . 1 `S975 1 . 1 0 ]
-[v _UIEbits UIEbits `VES983  1 e 1 @3945 ]
+[u S1000 . 1 `S992 1 . 1 0 ]
+[v _UIEbits UIEbits `VES1000  1 e 1 @3945 ]
 "484
 [v _UEIR UEIR `VEuc  1 e 1 @3946 ]
 "535
@@ -430,7 +448,7 @@ EVENT_TRANSFER_TERMINATED 5
 [v _USTAT USTAT `VEuc  1 e 1 @3948 ]
 "646
 [v _UCON UCON `VEuc  1 e 1 @3949 ]
-[s S156 . 1 `uc 1 . 1 0 :1:0 
+[s S164 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 SUSPND 1 0 :1:1 
 `uc 1 RESUME 1 0 :1:2 
 `uc 1 USBEN 1 0 :1:3 
@@ -439,38 +457,38 @@ EVENT_TRANSFER_TERMINATED 5
 `uc 1 PPBRST 1 0 :1:6 
 ]
 "662
-[u S164 . 1 `S156 1 . 1 0 ]
-[v _UCONbits UCONbits `VES164  1 e 1 @3949 ]
+[u S172 . 1 `S164 1 . 1 0 ]
+[v _UCONbits UCONbits `VES172  1 e 1 @3949 ]
 "697
 [v _UADDR UADDR `VEuc  1 e 1 @3950 ]
 "761
 [v _UCFG UCFG `VEuc  1 e 1 @3951 ]
 "840
 [v _UEP0 UEP0 `VEuc  1 e 1 @3952 ]
-[s S1284 . 1 `uc 1 EPSTALL 1 0 :1:0 
+[s S1301 . 1 `uc 1 EPSTALL 1 0 :1:0 
 `uc 1 EPINEN 1 0 :1:1 
 `uc 1 EPOUTEN 1 0 :1:2 
 `uc 1 EPCONDIS 1 0 :1:3 
 `uc 1 EPHSHK 1 0 :1:4 
 ]
 "868
-[s S1290 . 1 `uc 1 EP0STALL 1 0 :1:0 
+[s S1307 . 1 `uc 1 EP0STALL 1 0 :1:0 
 `uc 1 EP0INEN 1 0 :1:1 
 `uc 1 EP0OUTEN 1 0 :1:2 
 `uc 1 EP0CONDIS 1 0 :1:3 
 `uc 1 EP0HSHK 1 0 :1:4 
 ]
-[s S1296 . 1 `uc 1 EPSTALL0 1 0 :1:0 
+[s S1313 . 1 `uc 1 EPSTALL0 1 0 :1:0 
 `uc 1 EPINEN0 1 0 :1:1 
 `uc 1 EPOUTEN0 1 0 :1:2 
 `uc 1 EPCONDIS0 1 0 :1:3 
 `uc 1 EPHSHK0 1 0 :1:4 
 ]
-[u S1302 . 1 `S1284 1 . 1 0 `S1290 1 . 1 0 `S1296 1 . 1 0 ]
-[v _UEP0bits UEP0bits `VES1302  1 e 1 @3952 ]
+[u S1319 . 1 `S1301 1 . 1 0 `S1307 1 . 1 0 `S1313 1 . 1 0 ]
+[v _UEP0bits UEP0bits `VES1319  1 e 1 @3952 ]
 "948
 [v _UEP1 UEP1 `VEuc  1 e 1 @3953 ]
-[s S419 . 1 `uc 1 RB0 1 0 :1:0 
+[s S436 . 1 `uc 1 RB0 1 0 :1:0 
 `uc 1 RB1 1 0 :1:1 
 `uc 1 RB2 1 0 :1:2 
 `uc 1 RB3 1 0 :1:3 
@@ -480,7 +498,7 @@ EVENT_TRANSFER_TERMINATED 5
 `uc 1 RB7 1 0 :1:7 
 ]
 "2481
-[s S428 . 1 `uc 1 INT0 1 0 :1:0 
+[s S445 . 1 `uc 1 INT0 1 0 :1:0 
 `uc 1 INT1 1 0 :1:1 
 `uc 1 INT2 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
@@ -488,12 +506,12 @@ EVENT_TRANSFER_TERMINATED 5
 `uc 1 PGC 1 0 :1:6 
 `uc 1 PGD 1 0 :1:7 
 ]
-[s S436 . 1 `uc 1 . 1 0 :3:0 
+[s S453 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 CCP2_PA2 1 0 :1:3 
 ]
-[u S439 . 1 `S419 1 . 1 0 `S428 1 . 1 0 `S436 1 . 1 0 ]
-[v _PORTBbits PORTBbits `VES439  1 e 1 @3969 ]
-[s S530 . 1 `uc 1 LATD0 1 0 :1:0 
+[u S456 . 1 `S436 1 . 1 0 `S445 1 . 1 0 `S453 1 . 1 0 ]
+[v _PORTBbits PORTBbits `VES456  1 e 1 @3969 ]
+[s S547 . 1 `uc 1 LATD0 1 0 :1:0 
 `uc 1 LATD1 1 0 :1:1 
 `uc 1 LATD2 1 0 :1:2 
 `uc 1 LATD3 1 0 :1:3 
@@ -503,7 +521,7 @@ EVENT_TRANSFER_TERMINATED 5
 `uc 1 LATD7 1 0 :1:7 
 ]
 "3288
-[s S539 . 1 `uc 1 LD0 1 0 :1:0 
+[s S556 . 1 `uc 1 LD0 1 0 :1:0 
 `uc 1 LD1 1 0 :1:1 
 `uc 1 LD2 1 0 :1:2 
 `uc 1 LD3 1 0 :1:3 
@@ -512,9 +530,9 @@ EVENT_TRANSFER_TERMINATED 5
 `uc 1 LD6 1 0 :1:6 
 `uc 1 LD7 1 0 :1:7 
 ]
-[u S548 . 1 `S530 1 . 1 0 `S539 1 . 1 0 ]
-[v _LATDbits LATDbits `VES548  1 e 1 @3980 ]
-[s S464 . 1 `uc 1 TRISB0 1 0 :1:0 
+[u S565 . 1 `S547 1 . 1 0 `S556 1 . 1 0 ]
+[v _LATDbits LATDbits `VES565  1 e 1 @3980 ]
+[s S481 . 1 `uc 1 TRISB0 1 0 :1:0 
 `uc 1 TRISB1 1 0 :1:1 
 `uc 1 TRISB2 1 0 :1:2 
 `uc 1 TRISB3 1 0 :1:3 
@@ -524,9 +542,9 @@ EVENT_TRANSFER_TERMINATED 5
 `uc 1 TRISB7 1 0 :1:7 
 ]
 "3655
-[u S482 . 1 `S464 1 . 1 0 `S419 1 . 1 0 ]
-[v _TRISBbits TRISBbits `VES482  1 e 1 @3987 ]
-[s S570 . 1 `uc 1 TRISD0 1 0 :1:0 
+[u S499 . 1 `S481 1 . 1 0 `S436 1 . 1 0 ]
+[v _TRISBbits TRISBbits `VES499  1 e 1 @3987 ]
+[s S587 . 1 `uc 1 TRISD0 1 0 :1:0 
 `uc 1 TRISD1 1 0 :1:1 
 `uc 1 TRISD2 1 0 :1:2 
 `uc 1 TRISD3 1 0 :1:3 
@@ -536,7 +554,7 @@ EVENT_TRANSFER_TERMINATED 5
 `uc 1 TRISD7 1 0 :1:7 
 ]
 "4031
-[s S579 . 1 `uc 1 RD0 1 0 :1:0 
+[s S596 . 1 `uc 1 RD0 1 0 :1:0 
 `uc 1 RD1 1 0 :1:1 
 `uc 1 RD2 1 0 :1:2 
 `uc 1 RD3 1 0 :1:3 
@@ -545,9 +563,9 @@ EVENT_TRANSFER_TERMINATED 5
 `uc 1 RD6 1 0 :1:6 
 `uc 1 RD7 1 0 :1:7 
 ]
-[u S588 . 1 `S570 1 . 1 0 `S579 1 . 1 0 ]
-[v _TRISDbits TRISDbits `VES588  1 e 1 @3989 ]
-[s S908 . 1 `uc 1 CCP2IE 1 0 :1:0 
+[u S605 . 1 `S587 1 . 1 0 `S596 1 . 1 0 ]
+[v _TRISDbits TRISDbits `VES605  1 e 1 @3989 ]
+[s S925 . 1 `uc 1 CCP2IE 1 0 :1:0 
 `uc 1 TMR3IE 1 0 :1:1 
 `uc 1 HLVDIE 1 0 :1:2 
 `uc 1 BCLIE 1 0 :1:3 
@@ -557,12 +575,12 @@ EVENT_TRANSFER_TERMINATED 5
 `uc 1 OSCFIE 1 0 :1:7 
 ]
 "4655
-[s S917 . 1 `uc 1 . 1 0 :2:0 
+[s S934 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 LVDIE 1 0 :1:2 
 ]
-[u S920 . 1 `S908 1 . 1 0 `S917 1 . 1 0 ]
-[v _PIE2bits PIE2bits `VES920  1 e 1 @4000 ]
-[s S998 . 1 `uc 1 CCP2IF 1 0 :1:0 
+[u S937 . 1 `S925 1 . 1 0 `S934 1 . 1 0 ]
+[v _PIE2bits PIE2bits `VES937  1 e 1 @4000 ]
+[s S1015 . 1 `uc 1 CCP2IF 1 0 :1:0 
 `uc 1 TMR3IF 1 0 :1:1 
 `uc 1 HLVDIF 1 0 :1:2 
 `uc 1 BCLIF 1 0 :1:3 
@@ -572,12 +590,12 @@ EVENT_TRANSFER_TERMINATED 5
 `uc 1 OSCFIF 1 0 :1:7 
 ]
 "4726
-[s S1007 . 1 `uc 1 . 1 0 :2:0 
+[s S1024 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 LVDIF 1 0 :1:2 
 ]
-[u S1010 . 1 `S998 1 . 1 0 `S1007 1 . 1 0 ]
-[v _PIR2bits PIR2bits `VES1010  1 e 1 @4001 ]
-[s S1176 . 1 `uc 1 CCP2IP 1 0 :1:0 
+[u S1027 . 1 `S1015 1 . 1 0 `S1024 1 . 1 0 ]
+[v _PIR2bits PIR2bits `VES1027  1 e 1 @4001 ]
+[s S1193 . 1 `uc 1 CCP2IP 1 0 :1:0 
 `uc 1 TMR3IP 1 0 :1:1 
 `uc 1 HLVDIP 1 0 :1:2 
 `uc 1 BCLIP 1 0 :1:3 
@@ -587,27 +605,27 @@ EVENT_TRANSFER_TERMINATED 5
 `uc 1 OSCFIP 1 0 :1:7 
 ]
 "4797
-[s S1185 . 1 `uc 1 . 1 0 :2:0 
+[s S1202 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 LVDIP 1 0 :1:2 
 ]
-[u S1188 . 1 `S1176 1 . 1 0 `S1185 1 . 1 0 ]
-[v _IPR2bits IPR2bits `VES1188  1 e 1 @4002 ]
-[s S1098 . 1 `uc 1 NOT_BOR 1 0 :1:0 
+[u S1205 . 1 `S1193 1 . 1 0 `S1202 1 . 1 0 ]
+[v _IPR2bits IPR2bits `VES1205  1 e 1 @4002 ]
+[s S1115 . 1 `uc 1 NOT_BOR 1 0 :1:0 
 ]
 "7586
-[s S1100 . 1 `uc 1 . 1 0 :1:0 
+[s S1117 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 NOT_POR 1 0 :1:1 
 ]
-[s S1103 . 1 `uc 1 . 1 0 :2:0 
+[s S1120 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 NOT_PD 1 0 :1:2 
 ]
-[s S1106 . 1 `uc 1 . 1 0 :3:0 
+[s S1123 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 NOT_TO 1 0 :1:3 
 ]
-[s S1109 . 1 `uc 1 . 1 0 :4:0 
+[s S1126 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 NOT_RI 1 0 :1:4 
 ]
-[s S1112 . 1 `uc 1 nBOR 1 0 :1:0 
+[s S1129 . 1 `uc 1 nBOR 1 0 :1:0 
 `uc 1 nPOR 1 0 :1:1 
 `uc 1 nPD 1 0 :1:2 
 `uc 1 nTO 1 0 :1:3 
@@ -616,10 +634,10 @@ EVENT_TRANSFER_TERMINATED 5
 `uc 1 SBOREN 1 0 :1:6 
 `uc 1 IPEN 1 0 :1:7 
 ]
-[s S1121 . 1 `uc 1 . 1 0 :7:0 
+[s S1138 . 1 `uc 1 . 1 0 :7:0 
 `uc 1 NOT_IPEN 1 0 :1:7 
 ]
-[s S1124 . 1 `uc 1 BOR 1 0 :1:0 
+[s S1141 . 1 `uc 1 BOR 1 0 :1:0 
 `uc 1 POR 1 0 :1:1 
 `uc 1 PD 1 0 :1:2 
 `uc 1 TO 1 0 :1:3 
@@ -627,9 +645,9 @@ EVENT_TRANSFER_TERMINATED 5
 `uc 1 . 1 0 :2:5 
 `uc 1 nIPEN 1 0 :1:7 
 ]
-[u S1132 . 1 `S1098 1 . 1 0 `S1100 1 . 1 0 `S1103 1 . 1 0 `S1106 1 . 1 0 `S1109 1 . 1 0 `S1112 1 . 1 0 `S1121 1 . 1 0 `S1124 1 . 1 0 ]
-[v _RCONbits RCONbits `VES1132  1 e 1 @4048 ]
-[s S1204 . 1 `uc 1 RBIF 1 0 :1:0 
+[u S1149 . 1 `S1115 1 . 1 0 `S1117 1 . 1 0 `S1120 1 . 1 0 `S1123 1 . 1 0 `S1126 1 . 1 0 `S1129 1 . 1 0 `S1138 1 . 1 0 `S1141 1 . 1 0 ]
+[v _RCONbits RCONbits `VES1149  1 e 1 @4048 ]
+[s S1221 . 1 `uc 1 RBIF 1 0 :1:0 
 `uc 1 INT0IF 1 0 :1:1 
 `uc 1 TMR0IF 1 0 :1:2 
 `uc 1 RBIE 1 0 :1:3 
@@ -639,7 +657,7 @@ EVENT_TRANSFER_TERMINATED 5
 `uc 1 GIE_GIEH 1 0 :1:7 
 ]
 "8612
-[s S1213 . 1 `uc 1 . 1 0 :1:0 
+[s S1230 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 INT0F 1 0 :1:1 
 `uc 1 T0IF 1 0 :1:2 
 `uc 1 . 1 0 :1:3 
@@ -648,12 +666,22 @@ EVENT_TRANSFER_TERMINATED 5
 `uc 1 PEIE 1 0 :1:6 
 `uc 1 GIE 1 0 :1:7 
 ]
-[s S1222 . 1 `uc 1 . 1 0 :6:0 
+[s S1239 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 GIEL 1 0 :1:6 
 `uc 1 GIEH 1 0 :1:7 
 ]
-[u S1226 . 1 `S1204 1 . 1 0 `S1213 1 . 1 0 `S1222 1 . 1 0 ]
-[v _INTCONbits INTCONbits `VES1226  1 e 1 @4082 ]
+[u S1243 . 1 `S1221 1 . 1 0 `S1230 1 . 1 0 `S1239 1 . 1 0 ]
+[v _INTCONbits INTCONbits `VES1243  1 e 1 @4082 ]
+"61 D:\OneDrive\Documents\Microchip\Projects\VolumeControlHID.X\encoder.c
+[v _encoder_table encoder_table `C[4][4]c  1 s 16 encoder_table ]
+"69
+[v _encoder_prev_state encoder_prev_state `uc  1 s 1 encoder_prev_state ]
+"70
+[v _encoder_count encoder_count `c  1 s 1 encoder_count ]
+"71
+[v _debounce_count debounce_count `uc  1 s 1 debounce_count ]
+"72
+[v _last_stable_state last_stable_state `uc  1 s 1 last_stable_state ]
 [s S24 _USB_DEVICE_DESCRIPTOR 18 `uc 1 bLength 1 0 `uc 1 bDescriptorType 1 1 `us 1 bcdUSB 2 2 `uc 1 bDeviceClass 1 4 `uc 1 bDeviceSubClass 1 5 `uc 1 bDeviceProtocol 1 6 `uc 1 bMaxPacketSize0 1 7 `us 1 idVendor 2 8 `us 1 idProduct 2 10 `us 1 bcdDevice 2 12 `uc 1 iManufacturer 1 14 `uc 1 iProduct 1 15 `uc 1 iSerialNumber 1 16 `uc 1 bNumConfigurations 1 17 ]
 "38 D:\OneDrive\Documents\Microchip\Projects\VolumeControlHID.X\usb_descriptors.c
 [v _device_dsc device_dsc `CS24  1 e 18 0 ]
@@ -678,7 +706,7 @@ EVENT_TRANSFER_TERMINATED 5
 [v _USBActiveConfiguration USBActiveConfiguration `VEuc  1 e 1 0 ]
 "143
 [v _USBAlternateInterface USBAlternateInterface `VE[1]uc  1 e 1 0 ]
-[s S697 . 1 `uc 1 BC8 1 0 :1:0 
+[s S714 . 1 `uc 1 BC8 1 0 :1:0 
 `uc 1 BC9 1 0 :1:1 
 `uc 1 BSTALL 1 0 :1:2 
 `uc 1 DTSEN 1 0 :1:3 
@@ -688,80 +716,80 @@ EVENT_TRANSFER_TERMINATED 5
 `uc 1 UOWN 1 0 :1:7 
 ]
 "144
-[s S706 . 1 `uc 1 . 1 0 :2:0 
+[s S723 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 PID0 1 0 :1:2 
 `uc 1 PID1 1 0 :1:3 
 `uc 1 PID2 1 0 :1:4 
 `uc 1 PID3 1 0 :1:5 
 `uc 1 . 1 0 :1:6 
 ]
-[s S713 . 1 `uc 1 . 1 0 :2:0 
+[s S730 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 PID 1 0 :4:2 
 `uc 1 . 1 0 :2:6 
 ]
-[u S717 _BD_STAT 1 `uc 1 Val 1 0 `S697 1 . 1 0 `S706 1 . 1 0 `S713 1 . 1 0 ]
-[s S722 . 4 `S717 1 STAT 1 0 `uc 1 CNT 1 1 `uc 1 ADRL 1 2 `uc 1 ADRH 1 3 ]
-[s S727 . 4 `uc 1 . 1 0 :8:0 
+[u S734 _BD_STAT 1 `uc 1 Val 1 0 `S714 1 . 1 0 `S723 1 . 1 0 `S730 1 . 1 0 ]
+[s S739 . 4 `S734 1 STAT 1 0 `uc 1 CNT 1 1 `uc 1 ADRL 1 2 `uc 1 ADRH 1 3 ]
+[s S744 . 4 `uc 1 . 1 0 :8:0 
 `uc 1 . 1 1 :8:0 
 `us 1 ADR 2 2 ]
-[u S731 __BDT 4 `S722 1 . 4 0 `S727 1 . 4 0 `ul 1 Val 4 0 `[4]uc 1 v 4 0 ]
-[v _pBDTEntryEP0OutCurrent pBDTEntryEP0OutCurrent `*.39VES731  1 e 2 0 ]
+[u S748 __BDT 4 `S739 1 . 4 0 `S744 1 . 4 0 `ul 1 Val 4 0 `[4]uc 1 v 4 0 ]
+[v _pBDTEntryEP0OutCurrent pBDTEntryEP0OutCurrent `*.39VES748  1 e 2 0 ]
 "145
-[v _pBDTEntryEP0OutNext pBDTEntryEP0OutNext `*.39VES731  1 e 2 0 ]
+[v _pBDTEntryEP0OutNext pBDTEntryEP0OutNext `*.39VES748  1 e 2 0 ]
 "146
-[v _pBDTEntryOut pBDTEntryOut `[2]*.39VES731  1 e 4 0 ]
+[v _pBDTEntryOut pBDTEntryOut `[2]*.39VES748  1 e 4 0 ]
 "147
-[v _pBDTEntryIn pBDTEntryIn `[2]*.39VES731  1 e 4 0 ]
+[v _pBDTEntryIn pBDTEntryIn `[2]*.39VES748  1 e 4 0 ]
 "148
 [v _shortPacketStatus shortPacketStatus `VEuc  1 e 1 0 ]
 "149
 [v _controlTransferState controlTransferState `VEuc  1 e 1 0 ]
-[u S736 . 2 `*.35uc 1 bRam 2 0 `*.39Cuc 1 bRom 2 0 `*.39us 1 wRam 2 0 `*.39Cus 1 wRom 2 0 ]
+[u S753 . 2 `*.35uc 1 bRam 2 0 `*.39Cuc 1 bRom 2 0 `*.39us 1 wRam 2 0 `*.39Cus 1 wRom 2 0 ]
 "150
-[s S741 . 1 `uc 1 ctrl_trf_mem 1 0 :1:0 
+[s S758 . 1 `uc 1 ctrl_trf_mem 1 0 :1:0 
 `uc 1 reserved 1 0 :5:1 
 `uc 1 includeZero 1 0 :1:6 
 `uc 1 busy 1 0 :1:7 
 ]
-[u S746 . 1 `S741 1 bits 1 0 `uc 1 Val 1 0 ]
-[s S221 . 2 `uc 1 LB 1 0 `uc 1 HB 1 1 ]
-[u S224 . 2 `us 1 Val 2 0 `[2]uc 1 v 2 0 `S221 1 byte 2 0 ]
-[s S756 . 5 `S736 1 pSrc 2 0 `S746 1 info 1 2 `S224 1 wCount 2 3 ]
-[v _inPipes inPipes `VE[1]S756  1 e 5 0 ]
-[u S212 . 2 `*.39uc 1 bRam 2 0 `*.39us 1 wRam 2 0 ]
+[u S763 . 1 `S758 1 bits 1 0 `uc 1 Val 1 0 ]
+[s S237 . 2 `uc 1 LB 1 0 `uc 1 HB 1 1 ]
+[u S240 . 2 `us 1 Val 2 0 `[2]uc 1 v 2 0 `S237 1 byte 2 0 ]
+[s S773 . 5 `S753 1 pSrc 2 0 `S763 1 info 1 2 `S240 1 wCount 2 3 ]
+[v _inPipes inPipes `VE[1]S773  1 e 5 0 ]
+[u S228 . 2 `*.39uc 1 bRam 2 0 `*.39us 1 wRam 2 0 ]
 "151
-[s S215 . 1 `uc 1 reserved 1 0 :7:0 
+[s S231 . 1 `uc 1 reserved 1 0 :7:0 
 `uc 1 busy 1 0 :1:7 
 ]
-[u S218 . 1 `S215 1 bits 1 0 `uc 1 Val 1 0 ]
-[s S229 . 7 `S212 1 pDst 2 0 `S218 1 info 1 2 `S224 1 wCount 2 3 `*.37(v 1 pFunc 2 5 ]
-[v _outPipes outPipes `VE[1]S229  1 e 7 0 ]
+[u S234 . 1 `S231 1 bits 1 0 `uc 1 Val 1 0 ]
+[s S245 . 7 `S228 1 pDst 2 0 `S234 1 info 1 2 `S240 1 wCount 2 3 `*.37(v 1 pFunc 2 5 ]
+[v _outPipes outPipes `VE[1]S245  1 e 7 0 ]
 "152
 [v _pDst pDst `*.39VEuc  1 e 2 0 ]
 "153
 [v _RemoteWakeup RemoteWakeup `VEa  1 e 1 0 ]
 "154
 [v _USBBusIsSuspended USBBusIsSuspended `VEa  1 e 1 0 ]
-[s S775 . 1 `uc 1 filler1 1 0 :1:0 
+[s S792 . 1 `uc 1 filler1 1 0 :1:0 
 `uc 1 ping_pong 1 0 :1:1 
 `uc 1 direction 1 0 :1:2 
 `uc 1 endpoint_number 1 0 :4:3 
 ]
 "155
-[u S780 __USTAT 1 `S775 1 . 1 0 `uc 1 Val 1 0 ]
-[v _USTATcopy USTATcopy `VES780  1 e 1 0 ]
+[u S797 __USTAT 1 `S792 1 . 1 0 `uc 1 Val 1 0 ]
+[v _USTATcopy USTATcopy `VES797  1 e 1 0 ]
 "156
 [v _endpoint_number endpoint_number `VEuc  1 e 1 0 ]
 "157
 [v _BothEP0OutUOWNsSet BothEP0OutUOWNsSet `VEa  1 e 1 0 ]
-[s S783 . 1 `uc 1 ping_pong_state 1 0 :1:0 
+[s S800 . 1 `uc 1 ping_pong_state 1 0 :1:0 
 `uc 1 transfer_terminated 1 0 :1:1 
 ]
 "158
-[u S786 . 1 `S783 1 bits 1 0 `uc 1 Val 1 0 ]
-[v _ep_data_in ep_data_in `VE[2]S786  1 e 2 0 ]
+[u S803 . 1 `S800 1 bits 1 0 `uc 1 Val 1 0 ]
+[v _ep_data_in ep_data_in `VE[2]S803  1 e 2 0 ]
 "159
-[v _ep_data_out ep_data_out `VE[2]S786  1 e 2 0 ]
+[v _ep_data_out ep_data_out `VE[2]S803  1 e 2 0 ]
 "160
 [v _USBStatusStageTimeoutCounter USBStatusStageTimeoutCounter `VEuc  1 e 1 0 ]
 "161
@@ -779,13 +807,13 @@ EVENT_TRANSFER_TERMINATED 5
 "167
 [v _USBTicksSinceSuspendEnd USBTicksSinceSuspendEnd `VEuc  1 e 1 0 ]
 "174
-[v _BDT BDT `VE[8]S731  1 e 32 @1024 ]
-[s S789 . 8 `uc 1 bmRequestType 1 0 `uc 1 bRequest 1 1 `us 1 wValue 2 2 `us 1 wIndex 2 4 `us 1 wLength 2 6 ]
+[v _BDT BDT `VE[8]S748  1 e 32 @1024 ]
+[s S806 . 8 `uc 1 bmRequestType 1 0 `uc 1 bRequest 1 1 `us 1 wValue 2 2 `us 1 wIndex 2 4 `us 1 wLength 2 6 ]
 "179
-[s S816 . 8 `uc 1 . 1 0 :8:0 
+[s S833 . 8 `uc 1 . 1 0 :8:0 
 `uc 1 . 1 1 :8:0 
-`S224 1 W_Value 2 2 `S224 1 W_Index 2 4 `S224 1 W_Length 2 6 ]
-[s S822 . 8 `uc 1 Recipient 1 0 :5:0 
+`S240 1 W_Value 2 2 `S240 1 W_Index 2 4 `S240 1 W_Length 2 6 ]
+[s S839 . 8 `uc 1 Recipient 1 0 :5:0 
 `uc 1 RequestType 1 0 :2:5 
 `uc 1 DataDir 1 0 :1:7 
 `uc 1 . 1 1 :8:0 
@@ -795,44 +823,44 @@ EVENT_TRANSFER_TERMINATED 5
 `uc 1 . 1 6 :8:0 
 `uc 1 . 1 7 :8:0 
 ]
-[s S833 . 1 `uc 1 recipient 1 0 :5:0 
+[s S850 . 1 `uc 1 recipient 1 0 :5:0 
 `uc 1 type 1 0 :2:5 
 `uc 1 direction 1 0 :1:7 
 ]
-[u S837 . 1 `uc 1 bmRequestType 1 0 `S833 1 . 1 0 ]
-[s S840 . 1 `S837 1 requestInfo 1 0 ]
-[s S842 . 8 `uc 1 . 1 0 :8:0 
+[u S854 . 1 `uc 1 bmRequestType 1 0 `S850 1 . 1 0 ]
+[s S857 . 1 `S854 1 requestInfo 1 0 ]
+[s S859 . 8 `uc 1 . 1 0 :8:0 
 `uc 1 . 1 1 :8:0 
 `uc 1 bDscIndex 1 2 `uc 1 bDescriptorType 1 3 `us 1 wLangID 2 4 `uc 1 . 1 6 :8:0 
 `uc 1 . 1 7 :8:0 
 ]
-[s S850 . 8 `uc 1 . 1 0 :8:0 
+[s S867 . 8 `uc 1 . 1 0 :8:0 
 `uc 1 . 1 1 :8:0 
 `uc 1 bDevADR 1 2 `uc 1 bDevADRH 1 3 `uc 1 . 1 4 :8:0 
 `uc 1 . 1 5 :8:0 
 `uc 1 . 1 6 :8:0 
 `uc 1 . 1 7 :8:0 
 ]
-[s S859 . 8 `uc 1 . 1 0 :8:0 
+[s S876 . 8 `uc 1 . 1 0 :8:0 
 `uc 1 . 1 1 :8:0 
 `uc 1 bConfigurationValue 1 2 `uc 1 bCfgRSD 1 3 `uc 1 . 1 4 :8:0 
 `uc 1 . 1 5 :8:0 
 `uc 1 . 1 6 :8:0 
 `uc 1 . 1 7 :8:0 
 ]
-[s S868 . 8 `uc 1 . 1 0 :8:0 
+[s S885 . 8 `uc 1 . 1 0 :8:0 
 `uc 1 . 1 1 :8:0 
 `uc 1 bAltID 1 2 `uc 1 bAltID_H 1 3 `uc 1 bIntfID 1 4 `uc 1 bIntfID_H 1 5 `uc 1 . 1 6 :8:0 
 `uc 1 . 1 7 :8:0 
 ]
-[s S877 . 8 `uc 1 . 1 0 :8:0 
+[s S894 . 8 `uc 1 . 1 0 :8:0 
 `uc 1 . 1 1 :8:0 
 `uc 1 . 1 2 :8:0 
 `uc 1 . 1 3 :8:0 
 `uc 1 bEPID 1 4 `uc 1 bEPID_H 1 5 `uc 1 . 1 6 :8:0 
 `uc 1 . 1 7 :8:0 
 ]
-[s S886 . 8 `uc 1 . 1 0 :8:0 
+[s S903 . 8 `uc 1 . 1 0 :8:0 
 `uc 1 . 1 1 :8:0 
 `uc 1 . 1 2 :8:0 
 `uc 1 . 1 3 :8:0 
@@ -843,8 +871,8 @@ EVENT_TRANSFER_TERMINATED 5
 `uc 1 . 1 6 :8:0 
 `uc 1 . 1 7 :8:0 
 ]
-[u S897 . 8 `S789 1 . 8 0 `S816 1 . 8 0 `S822 1 . 8 0 `S840 1 . 1 0 `S842 1 . 8 0 `S850 1 . 8 0 `S859 1 . 8 0 `S868 1 . 8 0 `S877 1 . 8 0 `S886 1 . 8 0 ]
-[v _SetupPkt SetupPkt `VES897  1 e 8 @1056 ]
+[u S914 . 8 `S806 1 . 8 0 `S833 1 . 8 0 `S839 1 . 8 0 `S857 1 . 1 0 `S859 1 . 8 0 `S867 1 . 8 0 `S876 1 . 8 0 `S885 1 . 8 0 `S894 1 . 8 0 `S903 1 . 8 0 ]
+[v _SetupPkt SetupPkt `VES914  1 e 8 @1056 ]
 "180
 [v _CtrlTrfData CtrlTrfData `VE[8]uc  1 e 8 @1064 ]
 "87 D:\OneDrive\Documents\Microchip\Projects\VolumeControlHID.X\usb_device_hid.c
@@ -894,18 +922,20 @@ EVENT_TRANSFER_TERMINATED 5
 [v BUTTON_Enable@button button `E3343  1 p 1 2 ]
 "143
 } 0
-"362 D:\OneDrive\Documents\Microchip\Projects\VolumeControlHID.X\app_device_keyboard.c
+"366 D:\OneDrive\Documents\Microchip\Projects\VolumeControlHID.X\app_device_keyboard.c
 [v _APP_KeyboardTasks APP_KeyboardTasks `(v  1 e 1 0 ]
 {
-"364
-[v APP_KeyboardTasks@TimeDeltaMilliseconds TimeDeltaMilliseconds `i  1 a 2 15 ]
-"365
-[v APP_KeyboardTasks@i i `uc  1 a 1 17 ]
-"366
+"515
+[v APP_KeyboardTasks@encoder_dir encoder_dir `E4048  1 a 1 15 ]
+"368
+[v APP_KeyboardTasks@TimeDeltaMilliseconds TimeDeltaMilliseconds `i  1 a 2 16 ]
+"369
+[v APP_KeyboardTasks@i i `uc  1 a 1 18 ]
+"370
 [v APP_KeyboardTasks@needToSendNewReportPacket needToSendNewReportPacket `a  1 a 1 14 ]
-"367
+"371
 [v APP_KeyboardTasks@needToSendNewReportPacket_consumer needToSendNewReportPacket_consumer `a  1 a 1 13 ]
-"618
+"625
 } 0
 "3 C:\Program Files\Microchip\xc8\v3.00\pic\sources\c99\common\memset.c
 [v _memset memset `(*.39v  1 e 2 0 ]
@@ -922,7 +952,7 @@ EVENT_TRANSFER_TERMINATED 5
 [v _USBTransferOnePacket USBTransferOnePacket `(*.39v  1 e 2 0 ]
 {
 [v USBTransferOnePacket@ep ep `uc  1 p 1 wreg ]
-[s S697 . 1 `uc 1 BC8 1 0 :1:0 
+[s S714 . 1 `uc 1 BC8 1 0 :1:0 
 `uc 1 BC9 1 0 :1:1 
 `uc 1 BSTALL 1 0 :1:2 
 `uc 1 DTSEN 1 0 :1:3 
@@ -932,24 +962,24 @@ EVENT_TRANSFER_TERMINATED 5
 `uc 1 UOWN 1 0 :1:7 
 ]
 "1001
-[s S706 . 1 `uc 1 . 1 0 :2:0 
+[s S723 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 PID0 1 0 :1:2 
 `uc 1 PID1 1 0 :1:3 
 `uc 1 PID2 1 0 :1:4 
 `uc 1 PID3 1 0 :1:5 
 `uc 1 . 1 0 :1:6 
 ]
-[s S713 . 1 `uc 1 . 1 0 :2:0 
+[s S730 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 PID 1 0 :4:2 
 `uc 1 . 1 0 :2:6 
 ]
-[u S717 _BD_STAT 1 `uc 1 Val 1 0 `S697 1 . 1 0 `S706 1 . 1 0 `S713 1 . 1 0 ]
-[s S722 . 4 `S717 1 STAT 1 0 `uc 1 CNT 1 1 `uc 1 ADRL 1 2 `uc 1 ADRH 1 3 ]
-[s S727 . 4 `uc 1 . 1 0 :8:0 
+[u S734 _BD_STAT 1 `uc 1 Val 1 0 `S714 1 . 1 0 `S723 1 . 1 0 `S730 1 . 1 0 ]
+[s S739 . 4 `S734 1 STAT 1 0 `uc 1 CNT 1 1 `uc 1 ADRL 1 2 `uc 1 ADRH 1 3 ]
+[s S744 . 4 `uc 1 . 1 0 :8:0 
 `uc 1 . 1 1 :8:0 
 `us 1 ADR 2 2 ]
-[u S731 __BDT 4 `S722 1 . 4 0 `S727 1 . 4 0 `ul 1 Val 4 0 `[4]uc 1 v 4 0 ]
-[v USBTransferOnePacket@handle handle `*.39VES731  1 a 2 9 ]
+[u S748 __BDT 4 `S739 1 . 4 0 `S744 1 . 4 0 `ul 1 Val 4 0 `[4]uc 1 v 4 0 ]
+[v USBTransferOnePacket@handle handle `*.39VES748  1 a 2 9 ]
 "999
 [v USBTransferOnePacket@ep ep `uc  1 p 1 wreg ]
 [v USBTransferOnePacket@dir dir `uc  1 p 1 0 ]
@@ -959,6 +989,22 @@ EVENT_TRANSFER_TERMINATED 5
 [v USBTransferOnePacket@ep ep `uc  1 p 1 8 ]
 "1051
 } 0
+"150 D:\OneDrive\Documents\Microchip\Projects\VolumeControlHID.X\encoder.c
+[v _ENCODER_Task ENCODER_Task `(v  1 e 1 0 ]
+{
+"152
+[v ENCODER_Task@current_state current_state `uc  1 a 1 3 ]
+"153
+[v ENCODER_Task@direction direction `c  1 a 1 2 ]
+"189
+} 0
+"121
+[v _ENCODER_GetDirection ENCODER_GetDirection `(E4048  1 e 1 0 ]
+{
+"123
+[v ENCODER_GetDirection@direction direction `E3343  1 a 1 0 ]
+"136
+} 0
 "95 D:\OneDrive\Documents\Microchip\Projects\VolumeControlHID.X\buttons.c
 [v _BUTTON_IsPressed BUTTON_IsPressed `(a  1 e 1 0 ]
 {
@@ -967,10 +1013,10 @@ EVENT_TRANSFER_TERMINATED 5
 [v BUTTON_IsPressed@button button `E3343  1 p 1 2 ]
 "110
 } 0
-"620 D:\OneDrive\Documents\Microchip\Projects\VolumeControlHID.X\app_device_keyboard.c
+"627 D:\OneDrive\Documents\Microchip\Projects\VolumeControlHID.X\app_device_keyboard.c
 [v _APP_KeyboardProcessOutputReport APP_KeyboardProcessOutputReport `(v  1 s 1 APP_KeyboardProcessOutputReport ]
 {
-"630
+"637
 } 0
 "96 D:\OneDrive\Documents\Microchip\Projects\VolumeControlHID.X\leds.c
 [v _LED_On LED_On `(v  1 e 1 0 ]
@@ -1088,7 +1134,7 @@ EVENT_TRANSFER_TERMINATED 5
 "2133 D:\OneDrive\Documents\Microchip\Projects\VolumeControlHID.X\usb_device.c
 [v _USBStdGetStatusHandler USBStdGetStatusHandler `(v  1 s 1 USBStdGetStatusHandler ]
 {
-[s S697 . 1 `uc 1 BC8 1 0 :1:0 
+[s S714 . 1 `uc 1 BC8 1 0 :1:0 
 `uc 1 BC9 1 0 :1:1 
 `uc 1 BSTALL 1 0 :1:2 
 `uc 1 DTSEN 1 0 :1:3 
@@ -1098,24 +1144,24 @@ EVENT_TRANSFER_TERMINATED 5
 `uc 1 UOWN 1 0 :1:7 
 ]
 "2166
-[s S706 . 1 `uc 1 . 1 0 :2:0 
+[s S723 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 PID0 1 0 :1:2 
 `uc 1 PID1 1 0 :1:3 
 `uc 1 PID2 1 0 :1:4 
 `uc 1 PID3 1 0 :1:5 
 `uc 1 . 1 0 :1:6 
 ]
-[s S713 . 1 `uc 1 . 1 0 :2:0 
+[s S730 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 PID 1 0 :4:2 
 `uc 1 . 1 0 :2:6 
 ]
-[u S717 _BD_STAT 1 `uc 1 Val 1 0 `S697 1 . 1 0 `S706 1 . 1 0 `S713 1 . 1 0 ]
-[s S722 . 4 `S717 1 STAT 1 0 `uc 1 CNT 1 1 `uc 1 ADRL 1 2 `uc 1 ADRH 1 3 ]
-[s S727 . 4 `uc 1 . 1 0 :8:0 
+[u S734 _BD_STAT 1 `uc 1 Val 1 0 `S714 1 . 1 0 `S723 1 . 1 0 `S730 1 . 1 0 ]
+[s S739 . 4 `S734 1 STAT 1 0 `uc 1 CNT 1 1 `uc 1 ADRL 1 2 `uc 1 ADRH 1 3 ]
+[s S744 . 4 `uc 1 . 1 0 :8:0 
 `uc 1 . 1 1 :8:0 
 `us 1 ADR 2 2 ]
-[u S731 __BDT 4 `S722 1 . 4 0 `S727 1 . 4 0 `ul 1 Val 4 0 `[4]uc 1 v 4 0 ]
-[v USBStdGetStatusHandler@p p `*.39S731  1 a 2 0 ]
+[u S748 __BDT 4 `S739 1 . 4 0 `S744 1 . 4 0 `ul 1 Val 4 0 `[4]uc 1 v 4 0 ]
+[v USBStdGetStatusHandler@p p `*.39S748  1 a 2 0 ]
 "2191
 } 0
 "2047
@@ -1126,7 +1172,7 @@ EVENT_TRANSFER_TERMINATED 5
 "2761
 [v _USBStdFeatureReqHandler USBStdFeatureReqHandler `(v  1 s 1 USBStdFeatureReqHandler ]
 {
-[s S697 . 1 `uc 1 BC8 1 0 :1:0 
+[s S714 . 1 `uc 1 BC8 1 0 :1:0 
 `uc 1 BC9 1 0 :1:1 
 `uc 1 BSTALL 1 0 :1:2 
 `uc 1 DTSEN 1 0 :1:3 
@@ -1136,32 +1182,32 @@ EVENT_TRANSFER_TERMINATED 5
 `uc 1 UOWN 1 0 :1:7 
 ]
 "2763
-[s S706 . 1 `uc 1 . 1 0 :2:0 
+[s S723 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 PID0 1 0 :1:2 
 `uc 1 PID1 1 0 :1:3 
 `uc 1 PID2 1 0 :1:4 
 `uc 1 PID3 1 0 :1:5 
 `uc 1 . 1 0 :1:6 
 ]
-[s S713 . 1 `uc 1 . 1 0 :2:0 
+[s S730 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 PID 1 0 :4:2 
 `uc 1 . 1 0 :2:6 
 ]
-[u S717 _BD_STAT 1 `uc 1 Val 1 0 `S697 1 . 1 0 `S706 1 . 1 0 `S713 1 . 1 0 ]
-[s S722 . 4 `S717 1 STAT 1 0 `uc 1 CNT 1 1 `uc 1 ADRL 1 2 `uc 1 ADRH 1 3 ]
-[s S727 . 4 `uc 1 . 1 0 :8:0 
+[u S734 _BD_STAT 1 `uc 1 Val 1 0 `S714 1 . 1 0 `S723 1 . 1 0 `S730 1 . 1 0 ]
+[s S739 . 4 `S734 1 STAT 1 0 `uc 1 CNT 1 1 `uc 1 ADRL 1 2 `uc 1 ADRH 1 3 ]
+[s S744 . 4 `uc 1 . 1 0 :8:0 
 `uc 1 . 1 1 :8:0 
 `us 1 ADR 2 2 ]
-[u S731 __BDT 4 `S722 1 . 4 0 `S727 1 . 4 0 `ul 1 Val 4 0 `[4]uc 1 v 4 0 ]
-[v USBStdFeatureReqHandler@p p `*.39S731  1 a 2 27 ]
+[u S748 __BDT 4 `S739 1 . 4 0 `S744 1 . 4 0 `ul 1 Val 4 0 `[4]uc 1 v 4 0 ]
+[v USBStdFeatureReqHandler@p p `*.39S748  1 a 2 27 ]
 "2768
 [v USBStdFeatureReqHandler@pUEP pUEP `*.39uc  1 a 2 24 ]
-[s S783 . 1 `uc 1 ping_pong_state 1 0 :1:0 
+[s S800 . 1 `uc 1 ping_pong_state 1 0 :1:0 
 `uc 1 transfer_terminated 1 0 :1:1 
 ]
 "2764
-[u S786 . 1 `S783 1 bits 1 0 `uc 1 Val 1 0 ]
-[v USBStdFeatureReqHandler@current_ep_data current_ep_data `S786  1 a 1 26 ]
+[u S803 . 1 `S800 1 bits 1 0 `uc 1 Val 1 0 ]
+[v USBStdFeatureReqHandler@current_ep_data current_ep_data `S803  1 a 1 26 ]
 "2953
 } 0
 "67 D:\OneDrive\Documents\Microchip\Projects\VolumeControlHID.X\usb_events.c
@@ -1201,20 +1247,20 @@ EVENT_TRANSFER_TERMINATED 5
 {
 "249
 } 0
-"642 D:\OneDrive\Documents\Microchip\Projects\VolumeControlHID.X\app_device_keyboard.c
+"649 D:\OneDrive\Documents\Microchip\Projects\VolumeControlHID.X\app_device_keyboard.c
 [v _USBHIDCBSetReportHandler USBHIDCBSetReportHandler `(v  1 e 1 0 ]
 {
-"648
+"655
 } 0
-"653
+"660
 [v _USBHIDCBSetIdleRateHandler USBHIDCBSetIdleRateHandler `(v  1 e 1 0 ]
 {
 [v USBHIDCBSetIdleRateHandler@reportID reportID `uc  1 p 1 wreg ]
 [v USBHIDCBSetIdleRateHandler@reportID reportID `uc  1 p 1 wreg ]
 [v USBHIDCBSetIdleRateHandler@newIdleRate newIdleRate `uc  1 p 1 0 ]
-"658
+"665
 [v USBHIDCBSetIdleRateHandler@reportID reportID `uc  1 p 1 1 ]
-"662
+"669
 } 0
 "49 D:\OneDrive\Documents\Microchip\Projects\VolumeControlHID.X\app_led_usb_status.c
 [v _APP_LEDUpdateUSBStatus APP_LEDUpdateUSBStatus `(v  1 e 1 0 ]
@@ -1223,16 +1269,16 @@ EVENT_TRANSFER_TERMINATED 5
 [v APP_LEDUpdateUSBStatus@ledCount ledCount `us  1 s 2 ledCount ]
 "98
 } 0
-"330 D:\OneDrive\Documents\Microchip\Projects\VolumeControlHID.X\app_device_keyboard.c
+"331 D:\OneDrive\Documents\Microchip\Projects\VolumeControlHID.X\app_device_keyboard.c
 [v _APP_KeyboardInit APP_KeyboardInit `(v  1 e 1 0 ]
 {
-"360
+"364
 } 0
 "999 D:\OneDrive\Documents\Microchip\Projects\VolumeControlHID.X\usb_device.c
 [v i2_USBTransferOnePacket USBTransferOnePacket `(*.39v  1 e 2 0 ]
 {
 [v i2USBTransferOnePacket@ep ep `uc  1 p 1 wreg ]
-[s S697 . 1 `uc 1 BC8 1 0 :1:0 
+[s S714 . 1 `uc 1 BC8 1 0 :1:0 
 `uc 1 BC9 1 0 :1:1 
 `uc 1 BSTALL 1 0 :1:2 
 `uc 1 DTSEN 1 0 :1:3 
@@ -1242,24 +1288,24 @@ EVENT_TRANSFER_TERMINATED 5
 `uc 1 UOWN 1 0 :1:7 
 ]
 "1001
-[s S706 . 1 `uc 1 . 1 0 :2:0 
+[s S723 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 PID0 1 0 :1:2 
 `uc 1 PID1 1 0 :1:3 
 `uc 1 PID2 1 0 :1:4 
 `uc 1 PID3 1 0 :1:5 
 `uc 1 . 1 0 :1:6 
 ]
-[s S713 . 1 `uc 1 . 1 0 :2:0 
+[s S730 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 PID 1 0 :4:2 
 `uc 1 . 1 0 :2:6 
 ]
-[u S717 _BD_STAT 1 `uc 1 Val 1 0 `S697 1 . 1 0 `S706 1 . 1 0 `S713 1 . 1 0 ]
-[s S722 . 4 `S717 1 STAT 1 0 `uc 1 CNT 1 1 `uc 1 ADRL 1 2 `uc 1 ADRH 1 3 ]
-[s S727 . 4 `uc 1 . 1 0 :8:0 
+[u S734 _BD_STAT 1 `uc 1 Val 1 0 `S714 1 . 1 0 `S723 1 . 1 0 `S730 1 . 1 0 ]
+[s S739 . 4 `S734 1 STAT 1 0 `uc 1 CNT 1 1 `uc 1 ADRL 1 2 `uc 1 ADRH 1 3 ]
+[s S744 . 4 `uc 1 . 1 0 :8:0 
 `uc 1 . 1 1 :8:0 
 `us 1 ADR 2 2 ]
-[u S731 __BDT 4 `S722 1 . 4 0 `S727 1 . 4 0 `ul 1 Val 4 0 `[4]uc 1 v 4 0 ]
-[v i2USBTransferOnePacket@handle handle `*.39VES731  1 a 2 9 ]
+[u S748 __BDT 4 `S739 1 . 4 0 `S744 1 . 4 0 `ul 1 Val 4 0 `[4]uc 1 v 4 0 ]
+[v i2USBTransferOnePacket@handle handle `*.39VES748  1 a 2 9 ]
 "999
 [v i2USBTransferOnePacket@ep ep `uc  1 p 1 wreg ]
 [v i2USBTransferOnePacket@dir dir `uc  1 p 1 0 ]
@@ -1286,7 +1332,7 @@ EVENT_TRANSFER_TERMINATED 5
 [v _USBConfigureEndpoint USBConfigureEndpoint `(v  1 s 1 USBConfigureEndpoint ]
 {
 [v USBConfigureEndpoint@EPNum EPNum `uc  1 p 1 wreg ]
-[s S697 . 1 `uc 1 BC8 1 0 :1:0 
+[s S714 . 1 `uc 1 BC8 1 0 :1:0 
 `uc 1 BC9 1 0 :1:1 
 `uc 1 BSTALL 1 0 :1:2 
 `uc 1 DTSEN 1 0 :1:3 
@@ -1296,24 +1342,24 @@ EVENT_TRANSFER_TERMINATED 5
 `uc 1 UOWN 1 0 :1:7 
 ]
 "1549
-[s S706 . 1 `uc 1 . 1 0 :2:0 
+[s S723 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 PID0 1 0 :1:2 
 `uc 1 PID1 1 0 :1:3 
 `uc 1 PID2 1 0 :1:4 
 `uc 1 PID3 1 0 :1:5 
 `uc 1 . 1 0 :1:6 
 ]
-[s S713 . 1 `uc 1 . 1 0 :2:0 
+[s S730 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 PID 1 0 :4:2 
 `uc 1 . 1 0 :2:6 
 ]
-[u S717 _BD_STAT 1 `uc 1 Val 1 0 `S697 1 . 1 0 `S706 1 . 1 0 `S713 1 . 1 0 ]
-[s S722 . 4 `S717 1 STAT 1 0 `uc 1 CNT 1 1 `uc 1 ADRL 1 2 `uc 1 ADRH 1 3 ]
-[s S727 . 4 `uc 1 . 1 0 :8:0 
+[u S734 _BD_STAT 1 `uc 1 Val 1 0 `S714 1 . 1 0 `S723 1 . 1 0 `S730 1 . 1 0 ]
+[s S739 . 4 `S734 1 STAT 1 0 `uc 1 CNT 1 1 `uc 1 ADRL 1 2 `uc 1 ADRH 1 3 ]
+[s S744 . 4 `uc 1 . 1 0 :8:0 
 `uc 1 . 1 1 :8:0 
 `us 1 ADR 2 2 ]
-[u S731 __BDT 4 `S722 1 . 4 0 `S727 1 . 4 0 `ul 1 Val 4 0 `[4]uc 1 v 4 0 ]
-[v USBConfigureEndpoint@handle handle `*.39VES731  1 a 2 8 ]
+[u S748 __BDT 4 `S739 1 . 4 0 `S744 1 . 4 0 `ul 1 Val 4 0 `[4]uc 1 v 4 0 ]
+[v USBConfigureEndpoint@handle handle `*.39VES748  1 a 2 8 ]
 "1547
 [v USBConfigureEndpoint@EPNum EPNum `uc  1 p 1 wreg ]
 [v USBConfigureEndpoint@direction direction `uc  1 p 1 0 ]
@@ -1321,7 +1367,12 @@ EVENT_TRANSFER_TERMINATED 5
 [v USBConfigureEndpoint@EPNum EPNum `uc  1 p 1 7 ]
 "1589
 } 0
-"2545
+"92 D:\OneDrive\Documents\Microchip\Projects\VolumeControlHID.X\encoder.c
+[v _ENCODER_Initialize ENCODER_Initialize `(v  1 e 1 0 ]
+{
+"107
+} 0
+"2545 D:\OneDrive\Documents\Microchip\Projects\VolumeControlHID.X\usb_device.c
 [v _USBCtrlTrfOutHandler USBCtrlTrfOutHandler `(v  1 s 1 USBCtrlTrfOutHandler ]
 {
 "2574
@@ -1347,15 +1398,15 @@ EVENT_TRANSFER_TERMINATED 5
 [v USBCtrlTrfInHandler@lastDTS lastDTS `uc  1 a 1 3 ]
 "2674
 } 0
-"632 D:\OneDrive\Documents\Microchip\Projects\VolumeControlHID.X\app_device_keyboard.c
+"639 D:\OneDrive\Documents\Microchip\Projects\VolumeControlHID.X\app_device_keyboard.c
 [v _USBHIDCBSetReportComplete USBHIDCBSetReportComplete `(v  1 s 1 USBHIDCBSetReportComplete ]
 {
-"640
+"647
 } 0
-"620
+"627
 [v i2_APP_KeyboardProcessOutputReport APP_KeyboardProcessOutputReport `(v  1 s 1 i2_APP_KeyboardProcessOutputReport ]
 {
-"630
+"637
 } 0
 "96 D:\OneDrive\Documents\Microchip\Projects\VolumeControlHID.X\leds.c
 [v i2_LED_On LED_On `(v  1 e 1 0 ]

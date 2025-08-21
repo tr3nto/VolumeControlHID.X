@@ -5918,10 +5918,11 @@ typedef enum
     BUTTON_S2,
     BUTTON_S3
 
+
 } BUTTON;
-# 54 "./buttons.h"
+# 55 "./buttons.h"
 _Bool BUTTON_IsPressed(BUTTON button);
-# 72 "./buttons.h"
+# 73 "./buttons.h"
 void BUTTON_Enable(BUTTON button);
 # 50 "buttons.c" 2
 # 95 "buttons.c"

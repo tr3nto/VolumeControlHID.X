@@ -30,6 +30,7 @@ please contact mla_licensing@microchip.com
 #include "usb_device_hid.h"
 
 #include "app_led_usb_status.h"
+#include "encoder.h"
 
 #if defined(__XC8)
     #define PACKED
@@ -357,6 +358,9 @@ void APP_KeyboardInit(void)
 
     //Arm OUT endpoint so we can receive caps lock, num lock, etc. info from host
     keyboard.lastOUTTransmission = HIDRxPacket(HID_EP,(uint8_t*)&outputReport, sizeof(outputReport) );
+    
+    //Initialize the quadrature encoder
+    ENCODER_Initialize();
 }
 
 void APP_KeyboardTasks(void)
@@ -373,6 +377,9 @@ void APP_KeyboardTasks(void)
     {
         return;
     }
+    
+    /* Update encoder state machine */
+    ENCODER_Task();
 
     /* If we are currently suspended, then we need to see if we need to
      * issue a remote wakeup.  In either case, we shouldn't process any
@@ -504,22 +511,22 @@ void APP_KeyboardTasks(void)
         memset(&consumerReport, 0, sizeof(consumerReport));
         consumerReport.reportID = 0x02;  // Add this line after memset
 
-        if(BUTTON_IsPressed(BUTTON_S3) == true)
+        // Handle quadrature encoder for volume control
+        ENCODER_DIRECTION encoder_dir = ENCODER_GetDirection();
+        
+        if(encoder_dir == ENCODER_CW)
         {
-            if(consumer.waitingForRelease == false)
-            {
-                consumer.waitingForRelease = true;
-
-                /* Set the only important data, the key press data. */
-                consumerReport.reportID = 0x02;  // Add this line
-                consumerReport.controls.value = 0;  // Clear all bits first
-				consumerReport.controls.bits.volumeUp = 1;  // Set volume up bit   
-            }
-            
+            /* Set volume up */
+            consumerReport.reportID = 0x02;
+            consumerReport.controls.value = 0;  // Clear all bits first
+            consumerReport.controls.bits.volumeUp = 1;  // Set volume up bit
         }
-        else
+        else if(encoder_dir == ENCODER_CCW)
         {
-            consumer.waitingForRelease = false;
+            /* Set volume down */
+            consumerReport.reportID = 0x02;
+            consumerReport.controls.value = 0;  // Clear all bits first
+            consumerReport.controls.bits.volumeDown = 1;  // Set volume down bit
         }
 
 

@@ -5989,10 +5989,11 @@ typedef enum
     BUTTON_S2,
     BUTTON_S3
 
+
 } BUTTON;
-# 54 "./buttons.h"
+# 55 "./buttons.h"
 _Bool BUTTON_IsPressed(BUTTON button);
-# 72 "./buttons.h"
+# 73 "./buttons.h"
 void BUTTON_Enable(BUTTON button);
 # 27 "./system.h" 2
 # 1 "./leds.h" 1
@@ -6874,7 +6875,22 @@ extern volatile uint8_t CtrlTrfData[8];
 # 37 "./app_led_usb_status.h"
 void APP_LEDUpdateUSBStatus(void);
 # 33 "app_device_keyboard.c" 2
-# 47 "app_device_keyboard.c"
+# 1 "./encoder.h" 1
+# 30 "./encoder.h"
+typedef enum
+{
+    ENCODER_NONE,
+    ENCODER_CW,
+    ENCODER_CCW
+} ENCODER_DIRECTION;
+# 49 "./encoder.h"
+void ENCODER_Initialize(void);
+# 67 "./encoder.h"
+ENCODER_DIRECTION ENCODER_GetDirection(void);
+# 82 "./encoder.h"
+void ENCODER_Task(void);
+# 34 "app_device_keyboard.c" 2
+# 48 "app_device_keyboard.c"
 const struct{uint8_t report[104];}hid_rpt01={
 { 0x05, 0x01,
     0x09, 0x06,
@@ -6931,10 +6947,10 @@ const struct{uint8_t report[104];}hid_rpt01={
  0x81, 0x01,
  0xC0}
 };
-# 113 "app_device_keyboard.c"
+# 114 "app_device_keyboard.c"
 typedef struct
 {
-# 132 "app_device_keyboard.c"
+# 133 "app_device_keyboard.c"
     uint8_t reportID;
     union
     {
@@ -6951,9 +6967,9 @@ typedef struct
             unsigned rightGUI :1;
         } bits;
     } modifiers;
-# 156 "app_device_keyboard.c"
+# 157 "app_device_keyboard.c"
     unsigned :8;
-# 200 "app_device_keyboard.c"
+# 201 "app_device_keyboard.c"
     uint8_t keys[6];
 } KEYBOARD_INPUT_REPORT;
 
@@ -6966,13 +6982,13 @@ typedef union
     uint8_t value;
     struct
     {
-# 228 "app_device_keyboard.c"
+# 229 "app_device_keyboard.c"
         unsigned numLock :1;
         unsigned capsLock :1;
         unsigned scrollLock :1;
         unsigned compose :1;
         unsigned kana :1;
-# 243 "app_device_keyboard.c"
+# 244 "app_device_keyboard.c"
         unsigned :3;
     } leds;
 } KEYBOARD_OUTPUT_REPORT;
@@ -7051,7 +7067,7 @@ static signed int OldSOFCount;
 static _Bool consumerReportPending = 0;
 static void* lastConsumerTransmission;
 static _Bool consumerWaitingForRelease = 0;
-# 330 "app_device_keyboard.c"
+# 331 "app_device_keyboard.c"
 void APP_KeyboardInit(void)
 {
 
@@ -7082,6 +7098,9 @@ void APP_KeyboardInit(void)
 
 
     keyboard.lastOUTTransmission = USBTransferOnePacket(1,0,(uint8_t*)&outputReport,sizeof(outputReport));
+
+
+    ENCODER_Initialize();
 }
 
 void APP_KeyboardTasks(void)
@@ -7098,6 +7117,9 @@ void APP_KeyboardTasks(void)
     {
         return;
     }
+
+
+    ENCODER_Task();
 
 
 
@@ -7215,29 +7237,29 @@ void APP_KeyboardTasks(void)
 
             OldSOFCount = LocalSOFCount;
         }
-# 501 "app_device_keyboard.c"
+# 508 "app_device_keyboard.c"
     if(((consumer.lastINTransmission != 0x0000) && ((*(volatile uint8_t*)consumer.lastINTransmission & 0x80) != 0x00)) == 0)
     {
 
         memset(&consumerReport, 0, sizeof(consumerReport));
         consumerReport.reportID = 0x02;
 
-        if(BUTTON_IsPressed(BUTTON_S3) == 1)
+
+        ENCODER_DIRECTION encoder_dir = ENCODER_GetDirection();
+
+        if(encoder_dir == ENCODER_CW)
         {
-            if(consumer.waitingForRelease == 0)
-            {
-                consumer.waitingForRelease = 1;
 
-
-                consumerReport.reportID = 0x02;
-                consumerReport.controls.value = 0;
-    consumerReport.controls.bits.volumeUp = 1;
-            }
-
+            consumerReport.reportID = 0x02;
+            consumerReport.controls.value = 0;
+            consumerReport.controls.bits.volumeUp = 1;
         }
-        else
+        else if(encoder_dir == ENCODER_CCW)
         {
-            consumer.waitingForRelease = 0;
+
+            consumerReport.reportID = 0x02;
+            consumerReport.controls.value = 0;
+            consumerReport.controls.bits.volumeDown = 1;
         }
 
 
@@ -7273,9 +7295,9 @@ void APP_KeyboardTasks(void)
         }
 
     }
-# 566 "app_device_keyboard.c"
+# 573 "app_device_keyboard.c"
     }
-# 610 "app_device_keyboard.c"
+# 617 "app_device_keyboard.c"
     if(((keyboard.lastOUTTransmission != 0x0000) && ((*(volatile uint8_t*)keyboard.lastOUTTransmission & 0x80) != 0x00)) == 0)
     {
         APP_KeyboardProcessOutputReport();
