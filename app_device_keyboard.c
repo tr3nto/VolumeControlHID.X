@@ -313,6 +313,9 @@ signed int keyboardIdleRate;
 signed int LocalSOFCount;
 static signed int OldSOFCount;
 
+static bool consumerReportPending = false;
+static USB_HANDLE lastConsumerTransmission;
+
 
 
 
@@ -326,6 +329,7 @@ void APP_KeyboardInit(void)
     //initialize the variable holding the handle for the last
     // transmission
     keyboard.lastINTransmission = 0;
+    lastConsumerTransmission = 0;
     
     keyboard.key = 4;
     keyboard.waitingForRelease = false;
@@ -421,12 +425,7 @@ void APP_KeyboardTasks(void)
 
                 /* Set the only important data, the key press data. */
                 inputReport.reportID = 0x01;  // Add this line
-                inputReport.keys[0] = keyboard.key++;
-                
-                
-                consumerReport.reportID = 0x02;
-            consumerReport.controls.value = 0;  // Clear all bits first     -------------------------------------------
-            consumerReport.controls.bits.volumeUp = 1;  // Set volume up bit
+                inputReport.keys[0] = keyboard.key++;               
 
                 //In this simulated keyboard, if the last key pressed exceeds the a-z + 0-9,
                 //then wrap back around so we send 'a' again.
@@ -434,6 +433,14 @@ void APP_KeyboardTasks(void)
                 {
                     keyboard.key = 4;
                 }
+            }
+            
+            // Send consumer report every time button is pressed (independent of keyboard logic)
+            if(consumerReport.controls.value == 0 && !consumerReportPending)
+            {
+                consumerReport.reportID = 0x02;
+                consumerReport.controls.value = 0;  // Clear all bits first
+       abcdefghi         consumerReport.controls.bits.volumeUp = 1;  // Set volume up bit
             }
         }
         else
@@ -475,16 +482,29 @@ void APP_KeyboardTasks(void)
             oldInputReport = inputReport;
 
             /* Send the 8 byte packet over USB to the host. */
-            keyboard.lastINTransmission = HIDTxPacket(HID_EP, (uint8_t*)&inputReport, sizeof(inputReport));
+            keyboard.lastINTransmission = HIDTxPacket(HID_EP, (uint8_t*)&inputReport, sizeof(inputReport)); //---------------------------KEYBOARD SEND
             
-            if(consumerReport.controls.bits.volumeUp == 1)  //--------------------------------------------------------------------------
-            {
-                HIDTxPacket(HID_EP, (uint8_t*)&consumerReport, sizeof(consumerReport));
-                // Clear the consumer report after sending
-                consumerReport.controls.bits.volumeUp = 0;
-            }
+            
             
             OldSOFCount = LocalSOFCount;    //Save the current time, so we know when to send the next packet (which depends in part on the idle rate setting)
+        }
+        
+        // Send consumer reports independently of keyboard activity, but check if endpoint is free
+        if((consumerReport.controls.value != 0 || consumerReportPending) && !HIDTxHandleBusy(lastConsumerTransmission))
+        {
+            lastConsumerTransmission = HIDTxPacket(HID_EP, (uint8_t*)&consumerReport, sizeof(consumerReport));
+
+            if(consumerReport.controls.value != 0)
+            {
+                // Just sent a press, need to send release next time
+                consumerReport.controls.value = 0;
+                consumerReportPending = true;
+            }
+            else
+            {
+                // Just sent the release
+                consumerReportPending = false;
+            }
         }
 
     }//if(HIDTxHandleBusy(keyboard.lastINTransmission) == false)

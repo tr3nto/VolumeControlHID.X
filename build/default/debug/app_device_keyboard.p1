@@ -48,8 +48,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "448
 [; ;./usb_device.h: 448: void* USBTransferOnePacket(uint8_t ep,uint8_t dir,uint8_t* data,uint8_t len);
 [v _USBTransferOnePacket `(*v ~T0 @X0 0 ef4`uc`uc`*uc`uc ]
-"360 app_device_keyboard.c
-[; ;app_device_keyboard.c: 360:     if( USBDeviceState < CONFIGURED_STATE )
+"364 app_device_keyboard.c
+[; ;app_device_keyboard.c: 364:     if( USBDeviceState < CONFIGURED_STATE )
 [c E3804 0 1 2 4 8 16 32 .. ]
 [n E3804 . DETACHED_STATE ATTACHED_STATE POWERED_STATE DEFAULT_STATE ADR_PENDING_STATE ADDRESS_STATE CONFIGURED_STATE  ]
 "2050 ./usb_device.h
@@ -66,8 +66,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "662
 [; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 662: extern volatile UCONbits_t UCONbits __attribute__((address(0xF6D)));
 [v _UCONbits `VS36 ~T0 @X0 0 e@3949 ]
-"373 app_device_keyboard.c
-[; ;app_device_keyboard.c: 373:         if(BUTTON_IsPressed(BUTTON_S2) == 0)
+"377 app_device_keyboard.c
+[; ;app_device_keyboard.c: 377:         if(BUTTON_IsPressed(BUTTON_S2) == 0)
 [c E3510 0 1 2 .. ]
 [n E3510 . BUTTON_NONE BUTTON_S2 BUTTON_S3  ]
 "54 ./buttons.h
@@ -79,8 +79,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "303 app_device_keyboard.c
 [; ;app_device_keyboard.c: 303: static void APP_KeyboardProcessOutputReport(void);
 [v _APP_KeyboardProcessOutputReport `(v ~T0 @X0 0 sf ]
-"513
-[; ;app_device_keyboard.c: 513:         LED_On(LED_D2);
+"539
+[; ;app_device_keyboard.c: 539:         LED_On(LED_D2);
 [c E3519 0 1 2 3 4 .. ]
 [n E3519 . LED_NONE LED_D1 LED_D2 LED_D3 LED_D4  ]
 "58 ./leds.h
@@ -769,275 +769,268 @@ Version 4.0 HI-TECH Software Intermediate Code
 "314
 [; ;app_device_keyboard.c: 314: static signed int OldSOFCount;
 [v _OldSOFCount `i ~T0 @X0 1 s ]
-"324
-[; ;app_device_keyboard.c: 324: void APP_KeyboardInit(void)
+"316
+[; ;app_device_keyboard.c: 316: static _Bool consumerReportPending = 0;
+[v _consumerReportPending `a ~T0 @X0 1 s ]
+[i _consumerReportPending
+-> -> 0 `i `a
+]
+"317
+[; ;app_device_keyboard.c: 317: static void* lastConsumerTransmission;
+[v _lastConsumerTransmission `*v ~T0 @X0 1 s ]
+"327
+[; ;app_device_keyboard.c: 327: void APP_KeyboardInit(void)
 [v _APP_KeyboardInit `(v ~T0 @X0 1 ef ]
-"325
-[; ;app_device_keyboard.c: 325: {
+"328
+[; ;app_device_keyboard.c: 328: {
 {
 [e :U _APP_KeyboardInit ]
 [f ]
-"328
-[; ;app_device_keyboard.c: 328:     keyboard.lastINTransmission = 0;
-[e = . _keyboard 0 -> -> 0 `i `*v ]
-"330
-[; ;app_device_keyboard.c: 330:     keyboard.key = 4;
-[e = . _keyboard 2 -> -> 4 `i `uc ]
 "331
-[; ;app_device_keyboard.c: 331:     keyboard.waitingForRelease = 0;
-[e = . _keyboard 3 -> -> 0 `i `a ]
+[; ;app_device_keyboard.c: 331:     keyboard.lastINTransmission = 0;
+[e = . _keyboard 0 -> -> 0 `i `*v ]
+"332
+[; ;app_device_keyboard.c: 332:     lastConsumerTransmission = 0;
+[e = _lastConsumerTransmission -> -> 0 `i `*v ]
 "334
-[; ;app_device_keyboard.c: 334:     keyboardIdleRate = 500;
+[; ;app_device_keyboard.c: 334:     keyboard.key = 4;
+[e = . _keyboard 2 -> -> 4 `i `uc ]
+"335
+[; ;app_device_keyboard.c: 335:     keyboard.waitingForRelease = 0;
+[e = . _keyboard 3 -> -> 0 `i `a ]
+"338
+[; ;app_device_keyboard.c: 338:     keyboardIdleRate = 500;
 [e = _keyboardIdleRate -> 500 `i ]
-"339
-[; ;app_device_keyboard.c: 339:     while(OldSOFCount != SOFCounter)
+"343
+[; ;app_device_keyboard.c: 343:     while(OldSOFCount != SOFCounter)
 [e $U 458  ]
 [e :U 459 ]
-"340
-[; ;app_device_keyboard.c: 340:     {
+"344
+[; ;app_device_keyboard.c: 344:     {
 {
-"341
-[; ;app_device_keyboard.c: 341:         OldSOFCount = SOFCounter;
+"345
+[; ;app_device_keyboard.c: 345:         OldSOFCount = SOFCounter;
 [e = _OldSOFCount _SOFCounter ]
-"342
-[; ;app_device_keyboard.c: 342:     }
+"346
+[; ;app_device_keyboard.c: 346:     }
 }
 [e :U 458 ]
-"339
-[; ;app_device_keyboard.c: 339:     while(OldSOFCount != SOFCounter)
+"343
+[; ;app_device_keyboard.c: 343:     while(OldSOFCount != SOFCounter)
 [e $ != _OldSOFCount _SOFCounter 459  ]
 [e :U 460 ]
-"345
-[; ;app_device_keyboard.c: 345:     USBEnableEndpoint(1, 0x02|0x04|0x10|0x08);
-[e ( _USBEnableEndpoint (2 , -> -> 1 `i `uc -> | | | -> 2 `i -> 4 `i -> 16 `i -> 8 `i `uc ]
-"348
-[; ;app_device_keyboard.c: 348:     keyboard.lastOUTTransmission = USBTransferOnePacket(1,0,(uint8_t*)&outputReport,sizeof(outputReport));
-[e = . _keyboard 1 ( _USBTransferOnePacket (4 , , , -> -> 1 `i `uc -> -> 0 `i `uc -> &U _outputReport `*uc -> -> # _outputReport `ui `uc ]
 "349
-[; ;app_device_keyboard.c: 349: }
+[; ;app_device_keyboard.c: 349:     USBEnableEndpoint(1, 0x02|0x04|0x10|0x08);
+[e ( _USBEnableEndpoint (2 , -> -> 1 `i `uc -> | | | -> 2 `i -> 4 `i -> 16 `i -> 8 `i `uc ]
+"352
+[; ;app_device_keyboard.c: 352:     keyboard.lastOUTTransmission = USBTransferOnePacket(1,0,(uint8_t*)&outputReport,sizeof(outputReport));
+[e = . _keyboard 1 ( _USBTransferOnePacket (4 , , , -> -> 1 `i `uc -> -> 0 `i `uc -> &U _outputReport `*uc -> -> # _outputReport `ui `uc ]
+"353
+[; ;app_device_keyboard.c: 353: }
 [e :UE 457 ]
 }
-"351
-[; ;app_device_keyboard.c: 351: void APP_KeyboardTasks(void)
+"355
+[; ;app_device_keyboard.c: 355: void APP_KeyboardTasks(void)
 [v _APP_KeyboardTasks `(v ~T0 @X0 1 ef ]
-"352
-[; ;app_device_keyboard.c: 352: {
+"356
+[; ;app_device_keyboard.c: 356: {
 {
 [e :U _APP_KeyboardTasks ]
 [f ]
-"353
-[; ;app_device_keyboard.c: 353:     signed int TimeDeltaMilliseconds;
+"357
+[; ;app_device_keyboard.c: 357:     signed int TimeDeltaMilliseconds;
 [v _TimeDeltaMilliseconds `i ~T0 @X0 1 a ]
-"354
-[; ;app_device_keyboard.c: 354:     unsigned char i;
+"358
+[; ;app_device_keyboard.c: 358:     unsigned char i;
 [v _i `uc ~T0 @X0 1 a ]
-"355
-[; ;app_device_keyboard.c: 355:     _Bool needToSendNewReportPacket;
+"359
+[; ;app_device_keyboard.c: 359:     _Bool needToSendNewReportPacket;
 [v _needToSendNewReportPacket `a ~T0 @X0 1 a ]
-"360
-[; ;app_device_keyboard.c: 360:     if( USBDeviceState < CONFIGURED_STATE )
+"364
+[; ;app_device_keyboard.c: 364:     if( USBDeviceState < CONFIGURED_STATE )
 [e $ ! < -> _USBDeviceState `ui -> . `E3804 6 `ui 462  ]
-"361
-[; ;app_device_keyboard.c: 361:     {
+"365
+[; ;app_device_keyboard.c: 365:     {
 {
-"362
-[; ;app_device_keyboard.c: 362:         return;
+"366
+[; ;app_device_keyboard.c: 366:         return;
 [e $UE 461  ]
-"363
-[; ;app_device_keyboard.c: 363:     }
+"367
+[; ;app_device_keyboard.c: 367:     }
 }
 [e :U 462 ]
-"369
-[; ;app_device_keyboard.c: 369:     if( UCONbits.SUSPND== 1 )
-[e $ ! == -> . . _UCONbits 0 1 `i -> 1 `i 463  ]
-"370
-[; ;app_device_keyboard.c: 370:     {
-{
 "373
-[; ;app_device_keyboard.c: 373:         if(BUTTON_IsPressed(BUTTON_S2) == 0)
-[e $ ! == -> ( _BUTTON_IsPressed (1 . `E3510 1 `i -> 0 `i 464  ]
+[; ;app_device_keyboard.c: 373:     if( UCONbits.SUSPND== 1 )
+[e $ ! == -> . . _UCONbits 0 1 `i -> 1 `i 463  ]
 "374
-[; ;app_device_keyboard.c: 374:         {
+[; ;app_device_keyboard.c: 374:     {
 {
-"376
-[; ;app_device_keyboard.c: 376:         }
+"377
+[; ;app_device_keyboard.c: 377:         if(BUTTON_IsPressed(BUTTON_S2) == 0)
+[e $ ! == -> ( _BUTTON_IsPressed (1 . `E3510 1 `i -> 0 `i 464  ]
+"378
+[; ;app_device_keyboard.c: 378:         {
+{
+"380
+[; ;app_device_keyboard.c: 380:         }
 }
 [e :U 464 ]
-"378
-[; ;app_device_keyboard.c: 378:         return;
+"382
+[; ;app_device_keyboard.c: 382:         return;
 [e $UE 461  ]
-"379
-[; ;app_device_keyboard.c: 379:     }
+"383
+[; ;app_device_keyboard.c: 383:     }
 }
 [e :U 463 ]
-"384
-[; ;app_device_keyboard.c: 384:     while(LocalSOFCount != SOFCounter)
+"388
+[; ;app_device_keyboard.c: 388:     while(LocalSOFCount != SOFCounter)
 [e $U 465  ]
 [e :U 466 ]
-"385
-[; ;app_device_keyboard.c: 385:     {
+"389
+[; ;app_device_keyboard.c: 389:     {
 {
-"386
-[; ;app_device_keyboard.c: 386:         LocalSOFCount = SOFCounter;
+"390
+[; ;app_device_keyboard.c: 390:         LocalSOFCount = SOFCounter;
 [e = _LocalSOFCount _SOFCounter ]
-"387
-[; ;app_device_keyboard.c: 387:     }
+"391
+[; ;app_device_keyboard.c: 391:     }
 }
 [e :U 465 ]
-"384
-[; ;app_device_keyboard.c: 384:     while(LocalSOFCount != SOFCounter)
+"388
+[; ;app_device_keyboard.c: 388:     while(LocalSOFCount != SOFCounter)
 [e $ != _LocalSOFCount _SOFCounter 466  ]
 [e :U 467 ]
-"391
-[; ;app_device_keyboard.c: 391:     TimeDeltaMilliseconds = LocalSOFCount - OldSOFCount;
-[e = _TimeDeltaMilliseconds - _LocalSOFCount _OldSOFCount ]
-"393
-[; ;app_device_keyboard.c: 393:     if(TimeDeltaMilliseconds < 0)
-[e $ ! < _TimeDeltaMilliseconds -> 0 `i 468  ]
-"394
-[; ;app_device_keyboard.c: 394:     {
-{
 "395
-[; ;app_device_keyboard.c: 395:         TimeDeltaMilliseconds = (32767 - OldSOFCount) + LocalSOFCount;
+[; ;app_device_keyboard.c: 395:     TimeDeltaMilliseconds = LocalSOFCount - OldSOFCount;
+[e = _TimeDeltaMilliseconds - _LocalSOFCount _OldSOFCount ]
+"397
+[; ;app_device_keyboard.c: 397:     if(TimeDeltaMilliseconds < 0)
+[e $ ! < _TimeDeltaMilliseconds -> 0 `i 468  ]
+"398
+[; ;app_device_keyboard.c: 398:     {
+{
+"399
+[; ;app_device_keyboard.c: 399:         TimeDeltaMilliseconds = (32767 - OldSOFCount) + LocalSOFCount;
 [e = _TimeDeltaMilliseconds + - -> 32767 `i _OldSOFCount _LocalSOFCount ]
-"396
-[; ;app_device_keyboard.c: 396:     }
+"400
+[; ;app_device_keyboard.c: 400:     }
 }
 [e :U 468 ]
-"402
-[; ;app_device_keyboard.c: 402:     if(TimeDeltaMilliseconds > 5000)
+"406
+[; ;app_device_keyboard.c: 406:     if(TimeDeltaMilliseconds > 5000)
 [e $ ! > _TimeDeltaMilliseconds -> 5000 `i 469  ]
-"403
-[; ;app_device_keyboard.c: 403:     {
+"407
+[; ;app_device_keyboard.c: 407:     {
 {
-"404
-[; ;app_device_keyboard.c: 404:         OldSOFCount = LocalSOFCount - 5000;
+"408
+[; ;app_device_keyboard.c: 408:         OldSOFCount = LocalSOFCount - 5000;
 [e = _OldSOFCount - _LocalSOFCount -> 5000 `i ]
-"405
-[; ;app_device_keyboard.c: 405:     }
+"409
+[; ;app_device_keyboard.c: 409:     }
 }
 [e :U 469 ]
-"410
-[; ;app_device_keyboard.c: 410:     if(((keyboard.lastINTransmission != 0x0000) && ((*(volatile uint8_t*)keyboard.lastINTransmission & 0x80) != 0x00)) == 0)
-[e $ ! == -> && != . _keyboard 0 -> -> 0 `i `*v != & -> *U -> . _keyboard 0 `*Vuc `i -> 128 `i -> 0 `i `i -> 0 `i 470  ]
-"411
-[; ;app_device_keyboard.c: 411:     {
-{
-"413
-[; ;app_device_keyboard.c: 413:         memset(&inputReport, 0, sizeof(inputReport));
-[e ( _memset (3 , , -> &U _inputReport `*v -> 0 `i -> # _inputReport `ui ]
 "414
-[; ;app_device_keyboard.c: 414:         inputReport.reportID = 0x01;
-[e = . _inputReport 0 -> -> 1 `i `uc ]
-"416
-[; ;app_device_keyboard.c: 416:         if(BUTTON_IsPressed(BUTTON_S2) == 1)
-[e $ ! == -> ( _BUTTON_IsPressed (1 . `E3510 1 `i -> 1 `i 471  ]
+[; ;app_device_keyboard.c: 414:     if(((keyboard.lastINTransmission != 0x0000) && ((*(volatile uint8_t*)keyboard.lastINTransmission & 0x80) != 0x00)) == 0)
+[e $ ! == -> && != . _keyboard 0 -> -> 0 `i `*v != & -> *U -> . _keyboard 0 `*Vuc `i -> 128 `i -> 0 `i `i -> 0 `i 470  ]
+"415
+[; ;app_device_keyboard.c: 415:     {
+{
 "417
-[; ;app_device_keyboard.c: 417:         {
-{
+[; ;app_device_keyboard.c: 417:         memset(&inputReport, 0, sizeof(inputReport));
+[e ( _memset (3 , , -> &U _inputReport `*v -> 0 `i -> # _inputReport `ui ]
 "418
-[; ;app_device_keyboard.c: 418:             if(keyboard.waitingForRelease == 0)
-[e $ ! == -> . _keyboard 3 `i -> 0 `i 472  ]
-"419
-[; ;app_device_keyboard.c: 419:             {
-{
-"420
-[; ;app_device_keyboard.c: 420:                 keyboard.waitingForRelease = 1;
-[e = . _keyboard 3 -> -> 1 `i `a ]
-"423
-[; ;app_device_keyboard.c: 423:                 inputReport.reportID = 0x01;
+[; ;app_device_keyboard.c: 418:         inputReport.reportID = 0x01;
 [e = . _inputReport 0 -> -> 1 `i `uc ]
-"424
-[; ;app_device_keyboard.c: 424:                 inputReport.keys[0] = keyboard.key++;
-[e = *U + &U . _inputReport 3 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _inputReport 3 `ui `ux ++ . _keyboard 2 -> -> 1 `i `uc ]
-"427
-[; ;app_device_keyboard.c: 427:                 consumerReport.reportID = 0x02;
-[e = . _consumerReport 0 -> -> 2 `i `uc ]
-"428
-[; ;app_device_keyboard.c: 428:             consumerReport.controls.value = 0;
-[e = . . _consumerReport 1 0 -> -> 0 `i `uc ]
-"429
-[; ;app_device_keyboard.c: 429:             consumerReport.controls.bits.volumeUp = 1;
-[e = . . . _consumerReport 1 1 5 -> -> 1 `i `uc ]
-"433
-[; ;app_device_keyboard.c: 433:                 if(keyboard.key == 40)
-[e $ ! == -> . _keyboard 2 `i -> 40 `i 473  ]
-"434
-[; ;app_device_keyboard.c: 434:                 {
+"420
+[; ;app_device_keyboard.c: 420:         if(BUTTON_IsPressed(BUTTON_S2) == 1)
+[e $ ! == -> ( _BUTTON_IsPressed (1 . `E3510 1 `i -> 1 `i 471  ]
+"421
+[; ;app_device_keyboard.c: 421:         {
 {
-"435
-[; ;app_device_keyboard.c: 435:                     keyboard.key = 4;
+"422
+[; ;app_device_keyboard.c: 422:             if(keyboard.waitingForRelease == 0)
+[e $ ! == -> . _keyboard 3 `i -> 0 `i 472  ]
+"423
+[; ;app_device_keyboard.c: 423:             {
+{
+"424
+[; ;app_device_keyboard.c: 424:                 keyboard.waitingForRelease = 1;
+[e = . _keyboard 3 -> -> 1 `i `a ]
+"427
+[; ;app_device_keyboard.c: 427:                 inputReport.reportID = 0x01;
+[e = . _inputReport 0 -> -> 1 `i `uc ]
+"428
+[; ;app_device_keyboard.c: 428:                 inputReport.keys[0] = keyboard.key++;
+[e = *U + &U . _inputReport 3 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _inputReport 3 `ui `ux ++ . _keyboard 2 -> -> 1 `i `uc ]
+"432
+[; ;app_device_keyboard.c: 432:                 if(keyboard.key == 40)
+[e $ ! == -> . _keyboard 2 `i -> 40 `i 473  ]
+"433
+[; ;app_device_keyboard.c: 433:                 {
+{
+"434
+[; ;app_device_keyboard.c: 434:                     keyboard.key = 4;
 [e = . _keyboard 2 -> -> 4 `i `uc ]
-"436
-[; ;app_device_keyboard.c: 436:                 }
+"435
+[; ;app_device_keyboard.c: 435:                 }
 }
 [e :U 473 ]
-"437
-[; ;app_device_keyboard.c: 437:             }
+"436
+[; ;app_device_keyboard.c: 436:             }
 }
 [e :U 472 ]
 "438
-[; ;app_device_keyboard.c: 438:         }
-}
-[e $U 474  ]
+[; ;app_device_keyboard.c: 438:             if(consumerReport.controls.value == 0 && !consumerReportPending)
+[e $ ! && == -> . . _consumerReport 1 0 `i -> 0 `i ! != -> _consumerReportPending `i -> 0 `i 474  ]
 "439
-[; ;app_device_keyboard.c: 439:         else
-[e :U 471 ]
-"440
-[; ;app_device_keyboard.c: 440:         {
+[; ;app_device_keyboard.c: 439:             {
 {
+"440
+[; ;app_device_keyboard.c: 440:                 consumerReport.reportID = 0x02;
+[e = . _consumerReport 0 -> -> 2 `i `uc ]
 "441
-[; ;app_device_keyboard.c: 441:             keyboard.waitingForRelease = 0;
-[e = . _keyboard 3 -> -> 0 `i `a ]
+[; ;app_device_keyboard.c: 441:                 consumerReport.controls.value = 0;
+[e = . . _consumerReport 1 0 -> -> 0 `i `uc ]
 "442
-[; ;app_device_keyboard.c: 442:         }
+[; ;app_device_keyboard.c: 442:                 consumerReport.controls.bits.volumeUp = 1;
+[e = . . . _consumerReport 1 1 5 -> -> 1 `i `uc ]
+"443
+[; ;app_device_keyboard.c: 443:             }
 }
 [e :U 474 ]
+"444
+[; ;app_device_keyboard.c: 444:         }
+}
+[e $U 475  ]
+"445
+[; ;app_device_keyboard.c: 445:         else
+[e :U 471 ]
 "446
-[; ;app_device_keyboard.c: 446:         needToSendNewReportPacket = 0;
-[e = _needToSendNewReportPacket -> -> 0 `i `a ]
+[; ;app_device_keyboard.c: 446:         {
+{
 "447
-[; ;app_device_keyboard.c: 447:         for(i = 0; i < sizeof(inputReport); i++)
+[; ;app_device_keyboard.c: 447:             keyboard.waitingForRelease = 0;
+[e = . _keyboard 3 -> -> 0 `i `a ]
+"455
+[; ;app_device_keyboard.c: 455:         }
+}
+[e :U 475 ]
+"459
+[; ;app_device_keyboard.c: 459:         needToSendNewReportPacket = 0;
+[e = _needToSendNewReportPacket -> -> 0 `i `a ]
+"460
+[; ;app_device_keyboard.c: 460:         for(i = 0; i < sizeof(inputReport); i++)
 {
 [e = _i -> -> 0 `i `uc ]
-[e $ < -> _i `ui -> # _inputReport `ui 475  ]
-[e $U 476  ]
-[e :U 475 ]
-"448
-[; ;app_device_keyboard.c: 448:         {
-{
-"449
-[; ;app_device_keyboard.c: 449:             if(*((uint8_t*)&oldInputReport + i) != *((uint8_t*)&inputReport + i))
-[e $ ! != -> *U + -> &U _oldInputReport `*uc * -> -> _i `i `x -> -> # *U -> &U _oldInputReport `*uc `i `x `i -> *U + -> &U _inputReport `*uc * -> -> _i `i `x -> -> # *U -> &U _inputReport `*uc `i `x `i 478  ]
-"450
-[; ;app_device_keyboard.c: 450:             {
-{
-"451
-[; ;app_device_keyboard.c: 451:                 needToSendNewReportPacket = 1;
-[e = _needToSendNewReportPacket -> -> 1 `i `a ]
-"452
-[; ;app_device_keyboard.c: 452:                 break;
-[e $U 476  ]
-"453
-[; ;app_device_keyboard.c: 453:             }
-}
-[e :U 478 ]
-"454
-[; ;app_device_keyboard.c: 454:         }
-}
-[e ++ _i -> -> 1 `i `uc ]
-[e $ < -> _i `ui -> # _inputReport `ui 475  ]
+[e $ < -> _i `ui -> # _inputReport `ui 476  ]
+[e $U 477  ]
 [e :U 476 ]
-}
-"459
-[; ;app_device_keyboard.c: 459:         if(keyboardIdleRate != 0)
-[e $ ! != _keyboardIdleRate -> 0 `i 479  ]
-"460
-[; ;app_device_keyboard.c: 460:         {
+"461
+[; ;app_device_keyboard.c: 461:         {
 {
 "462
-[; ;app_device_keyboard.c: 462:             if(TimeDeltaMilliseconds >= keyboardIdleRate)
-[e $ ! >= _TimeDeltaMilliseconds _keyboardIdleRate 480  ]
+[; ;app_device_keyboard.c: 462:             if(*((uint8_t*)&oldInputReport + i) != *((uint8_t*)&inputReport + i))
+[e $ ! != -> *U + -> &U _oldInputReport `*uc * -> -> _i `i `x -> -> # *U -> &U _oldInputReport `*uc `i `x `i -> *U + -> &U _inputReport `*uc * -> -> _i `i `x -> -> # *U -> &U _inputReport `*uc `i `x `i 479  ]
 "463
 [; ;app_device_keyboard.c: 463:             {
 {
@@ -1045,179 +1038,234 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;app_device_keyboard.c: 464:                 needToSendNewReportPacket = 1;
 [e = _needToSendNewReportPacket -> -> 1 `i `a ]
 "465
-[; ;app_device_keyboard.c: 465:             }
-}
-[e :U 480 ]
+[; ;app_device_keyboard.c: 465:                 break;
+[e $U 477  ]
 "466
-[; ;app_device_keyboard.c: 466:         }
+[; ;app_device_keyboard.c: 466:             }
 }
 [e :U 479 ]
-"470
-[; ;app_device_keyboard.c: 470:         if(needToSendNewReportPacket == 1)
-[e $ ! == -> _needToSendNewReportPacket `i -> 1 `i 481  ]
-"471
-[; ;app_device_keyboard.c: 471:         {
+"467
+[; ;app_device_keyboard.c: 467:         }
+}
+[e ++ _i -> -> 1 `i `uc ]
+[e $ < -> _i `ui -> # _inputReport `ui 476  ]
+[e :U 477 ]
+}
+"472
+[; ;app_device_keyboard.c: 472:         if(keyboardIdleRate != 0)
+[e $ ! != _keyboardIdleRate -> 0 `i 480  ]
+"473
+[; ;app_device_keyboard.c: 473:         {
 {
 "475
-[; ;app_device_keyboard.c: 475:             oldInputReport = inputReport;
-[e = _oldInputReport _inputReport ]
-"478
-[; ;app_device_keyboard.c: 478:             keyboard.lastINTransmission = USBTransferOnePacket(1,1,(uint8_t*)&inputReport,sizeof(inputReport));
-[e = . _keyboard 0 ( _USBTransferOnePacket (4 , , , -> -> 1 `i `uc -> -> 1 `i `uc -> &U _inputReport `*uc -> -> # _inputReport `ui `uc ]
-"480
-[; ;app_device_keyboard.c: 480:             if(consumerReport.controls.bits.volumeUp == 1)
-[e $ ! == -> . . . _consumerReport 1 1 5 `i -> 1 `i 482  ]
-"481
-[; ;app_device_keyboard.c: 481:             {
+[; ;app_device_keyboard.c: 475:             if(TimeDeltaMilliseconds >= keyboardIdleRate)
+[e $ ! >= _TimeDeltaMilliseconds _keyboardIdleRate 481  ]
+"476
+[; ;app_device_keyboard.c: 476:             {
 {
-"482
-[; ;app_device_keyboard.c: 482:                 USBTransferOnePacket(1,1,(uint8_t*)&consumerReport,sizeof(consumerReport));
-[e ( _USBTransferOnePacket (4 , , , -> -> 1 `i `uc -> -> 1 `i `uc -> &U _consumerReport `*uc -> -> # _consumerReport `ui `uc ]
-"484
-[; ;app_device_keyboard.c: 484:                 consumerReport.controls.bits.volumeUp = 0;
-[e = . . . _consumerReport 1 1 5 -> -> 0 `i `uc ]
-"485
-[; ;app_device_keyboard.c: 485:             }
-}
-[e :U 482 ]
-"487
-[; ;app_device_keyboard.c: 487:             OldSOFCount = LocalSOFCount;
-[e = _OldSOFCount _LocalSOFCount ]
-"488
-[; ;app_device_keyboard.c: 488:         }
+"477
+[; ;app_device_keyboard.c: 477:                 needToSendNewReportPacket = 1;
+[e = _needToSendNewReportPacket -> -> 1 `i `a ]
+"478
+[; ;app_device_keyboard.c: 478:             }
 }
 [e :U 481 ]
-"490
-[; ;app_device_keyboard.c: 490:     }
+"479
+[; ;app_device_keyboard.c: 479:         }
 }
-[e :U 470 ]
+[e :U 480 ]
+"483
+[; ;app_device_keyboard.c: 483:         if(needToSendNewReportPacket == 1)
+[e $ ! == -> _needToSendNewReportPacket `i -> 1 `i 482  ]
+"484
+[; ;app_device_keyboard.c: 484:         {
+{
+"488
+[; ;app_device_keyboard.c: 488:             oldInputReport = inputReport;
+[e = _oldInputReport _inputReport ]
+"491
+[; ;app_device_keyboard.c: 491:             keyboard.lastINTransmission = USBTransferOnePacket(1,1,(uint8_t*)&inputReport,sizeof(inputReport));
+[e = . _keyboard 0 ( _USBTransferOnePacket (4 , , , -> -> 1 `i `uc -> -> 1 `i `uc -> &U _inputReport `*uc -> -> # _inputReport `ui `uc ]
+"495
+[; ;app_device_keyboard.c: 495:             OldSOFCount = LocalSOFCount;
+[e = _OldSOFCount _LocalSOFCount ]
+"496
+[; ;app_device_keyboard.c: 496:         }
+}
+[e :U 482 ]
 "499
-[; ;app_device_keyboard.c: 499:     if(((keyboard.lastOUTTransmission != 0x0000) && ((*(volatile uint8_t*)keyboard.lastOUTTransmission & 0x80) != 0x00)) == 0)
-[e $ ! == -> && != . _keyboard 1 -> -> 0 `i `*v != & -> *U -> . _keyboard 1 `*Vuc `i -> 128 `i -> 0 `i `i -> 0 `i 483  ]
+[; ;app_device_keyboard.c: 499:         if((consumerReport.controls.value != 0 || consumerReportPending) && !((lastConsumerTransmission != 0x0000) && ((*(volatile uint8_t*)lastConsumerTransmission & 0x80) != 0x00)))
+[e $ ! && || != -> . . _consumerReport 1 0 `i -> 0 `i != -> _consumerReportPending `i -> 0 `i ! && != _lastConsumerTransmission -> -> 0 `i `*v != & -> *U -> _lastConsumerTransmission `*Vuc `i -> 128 `i -> 0 `i 483  ]
 "500
-[; ;app_device_keyboard.c: 500:     {
+[; ;app_device_keyboard.c: 500:         {
 {
 "501
-[; ;app_device_keyboard.c: 501:         APP_KeyboardProcessOutputReport();
-[e ( _APP_KeyboardProcessOutputReport ..  ]
+[; ;app_device_keyboard.c: 501:             lastConsumerTransmission = USBTransferOnePacket(1,1,(uint8_t*)&consumerReport,sizeof(consumerReport));
+[e = _lastConsumerTransmission ( _USBTransferOnePacket (4 , , , -> -> 1 `i `uc -> -> 1 `i `uc -> &U _consumerReport `*uc -> -> # _consumerReport `ui `uc ]
 "503
-[; ;app_device_keyboard.c: 503:         keyboard.lastOUTTransmission = USBTransferOnePacket(1,0,(uint8_t*)&outputReport,sizeof(outputReport));
-[e = . _keyboard 1 ( _USBTransferOnePacket (4 , , , -> -> 1 `i `uc -> -> 0 `i `uc -> &U _outputReport `*uc -> -> # _outputReport `ui `uc ]
+[; ;app_device_keyboard.c: 503:             if(consumerReport.controls.value != 0)
+[e $ ! != -> . . _consumerReport 1 0 `i -> 0 `i 484  ]
 "504
-[; ;app_device_keyboard.c: 504:     }
+[; ;app_device_keyboard.c: 504:             {
+{
+"506
+[; ;app_device_keyboard.c: 506:                 consumerReport.controls.value = 0;
+[e = . . _consumerReport 1 0 -> -> 0 `i `uc ]
+"507
+[; ;app_device_keyboard.c: 507:                 consumerReportPending = 1;
+[e = _consumerReportPending -> -> 1 `i `a ]
+"508
+[; ;app_device_keyboard.c: 508:             }
+}
+[e $U 485  ]
+"509
+[; ;app_device_keyboard.c: 509:             else
+[e :U 484 ]
+"510
+[; ;app_device_keyboard.c: 510:             {
+{
+"512
+[; ;app_device_keyboard.c: 512:                 consumerReportPending = 0;
+[e = _consumerReportPending -> -> 0 `i `a ]
+"513
+[; ;app_device_keyboard.c: 513:             }
+}
+[e :U 485 ]
+"514
+[; ;app_device_keyboard.c: 514:         }
 }
 [e :U 483 ]
-"506
-[; ;app_device_keyboard.c: 506:     return;
+"516
+[; ;app_device_keyboard.c: 516:     }
+}
+[e :U 470 ]
+"525
+[; ;app_device_keyboard.c: 525:     if(((keyboard.lastOUTTransmission != 0x0000) && ((*(volatile uint8_t*)keyboard.lastOUTTransmission & 0x80) != 0x00)) == 0)
+[e $ ! == -> && != . _keyboard 1 -> -> 0 `i `*v != & -> *U -> . _keyboard 1 `*Vuc `i -> 128 `i -> 0 `i `i -> 0 `i 486  ]
+"526
+[; ;app_device_keyboard.c: 526:     {
+{
+"527
+[; ;app_device_keyboard.c: 527:         APP_KeyboardProcessOutputReport();
+[e ( _APP_KeyboardProcessOutputReport ..  ]
+"529
+[; ;app_device_keyboard.c: 529:         keyboard.lastOUTTransmission = USBTransferOnePacket(1,0,(uint8_t*)&outputReport,sizeof(outputReport));
+[e = . _keyboard 1 ( _USBTransferOnePacket (4 , , , -> -> 1 `i `uc -> -> 0 `i `uc -> &U _outputReport `*uc -> -> # _outputReport `ui `uc ]
+"530
+[; ;app_device_keyboard.c: 530:     }
+}
+[e :U 486 ]
+"532
+[; ;app_device_keyboard.c: 532:     return;
 [e $UE 461  ]
-"507
-[; ;app_device_keyboard.c: 507: }
+"533
+[; ;app_device_keyboard.c: 533: }
 [e :UE 461 ]
 }
-"509
-[; ;app_device_keyboard.c: 509: static void APP_KeyboardProcessOutputReport(void)
+"535
+[; ;app_device_keyboard.c: 535: static void APP_KeyboardProcessOutputReport(void)
 [v _APP_KeyboardProcessOutputReport `(v ~T0 @X0 1 sf ]
-"510
-[; ;app_device_keyboard.c: 510: {
+"536
+[; ;app_device_keyboard.c: 536: {
 {
 [e :U _APP_KeyboardProcessOutputReport ]
 [f ]
-"511
-[; ;app_device_keyboard.c: 511:     if(outputReport.leds.capsLock)
-[e $ ! != -> . . _outputReport 1 1 `i -> 0 `i 485  ]
-"512
-[; ;app_device_keyboard.c: 512:     {
+"537
+[; ;app_device_keyboard.c: 537:     if(outputReport.leds.capsLock)
+[e $ ! != -> . . _outputReport 1 1 `i -> 0 `i 488  ]
+"538
+[; ;app_device_keyboard.c: 538:     {
 {
-"513
-[; ;app_device_keyboard.c: 513:         LED_On(LED_D2);
+"539
+[; ;app_device_keyboard.c: 539:         LED_On(LED_D2);
 [e ( _LED_On (1 . `E3519 2 ]
-"514
-[; ;app_device_keyboard.c: 514:     }
+"540
+[; ;app_device_keyboard.c: 540:     }
 }
-[e $U 486  ]
-"515
-[; ;app_device_keyboard.c: 515:     else
-[e :U 485 ]
-"516
-[; ;app_device_keyboard.c: 516:     {
+[e $U 489  ]
+"541
+[; ;app_device_keyboard.c: 541:     else
+[e :U 488 ]
+"542
+[; ;app_device_keyboard.c: 542:     {
 {
-"517
-[; ;app_device_keyboard.c: 517:         LED_Off(LED_D2);
+"543
+[; ;app_device_keyboard.c: 543:         LED_Off(LED_D2);
 [e ( _LED_Off (1 . `E3519 2 ]
-"518
-[; ;app_device_keyboard.c: 518:     }
+"544
+[; ;app_device_keyboard.c: 544:     }
 }
-[e :U 486 ]
-"519
-[; ;app_device_keyboard.c: 519: }
-[e :UE 484 ]
+[e :U 489 ]
+"545
+[; ;app_device_keyboard.c: 545: }
+[e :UE 487 ]
 }
-"521
-[; ;app_device_keyboard.c: 521: static void USBHIDCBSetReportComplete(void)
+"547
+[; ;app_device_keyboard.c: 547: static void USBHIDCBSetReportComplete(void)
 [v _USBHIDCBSetReportComplete `(v ~T0 @X0 1 sf ]
-"522
-[; ;app_device_keyboard.c: 522: {
+"548
+[; ;app_device_keyboard.c: 548: {
 {
 [e :U _USBHIDCBSetReportComplete ]
 [f ]
-"525
-[; ;app_device_keyboard.c: 525:     outputReport.value = CtrlTrfData[0];
+"551
+[; ;app_device_keyboard.c: 551:     outputReport.value = CtrlTrfData[0];
 [e = . _outputReport 0 *U + &U _CtrlTrfData * -> -> -> 0 `i `ui `ux -> -> # *U &U _CtrlTrfData `ui `ux ]
-"528
-[; ;app_device_keyboard.c: 528:     APP_KeyboardProcessOutputReport();
+"554
+[; ;app_device_keyboard.c: 554:     APP_KeyboardProcessOutputReport();
 [e ( _APP_KeyboardProcessOutputReport ..  ]
-"529
-[; ;app_device_keyboard.c: 529: }
-[e :UE 487 ]
+"555
+[; ;app_device_keyboard.c: 555: }
+[e :UE 490 ]
 }
-"531
-[; ;app_device_keyboard.c: 531: void USBHIDCBSetReportHandler(void)
+"557
+[; ;app_device_keyboard.c: 557: void USBHIDCBSetReportHandler(void)
 [v _USBHIDCBSetReportHandler `(v ~T0 @X0 1 ef ]
-"532
-[; ;app_device_keyboard.c: 532: {
+"558
+[; ;app_device_keyboard.c: 558: {
 {
 [e :U _USBHIDCBSetReportHandler ]
 [f ]
-"536
-[; ;app_device_keyboard.c: 536:     {outPipes[0].pDst.bRam = (uint8_t*)&CtrlTrfData;outPipes[0].wCount.Val = 8;outPipes[0].pFunc = USBHIDCBSetReportComplete;outPipes[0].info.bits.busy = 1; };
+"562
+[; ;app_device_keyboard.c: 562:     {outPipes[0].pDst.bRam = (uint8_t*)&CtrlTrfData;outPipes[0].wCount.Val = 8;outPipes[0].pFunc = USBHIDCBSetReportComplete;outPipes[0].info.bits.busy = 1; };
 {
 [e = . . *U + &U _outPipes * -> -> -> 0 `i `ui `ux -> -> # *U &U _outPipes `ui `ux 0 0 -> &U _CtrlTrfData `*uc ]
 [e = . . *U + &U _outPipes * -> -> -> 0 `i `ui `ux -> -> # *U &U _outPipes `ui `ux 2 0 -> -> 8 `i `us ]
 [e = . *U + &U _outPipes * -> -> -> 0 `i `ui `ux -> -> # *U &U _outPipes `ui `ux 3 &U _USBHIDCBSetReportComplete ]
 [e = . . . *U + &U _outPipes * -> -> -> 0 `i `ui `ux -> -> # *U &U _outPipes `ui `ux 1 0 1 -> -> 1 `i `uc ]
 }
-"537
-[; ;app_device_keyboard.c: 537: }
-[e :UE 488 ]
+"563
+[; ;app_device_keyboard.c: 563: }
+[e :UE 491 ]
 }
-"542
-[; ;app_device_keyboard.c: 542: void USBHIDCBSetIdleRateHandler(uint8_t reportID, uint8_t newIdleRate)
+"568
+[; ;app_device_keyboard.c: 568: void USBHIDCBSetIdleRateHandler(uint8_t reportID, uint8_t newIdleRate)
 [v _USBHIDCBSetIdleRateHandler `(v ~T0 @X0 1 ef2`uc`uc ]
-"543
-[; ;app_device_keyboard.c: 543: {
+"569
+[; ;app_device_keyboard.c: 569: {
 {
 [e :U _USBHIDCBSetIdleRateHandler ]
-"542
-[; ;app_device_keyboard.c: 542: void USBHIDCBSetIdleRateHandler(uint8_t reportID, uint8_t newIdleRate)
+"568
+[; ;app_device_keyboard.c: 568: void USBHIDCBSetIdleRateHandler(uint8_t reportID, uint8_t newIdleRate)
 [v _reportID `uc ~T0 @X0 1 r1 ]
 [v _newIdleRate `uc ~T0 @X0 1 r2 ]
-"543
-[; ;app_device_keyboard.c: 543: {
+"569
+[; ;app_device_keyboard.c: 569: {
 [f ]
-"547
-[; ;app_device_keyboard.c: 547:     if(reportID == 0)
-[e $ ! == -> _reportID `i -> 0 `i 490  ]
-"548
-[; ;app_device_keyboard.c: 548:     {
+"573
+[; ;app_device_keyboard.c: 573:     if(reportID == 0)
+[e $ ! == -> _reportID `i -> 0 `i 493  ]
+"574
+[; ;app_device_keyboard.c: 574:     {
 {
-"549
-[; ;app_device_keyboard.c: 549:         keyboardIdleRate = newIdleRate;
+"575
+[; ;app_device_keyboard.c: 575:         keyboardIdleRate = newIdleRate;
 [e = _keyboardIdleRate -> _newIdleRate `i ]
-"550
-[; ;app_device_keyboard.c: 550:     }
+"576
+[; ;app_device_keyboard.c: 576:     }
 }
-[e :U 490 ]
-"551
-[; ;app_device_keyboard.c: 551: }
-[e :UE 489 ]
+[e :U 493 ]
+"577
+[; ;app_device_keyboard.c: 577: }
+[e :UE 492 ]
 }

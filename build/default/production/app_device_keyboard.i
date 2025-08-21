@@ -7045,12 +7045,16 @@ KEYBOARD_INPUT_REPORT oldInputReport;
 signed int keyboardIdleRate;
 signed int LocalSOFCount;
 static signed int OldSOFCount;
-# 324 "app_device_keyboard.c"
+
+static _Bool consumerReportPending = 0;
+static void* lastConsumerTransmission;
+# 327 "app_device_keyboard.c"
 void APP_KeyboardInit(void)
 {
 
 
     keyboard.lastINTransmission = 0;
+    lastConsumerTransmission = 0;
 
     keyboard.key = 4;
     keyboard.waitingForRelease = 0;
@@ -7149,16 +7153,19 @@ void APP_KeyboardTasks(void)
                 inputReport.keys[0] = keyboard.key++;
 
 
-                consumerReport.reportID = 0x02;
-            consumerReport.controls.value = 0;
-            consumerReport.controls.bits.volumeUp = 1;
-
-
 
                 if(keyboard.key == 40)
                 {
                     keyboard.key = 4;
                 }
+            }
+
+
+            if(consumerReport.controls.value == 0 && !consumerReportPending)
+            {
+                consumerReport.reportID = 0x02;
+                consumerReport.controls.value = 0;
+                consumerReport.controls.bits.volumeUp = 1;
             }
         }
         else
@@ -7202,18 +7209,31 @@ void APP_KeyboardTasks(void)
 
             keyboard.lastINTransmission = USBTransferOnePacket(1,1,(uint8_t*)&inputReport,sizeof(inputReport));
 
-            if(consumerReport.controls.bits.volumeUp == 1)
-            {
-                USBTransferOnePacket(1,1,(uint8_t*)&consumerReport,sizeof(consumerReport));
 
-                consumerReport.controls.bits.volumeUp = 0;
-            }
 
             OldSOFCount = LocalSOFCount;
         }
 
+
+        if((consumerReport.controls.value != 0 || consumerReportPending) && !((lastConsumerTransmission != 0x0000) && ((*(volatile uint8_t*)lastConsumerTransmission & 0x80) != 0x00)))
+        {
+            lastConsumerTransmission = USBTransferOnePacket(1,1,(uint8_t*)&consumerReport,sizeof(consumerReport));
+
+            if(consumerReport.controls.value != 0)
+            {
+
+                consumerReport.controls.value = 0;
+                consumerReportPending = 1;
+            }
+            else
+            {
+
+                consumerReportPending = 0;
+            }
+        }
+
     }
-# 499 "app_device_keyboard.c"
+# 519 "app_device_keyboard.c"
     if(((keyboard.lastOUTTransmission != 0x0000) && ((*(volatile uint8_t*)keyboard.lastOUTTransmission & 0x80) != 0x00)) == 0)
     {
         APP_KeyboardProcessOutputReport();
