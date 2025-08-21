@@ -7014,6 +7014,7 @@ typedef struct
 
 
 static KEYBOARD keyboard;
+static KEYBOARD consumer;
 
 
 
@@ -7042,13 +7043,15 @@ extern volatile signed int SOFCounter;
 
 
 KEYBOARD_INPUT_REPORT oldInputReport;
+CONSUMER_INPUT_REPORT oldconsumerReport;
 signed int keyboardIdleRate;
 signed int LocalSOFCount;
 static signed int OldSOFCount;
 
 static _Bool consumerReportPending = 0;
 static void* lastConsumerTransmission;
-# 327 "app_device_keyboard.c"
+static _Bool consumerWaitingForRelease = 0;
+# 330 "app_device_keyboard.c"
 void APP_KeyboardInit(void)
 {
 
@@ -7058,9 +7061,13 @@ void APP_KeyboardInit(void)
 
     keyboard.key = 4;
     keyboard.waitingForRelease = 0;
+    consumerWaitingForRelease = 0;
+
+    consumer.key = 0;
+    consumer.waitingForRelease = 0;
 
 
-    keyboardIdleRate = 500;
+    keyboardIdleRate = 0;
 
 
 
@@ -7082,6 +7089,7 @@ void APP_KeyboardTasks(void)
     signed int TimeDeltaMilliseconds;
     unsigned char i;
     _Bool needToSendNewReportPacket;
+    _Bool needToSendNewReportPacket_consumer;
 
 
 
@@ -7099,7 +7107,7 @@ void APP_KeyboardTasks(void)
     {
 
 
-        if(BUTTON_IsPressed(BUTTON_S2) == 0)
+        if(BUTTON_IsPressed(BUTTON_S3) == 0)
         {
 
         }
@@ -7160,18 +7168,12 @@ void APP_KeyboardTasks(void)
                 }
             }
 
-
-            if(consumerReport.controls.value == 0 && !consumerReportPending)
-            {
-                consumerReport.reportID = 0x02;
-                consumerReport.controls.value = 0;
-                consumerReport.controls.bits.volumeUp = 1;
-            }
         }
         else
         {
             keyboard.waitingForRelease = 0;
         }
+
 
 
 
@@ -7213,27 +7215,67 @@ void APP_KeyboardTasks(void)
 
             OldSOFCount = LocalSOFCount;
         }
+# 501 "app_device_keyboard.c"
+    if(((consumer.lastINTransmission != 0x0000) && ((*(volatile uint8_t*)consumer.lastINTransmission & 0x80) != 0x00)) == 0)
+    {
 
+        memset(&consumerReport, 0, sizeof(consumerReport));
+        consumerReport.reportID = 0x02;
 
-        if((consumerReport.controls.value != 0 || consumerReportPending) && !((lastConsumerTransmission != 0x0000) && ((*(volatile uint8_t*)lastConsumerTransmission & 0x80) != 0x00)))
+        if(BUTTON_IsPressed(BUTTON_S3) == 1)
         {
-            lastConsumerTransmission = USBTransferOnePacket(1,1,(uint8_t*)&consumerReport,sizeof(consumerReport));
-
-            if(consumerReport.controls.value != 0)
+            if(consumer.waitingForRelease == 0)
             {
+                consumer.waitingForRelease = 1;
 
+
+                consumerReport.reportID = 0x02;
                 consumerReport.controls.value = 0;
-                consumerReportPending = 1;
+    consumerReport.controls.bits.volumeUp = 1;
             }
-            else
-            {
 
-                consumerReportPending = 0;
+        }
+        else
+        {
+            consumer.waitingForRelease = 0;
+        }
+
+
+
+
+        needToSendNewReportPacket_consumer = 0;
+        for(i = 0; i < sizeof(consumerReport); i++)
+        {
+            if(*((uint8_t*)&oldconsumerReport + i) != *((uint8_t*)&consumerReport + i))
+            {
+                needToSendNewReportPacket_consumer = 1;
+                break;
             }
         }
 
+
+
+
+
+        if(needToSendNewReportPacket_consumer == 1)
+        {
+
+
+
+            oldconsumerReport = consumerReport;
+
+
+            consumer.lastINTransmission = USBTransferOnePacket(1,1,(uint8_t*)&consumerReport,sizeof(consumerReport));
+
+
+
+
+        }
+
     }
-# 519 "app_device_keyboard.c"
+# 572 "app_device_keyboard.c"
+    }
+# 616 "app_device_keyboard.c"
     if(((keyboard.lastOUTTransmission != 0x0000) && ((*(volatile uint8_t*)keyboard.lastOUTTransmission & 0x80) != 0x00)) == 0)
     {
         APP_KeyboardProcessOutputReport();

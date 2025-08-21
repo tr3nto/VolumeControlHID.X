@@ -1,7 +1,7 @@
 ### HEXMate logfile and output summary ###
 
 ### Command-line arguments ###
- C:\Users\trent\AppData\Local\Temp\xcAsb2o.\driver_tmp_3.o
+ C:\Users\trent\AppData\Local\Temp\xcAsppg.\driver_tmp_3.o
  -Odist/default/debug\VolumeControlHID.X.debug.hex
  -logfile=dist/default/debug\VolumeControlHID.X.debug.hxl
  -addressing=1
@@ -9,19 +9,19 @@
 
 ### Memory Usage ###
  Input file ranges:
-  0h - 5h		(C:\Users\trent\AppData\Local\Temp\xcAsb2o.\driver_tmp_3.o)
-  8h - 247Dh		(C:\Users\trent\AppData\Local\Temp\xcAsb2o.\driver_tmp_3.o)
-  7C3Eh - 7D3Eh		(C:\Users\trent\AppData\Local\Temp\xcAsb2o.\driver_tmp_3.o)
-  300000h - 30000Dh		(C:\Users\trent\AppData\Local\Temp\xcAsb2o.\driver_tmp_3.o)
+  0h - 5h		(C:\Users\trent\AppData\Local\Temp\xcAsppg.\driver_tmp_3.o)
+  8h - 24CDh		(C:\Users\trent\AppData\Local\Temp\xcAsppg.\driver_tmp_3.o)
+  7C3Eh - 7D3Eh		(C:\Users\trent\AppData\Local\Temp\xcAsppg.\driver_tmp_3.o)
+  300000h - 30000Dh		(C:\Users\trent\AppData\Local\Temp\xcAsppg.\driver_tmp_3.o)
  Unused ranges:
   6h - 7h
-  247Eh - 7C3Dh
+  24CEh - 7C3Dh
   7D3Fh - 2FFFFFh
 
 ### Hex Memory Map ###
  Legend:
   -- = Unused memory
-  H1 = Input file             (C:\Users\trent\AppData\Local\Temp\xcAsb2o.\driver_tmp_3.o)
+  H1 = Input file             (C:\Users\trent\AppData\Local\Temp\xcAsppg.\driver_tmp_3.o)
 ----------------------------------------------------------
          | 00 01 02 03 04 05 06 07 08 09 0A 0B 0C 0D 0E 0F
 ----------------------------------------------------------
@@ -608,7 +608,12 @@
 00002440 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 00002450 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 00002460 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
-00002470 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 -- --
+00002470 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00002480 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00002490 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+000024A0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+000024B0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+000024C0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 -- --
 ----------------------------------------------------------
 00007C30 | -- -- -- -- -- -- -- -- -- -- -- -- -- -- H1 H1
 00007C40 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
