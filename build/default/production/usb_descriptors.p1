@@ -657,19 +657,12 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> -> # _sd002 `ui `uc
 -> -> 3 `i `uc
 :U ..
--> -> 75 `ui `us
--> -> 101 `ui `us
--> -> 121 `ui `us
--> -> 98 `ui `us
+-> -> 86 `ui `us
 -> -> 111 `ui `us
--> -> 97 `ui `us
--> -> 114 `ui `us
--> -> 100 `ui `us
--> -> 32 `ui `us
--> -> 68 `ui `us
--> -> 101 `ui `us
+-> -> 108 `ui `us
+-> -> 117 `ui `us
 -> -> 109 `ui `us
--> -> 111 `ui `us
+-> -> 101 `ui `us
 ..
 ..
 ..

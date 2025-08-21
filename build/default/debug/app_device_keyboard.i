@@ -6879,6 +6879,7 @@ const struct{uint8_t report[104];}hid_rpt01={
 { 0x05, 0x01,
     0x09, 0x06,
     0xa1, 0x01,
+    0x85, 0x01,
     0x05, 0x07,
     0x19, 0xe0,
     0x29, 0xe7,
@@ -6930,10 +6931,11 @@ const struct{uint8_t report[104];}hid_rpt01={
  0x81, 0x01,
  0xC0}
 };
-# 112 "app_device_keyboard.c"
+# 113 "app_device_keyboard.c"
 typedef struct
 {
-# 130 "app_device_keyboard.c"
+# 132 "app_device_keyboard.c"
+    uint8_t reportID;
     union
     {
         uint8_t value;
@@ -6949,9 +6951,9 @@ typedef struct
             unsigned rightGUI :1;
         } bits;
     } modifiers;
-# 153 "app_device_keyboard.c"
+# 156 "app_device_keyboard.c"
     unsigned :8;
-# 197 "app_device_keyboard.c"
+# 200 "app_device_keyboard.c"
     uint8_t keys[6];
 } KEYBOARD_INPUT_REPORT;
 
@@ -6964,13 +6966,13 @@ typedef union
     uint8_t value;
     struct
     {
-# 225 "app_device_keyboard.c"
+# 228 "app_device_keyboard.c"
         unsigned numLock :1;
         unsigned capsLock :1;
         unsigned scrollLock :1;
         unsigned compose :1;
         unsigned kana :1;
-# 240 "app_device_keyboard.c"
+# 243 "app_device_keyboard.c"
         unsigned :3;
     } leds;
 } KEYBOARD_OUTPUT_REPORT;
@@ -6985,6 +6987,26 @@ typedef struct
     unsigned char key;
     _Bool waitingForRelease;
 } KEYBOARD;
+
+typedef struct
+{
+    uint8_t reportID;
+    union
+    {
+        uint8_t value;
+        struct
+        {
+            unsigned scanNextTrack :1;
+            unsigned scanPrevTrack :1;
+            unsigned stop :1;
+            unsigned playPause :1;
+            unsigned mute :1;
+            unsigned volumeUp :1;
+            unsigned volumeDown :1;
+            unsigned :1;
+        } bits;
+    } controls;
+} CONSUMER_INPUT_REPORT;
 
 
 
@@ -7001,7 +7023,9 @@ static KEYBOARD_INPUT_REPORT inputReport __attribute__((address(0x500)));
 
 
 
-static volatile KEYBOARD_OUTPUT_REPORT outputReport __attribute__((address(0x508)));
+static volatile KEYBOARD_OUTPUT_REPORT outputReport __attribute__((address(0x509)));
+
+static CONSUMER_INPUT_REPORT consumerReport __attribute__((address(0x50A)));
 
 
 
@@ -7021,7 +7045,7 @@ KEYBOARD_INPUT_REPORT oldInputReport;
 signed int keyboardIdleRate;
 signed int LocalSOFCount;
 static signed int OldSOFCount;
-# 299 "app_device_keyboard.c"
+# 324 "app_device_keyboard.c"
 void APP_KeyboardInit(void)
 {
 
@@ -7112,6 +7136,7 @@ void APP_KeyboardTasks(void)
     {
 
         memset(&inputReport, 0, sizeof(inputReport));
+        inputReport.reportID = 0x01;
 
         if(BUTTON_IsPressed(BUTTON_S2) == 1)
         {
@@ -7120,7 +7145,13 @@ void APP_KeyboardTasks(void)
                 keyboard.waitingForRelease = 1;
 
 
+                inputReport.reportID = 0x01;
                 inputReport.keys[0] = keyboard.key++;
+
+
+                consumerReport.reportID = 0x02;
+            consumerReport.controls.value = 0;
+            consumerReport.controls.bits.volumeUp = 1;
 
 
 
@@ -7170,11 +7201,19 @@ void APP_KeyboardTasks(void)
 
 
             keyboard.lastINTransmission = USBTransferOnePacket(1,1,(uint8_t*)&inputReport,sizeof(inputReport));
+
+            if(consumerReport.controls.bits.volumeUp == 1)
+            {
+                USBTransferOnePacket(1,1,(uint8_t*)&consumerReport,sizeof(consumerReport));
+
+                consumerReport.controls.bits.volumeUp = 0;
+            }
+
             OldSOFCount = LocalSOFCount;
         }
 
     }
-# 459 "app_device_keyboard.c"
+# 499 "app_device_keyboard.c"
     if(((keyboard.lastOUTTransmission != 0x0000) && ((*(volatile uint8_t*)keyboard.lastOUTTransmission & 0x80) != 0x00)) == 0)
     {
         APP_KeyboardProcessOutputReport();

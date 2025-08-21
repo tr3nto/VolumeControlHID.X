@@ -48,6 +48,7 @@ const struct{uint8_t report[HID_RPT01_SIZE];}hid_rpt01={
 {   0x05, 0x01,                    // USAGE_PAGE (Generic Desktop)
     0x09, 0x06,                    // USAGE (Keyboard)
     0xa1, 0x01,                    // COLLECTION (Application)
+    0x85, 0x01,  /*   Report ID  */
     0x05, 0x07,                    //   USAGE_PAGE (Keyboard)
     0x19, 0xe0,                    //   USAGE_MINIMUM (Keyboard LeftControl)
     0x29, 0xe7,                    //   USAGE_MAXIMUM (Keyboard Right GUI)
@@ -127,6 +128,8 @@ typedef struct PACKED
      * These entries represent the Usage items between Left Control (the usage
      * minimum) and Right GUI (the usage maximum).
      */
+    
+    uint8_t reportID;        // Always 0x01 for keyboard reports
     union PACKED
     {
         uint8_t value;
@@ -252,6 +255,26 @@ typedef struct
     bool waitingForRelease;
 } KEYBOARD;
 
+typedef struct PACKED      // ------------------------------------------------------------------------------------------------------
+{
+    uint8_t reportID;        // Always 0x02 for consumer reports
+    union PACKED
+    {
+        uint8_t value;
+        struct PACKED
+        {
+            unsigned scanNextTrack     :1;  // Usage 0xB5
+            unsigned scanPrevTrack     :1;  // Usage 0xB6
+            unsigned stop              :1;  // Usage 0xB7
+            unsigned playPause         :1;  // Usage 0xCD
+            unsigned mute              :1;  // Usage 0xE2
+            unsigned volumeUp          :1;  // Usage 0xE9
+            unsigned volumeDown        :1;  // Usage 0xEA
+            unsigned                   :1;  // Padding bit
+        } bits;
+    } controls;
+} CONSUMER_INPUT_REPORT;
+
 // *****************************************************************************
 // *****************************************************************************
 // Section: File Scope or Global Variables
@@ -268,6 +291,8 @@ static KEYBOARD_INPUT_REPORT inputReport KEYBOARD_INPUT_REPORT_DATA_BUFFER_ADDRE
     #define KEYBOARD_OUTPUT_REPORT_DATA_BUFFER_ADDRESS_TAG
 #endif
 static volatile KEYBOARD_OUTPUT_REPORT outputReport KEYBOARD_OUTPUT_REPORT_DATA_BUFFER_ADDRESS_TAG;
+
+static CONSUMER_INPUT_REPORT consumerReport CONSUMER_INPUT_REPORT_DATA_BUFFER_ADDRESS_TAG;  //-------------------------------------
 
 
 // *****************************************************************************
@@ -386,6 +411,7 @@ void APP_KeyboardTasks(void)
     {
         /* Clear the INPUT report buffer.  Set to all zeros. */
         memset(&inputReport, 0, sizeof(inputReport));
+        inputReport.reportID = 0x01;  // Add this line after memset
 
         if(BUTTON_IsPressed(BUTTON_USB_DEVICE_HID_KEYBOARD_KEY) == true)
         {
@@ -394,7 +420,13 @@ void APP_KeyboardTasks(void)
                 keyboard.waitingForRelease = true;
 
                 /* Set the only important data, the key press data. */
+                inputReport.reportID = 0x01;  // Add this line
                 inputReport.keys[0] = keyboard.key++;
+                
+                
+                consumerReport.reportID = 0x02;
+            consumerReport.controls.value = 0;  // Clear all bits first     -------------------------------------------
+            consumerReport.controls.bits.volumeUp = 1;  // Set volume up bit
 
                 //In this simulated keyboard, if the last key pressed exceeds the a-z + 0-9,
                 //then wrap back around so we send 'a' again.
@@ -444,6 +476,14 @@ void APP_KeyboardTasks(void)
 
             /* Send the 8 byte packet over USB to the host. */
             keyboard.lastINTransmission = HIDTxPacket(HID_EP, (uint8_t*)&inputReport, sizeof(inputReport));
+            
+            if(consumerReport.controls.bits.volumeUp == 1)  //--------------------------------------------------------------------------
+            {
+                HIDTxPacket(HID_EP, (uint8_t*)&consumerReport, sizeof(consumerReport));
+                // Clear the consumer report after sending
+                consumerReport.controls.bits.volumeUp = 0;
+            }
+            
             OldSOFCount = LocalSOFCount;    //Save the current time, so we know when to send the next packet (which depends in part on the idle rate setting)
         }
 

@@ -6900,7 +6900,7 @@ sizeof(sd001),0x03,
 
 const struct{uint8_t bLength;uint8_t bDscType;uint16_t string[13];}sd002={
 sizeof(sd002),0x03,
-{'K','e','y','b','o','a','r','d',' ','D','e','m','o'
+{'V','o','l','u','m','e'
 }};
 
 
