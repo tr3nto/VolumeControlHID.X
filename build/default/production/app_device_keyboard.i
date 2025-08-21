@@ -7273,9 +7273,9 @@ void APP_KeyboardTasks(void)
         }
 
     }
-# 572 "app_device_keyboard.c"
+# 566 "app_device_keyboard.c"
     }
-# 616 "app_device_keyboard.c"
+# 610 "app_device_keyboard.c"
     if(((keyboard.lastOUTTransmission != 0x0000) && ((*(volatile uint8_t*)keyboard.lastOUTTransmission & 0x80) != 0x00)) == 0)
     {
         APP_KeyboardProcessOutputReport();

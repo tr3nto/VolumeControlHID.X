@@ -554,13 +554,7 @@ void APP_KeyboardTasks(void)
             //OldSOFCount = LocalSOFCount;    //Save the current time, so we know when to send the next packet (which depends in part on the idle rate setting)
         }
         
-    }//if(HIDTxHandleBusy(consumer.lastINTransmission) == false)
-        
-        
-        
-        
-        
-        
+    }//if(HIDTxHandleBusy(consumer.lastINTransmission) == false)        
         
         
         

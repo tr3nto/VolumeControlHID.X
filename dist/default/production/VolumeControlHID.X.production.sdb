@@ -19,7 +19,7 @@ BUTTON_NONE 0
 BUTTON_S2 1
 BUTTON_S3 2
 ]
-"630
+"624
 [e E3519 . `uc
 LED_NONE 0
 LED_D1 1
@@ -199,14 +199,14 @@ EVENT_TRANSFER_TERMINATED 5
 [v _APP_KeyboardInit APP_KeyboardInit `(v  1 e 1 0 ]
 "362
 [v _APP_KeyboardTasks APP_KeyboardTasks `(v  1 e 1 0 ]
-"626
+"620
 [v _APP_KeyboardProcessOutputReport APP_KeyboardProcessOutputReport `(v  1 s 1 APP_KeyboardProcessOutputReport ]
 [v i2_APP_KeyboardProcessOutputReport APP_KeyboardProcessOutputReport `(v  1 s 1 i2_APP_KeyboardProcessOutputReport ]
-"638
+"632
 [v _USBHIDCBSetReportComplete USBHIDCBSetReportComplete `(v  1 s 1 USBHIDCBSetReportComplete ]
-"648
+"642
 [v _USBHIDCBSetReportHandler USBHIDCBSetReportHandler `(v  1 e 1 0 ]
-"659
+"653
 [v _USBHIDCBSetIdleRateHandler USBHIDCBSetIdleRateHandler `(v  1 e 1 0 ]
 "49 D:\OneDrive\Documents\Microchip\Projects\VolumeControlHID.X\app_led_usb_status.c
 [v _APP_LEDUpdateUSBStatus APP_LEDUpdateUSBStatus `(v  1 e 1 0 ]
@@ -905,7 +905,7 @@ EVENT_TRANSFER_TERMINATED 5
 [v APP_KeyboardTasks@needToSendNewReportPacket needToSendNewReportPacket `a  1 a 1 14 ]
 "367
 [v APP_KeyboardTasks@needToSendNewReportPacket_consumer needToSendNewReportPacket_consumer `a  1 a 1 13 ]
-"624
+"618
 } 0
 "3 C:\Program Files\Microchip\xc8\v3.00\pic\sources\c99\common\memset.c
 [v _memset memset `(*.39v  1 e 2 0 ]
@@ -967,10 +967,10 @@ EVENT_TRANSFER_TERMINATED 5
 [v BUTTON_IsPressed@button button `E3343  1 p 1 2 ]
 "110
 } 0
-"626 D:\OneDrive\Documents\Microchip\Projects\VolumeControlHID.X\app_device_keyboard.c
+"620 D:\OneDrive\Documents\Microchip\Projects\VolumeControlHID.X\app_device_keyboard.c
 [v _APP_KeyboardProcessOutputReport APP_KeyboardProcessOutputReport `(v  1 s 1 APP_KeyboardProcessOutputReport ]
 {
-"636
+"630
 } 0
 "96 D:\OneDrive\Documents\Microchip\Projects\VolumeControlHID.X\leds.c
 [v _LED_On LED_On `(v  1 e 1 0 ]
@@ -1201,20 +1201,20 @@ EVENT_TRANSFER_TERMINATED 5
 {
 "249
 } 0
-"648 D:\OneDrive\Documents\Microchip\Projects\VolumeControlHID.X\app_device_keyboard.c
+"642 D:\OneDrive\Documents\Microchip\Projects\VolumeControlHID.X\app_device_keyboard.c
 [v _USBHIDCBSetReportHandler USBHIDCBSetReportHandler `(v  1 e 1 0 ]
 {
-"654
+"648
 } 0
-"659
+"653
 [v _USBHIDCBSetIdleRateHandler USBHIDCBSetIdleRateHandler `(v  1 e 1 0 ]
 {
 [v USBHIDCBSetIdleRateHandler@reportID reportID `uc  1 p 1 wreg ]
 [v USBHIDCBSetIdleRateHandler@reportID reportID `uc  1 p 1 wreg ]
 [v USBHIDCBSetIdleRateHandler@newIdleRate newIdleRate `uc  1 p 1 0 ]
-"664
+"658
 [v USBHIDCBSetIdleRateHandler@reportID reportID `uc  1 p 1 1 ]
-"668
+"662
 } 0
 "49 D:\OneDrive\Documents\Microchip\Projects\VolumeControlHID.X\app_led_usb_status.c
 [v _APP_LEDUpdateUSBStatus APP_LEDUpdateUSBStatus `(v  1 e 1 0 ]
@@ -1347,15 +1347,15 @@ EVENT_TRANSFER_TERMINATED 5
 [v USBCtrlTrfInHandler@lastDTS lastDTS `uc  1 a 1 3 ]
 "2674
 } 0
-"638 D:\OneDrive\Documents\Microchip\Projects\VolumeControlHID.X\app_device_keyboard.c
+"632 D:\OneDrive\Documents\Microchip\Projects\VolumeControlHID.X\app_device_keyboard.c
 [v _USBHIDCBSetReportComplete USBHIDCBSetReportComplete `(v  1 s 1 USBHIDCBSetReportComplete ]
 {
-"646
+"640
 } 0
-"626
+"620
 [v i2_APP_KeyboardProcessOutputReport APP_KeyboardProcessOutputReport `(v  1 s 1 i2_APP_KeyboardProcessOutputReport ]
 {
-"636
+"630
 } 0
 "96 D:\OneDrive\Documents\Microchip\Projects\VolumeControlHID.X\leds.c
 [v i2_LED_On LED_On `(v  1 e 1 0 ]

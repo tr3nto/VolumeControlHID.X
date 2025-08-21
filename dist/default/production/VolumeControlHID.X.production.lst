@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V3.00 build 20241204225717 
-                                                                                               Thu Aug 21 16:13:44 2025
+                                                                                               Thu Aug 21 16:31:57 2025
 
 Microchip MPLAB XC8 C Compiler v3.00 (Free license) build 20241204225717 Og1 
      1                           	processor	18F4550
@@ -3932,7 +3932,7 @@ Microchip MPLAB XC8 C Compiler v3.00 (Free license) build 20241204225717 Og1
   3882   00031E  C08C  F06A         	movff	?_USBTransferOnePacket+1,_consumer+1
   3883   000322                     l4908:
   3884                           
-  3885                           ;app_device_keyboard.c: 616:     if(((keyboard.lastOUTTransmission != 0x0000) && ((*(vol
+  3885                           ;app_device_keyboard.c: 610:     if(((keyboard.lastOUTTransmission != 0x0000) && ((*(vol
       +                          atile uint8_t*)keyboard.lastOUTTransmission & 0x80) != 0x00)) == 0)
   3886   000322  0100               	movlb	0	; () banked
   3887   000324  5171               	movf	(_keyboard+2)& (0+255),w,b
@@ -3956,11 +3956,11 @@ Microchip MPLAB XC8 C Compiler v3.00 (Free license) build 20241204225717 Og1
   3905   00034C                     l4912:
   3906                           
   3907                           ; BSR set to: 0
-  3908                           ;app_device_keyboard.c: 617:     {;app_device_keyboard.c: 618:         APP_KeyboardProce
+  3908                           ;app_device_keyboard.c: 611:     {;app_device_keyboard.c: 612:         APP_KeyboardProce
       +                          ssOutputReport();
   3909   00034C  EC17  F012         	call	_APP_KeyboardProcessOutputReport	;wreg free
   3910   000350                     
-  3911                           ;app_device_keyboard.c: 620:         keyboard.lastOUTTransmission = USBTransferOnePacket
+  3911                           ;app_device_keyboard.c: 614:         keyboard.lastOUTTransmission = USBTransferOnePacket
       +                          (1,0,(uint8_t*)&outputReport,sizeof(outputReport));
   3912   000350  0E00               	movlw	0
   3913   000352  0100               	movlb	0	; () banked
@@ -4404,7 +4404,7 @@ Microchip MPLAB XC8 C Compiler v3.00 (Free license) build 20241204225717 Og1
   4345                           
   4346 ;; *************** function _APP_KeyboardProcessOutputReport *****************
   4347 ;; Defined at:
-  4348 ;;		line 626 in file "app_device_keyboard.c"
+  4348 ;;		line 620 in file "app_device_keyboard.c"
   4349 ;; Parameters:    Size  Location     Type
   4350 ;;		None
   4351 ;; Auto vars:     Size  Location     Type
@@ -4439,7 +4439,7 @@ Microchip MPLAB XC8 C Compiler v3.00 (Free license) build 20241204225717 Og1
   4380   00242E                     _APP_KeyboardProcessOutputReport:
   4381                           	callstack 18
   4382   00242E                     
-  4383                           ;app_device_keyboard.c: 628:     if(outputReport.leds.capsLock)
+  4383                           ;app_device_keyboard.c: 622:     if(outputReport.leds.capsLock)
   4384   00242E  0105               	movlb	5	; () banked
   4385   002430  A309               	btfss	9,1,b	;volatile
   4386   002432  EF1D  F012         	goto	u3441
@@ -4449,16 +4449,16 @@ Microchip MPLAB XC8 C Compiler v3.00 (Free license) build 20241204225717 Og1
   4390   00243E                     u3440:
   4391   00243E                     
   4392                           ; BSR set to: 5
-  4393                           ;app_device_keyboard.c: 629:     {;app_device_keyboard.c: 630:         LED_On(LED_D2);
+  4393                           ;app_device_keyboard.c: 623:     {;app_device_keyboard.c: 624:         LED_On(LED_D2);
   4394   00243E  0E02               	movlw	2
   4395   002440  EC4D  F00F         	call	_LED_On
   4396                           
-  4397                           ;app_device_keyboard.c: 631:     }
+  4397                           ;app_device_keyboard.c: 625:     }
   4398   002444  EF27  F012         	goto	l114
   4399   002448                     l4810:
   4400                           
   4401                           ; BSR set to: 5
-  4402                           ;app_device_keyboard.c: 633:     {;app_device_keyboard.c: 634:         LED_Off(LED_D2);
+  4402                           ;app_device_keyboard.c: 627:     {;app_device_keyboard.c: 628:         LED_Off(LED_D2);
   4403   002448  0E02               	movlw	2
   4404   00244A  EC80  F00F         	call	_LED_Off
   4405   00244E                     l114:
@@ -8824,7 +8824,7 @@ Microchip MPLAB XC8 C Compiler v3.00 (Free license) build 20241204225717 Og1
   8679                           
   8680 ;; *************** function _USBHIDCBSetReportHandler *****************
   8681 ;; Defined at:
-  8682 ;;		line 648 in file "app_device_keyboard.c"
+  8682 ;;		line 642 in file "app_device_keyboard.c"
   8683 ;; Parameters:    Size  Location     Type
   8684 ;;		None
   8685 ;; Auto vars:     Size  Location     Type
@@ -8857,7 +8857,7 @@ Microchip MPLAB XC8 C Compiler v3.00 (Free license) build 20241204225717 Og1
   8712   002472                     _USBHIDCBSetReportHandler:
   8713                           	callstack 23
   8714   002472                     
-  8715                           ;app_device_keyboard.c: 653:     {outPipes[0].pDst.bRam = (uint8_t*)&CtrlTrfData;outPipe
+  8715                           ;app_device_keyboard.c: 647:     {outPipes[0].pDst.bRam = (uint8_t*)&CtrlTrfData;outPipe
       +                          s[0].wCount.Val = 8;outPipes[0].pFunc = USBHIDCBSetReportComplete;outPipes[0].info.bits.
       +                          busy = 1; };
   8716   002472  0E28               	movlw	40
@@ -8879,7 +8879,7 @@ Microchip MPLAB XC8 C Compiler v3.00 (Free license) build 20241204225717 Og1
   8732                           
   8733 ;; *************** function _USBHIDCBSetIdleRateHandler *****************
   8734 ;; Defined at:
-  8735 ;;		line 659 in file "app_device_keyboard.c"
+  8735 ;;		line 653 in file "app_device_keyboard.c"
   8736 ;; Parameters:    Size  Location     Type
   8737 ;;  reportID        1    wreg     unsigned char 
   8738 ;;  newIdleRate     1    0[COMRAM] unsigned char 
@@ -8917,8 +8917,8 @@ Microchip MPLAB XC8 C Compiler v3.00 (Free license) build 20241204225717 Og1
   8770                           ;USBHIDCBSetIdleRateHandler@reportID stored from wreg
   8771   00248E  6E31               	movwf	USBHIDCBSetIdleRateHandler@reportID^0,c
   8772   002490                     
-  8773                           ;app_device_keyboard.c: 659: void USBHIDCBSetIdleRateHandler(uint8_t reportID, uint8_t n
-      +                          ewIdleRate);app_device_keyboard.c: 660: {;app_device_keyboard.c: 664:     if(reportID ==
+  8773                           ;app_device_keyboard.c: 653: void USBHIDCBSetIdleRateHandler(uint8_t reportID, uint8_t n
+      +                          ewIdleRate);app_device_keyboard.c: 654: {;app_device_keyboard.c: 658:     if(reportID ==
       +                           0)
   8774   002490  5031               	movf	USBHIDCBSetIdleRateHandler@reportID^0,w,c
   8775   002492  A4D8               	btfss	status,2,c
@@ -8928,7 +8928,7 @@ Microchip MPLAB XC8 C Compiler v3.00 (Free license) build 20241204225717 Og1
   8779   00249C  EF54  F012         	goto	i2l124
   8780   0024A0                     i2u176_40:
   8781   0024A0                     
-  8782                           ;app_device_keyboard.c: 665:     {;app_device_keyboard.c: 666:         keyboardIdleRate 
+  8782                           ;app_device_keyboard.c: 659:     {;app_device_keyboard.c: 660:         keyboardIdleRate 
       +                          = newIdleRate;
   8783   0024A0  C030  F081         	movff	USBHIDCBSetIdleRateHandler@newIdleRate,_keyboardIdleRate
   8784   0024A4  0100               	movlb	0	; () banked
@@ -10481,7 +10481,7 @@ Microchip MPLAB XC8 C Compiler v3.00 (Free license) build 20241204225717 Og1
  10292                           
  10293 ;; *************** function _USBHIDCBSetReportComplete *****************
  10294 ;; Defined at:
- 10295 ;;		line 638 in file "app_device_keyboard.c"
+ 10295 ;;		line 632 in file "app_device_keyboard.c"
  10296 ;; Parameters:    Size  Location     Type
  10297 ;;		None
  10298 ;; Auto vars:     Size  Location     Type
@@ -10517,10 +10517,10 @@ Microchip MPLAB XC8 C Compiler v3.00 (Free license) build 20241204225717 Og1
  10328   0024C4                     _USBHIDCBSetReportComplete:
  10329                           	callstack 20
  10330   0024C4                     
- 10331                           ;app_device_keyboard.c: 642:     outputReport.value = CtrlTrfData[0];
+ 10331                           ;app_device_keyboard.c: 636:     outputReport.value = CtrlTrfData[0];
  10332   0024C4  C428 F509          	movff	1064,1289	;volatile
  10333   0024C8                     
- 10334                           ;app_device_keyboard.c: 645:     APP_KeyboardProcessOutputReport();
+ 10334                           ;app_device_keyboard.c: 639:     APP_KeyboardProcessOutputReport();
  10335   0024C8  EC28  F012         	call	i2_APP_KeyboardProcessOutputReport	;wreg free
  10336   0024CC  0012               	return		;funcret
  10337   0024CE                     __end_of_USBHIDCBSetReportComplete:
@@ -10528,7 +10528,7 @@ Microchip MPLAB XC8 C Compiler v3.00 (Free license) build 20241204225717 Og1
  10339                           
  10340 ;; *************** function i2_APP_KeyboardProcessOutputReport *****************
  10341 ;; Defined at:
- 10342 ;;		line 626 in file "app_device_keyboard.c"
+ 10342 ;;		line 620 in file "app_device_keyboard.c"
  10343 ;; Parameters:    Size  Location     Type
  10344 ;;		None
  10345 ;; Auto vars:     Size  Location     Type
@@ -10563,7 +10563,7 @@ Microchip MPLAB XC8 C Compiler v3.00 (Free license) build 20241204225717 Og1
  10374   002450                     i2_APP_KeyboardProcessOutputReport:
  10375                           	callstack 20
  10376   002450                     
- 10377                           ;app_device_keyboard.c: 628:     if(outputReport.leds.capsLock)
+ 10377                           ;app_device_keyboard.c: 622:     if(outputReport.leds.capsLock)
  10378   002450  0105               	movlb	5	; () banked
  10379   002452  A309               	btfss	9,1,b	;volatile
  10380   002454  EF2E  F012         	goto	i2u202_41
@@ -10573,16 +10573,16 @@ Microchip MPLAB XC8 C Compiler v3.00 (Free license) build 20241204225717 Og1
  10384   002460                     i2u202_40:
  10385   002460                     
  10386                           ; BSR set to: 5
- 10387                           ;app_device_keyboard.c: 629:     {;app_device_keyboard.c: 630:         LED_On(LED_D2);
+ 10387                           ;app_device_keyboard.c: 623:     {;app_device_keyboard.c: 624:         LED_On(LED_D2);
  10388   002460  0E02               	movlw	2
  10389   002462  ECE4  F00F         	call	i2_LED_On
  10390                           
- 10391                           ;app_device_keyboard.c: 631:     }
+ 10391                           ;app_device_keyboard.c: 625:     }
  10392   002466  EF38  F012         	goto	i2l114
  10393   00246A                     i2l3412:
  10394                           
  10395                           ; BSR set to: 5
- 10396                           ;app_device_keyboard.c: 633:     {;app_device_keyboard.c: 634:         LED_Off(LED_D2);
+ 10396                           ;app_device_keyboard.c: 627:     {;app_device_keyboard.c: 628:         LED_Off(LED_D2);
  10397   00246A  0E02               	movlw	2
  10398   00246C  EC15  F010         	call	i2_LED_Off
  10399   002470                     i2l114:
@@ -11802,7 +11802,7 @@ DATA                 0      0     155      0.0%
 
 
 Microchip Technology PIC18 Macro Assembler V3.00 build 20241204225717 
-Symbol Table                                                                                   Thu Aug 21 16:13:44 2025
+Symbol Table                                                                                   Thu Aug 21 16:31:57 2025
 
                                          _USB_SD_Ptr 7EFF                                                   l80 003E  
                                                  l90 015C                                                   l82 0092  
