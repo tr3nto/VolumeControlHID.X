@@ -440,7 +440,7 @@ void APP_KeyboardTasks(void)
             {
                 consumerReport.reportID = 0x02;
                 consumerReport.controls.value = 0;  // Clear all bits first
-       abcdefghi         consumerReport.controls.bits.volumeUp = 1;  // Set volume up bit
+                consumerReport.controls.bits.volumeUp = 1;  // Set volume up bit
             }
         }
         else
