@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V3.00 build 20241204225717 
-                                                                                               Fri Aug 22 11:39:16 2025
+                                                                                               Fri Aug 22 11:46:34 2025
 
 Microchip MPLAB XC8 C Compiler v3.00 (Free license) build 20241204225717 Og1 
      1                           	processor	18F2550
@@ -2291,9 +2291,9 @@ Microchip MPLAB XC8 C Compiler v3.00 (Free license) build 20241204225717 Og1
   2277                           	callstack 0
   2278   00007A                     memset@dest:
   2279                           	callstack 0
-  2280   00007A                     ??_BUTTON_Enable:
-  2281   00007A                     ??_LED_Enable:
-  2282   00007A                     ??_ENCODER_Task:
+  2280   00007A                     ??_ENCODER_Task:
+  2281   00007A                     ??_BUTTON_Enable:
+  2282   00007A                     ??_LED_Enable:
   2283                           
   2284                           ; 1 bytes @ 0x0
   2285   00007A                     	ds	1
@@ -2387,8 +2387,8 @@ Microchip MPLAB XC8 C Compiler v3.00 (Free license) build 20241204225717 Og1
   2373                           	callstack 0
   2374   00002C                     ??_LED_Off:
   2375   00002C                     ??_LED_On:
-  2376   00002C                     ??_USBStdGetDscHandler:
-  2377   00002C                     ??_ENCODER_Initialize:
+  2376   00002C                     ??_ENCODER_Initialize:
+  2377   00002C                     ??_USBStdGetDscHandler:
   2378   00002C                     ??i2_BUTTON_Enable:
   2379   00002C                     ??i2_LED_Enable:
   2380                           
@@ -3344,7 +3344,7 @@ Microchip MPLAB XC8 C Compiler v3.00 (Free license) build 20241204225717 Og1
   3320   000A2E                     u3201:
   3321   000A2E  EF1B  F005         	goto	l4562
   3322   000A32                     u3200:
-  3323   000A32  EFAB  F005         	goto	l685
+  3323   000A32  EFAB  F005         	goto	l652
   3324   000A36                     l4562:
   3325                           
   3326                           ;app_device_consumer.c: 168:     ENCODER_Task();
@@ -3357,7 +3357,7 @@ Microchip MPLAB XC8 C Compiler v3.00 (Free license) build 20241204225717 Og1
   3333   000A44                     u3211:
   3334   000A44  EF26  F005         	goto	l4568
   3335   000A48                     u3210:
-  3336   000A48  EFAB  F005         	goto	l685
+  3336   000A48  EFAB  F005         	goto	l652
   3337   000A4C                     l4568:
   3338                           
   3339                           ;app_device_consumer.c: 181:     if(((lastConsumerTransmission != 0x0000) && ((*(volatil
@@ -3379,7 +3379,7 @@ Microchip MPLAB XC8 C Compiler v3.00 (Free license) build 20241204225717 Og1
   3354   000A6A  EF39  F005         	goto	u3231
   3355   000A6E  EF3B  F005         	goto	u3230
   3356   000A72                     u3231:
-  3357   000A72  EFAB  F005         	goto	l685
+  3357   000A72  EFAB  F005         	goto	l652
   3358   000A76                     u3230:
   3359   000A76                     l4572:
   3360                           
@@ -3529,7 +3529,7 @@ Microchip MPLAB XC8 C Compiler v3.00 (Free license) build 20241204225717 Og1
   3498   000B24  EF96  F005         	goto	u3281
   3499   000B28  EF98  F005         	goto	u3280
   3500   000B2C                     u3281:
-  3501   000B2C  EFAB  F005         	goto	l685
+  3501   000B2C  EFAB  F005         	goto	l652
   3502   000B30                     u3280:
   3503   000B30                     
   3504                           ; BSR set to: 0
@@ -3553,7 +3553,7 @@ Microchip MPLAB XC8 C Compiler v3.00 (Free license) build 20241204225717 Og1
   3520   000B4A  ECAC  F005         	call	_USBTransferOnePacket
   3521   000B4E  C07A  F068         	movff	?_USBTransferOnePacket,_lastConsumerTransmission
   3522   000B52  C07B  F069         	movff	?_USBTransferOnePacket+1,_lastConsumerTransmission+1
-  3523   000B56                     l685:
+  3523   000B56                     l652:
   3524   000B56  0012               	return		;funcret
   3525   000B58                     __end_of_APP_ConsumerTasks:
   3526                           	callstack 0
@@ -3893,28 +3893,28 @@ Microchip MPLAB XC8 C Compiler v3.00 (Free license) build 20241204225717 Og1
   3856                           ;encoder.c: 153:     uint8_t current_state;;encoder.c: 154:     int8_t direction;;encode
       +                          r.c: 157:     current_state = (PORTBbits.RB4 << 1) | PORTBbits.RB5;
   3857   001632  BA81               	btfsc	129,5,c	;volatile
-  3858   001634  EF1E  F00B         	goto	u3091
-  3859   001638  EF23  F00B         	goto	u3090
-  3860   00163C                     u3091:
+  3858   001634  EF1E  F00B         	goto	u3071
+  3859   001638  EF23  F00B         	goto	u3070
+  3860   00163C                     u3071:
   3861   00163C  0100               	movlb	0	; () banked
   3862   00163E  6B7A               	clrf	??_ENCODER_Task& (0+255),b
   3863   001640  2B7A               	incf	??_ENCODER_Task& (0+255),f,b
-  3864   001642  EF25  F00B         	goto	u3098
-  3865   001646                     u3090:
+  3864   001642  EF25  F00B         	goto	u3078
+  3865   001646                     u3070:
   3866   001646  0100               	movlb	0	; () banked
   3867   001648  6B7A               	clrf	??_ENCODER_Task& (0+255),b
-  3868   00164A                     u3098:
+  3868   00164A                     u3078:
   3869   00164A  B881               	btfsc	129,4,c	;volatile
-  3870   00164C  EF2A  F00B         	goto	u3101
-  3871   001650  EF2E  F00B         	goto	u3100
-  3872   001654                     u3101:
+  3870   00164C  EF2A  F00B         	goto	u3081
+  3871   001650  EF2E  F00B         	goto	u3080
+  3872   001654                     u3081:
   3873   001654  6B7B               	clrf	(??_ENCODER_Task+1)& (0+255),b
   3874   001656  2B7B               	incf	(??_ENCODER_Task+1)& (0+255),f,b
-  3875   001658  EF30  F00B         	goto	u3108
-  3876   00165C                     u3100:
+  3875   001658  EF30  F00B         	goto	u3088
+  3876   00165C                     u3080:
   3877   00165C  0100               	movlb	0	; () banked
   3878   00165E  6B7B               	clrf	(??_ENCODER_Task+1)& (0+255),b
-  3879   001660                     u3108:
+  3879   001660                     u3088:
   3880   001660  90D8               	bcf	status,0,c
   3881   001662  357B               	rlcf	(??_ENCODER_Task+1)& (0+255),w,b
   3882   001664  117A               	iorwf	??_ENCODER_Task& (0+255),w,b
@@ -3924,19 +3924,19 @@ Microchip MPLAB XC8 C Compiler v3.00 (Free license) build 20241204225717 Og1
   3886   001668  5172               	movf	_last_stable_state& (0+255),w,b
   3887   00166A  197D               	xorwf	ENCODER_Task@current_state& (0+255),w,b
   3888   00166C  A4D8               	btfss	status,2,c
-  3889   00166E  EF3B  F00B         	goto	u3111
-  3890   001672  EF3D  F00B         	goto	u3110
-  3891   001676                     u3111:
-  3892   001676  EF40  F00B         	goto	l4432
-  3893   00167A                     u3110:
+  3889   00166E  EF3B  F00B         	goto	u3091
+  3890   001672  EF3D  F00B         	goto	u3090
+  3891   001676                     u3091:
+  3892   001676  EF40  F00B         	goto	l4414
+  3893   00167A                     u3090:
   3894   00167A                     
   3895                           ; BSR set to: 0
   3896                           ;encoder.c: 161:         debounce_count = 0;
   3897   00167A  6B73               	clrf	_debounce_count& (0+255),b
   3898                           
   3899                           ;encoder.c: 162:         return;
-  3900   00167C  EF7F  F00B         	goto	l641
-  3901   001680                     l4432:
+  3900   00167C  EF7F  F00B         	goto	l692
+  3901   001680                     l4414:
   3902                           
   3903                           ; BSR set to: 0
   3904                           ;encoder.c: 165:     debounce_count++;
@@ -3946,13 +3946,13 @@ Microchip MPLAB XC8 C Compiler v3.00 (Free license) build 20241204225717 Og1
   3908                           ;encoder.c: 166:     if (debounce_count < 2) {
   3909   001682  0E02               	movlw	2
   3910   001684  6173               	cpfslt	_debounce_count& (0+255),b
-  3911   001686  EF47  F00B         	goto	u3121
-  3912   00168A  EF49  F00B         	goto	u3120
-  3913   00168E                     u3121:
-  3914   00168E  EF4B  F00B         	goto	l642
-  3915   001692                     u3120:
-  3916   001692  EF7F  F00B         	goto	l641
-  3917   001696                     l642:
+  3911   001686  EF47  F00B         	goto	u3101
+  3912   00168A  EF49  F00B         	goto	u3100
+  3913   00168E                     u3101:
+  3914   00168E  EF4B  F00B         	goto	l693
+  3915   001692                     u3100:
+  3916   001692  EF7F  F00B         	goto	l692
+  3917   001696                     l693:
   3918                           
   3919                           ; BSR set to: 0
   3920                           ;encoder.c: 171:     debounce_count = 0;
@@ -3992,11 +3992,11 @@ Microchip MPLAB XC8 C Compiler v3.00 (Free license) build 20241204225717 Og1
   3954   0016C4  0A80               	xorlw	128
   3955   0016C6  0F6B               	addlw	-149
   3956   0016C8  A0D8               	btfss	status,0,c
-  3957   0016CA  EF69  F00B         	goto	u3131
-  3958   0016CE  EF6B  F00B         	goto	u3130
-  3959   0016D2                     u3131:
-  3960   0016D2  EF6F  F00B         	goto	l4446
-  3961   0016D6                     u3130:
+  3957   0016CA  EF69  F00B         	goto	u3111
+  3958   0016CE  EF6B  F00B         	goto	u3110
+  3959   0016D2                     u3111:
+  3960   0016D2  EF6F  F00B         	goto	l4428
+  3961   0016D6                     u3110:
   3962   0016D6                     
   3963                           ; BSR set to: 0
   3964                           ;encoder.c: 181:         encoder_count = 20;
@@ -4004,25 +4004,25 @@ Microchip MPLAB XC8 C Compiler v3.00 (Free license) build 20241204225717 Og1
   3966   0016D8  6E1D               	movwf	_encoder_count^0,c
   3967                           
   3968                           ;encoder.c: 182:     }
-  3969   0016DA  EF7B  F00B         	goto	l4450
-  3970   0016DE                     l4446:
+  3969   0016DA  EF7B  F00B         	goto	l4432
+  3970   0016DE                     l4428:
   3971                           
   3972                           ; BSR set to: 0
   3973   0016DE  501D               	movf	_encoder_count^0,w,c
   3974   0016E0  0A80               	xorlw	128
   3975   0016E2  0F94               	addlw	148
   3976   0016E4  B0D8               	btfsc	status,0,c
-  3977   0016E6  EF77  F00B         	goto	u3141
-  3978   0016EA  EF79  F00B         	goto	u3140
-  3979   0016EE                     u3141:
-  3980   0016EE  EF7B  F00B         	goto	l4450
-  3981   0016F2                     u3140:
+  3977   0016E6  EF77  F00B         	goto	u3121
+  3978   0016EA  EF79  F00B         	goto	u3120
+  3979   0016EE                     u3121:
+  3980   0016EE  EF7B  F00B         	goto	l4432
+  3981   0016F2                     u3120:
   3982   0016F2                     
   3983                           ; BSR set to: 0
   3984                           ;encoder.c: 184:         encoder_count = -20;
   3985   0016F2  0EEC               	movlw	236
   3986   0016F4  6E1D               	movwf	_encoder_count^0,c
-  3987   0016F6                     l4450:
+  3987   0016F6                     l4432:
   3988                           
   3989                           ; BSR set to: 0
   3990                           ;encoder.c: 188:     encoder_prev_state = current_state;
@@ -4031,7 +4031,7 @@ Microchip MPLAB XC8 C Compiler v3.00 (Free license) build 20241204225717 Og1
   3993                           ; BSR set to: 0
   3994                           ;encoder.c: 189:     last_stable_state = current_state;
   3995   0016FA  C07D  F072         	movff	ENCODER_Task@current_state,_last_stable_state
-  3996   0016FE                     l641:
+  3996   0016FE                     l692:
   3997                           
   3998                           ; BSR set to: 0
   3999   0016FE  0012               	return		;funcret
@@ -4046,7 +4046,7 @@ Microchip MPLAB XC8 C Compiler v3.00 (Free license) build 20241204225717 Og1
   4008 ;; Auto vars:     Size  Location     Type
   4009 ;;  direction       1    0[BANK0 ] enum E2973
   4010 ;; Return value:  Size  Location     Type
-  4011 ;;                  1    wreg      enum E2973
+  4011 ;;                  1    wreg      enum E3679
   4012 ;; Registers used:
   4013 ;;		wreg, status,2, status,0
   4014 ;; Tracked objects:
@@ -4084,11 +4084,11 @@ Microchip MPLAB XC8 C Compiler v3.00 (Free license) build 20241204225717 Og1
   4046   001E0A  0A80               	xorlw	128
   4047   001E0C  0F7C               	addlw	-132
   4048   001E0E  A0D8               	btfss	status,0,c
-  4049   001E10  EF0C  F00F         	goto	u3071
-  4050   001E14  EF0E  F00F         	goto	u3070
-  4051   001E18                     u3071:
-  4052   001E18  EF14  F00F         	goto	l4418
-  4053   001E1C                     u3070:
+  4049   001E10  EF0C  F00F         	goto	u3131
+  4050   001E14  EF0E  F00F         	goto	u3130
+  4051   001E18                     u3131:
+  4052   001E18  EF14  F00F         	goto	l4444
+  4053   001E1C                     u3130:
   4054   001E1C                     
   4055                           ; BSR set to: 0
   4056                           ;encoder.c: 128:         direction = ENCODER_CW;
@@ -4101,19 +4101,19 @@ Microchip MPLAB XC8 C Compiler v3.00 (Free license) build 20241204225717 Og1
   4063   001E22  261D               	addwf	_encoder_count^0,f,c
   4064                           
   4065                           ;encoder.c: 130:     }
-  4066   001E24  EF22  F00F         	goto	l4424
-  4067   001E28                     l4418:
+  4066   001E24  EF22  F00F         	goto	l4450
+  4067   001E28                     l4444:
   4068                           
   4069                           ; BSR set to: 0
   4070   001E28  501D               	movf	_encoder_count^0,w,c
   4071   001E2A  0A80               	xorlw	128
   4072   001E2C  0F83               	addlw	131
   4073   001E2E  B0D8               	btfsc	status,0,c
-  4074   001E30  EF1C  F00F         	goto	u3081
-  4075   001E34  EF1E  F00F         	goto	u3080
-  4076   001E38                     u3081:
-  4077   001E38  EF22  F00F         	goto	l4424
-  4078   001E3C                     u3080:
+  4074   001E30  EF1C  F00F         	goto	u3141
+  4075   001E34  EF1E  F00F         	goto	u3140
+  4076   001E38                     u3141:
+  4077   001E38  EF22  F00F         	goto	l4450
+  4078   001E3C                     u3140:
   4079   001E3C                     
   4080                           ; BSR set to: 0
   4081                           ;encoder.c: 132:         direction = ENCODER_CCW;
@@ -4124,7 +4124,7 @@ Microchip MPLAB XC8 C Compiler v3.00 (Free license) build 20241204225717 Og1
   4086                           ;encoder.c: 133:         encoder_count += 4;
   4087   001E40  0E04               	movlw	4
   4088   001E42  261D               	addwf	_encoder_count^0,f,c
-  4089   001E44                     l4424:
+  4089   001E44                     l4450:
   4090                           
   4091                           ; BSR set to: 0
   4092                           ;encoder.c: 136:     return direction;
@@ -8714,7 +8714,7 @@ Microchip MPLAB XC8 C Compiler v3.00 (Free license) build 20241204225717 Og1
   8587                           
   8588                           ;app_device_consumer.c: 142:     while(OldSOFCount != SOFCounter)
   8589   001ED6  EF71  F00F         	goto	i2l3084
-  8590   001EDA                     i2l679:
+  8590   001EDA                     i2l646:
   8591                           
   8592                           ; BSR set to: 0
   8593                           ;app_device_consumer.c: 143:     {;app_device_consumer.c: 144:         OldSOFCount = SOF
@@ -8734,7 +8734,7 @@ Microchip MPLAB XC8 C Compiler v3.00 (Free license) build 20241204225717 Og1
   8606   001EEE  EF7B  F00F         	goto	i2u170_41
   8607   001EF2  EF7D  F00F         	goto	i2u170_40
   8608   001EF6                     i2u170_41:
-  8609   001EF6  EF6D  F00F         	goto	i2l679
+  8609   001EF6  EF6D  F00F         	goto	i2l646
   8610   001EFA                     i2u170_40:
   8611   001EFA                     
   8612                           ; BSR set to: 0
@@ -10706,7 +10706,7 @@ DATA                 0      0     128      0.0%
 
 
 Microchip Technology PIC18 Macro Assembler V3.00 build 20241204225717 
-Symbol Table                                                                                   Fri Aug 22 11:39:16 2025
+Symbol Table                                                                                   Fri Aug 22 11:46:34 2025
 
                                          _USB_SD_Ptr 7C85                                                   l60 1D38  
                                                  l62 1D72                                                   l58 1D32  
@@ -10719,9 +10719,9 @@ Symbol Table                                                                    
                         __end_of_USBStdGetDscHandler 0672                                                  l351 1E76  
                                                 l352 1E74                                                  l354 1E88  
                                                 l291 0CE2                                                  l296 0D96  
-                                                l641 16FE                                                  l642 1696  
-                                                l637 1E46                                                  _BDT 0400  
-                                                l685 0B56                                                  _UIE 0F69  
+                                                l652 0B56                                                  l692 16FE  
+                                                _BDT 0400                                                  l693 1696  
+                                                l688 1E46                                                  _UIE 0F69  
                                                 _UIR 0F68                               _APP_LEDUpdateUSBStatus 11BE  
                                          _USBSuspend 1FEC                                 USBStdSetCfgHandler@i 0042  
                                                 prod 0FF3                                                  wreg 0FE8  
@@ -10730,36 +10730,36 @@ Symbol Table                                                                    
                               ??_USBCtrlTrfRxService 002C                             USBEnableEndpoint@options 0036  
                                     __end_of_LED_Off 1B86                                                 l1382 1F7E  
                          USBConfigureEndpoint@handle 0034                                                 l4400 0C00  
-                                               l4410 1E04                                                 l4402 0C10  
-                                               l4420 1E3C                                                 l4412 1E08  
+                                               l4410 1632                                                 l4402 0C10  
+                                               l4420 1698                                                 l4412 167A  
                                                l4404 0C46                                                 l4500 0D0E  
-                                               l4422 1E40                                                 l4414 1E1C  
-                                               l4430 167A                                                 l4406 0C78  
-                                               l4502 0D12                                                 l4424 1E44  
-                                               l4416 1E20                                                 l4440 16BE  
-                                               l4432 1680                                                 l4352 1D3E  
+                                               l4430 16F2                                                 l4422 16BE  
+                                               l4414 1680                                                 l4406 0C78  
+                                               l4502 0D12                                                 l4440 1E1C  
+                                               l4432 16F6                                                 l4424 16C2  
+                                               l4416 1682                                                 l4352 1D3E  
                                                l4360 19FE                                                 l4520 0D4E  
                                                l4512 0D18                                                 l4504 0D14  
-                                               l4418 1E28                                                 l4450 16F6  
-                                               l4442 16C2                                                 l4434 1682  
+                                               l4450 1E44                                                 l4442 1E20  
+                                               l4434 16FA                                                 l4426 16D6  
                                                l4610 0B20                                                 l4602 0AE0  
                                                l4530 0D78                                                 l4522 0D5E  
                                                l4514 0D38                                                 l4506 0D16  
-                                               l4452 16FA                                                 l4444 16D6  
-                                               l4428 1632                                                 l4380 0B5C  
+                                               l4444 1E28                                                 l4436 1E04  
+                                               l4428 16DE                                                 l4380 0B5C  
                                                l4372 1F46                                                 l4612 0B30  
                                                l4604 0B06                                                 l4348 1D2E  
                                                l4364 1A1A                                                 l4460 1CA8  
                                                l4540 0D94                                                 l4532 0D7C  
                                                l4524 0D66                                                 l4516 0D42  
-                                               l4620 2044                                                 l4446 16DE  
-                                               l4438 1698                                                 l4382 0B6E  
+                                               l4620 2044                                                 l4446 1E3C  
+                                               l4438 1E08                                                 l4382 0B6E  
                                                l4374 1F52                                                 l4614 0B38  
                                                l4606 0B0E                                                 l4454 1C94  
                                                l4550 1E6A                                                 l4542 1E48  
                                                l4534 0D7E                                                 l4526 0D6A  
                                                l4518 0D4C                                                 l4470 0CA8  
-                                               l4622 2048                                                 l4448 16F2  
+                                               l4622 2048                                                 l4448 1E40  
                                                l4392 0BB8                                                 l4384 0B86  
                                                l4376 1F5E                                                 l4608 0B10  
                                                l4456 1C98                                                 l4552 1E6C  
@@ -10789,33 +10789,33 @@ Symbol Table                                                                    
                                                l4596 0ADE                                                 l4588 0AD0  
                                                l4870 1D54                                                 l4866 1CBE  
                                                l4868 1A30                                ??i2_SYSTEM_Initialize 002F  
-                                               u3100 165C                                                 u3101 1654  
-                                               u3110 167A                                                 u3030 1F7E  
-                                               u3111 1676                                                 u3031 1F7A  
-                                               u3120 1692                                                 u3040 0B6E  
-                                               u3200 0A32                                                 u3121 168E  
+                                               u3100 1692                                                 u3101 168E  
+                                               u3110 16D6                                                 u3030 1F7E  
+                                               u3111 16D2                                                 u3031 1F7A  
+                                               u3120 16F2                                                 u3040 0B6E  
+                                               u3200 0A32                                                 u3121 16EE  
                                                u3041 0B6A                                                 u3201 0A2E  
-                                               u3130 16D6                                                 u3050 0BAC  
-                                               u3210 0A48                                                 u3131 16D2  
+                                               u3130 1E1C                                                 u3050 0BAC  
+                                               u3210 0A48                                                 u3131 1E18  
                                                u3051 0BA8                                                 u3211 0A44  
-                                               u3140 16F2                                                 u3108 1660  
-                                               u3060 0C10                                                 u3220 0A60  
-                                               u3141 16EE                                                 u3061 0C0C  
-                                               u3221 0A5C                                                 u3070 1E1C  
-                                               u3230 0A76                                                 u3150 0CE2  
-                                               u3071 1E18                                                 u3231 0A72  
-                                               u3151 0CDE                                                 u3080 1E3C  
-                                               u3240 0AB0                                                 u3160 0D06  
-                                               u3081 1E38                                                 u3241 0AAC  
-                                               u3161 0D02                                                 u3090 1646  
-                                               u3250 0AD0                                                 u3170 0D5E  
-                                               u3091 163C                                                 u3251 0ACC  
-                                               u3171 0D5A                                                 u3260 0B06  
-                                               u3180 1E58                                                 u3261 0B02  
-                                               u3181 1E54                                                 u3270 0B20  
+                                               u3140 1E3C                                                 u3060 0C10  
+                                               u3220 0A60                                                 u3141 1E38  
+                                               u3061 0C0C                                                 u3221 0A5C  
+                                               u3070 1646                                                 u3230 0A76  
+                                               u3150 0CE2                                                 u3071 163C  
+                                               u3231 0A72                                                 u3151 0CDE  
+                                               u3080 165C                                                 u3240 0AB0  
+                                               u3160 0D06                                                 u3081 1654  
+                                               u3241 0AAC                                                 u3161 0D02  
+                                               u3090 167A                                                 u3250 0AD0  
+                                               u3170 0D5E                                                 u3091 1676  
+                                               u3251 0ACC                                                 u3171 0D5A  
+                                               u3260 0B06                                                 u3180 1E58  
+                                               u3261 0B02                                                 u3181 1E54  
+                                               u3078 164A                                                 u3270 0B20  
                                                u3190 1E84                                                 u3271 0B1C  
-                                               u3191 1E80                                                 u3280 0B30  
-                                               u3281 0B2C                                                 u3098 164A  
+                                               u3191 1E80                                                 u3088 1660  
+                                               u3280 0B30                                                 u3281 0B2C  
                                                i2l32 1232                                                 i2l28 12B0  
                                                i2l60 1DCA                                                 i2l70 1AC8  
                                                i2l62 1E02                                ??_USBCtrlTrfTxService 002C  
@@ -10858,19 +10858,19 @@ Symbol Table                                                                    
                                               i2l540 0316                                                i2l444 12DA  
                                               i2l373 1908                                                i2l429 05E8  
                                               i2l453 1BE2                                                i2l358 148A  
-                                              i2l518 0054                                                i2l631 1ECA  
-                                              i2l439 12BC                                                i2l455 1BE4  
-                                              i2l463 1F40                                                i2l480 19F6  
-                                              i2l536 0288                                                i2l528 01DA  
-                                              i2l368 1860                                                i2l376 084A  
-                                              i2l472 17B6                                                i2l464 1F44  
-                                              i2l296 0EA8                                                i2l545 1FEA  
-                                              i2l482 19F8                                                i2l386 08E8  
-                                              i2l458 2016                                                i2l475 1988  
-                                              i2l494 11BA                                                i2l478 19A4  
+                                              i2l518 0054                                                i2l439 12BC  
+                                              i2l455 1BE4                                                i2l463 1F40  
+                                              i2l480 19F6                                                i2l536 0288  
+                                              i2l528 01DA                                                i2l368 1860  
+                                              i2l376 084A                                                i2l472 17B6  
+                                              i2l464 1F44                                                i2l296 0EA8  
+                                              i2l545 1FEA                                                i2l482 19F8  
+                                              i2l386 08E8                                                i2l458 2016  
+                                              i2l475 1988                                                i2l494 11BA  
+                                              i2l478 19A4                                                i2l646 1EDA  
                                               i2l495 11B8                                                i2l496 11BC  
-                                              i2l488 11AA                                                i2l568 0A20  
-                                              i2l681 1F08                                                i2l679 1EDA  
+                                              i2l488 11AA                                                i2l648 1F08  
+                                              i2l568 0A20                                                i2l682 1ECA  
                                               _UADDR 0F6E                                                _USTAT 0F6C  
                                    _APP_ConsumerInit 1ECC                                       ?_BUTTON_Enable 002C  
                     __end_of_USBCtrlEPAllowDataStage 1862                                                _sd000 7D3A  

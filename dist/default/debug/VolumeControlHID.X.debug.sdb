@@ -173,12 +173,6 @@ EVENT_EP0_REQUEST 3
 EVENT_ATTACH 4
 EVENT_TRANSFER_TERMINATED 5
 ]
-"122 D:\OneDrive\Documents\Microchip\Projects\VolumeControlHID.X\encoder.c
-[e E2973 . `uc
-ENCODER_NONE 0
-ENCODER_CW 1
-ENCODER_CCW 2
-]
 "162 D:\OneDrive\Documents\Microchip\Projects\VolumeControlHID.X\app_device_consumer.c
 [e E3435 . `uc
 DETACHED_STATE 0
@@ -195,7 +189,13 @@ ENCODER_NONE 0
 ENCODER_CW 1
 ENCODER_CCW 2
 ]
-"134
+"122 D:\OneDrive\Documents\Microchip\Projects\VolumeControlHID.X\encoder.c
+[e E2973 . `uc
+ENCODER_NONE 0
+ENCODER_CW 1
+ENCODER_CCW 2
+]
+"134 D:\OneDrive\Documents\Microchip\Projects\VolumeControlHID.X\app_device_consumer.c
 [v _APP_ConsumerInit APP_ConsumerInit `(v  1 e 1 0 ]
 "154
 [v _APP_ConsumerTasks APP_ConsumerTasks `(v  1 e 1 0 ]
@@ -236,7 +236,7 @@ ENCODER_CCW 2
 "92 D:\OneDrive\Documents\Microchip\Projects\VolumeControlHID.X\encoder.c
 [v _ENCODER_Initialize ENCODER_Initialize `(v  1 e 1 0 ]
 "122
-[v _ENCODER_GetDirection ENCODER_GetDirection `(E2973  1 e 1 0 ]
+[v _ENCODER_GetDirection ENCODER_GetDirection `(E3679  1 e 1 0 ]
 "151
 [v _ENCODER_Task ENCODER_Task `(v  1 e 1 0 ]
 "96 D:\OneDrive\Documents\Microchip\Projects\VolumeControlHID.X\leds.c
@@ -309,7 +309,7 @@ ENCODER_CCW 2
 [s S2301 . 39 `[39]uc 1 report 39 0 ]
 "48 D:\OneDrive\Documents\Microchip\Projects\VolumeControlHID.X\app_device_consumer.c
 [v _hid_rpt01 hid_rpt01 `CS2301  1 e 39 0 ]
-[s S2500 . 1 `uc 1 scanNextTrack 1 0 :1:0 
+[s S2394 . 1 `uc 1 scanNextTrack 1 0 :1:0 
 `uc 1 scanPrevTrack 1 0 :1:1 
 `uc 1 stop 1 0 :1:2 
 `uc 1 playPause 1 0 :1:3 
@@ -319,10 +319,10 @@ ENCODER_CCW 2
 `uc 1 . 1 0 :1:7 
 ]
 "105
-[u S2509 . 1 `uc 1 value 1 0 `S2500 1 bits 1 0 ]
-[s S2512 . 2 `uc 1 reportID 1 0 `S2509 1 controls 1 1 ]
-[v _consumerReport consumerReport `S2512  1 s 2 consumerReport ]
-[s S2500 . 1 `uc 1 scanNextTrack 1 0 :1:0 
+[u S2403 . 1 `uc 1 value 1 0 `S2394 1 bits 1 0 ]
+[s S2406 . 2 `uc 1 reportID 1 0 `S2403 1 controls 1 1 ]
+[v _consumerReport consumerReport `S2406  1 s 2 consumerReport ]
+[s S2394 . 1 `uc 1 scanNextTrack 1 0 :1:0 
 `uc 1 scanPrevTrack 1 0 :1:1 
 `uc 1 stop 1 0 :1:2 
 `uc 1 playPause 1 0 :1:3 
@@ -332,9 +332,9 @@ ENCODER_CCW 2
 `uc 1 . 1 0 :1:7 
 ]
 "120
-[u S2509 . 1 `uc 1 value 1 0 `S2500 1 bits 1 0 ]
-[s S2512 . 2 `uc 1 reportID 1 0 `S2509 1 controls 1 1 ]
-[v _oldconsumerReport oldconsumerReport `S2512  1 e 2 0 ]
+[u S2403 . 1 `uc 1 value 1 0 `S2394 1 bits 1 0 ]
+[s S2406 . 2 `uc 1 reportID 1 0 `S2403 1 controls 1 1 ]
+[v _oldconsumerReport oldconsumerReport `S2406  1 e 2 0 ]
 "122
 [v _OldSOFCount OldSOFCount `i  1 s 2 OldSOFCount ]
 "124
@@ -568,11 +568,11 @@ ENCODER_CCW 2
 ]
 [u S853 . 1 `S819 1 . 1 0 `S821 1 . 1 0 `S824 1 . 1 0 `S827 1 . 1 0 `S830 1 . 1 0 `S833 1 . 1 0 `S842 1 . 1 0 `S845 1 . 1 0 ]
 [v _RCONbits RCONbits `VES853  1 e 1 @4048 ]
-[s S2414 . 1 `uc 1 . 1 0 :7:0 
+[s S2523 . 1 `uc 1 . 1 0 :7:0 
 `uc 1 NOT_RBPU 1 0 :1:7 
 ]
 "7349
-[s S2417 . 1 `uc 1 RBIP 1 0 :1:0 
+[s S2526 . 1 `uc 1 RBIP 1 0 :1:0 
 `uc 1 . 1 0 :1:1 
 `uc 1 TMR0IP 1 0 :1:2 
 `uc 1 . 1 0 :1:3 
@@ -581,13 +581,13 @@ ENCODER_CCW 2
 `uc 1 INTEDG0 1 0 :1:6 
 `uc 1 nRBPU 1 0 :1:7 
 ]
-[s S2426 . 1 `uc 1 . 1 0 :2:0 
+[s S2535 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 T0IP 1 0 :1:2 
 `uc 1 . 1 0 :4:3 
 `uc 1 RBPU 1 0 :1:7 
 ]
-[u S2431 . 1 `S2414 1 . 1 0 `S2417 1 . 1 0 `S2426 1 . 1 0 ]
-[v _INTCON2bits INTCON2bits `VES2431  1 e 1 @4081 ]
+[u S2540 . 1 `S2523 1 . 1 0 `S2526 1 . 1 0 `S2535 1 . 1 0 ]
+[v _INTCON2bits INTCON2bits `VES2540  1 e 1 @4081 ]
 [s S925 . 1 `uc 1 RBIF 1 0 :1:0 
 `uc 1 INT0IF 1 0 :1:1 
 `uc 1 TMR0IF 1 0 :1:2 
@@ -936,7 +936,7 @@ ENCODER_CCW 2
 "190
 } 0
 "122
-[v _ENCODER_GetDirection ENCODER_GetDirection `(E2973  1 e 1 0 ]
+[v _ENCODER_GetDirection ENCODER_GetDirection `(E3679  1 e 1 0 ]
 {
 "124
 [v ENCODER_GetDirection@direction direction `E2973  1 a 1 0 ]
