@@ -17,10 +17,10 @@ To request to license the code under the MLA license (www.microchip.com/mla_lice
 please contact mla_licensing@microchip.com
 *******************************************************************************/
 
-#ifndef KEYBOARD_H
-#define KEYBOARD_H
+#ifndef CONSUMER_H
+#define CONSUMER_H
 
-void APP_KeyboardInit(void);
-void APP_KeyboardTasks(void);
+void APP_ConsumerInit(void);
+void APP_ConsumerTasks(void);
 
 #endif

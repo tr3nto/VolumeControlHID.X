@@ -90,8 +90,7 @@ void SYSTEM_Initialize( SYSTEM_STATE state )
     {
         case SYSTEM_STATE_USB_START:
             LED_Enable(LED_USB_DEVICE_STATE);
-            LED_Enable(LED_USB_DEVICE_HID_KEYBOARD_CAPS_LOCK);
-            BUTTON_Enable(BUTTON_USB_DEVICE_HID_KEYBOARD_KEY);
+            BUTTON_Enable(BUTTON_USB_DEVICE_REMOTE_WAKEUP);
             break;
 			
         case SYSTEM_STATE_USB_SUSPEND: 

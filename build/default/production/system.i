@@ -6258,8 +6258,7 @@ void SYSTEM_Initialize( SYSTEM_STATE state )
     {
         case SYSTEM_STATE_USB_START:
             LED_Enable(LED_D1);
-            LED_Enable(LED_D2);
-            BUTTON_Enable(BUTTON_S4);
+            BUTTON_Enable(BUTTON_S3);
             break;
 
         case SYSTEM_STATE_USB_SUSPEND:

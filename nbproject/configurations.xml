@@ -4,7 +4,6 @@
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
                    projectFiles="true">
-      <itemPath>app_device_keyboard.h</itemPath>
       <itemPath>app_led_usb_status.h</itemPath>
       <itemPath>buttons.h</itemPath>
       <itemPath>io_mapping.h</itemPath>
@@ -20,6 +19,7 @@
       <itemPath>usb_hal.h</itemPath>
       <itemPath>usb_hal_pic18.h</itemPath>
       <itemPath>encoder.h</itemPath>
+      <itemPath>app_device_consumer.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
@@ -34,7 +34,6 @@
                    displayName="Source Files"
                    projectFiles="true">
       <itemPath>usb_descriptors.c</itemPath>
-      <itemPath>app_device_keyboard.c</itemPath>
       <itemPath>app_led_usb_status.c</itemPath>
       <itemPath>buttons.c</itemPath>
       <itemPath>leds.c</itemPath>
@@ -44,6 +43,7 @@
       <itemPath>usb_device_hid.c</itemPath>
       <itemPath>usb_events.c</itemPath>
       <itemPath>encoder.c</itemPath>
+      <itemPath>app_device_consumer.c</itemPath>
     </logicalFolder>
   </logicalFolder>
   <sourceRootList>
@@ -223,6 +223,8 @@
         <property key="memories.programmemory" value="true"/>
         <property key="memories.programmemory.ranges" value="0-7fff"/>
         <property key="poweroptions.powerenable" value="false"/>
+        <property key="programmerToGoFilePath"
+                  value="D:/OneDrive/Documents/Microchip/Projects/VolumeControlHID.X/debug/default/VolumeControlHID_ptg"/>
         <property key="programmerToGoImageName" value="VolumeControlHID_ptg"/>
         <property key="programoptions.donoteraseauxmem" value="false"/>
         <property key="programoptions.eraseb4program" value="true"/>

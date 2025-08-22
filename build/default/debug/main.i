@@ -6260,10 +6260,10 @@ extern volatile uint8_t CtrlTrfData[8];
 # 37 "./app_led_usb_status.h"
 void APP_LEDUpdateUSBStatus(void);
 # 36 "main.c" 2
-# 1 "./app_device_keyboard.h" 1
-# 23 "./app_device_keyboard.h"
-void APP_KeyboardInit(void);
-void APP_KeyboardTasks(void);
+# 1 "./app_device_consumer.h" 1
+# 23 "./app_device_consumer.h"
+void APP_ConsumerInit(void);
+void APP_ConsumerTasks(void);
 # 37 "main.c" 2
 
 int main(void)
@@ -6277,6 +6277,6 @@ int main(void)
     {
                       ;
 # 65 "main.c"
-        APP_KeyboardTasks();
+        APP_ConsumerTasks();
     }
 }

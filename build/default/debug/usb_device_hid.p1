@@ -116,16 +116,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 [s S406 `uc 1 `uc 1 `us 1 `uc 1 `uc 1 ]
 [n S406 _USB_HID_DSC bLength bDescriptorType bcdHID bCountryCode bNumDsc ]
 "90 usb_device_hid.c
-[; ;usb_device_hid.c: 90: extern const struct{uint8_t report[104];}hid_rpt01;
-[s S409 `uc -> 104 `i ]
+[; ;usb_device_hid.c: 90: extern const struct{uint8_t report[39];}hid_rpt01;
+[s S409 `uc -> 39 `i ]
 [n S409 . report ]
 [v _hid_rpt01 `CS409 ~T0 @X0 0 e ]
-"102
-[; ;usb_device_hid.c: 102:     extern void USBHIDCBSetReportHandler(void);
-[v _USBHIDCBSetReportHandler `(v ~T0 @X0 0 ef ]
-"120
-[; ;usb_device_hid.c: 120:     extern void USBHIDCBSetIdleRateHandler(uint8_t reportId, uint8_t idleRate);
-[v _USBHIDCBSetIdleRateHandler `(v ~T0 @X0 0 ef2`uc`uc ]
 "52 C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 52: __asm("UFRM equ 0F66h");
 [; <" UFRM equ 0F66h ;# ">
@@ -666,10 +660,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;usb_device_hid.c: 186:                 {
 {
 "187
-[; ;usb_device_hid.c: 187:                     { inPipes[0].pSrc.bRom = (const uint8_t*)&hid_rpt01; inPipes[0].wCount.Val = 104; inPipes[0].info.Val = 0x40 | 0x80 | 0x00; };
+[; ;usb_device_hid.c: 187:                     { inPipes[0].pSrc.bRom = (const uint8_t*)&hid_rpt01; inPipes[0].wCount.Val = 39; inPipes[0].info.Val = 0x40 | 0x80 | 0x00; };
 {
 [e = . . *U + &U _inPipes * -> -> -> 0 `i `ui `ux -> -> # *U &U _inPipes `ui `ux 0 1 -> &U _hid_rpt01 `*Cuc ]
-[e = . . *U + &U _inPipes * -> -> -> 0 `i `ui `ux -> -> # *U &U _inPipes `ui `ux 2 0 -> -> 104 `i `us ]
+[e = . . *U + &U _inPipes * -> -> -> 0 `i `ui `ux -> -> # *U &U _inPipes `ui `ux 2 0 -> -> 39 `i `us ]
 [e = . . *U + &U _inPipes * -> -> -> 0 `i `ui `ux -> -> # *U &U _inPipes `ui `ux 1 1 -> | | -> 64 `i -> 128 `i -> 0 `i `uc ]
 }
 "191
@@ -726,9 +720,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 "221
 [; ;usb_device_hid.c: 221:         case 0x09:
 [e :U 424 ]
-"223
-[; ;usb_device_hid.c: 223:                 USBHIDCBSetReportHandler();
-[e ( _USBHIDCBSetReportHandler ..  ]
 "225
 [; ;usb_device_hid.c: 225:             break;
 [e $U 421  ]
@@ -754,9 +745,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 "234
 [; ;usb_device_hid.c: 234:             idle_rate = SetupPkt.W_Value.byte.HB;
 [e = _idle_rate . . . . _SetupPkt 1 2 2 1 ]
-"235
-[; ;usb_device_hid.c: 235:             USBHIDCBSetIdleRateHandler(SetupPkt.W_Value.byte.LB, idle_rate);
-[e ( _USBHIDCBSetIdleRateHandler (2 , . . . . _SetupPkt 1 2 2 0 _idle_rate ]
 "236
 [; ;usb_device_hid.c: 236:             break;
 [e $U 421  ]

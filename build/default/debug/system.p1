@@ -10,8 +10,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "129 ./leds.h
 [; ;./leds.h: 129: void LED_Enable(LED led);
 [v _LED_Enable `(v ~T0 @X0 0 ef1`E2983 ]
-"94 system.c
-[; ;system.c: 94:             BUTTON_Enable(BUTTON_S4);
+"93 system.c
+[; ;system.c: 93:             BUTTON_Enable(BUTTON_S3);
 [c E2973 0 1 2 3 .. ]
 [n E2973 . BUTTON_NONE BUTTON_S2 BUTTON_S3 BUTTON_S4  ]
 "74 ./buttons.h
@@ -578,28 +578,25 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;system.c: 92:             LED_Enable(LED_D1);
 [e ( _LED_Enable (1 . `E2983 1 ]
 "93
-[; ;system.c: 93:             LED_Enable(LED_D2);
-[e ( _LED_Enable (1 . `E2983 2 ]
+[; ;system.c: 93:             BUTTON_Enable(BUTTON_S3);
+[e ( _BUTTON_Enable (1 . `E2973 2 ]
 "94
-[; ;system.c: 94:             BUTTON_Enable(BUTTON_S4);
-[e ( _BUTTON_Enable (1 . `E2973 3 ]
-"95
-[; ;system.c: 95:             break;
+[; ;system.c: 94:             break;
 [e $U 406  ]
-"97
-[; ;system.c: 97:         case SYSTEM_STATE_USB_SUSPEND:
+"96
+[; ;system.c: 96:         case SYSTEM_STATE_USB_SUSPEND:
 [e :U 409 ]
-"98
-[; ;system.c: 98:             break;
+"97
+[; ;system.c: 97:             break;
 [e $U 406  ]
-"100
-[; ;system.c: 100:         case SYSTEM_STATE_USB_RESUME:
+"99
+[; ;system.c: 99:         case SYSTEM_STATE_USB_RESUME:
 [e :U 410 ]
-"101
-[; ;system.c: 101:             break;
+"100
+[; ;system.c: 100:             break;
 [e $U 406  ]
-"102
-[; ;system.c: 102:     }
+"101
+[; ;system.c: 101:     }
 }
 [e $U 406  ]
 [e :U 407 ]
@@ -608,23 +605,23 @@ Version 4.0 HI-TECH Software Intermediate Code
  , $ -> . `E3192 2 `ui 410
  406 ]
 [e :U 406 ]
-"103
-[; ;system.c: 103: }
+"102
+[; ;system.c: 102: }
 [e :UE 405 ]
 }
 [v $root$_SYS_InterruptHigh `(v ~T0 @X0 0 e ]
-"111
-[; ;system.c: 111: void __attribute__((picinterrupt(("")))) SYS_InterruptHigh(void)
+"110
+[; ;system.c: 110: void __attribute__((picinterrupt(("")))) SYS_InterruptHigh(void)
 [v _SYS_InterruptHigh `(v ~T21 @X0 1 ef ]
-"112
-[; ;system.c: 112: {
+"111
+[; ;system.c: 111: {
 {
 [e :U _SYS_InterruptHigh ]
 [f ]
-"114
-[; ;system.c: 114:         USBDeviceTasks();
+"113
+[; ;system.c: 113:         USBDeviceTasks();
 [e ( _USBDeviceTasks ..  ]
-"116
-[; ;system.c: 116: }
+"115
+[; ;system.c: 115: }
 [e :UE 411 ]
 }

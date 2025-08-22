@@ -58,7 +58,7 @@ const uint8_t configDescriptor1[]={
     /* Configuration Descriptor */
     0x09,//sizeof(USB_CFG_DSC),    // Size of this descriptor in bytes
     USB_DESCRIPTOR_CONFIGURATION,                // CONFIGURATION descriptor type
-    DESC_CONFIG_WORD(0x0029),   // Total length of data for this cfg
+    DESC_CONFIG_WORD(0x0022),   // Total length of data for this cfg (reduced from 0x0029)
     1,                      // Number of interfaces in this cfg
     1,                      // Index value of this configuration
     0,                      // Configuration string index
@@ -70,10 +70,10 @@ const uint8_t configDescriptor1[]={
     USB_DESCRIPTOR_INTERFACE,               // INTERFACE descriptor type
     0,                      // Interface Number
     0,                      // Alternate Setting Number
-    2,                      // Number of endpoints in this intf
+    1,                      // Number of endpoints in this intf
     HID_INTF,               // Class code
-    BOOT_INTF_SUBCLASS,     // Subclass code
-    HID_PROTOCOL_KEYBOARD,     // Protocol code
+    0x00,                   // Subclass code (No subclass)
+    0x00,                   // Protocol code (No protocol)
     0,                      // Interface string index
 
     /* HID Class-Specific Descriptor */
@@ -83,23 +83,15 @@ const uint8_t configDescriptor1[]={
     0x00,                   // Country Code (0x00 for Not supported)
     HID_NUM_OF_DSC,         // Number of class descriptors, see usbcfg.h
     DSC_RPT,                // Report descriptor type
-    DESC_CONFIG_WORD(104),  //(63),   //sizeof(hid_rpt01),      // Size of the report descriptor---------------------------
+    DESC_CONFIG_WORD(39),   //sizeof(hid_rpt01),      // Size of the report descriptor
     
     /* Endpoint Descriptor */
     0x07,/*sizeof(USB_EP_DSC)*/
     USB_DESCRIPTOR_ENDPOINT,    //Endpoint Descriptor
     HID_EP | _EP_IN,            //EndpointAddress
     _INTERRUPT,                       //Attributes
-    DESC_CONFIG_WORD(9),    //(8),        //size-------------------------------------------------------
+    DESC_CONFIG_WORD(2),        //size
     0x01,                        //Interval
-
-    /* Endpoint Descriptor */
-    0x07,/*sizeof(USB_EP_DSC)*/
-    USB_DESCRIPTOR_ENDPOINT,    //Endpoint Descriptor
-    HID_EP | _EP_OUT,            //EndpointAddress
-    _INTERRUPT,                       //Attributes
-    DESC_CONFIG_WORD(1), //(8),        //size-----------------------------------------------------
-    0x01                        //Interval
 
 };
 
@@ -116,9 +108,9 @@ sizeof(sd001),USB_DESCRIPTOR_STRING,
 }};
 
 //Product string descriptor
-const struct{uint8_t bLength;uint8_t bDscType;uint16_t string[13];}sd002={
+const struct{uint8_t bLength;uint8_t bDscType;uint16_t string[14];}sd002={
 sizeof(sd002),USB_DESCRIPTOR_STRING,
-{'V','o','l','u','m','e'
+{'V','o','l','u','m','e',' ','C','o','n','t','r','o','l'
 }};
 
 //Array of configuration descriptors

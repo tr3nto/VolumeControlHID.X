@@ -14,4 +14,4 @@ usb_hal.h  \
 usb_hal_pic18.h  \
 usb_device_hid.h  \
 app_led_usb_status.h  \
-app_device_keyboard.h 
+app_device_consumer.h 

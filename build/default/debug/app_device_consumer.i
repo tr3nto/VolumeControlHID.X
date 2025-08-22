@@ -1,4 +1,4 @@
-# 1 "app_device_keyboard.c"
+# 1 "app_device_consumer.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 285 "<built-in>" 3
@@ -6,8 +6,8 @@
 # 1 "<built-in>" 2
 # 1 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include/language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "app_device_keyboard.c" 2
-# 25 "app_device_keyboard.c"
+# 1 "app_device_consumer.c" 2
+# 25 "app_device_consumer.c"
 # 1 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/stdint.h" 1 3
 
 
@@ -113,7 +113,7 @@ typedef int32_t int_fast32_t;
 typedef uint16_t uint_fast16_t;
 typedef uint32_t uint_fast32_t;
 # 149 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/stdint.h" 2 3
-# 26 "app_device_keyboard.c" 2
+# 26 "app_device_consumer.c" 2
 # 1 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/string.h" 1 3
 # 10 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/string.h" 3
 # 1 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/features.h" 1 3
@@ -176,7 +176,7 @@ size_t strxfrm_l (char *restrict, const char *restrict, size_t, locale_t);
 
 
 void *memccpy (void *restrict, const void *restrict, int, size_t);
-# 27 "app_device_keyboard.c" 2
+# 27 "app_device_consumer.c" 2
 
 # 1 "./system.h" 1
 # 23 "./system.h"
@@ -5673,7 +5673,7 @@ typedef enum
 } SYSTEM_STATE;
 # 56 "./system.h"
 void SYSTEM_Initialize( SYSTEM_STATE state );
-# 29 "app_device_keyboard.c" 2
+# 29 "app_device_consumer.c" 2
 # 1 "./usb.h" 1
 # 47 "./usb.h"
 # 1 "./usb_common.h" 1
@@ -6219,7 +6219,7 @@ _Bool USBHALSetEpConfiguration ( uint8_t ep_num, uint16_t max_pkt_size, uint16_t
 _Bool USBHALInitialize ( unsigned long flags );
 # 2057 "./usb_device.h" 2
 # 52 "./usb.h" 2
-# 30 "app_device_keyboard.c" 2
+# 30 "app_device_consumer.c" 2
 # 1 "./usb_device_hid.h" 1
 # 98 "./usb_device_hid.h"
 void USBCheckHIDRequest(void);
@@ -6250,12 +6250,12 @@ typedef struct _USB_HID_DSC
 extern volatile CTRL_TRF_SETUP SetupPkt;
 extern const uint8_t configDescriptor1[];
 extern volatile uint8_t CtrlTrfData[8];
-# 31 "app_device_keyboard.c" 2
+# 31 "app_device_consumer.c" 2
 
 # 1 "./app_led_usb_status.h" 1
 # 37 "./app_led_usb_status.h"
 void APP_LEDUpdateUSBStatus(void);
-# 33 "app_device_keyboard.c" 2
+# 33 "app_device_consumer.c" 2
 # 1 "./encoder.h" 1
 # 30 "./encoder.h"
 typedef enum
@@ -6270,47 +6270,13 @@ void ENCODER_Initialize(void);
 ENCODER_DIRECTION ENCODER_GetDirection(void);
 # 82 "./encoder.h"
 void ENCODER_Task(void);
-# 34 "app_device_keyboard.c" 2
-# 48 "app_device_keyboard.c"
-const struct{uint8_t report[104];}hid_rpt01={
-{ 0x05, 0x01,
-    0x09, 0x06,
-    0xa1, 0x01,
-    0x85, 0x01,
-    0x05, 0x07,
-    0x19, 0xe0,
-    0x29, 0xe7,
-    0x15, 0x00,
-    0x25, 0x01,
-    0x75, 0x01,
-    0x95, 0x08,
-    0x81, 0x02,
-    0x95, 0x01,
-    0x75, 0x08,
-    0x81, 0x03,
-    0x95, 0x05,
-    0x75, 0x01,
-    0x05, 0x08,
-    0x19, 0x01,
-    0x29, 0x05,
-    0x91, 0x02,
-    0x95, 0x01,
-    0x75, 0x03,
-    0x91, 0x03,
-    0x95, 0x06,
-    0x75, 0x08,
-    0x15, 0x00,
-    0x25, 0x65,
-    0x05, 0x07,
-    0x19, 0x00,
-    0x29, 0x65,
-    0x81, 0x00,
-    0xc0,
-
-    0x05, 0x0C,
+# 34 "app_device_consumer.c" 2
+# 48 "app_device_consumer.c"
+const struct{uint8_t report[39];}hid_rpt01={
+{ 0x05, 0x0C,
  0x09, 0x01,
  0xA1, 0x01,
- 0x85, 0x02,
+ 0x85, 0x01,
  0x05, 0x0C,
  0x15, 0x00,
  0x25, 0x01,
@@ -6328,63 +6294,7 @@ const struct{uint8_t report[104];}hid_rpt01={
  0x81, 0x01,
  0xC0}
 };
-# 114 "app_device_keyboard.c"
-typedef struct
-{
-# 133 "app_device_keyboard.c"
-    uint8_t reportID;
-    union
-    {
-        uint8_t value;
-        struct
-        {
-            unsigned leftControl :1;
-            unsigned leftShift :1;
-            unsigned leftAlt :1;
-            unsigned leftGUI :1;
-            unsigned rightControl :1;
-            unsigned rightShift :1;
-            unsigned rightAlt :1;
-            unsigned rightGUI :1;
-        } bits;
-    } modifiers;
-# 157 "app_device_keyboard.c"
-    unsigned :8;
-# 201 "app_device_keyboard.c"
-    uint8_t keys[6];
-} KEYBOARD_INPUT_REPORT;
-
-
-
-
-typedef union
-{
-
-    uint8_t value;
-    struct
-    {
-# 229 "app_device_keyboard.c"
-        unsigned numLock :1;
-        unsigned capsLock :1;
-        unsigned scrollLock :1;
-        unsigned compose :1;
-        unsigned kana :1;
-# 244 "app_device_keyboard.c"
-        unsigned :3;
-    } leds;
-} KEYBOARD_OUTPUT_REPORT;
-
-
-
-
-typedef struct
-{
-    void* lastINTransmission;
-    void* lastOUTTransmission;
-    unsigned char key;
-    _Bool waitingForRelease;
-} KEYBOARD;
-
+# 79 "app_device_consumer.c"
 typedef struct
 {
     uint8_t reportID;
@@ -6410,61 +6320,23 @@ typedef struct
 
 
 
-static KEYBOARD keyboard;
-static KEYBOARD consumer;
 
-
-
-
-static KEYBOARD_INPUT_REPORT inputReport __attribute__((address(0x500)));
-
-
-
-
-static volatile KEYBOARD_OUTPUT_REPORT outputReport __attribute__((address(0x509)));
-
-static CONSUMER_INPUT_REPORT consumerReport __attribute__((address(0x50A)));
-
-
-
-
-
-
-
-static void APP_KeyboardProcessOutputReport(void);
-
-
-
+static CONSUMER_INPUT_REPORT consumerReport __attribute__((address(0x500)));
+# 116 "app_device_consumer.c"
 extern volatile signed int SOFCounter;
 
 
 
-KEYBOARD_INPUT_REPORT oldInputReport;
 CONSUMER_INPUT_REPORT oldconsumerReport;
-signed int keyboardIdleRate;
 signed int LocalSOFCount;
 static signed int OldSOFCount;
 
-static _Bool consumerReportPending = 0;
 static void* lastConsumerTransmission;
-static _Bool consumerWaitingForRelease = 0;
-# 331 "app_device_keyboard.c"
-void APP_KeyboardInit(void)
+# 134 "app_device_consumer.c"
+void APP_ConsumerInit(void)
 {
 
-
-    keyboard.lastINTransmission = 0;
     lastConsumerTransmission = 0;
-
-    keyboard.key = 4;
-    keyboard.waitingForRelease = 0;
-    consumerWaitingForRelease = 0;
-
-    consumer.key = 0;
-    consumer.waitingForRelease = 0;
-
-
-    keyboardIdleRate = 0;
 
 
 
@@ -6475,20 +6347,15 @@ void APP_KeyboardInit(void)
     }
 
 
-    USBEnableEndpoint(1, 0x02|0x04|0x10|0x08);
-
-
-    keyboard.lastOUTTransmission = USBTransferOnePacket(1,0,(uint8_t*)&outputReport,sizeof(outputReport));
+    USBEnableEndpoint(1, 0x02|0x10|0x08);
 
 
     ENCODER_Initialize();
 }
 
-void APP_KeyboardTasks(void)
+void APP_ConsumerTasks(void)
 {
-    signed int TimeDeltaMilliseconds;
     unsigned char i;
-    _Bool needToSendNewReportPacket;
     _Bool needToSendNewReportPacket_consumer;
 
 
@@ -6508,151 +6375,16 @@ void APP_KeyboardTasks(void)
 
     if( UCONbits.SUSPND== 1 )
     {
-
-
-        if(BUTTON_IsPressed(BUTTON_S3) == 0)
-        {
-
-        }
-
         return;
     }
 
 
 
-
-    while(LocalSOFCount != SOFCounter)
-    {
-        LocalSOFCount = SOFCounter;
-    }
-
-
-
-    TimeDeltaMilliseconds = LocalSOFCount - OldSOFCount;
-
-    if(TimeDeltaMilliseconds < 0)
-    {
-        TimeDeltaMilliseconds = (32767 - OldSOFCount) + LocalSOFCount;
-    }
-
-
-
-
-
-    if(TimeDeltaMilliseconds > 5000)
-    {
-        OldSOFCount = LocalSOFCount - 5000;
-    }
-
-
-
-
-    if(((keyboard.lastINTransmission != 0x0000) && ((*(volatile uint8_t*)keyboard.lastINTransmission & 0x80) != 0x00)) == 0)
-    {
-
-        memset(&inputReport, 0, sizeof(inputReport));
-        inputReport.reportID = 0x01;
-
-        if(BUTTON_IsPressed(BUTTON_S4) == 1 && BUTTON_IsPressed(BUTTON_S4) == 0)
-
-        {
-            if(keyboard.waitingForRelease == 0)
-            {
-                keyboard.waitingForRelease = 1;
-
-
-                inputReport.reportID = 0x01;
-                inputReport.keys[0] = keyboard.key++;
-
-
-
-                if(keyboard.key == 40)
-                {
-                    keyboard.key = 4;
-                }
-            }
-
-        }
-        else
-        {
-            keyboard.waitingForRelease = 0;
-        }
-
-
-
-
-        needToSendNewReportPacket = 0;
-        for(i = 0; i < sizeof(inputReport); i++)
-        {
-            if(*((uint8_t*)&oldInputReport + i) != *((uint8_t*)&inputReport + i))
-            {
-                needToSendNewReportPacket = 1;
-                break;
-            }
-        }
-
-
-
-
-        if(keyboardIdleRate != 0)
-        {
-
-            if(TimeDeltaMilliseconds >= keyboardIdleRate)
-            {
-                needToSendNewReportPacket = 1;
-            }
-        }
-
-
-
-        if(needToSendNewReportPacket == 1)
-        {
-
-
-
-            oldInputReport = inputReport;
-
-
-            keyboard.lastINTransmission = USBTransferOnePacket(1,1,(uint8_t*)&inputReport,sizeof(inputReport));
-
-
-
-            OldSOFCount = LocalSOFCount;
-        }
-
-
-
-
-
-
-
-    if(((keyboard.lastOUTTransmission != 0x0000) && ((*(volatile uint8_t*)keyboard.lastOUTTransmission & 0x80) != 0x00)) == 0)
-    {
-        APP_KeyboardProcessOutputReport();
-
-        keyboard.lastOUTTransmission = USBTransferOnePacket(1,0,(uint8_t*)&outputReport,sizeof(outputReport));
-    }
-
-    return;
-
-
-
-
-
-
-    }
-
-
-
-
-
-
-
-    if(((consumer.lastINTransmission != 0x0000) && ((*(volatile uint8_t*)consumer.lastINTransmission & 0x80) != 0x00)) == 0)
+    if(((lastConsumerTransmission != 0x0000) && ((*(volatile uint8_t*)lastConsumerTransmission & 0x80) != 0x00)) == 0)
     {
 
         memset(&consumerReport, 0, sizeof(consumerReport));
-        consumerReport.reportID = 0x02;
+        consumerReport.reportID = 0x01;
 
 
         ENCODER_DIRECTION encoder_dir = ENCODER_GetDirection();
@@ -6660,18 +6392,17 @@ void APP_KeyboardTasks(void)
         if(encoder_dir == ENCODER_CW)
         {
 
-            consumerReport.reportID = 0x02;
+            consumerReport.reportID = 0x01;
             consumerReport.controls.value = 0;
             consumerReport.controls.bits.volumeUp = 1;
         }
         else if(encoder_dir == ENCODER_CCW)
         {
 
-            consumerReport.reportID = 0x02;
+            consumerReport.reportID = 0x01;
             consumerReport.controls.value = 0;
             consumerReport.controls.bits.volumeDown = 1;
         }
-
 
 
 
@@ -6686,68 +6417,16 @@ void APP_KeyboardTasks(void)
         }
 
 
-
-
-
         if(needToSendNewReportPacket_consumer == 1)
         {
-
 
 
             oldconsumerReport = consumerReport;
 
 
-            consumer.lastINTransmission = USBTransferOnePacket(1,1,(uint8_t*)&consumerReport,sizeof(consumerReport));
-
-
-
-
+            lastConsumerTransmission = USBTransferOnePacket(1,1,(uint8_t*)&consumerReport,sizeof(consumerReport));
         }
-
     }
-# 595 "app_device_keyboard.c"
-    }
-# 635 "app_device_keyboard.c"
-static void APP_KeyboardProcessOutputReport(void)
-{
-    if(outputReport.leds.capsLock)
-    {
-        LED_On(LED_D2);
-    }
-    else
-    {
-        LED_Off(LED_D2);
-    }
-}
 
-static void USBHIDCBSetReportComplete(void)
-{
-
-
-    outputReport.value = CtrlTrfData[0];
-
-
-    APP_KeyboardProcessOutputReport();
-}
-
-void USBHIDCBSetReportHandler(void)
-{
-
-
-
-    {outPipes[0].pDst.bRam = (uint8_t*)&CtrlTrfData;outPipes[0].wCount.Val = 8;outPipes[0].pFunc = USBHIDCBSetReportComplete;outPipes[0].info.bits.busy = 1; };
-}
-
-
-
-
-void USBHIDCBSetIdleRateHandler(uint8_t reportID, uint8_t newIdleRate)
-{
-
-
-
-    if(reportID == 0)
-    {
-        keyboardIdleRate = newIdleRate;
-    }
+    return;
 }

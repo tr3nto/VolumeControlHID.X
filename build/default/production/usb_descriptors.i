@@ -6220,7 +6220,7 @@ const uint8_t configDescriptor1[]={
 
     0x09,
     0x02,
-    (0x0029&0xFF),((0x0029>>8)&0xFF),
+    (0x0022&0xFF),((0x0022>>8)&0xFF),
     1,
     1,
     0,
@@ -6232,10 +6232,10 @@ const uint8_t configDescriptor1[]={
     0x04,
     0,
     0,
-    2,
+    1,
     0x03,
-    0x01,
-    0x01,
+    0x00,
+    0x00,
     0,
 
 
@@ -6245,23 +6245,15 @@ const uint8_t configDescriptor1[]={
     0x00,
     1,
     0x22,
-    (104&0xFF),((104>>8)&0xFF),
+    (39&0xFF),((39>>8)&0xFF),
 
 
     0x07,
     0x05,
     1 | 0x80,
     0x03,
-    (9&0xFF),((9>>8)&0xFF),
+    (2&0xFF),((2>>8)&0xFF),
     0x01,
-
-
-    0x07,
-    0x05,
-    1 | 0x00,
-    0x03,
-    (1&0xFF),((1>>8)&0xFF),
-    0x01
 
 };
 
@@ -6278,9 +6270,9 @@ sizeof(sd001),0x03,
 }};
 
 
-const struct{uint8_t bLength;uint8_t bDscType;uint16_t string[13];}sd002={
+const struct{uint8_t bLength;uint8_t bDscType;uint16_t string[14];}sd002={
 sizeof(sd002),0x03,
-{'V','o','l','u','m','e'
+{'V','o','l','u','m','e',' ','C','o','n','t','r','o','l'
 }};
 
 

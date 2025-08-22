@@ -33,7 +33,7 @@ please contact mla_licensing@microchip.com
 
 /* Demo project includes */
 #include "app_led_usb_status.h"
-#include "app_device_keyboard.h"
+#include "app_device_consumer.h"
 
 
 // *****************************************************************************
@@ -110,9 +110,9 @@ bool USER_USB_CALLBACK_EVENT_HANDLER(USB_EVENT event, void *pdata, uint16_t size
             break;
 
         case EVENT_CONFIGURED:
-            /* When the device is configured, we can (re)initialize the keyboard
-             * demo code. */
-            APP_KeyboardInit();
+            /* When the device is configured, we can (re)initialize the consumer
+             * device code. */
+            APP_ConsumerInit();
             break;
 
         case EVENT_SET_DESCRIPTOR:

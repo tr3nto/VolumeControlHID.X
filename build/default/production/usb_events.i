@@ -6260,10 +6260,10 @@ extern volatile uint8_t CtrlTrfData[8];
 # 37 "./app_led_usb_status.h"
 void APP_LEDUpdateUSBStatus(void);
 # 36 "usb_events.c" 2
-# 1 "./app_device_keyboard.h" 1
-# 23 "./app_device_keyboard.h"
-void APP_KeyboardInit(void);
-void APP_KeyboardTasks(void);
+# 1 "./app_device_consumer.h" 1
+# 23 "./app_device_consumer.h"
+void APP_ConsumerInit(void);
+void APP_ConsumerTasks(void);
 # 37 "usb_events.c" 2
 
 
@@ -6322,7 +6322,7 @@ _Bool USER_USB_CALLBACK_EVENT_HANDLER(USB_EVENT event, void *pdata, uint16_t siz
         case EVENT_CONFIGURED:
 
 
-            APP_KeyboardInit();
+            APP_ConsumerInit();
             break;
 
         case EVENT_SET_DESCRIPTOR:

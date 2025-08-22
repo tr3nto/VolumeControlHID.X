@@ -1,5 +1,5 @@
-build/default/debug/app_device_keyboard.p1:  \
-app_device_keyboard.c  \
+build/default/debug/app_device_consumer.p1:  \
+app_device_consumer.c  \
 system.h  \
 buttons.h  \
 leds.h  \

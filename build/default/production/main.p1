@@ -13,9 +13,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "639
 [; ;./usb_device.h: 639: void USBDeviceAttach(void);
 [v _USBDeviceAttach `(v ~T0 @X0 0 ef ]
-"24 ./app_device_keyboard.h
-[; ;./app_device_keyboard.h: 24: void APP_KeyboardTasks(void);
-[v _APP_KeyboardTasks `(v ~T0 @X0 0 ef ]
+"24 ./app_device_consumer.h
+[; ;./app_device_consumer.h: 24: void APP_ConsumerTasks(void);
+[v _APP_ConsumerTasks `(v ~T0 @X0 0 ef ]
 "52 C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 52: __asm("UFRM equ 0F66h");
 [; <" UFRM equ 0F66h ;# ">
@@ -515,8 +515,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;main.c: 46:     {
 {
 "65
-[; ;main.c: 65:         APP_KeyboardTasks();
-[e ( _APP_KeyboardTasks ..  ]
+[; ;main.c: 65:         APP_ConsumerTasks();
+[e ( _APP_ConsumerTasks ..  ]
 "66
 [; ;main.c: 66:     }
 }

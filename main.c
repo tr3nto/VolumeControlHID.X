@@ -33,7 +33,7 @@ please contact mla_licensing@microchip.com
 
 /* Demo project includes */
 #include "app_led_usb_status.h"
-#include "app_device_keyboard.h"
+#include "app_device_consumer.h"
 
 int main(void)
 {
@@ -61,8 +61,8 @@ int main(void)
         USBDeviceTasks();
         #endif
 
-        /* Run the keyboard demo tasks. */
-        APP_KeyboardTasks();
+        /* Run the consumer device tasks. */
+        APP_ConsumerTasks();
     }//end while
 }//end main
 

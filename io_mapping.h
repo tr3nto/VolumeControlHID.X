@@ -20,9 +20,7 @@ please contact mla_licensing@microchip.com
 
 /* Demo I/O options. */
 #define LED_USB_DEVICE_STATE                            LED_D1
-#define LED_USB_DEVICE_HID_KEYBOARD_CAPS_LOCK           LED_D2
 
-#define BUTTON_USB_DEVICE_HID_KEYBOARD_KEY              BUTTON_S4
 #define BUTTON_USB_DEVICE_REMOTE_WAKEUP                 BUTTON_S3
 
 /* USB Stack I/O options. */

@@ -6219,11 +6219,7 @@ typedef struct
 static uint8_t idle_rate;
 static uint8_t active_protocol;
 
-extern const struct{uint8_t report[104];}hid_rpt01;
-# 102 "usb_device_hid.c"
-    extern void USBHIDCBSetReportHandler(void);
-# 120 "usb_device_hid.c"
-    extern void USBHIDCBSetIdleRateHandler(uint8_t reportId, uint8_t idleRate);
+extern const struct{uint8_t report[39];}hid_rpt01;
 # 161 "usb_device_hid.c"
 void USBCheckHIDRequest(void)
 {
@@ -6251,7 +6247,7 @@ void USBCheckHIDRequest(void)
             case 0x22:
 
                 {
-                    { inPipes[0].pSrc.bRom = (const uint8_t*)&hid_rpt01; inPipes[0].wCount.Val = 104; inPipes[0].info.Val = 0x40 | 0x80 | 0x00; };
+                    { inPipes[0].pSrc.bRom = (const uint8_t*)&hid_rpt01; inPipes[0].wCount.Val = 39; inPipes[0].info.Val = 0x40 | 0x80 | 0x00; };
 
 
 
@@ -6277,7 +6273,7 @@ void USBCheckHIDRequest(void)
             break;
         case 0x09:
 
-                USBHIDCBSetReportHandler();
+
 
             break;
         case 0x02:
@@ -6289,7 +6285,7 @@ void USBCheckHIDRequest(void)
         case 0x0A:
             inPipes[0].info.Val = 0x00 | 0x80;
             idle_rate = SetupPkt.W_Value.byte.HB;
-            USBHIDCBSetIdleRateHandler(SetupPkt.W_Value.byte.LB, idle_rate);
+                                                                                  ;
             break;
         case 0x03:
             { inPipes[0].pSrc.bRam = (uint8_t*)&active_protocol; inPipes[0].wCount.Val = 1; inPipes[0].info.Val = 0x00 | 0x80 | 0x01; };

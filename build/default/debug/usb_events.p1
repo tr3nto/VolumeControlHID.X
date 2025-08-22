@@ -13,9 +13,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "56 ./system.h
 [; ;./system.h: 56: void SYSTEM_Initialize( SYSTEM_STATE state );
 [v _SYSTEM_Initialize `(v ~T0 @X0 0 ef1`E3192 ]
-"23 ./app_device_keyboard.h
-[; ;./app_device_keyboard.h: 23: void APP_KeyboardInit(void);
-[v _APP_KeyboardInit `(v ~T0 @X0 0 ef ]
+"23 ./app_device_consumer.h
+[; ;./app_device_consumer.h: 23: void APP_ConsumerInit(void);
+[v _APP_ConsumerInit `(v ~T0 @X0 0 ef ]
 "98 ./usb_device_hid.h
 [; ;./usb_device_hid.h: 98: void USBCheckHIDRequest(void);
 [v _USBCheckHIDRequest `(v ~T0 @X0 0 ef ]
@@ -593,8 +593,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;usb_events.c: 112:         case EVENT_CONFIGURED:
 [e :U 416 ]
 "115
-[; ;usb_events.c: 115:             APP_KeyboardInit();
-[e ( _APP_KeyboardInit ..  ]
+[; ;usb_events.c: 115:             APP_ConsumerInit();
+[e ( _APP_ConsumerInit ..  ]
 "116
 [; ;usb_events.c: 116:             break;
 [e $U 408  ]
