@@ -1,10 +1,10 @@
 [p GLOBOPT AUTOSTATIC IEEE_FLT IEEE_DBL LFSROK EMI_WORD ]
 [d version 1.1 ]
 [d edition pro ]
-[d chip 18F4550 ]
+[d chip 18F2550 ]
 [d frameptr 4065 ]
 "376 D:\OneDrive\Documents\Microchip\Projects\VolumeControlHID.X\app_device_keyboard.c
-[e E3804 . `uc
+[e E3435 . `uc
 DETACHED_STATE 0
 ATTACHED_STATE 1
 POWERED_STATE 2
@@ -14,19 +14,20 @@ ADDRESS_STATE 16
 CONFIGURED_STATE 32
 ]
 "392
-[e E3510 . `uc
+[e E3140 . `uc
 BUTTON_NONE 0
 BUTTON_S2 1
 BUTTON_S3 2
+BUTTON_S4 3
 ]
-"515
-[e E4048 . `uc
+"537
+[e E3679 . `uc
 ENCODER_NONE 0
 ENCODER_CW 1
 ENCODER_CCW 2
 ]
-"631
-[e E3519 . `uc
+"639
+[e E3150 . `uc
 LED_NONE 0
 LED_D1 1
 LED_D2 2
@@ -34,7 +35,7 @@ LED_D3 3
 LED_D4 4
 ]
 "55 D:\OneDrive\Documents\Microchip\Projects\VolumeControlHID.X\app_led_usb_status.c
-[e E3352 . `uc
+[e E2983 . `uc
 LED_NONE 0
 LED_D1 1
 LED_D2 2
@@ -42,7 +43,7 @@ LED_D3 3
 LED_D4 4
 ]
 "94
-[e E3637 . `uc
+[e E3268 . `uc
 DETACHED_STATE 0
 ATTACHED_STATE 1
 POWERED_STATE 2
@@ -52,10 +53,11 @@ ADDRESS_STATE 16
 CONFIGURED_STATE 32
 ]
 "95 D:\OneDrive\Documents\Microchip\Projects\VolumeControlHID.X\buttons.c
-[e E3343 . `uc
+[e E2973 . `uc
 BUTTON_NONE 0
 BUTTON_S2 1
 BUTTON_S3 2
+BUTTON_S4 3
 ]
 "96 D:\OneDrive\Documents\Microchip\Projects\VolumeControlHID.X\leds.c
 [e E2 . `uc
@@ -66,19 +68,19 @@ LED_D3 3
 LED_D4 4
 ]
 "40 D:\OneDrive\Documents\Microchip\Projects\VolumeControlHID.X\main.c
-[e E3561 . `uc
+[e E3192 . `uc
 SYSTEM_STATE_USB_START 0
 SYSTEM_STATE_USB_SUSPEND 1
 SYSTEM_STATE_USB_RESUME 2
 ]
 "87 D:\OneDrive\Documents\Microchip\Projects\VolumeControlHID.X\system.c
-[e E3561 . `uc
+[e E3192 . `uc
 SYSTEM_STATE_USB_START 0
 SYSTEM_STATE_USB_SUSPEND 1
 SYSTEM_STATE_USB_RESUME 2
 ]
 "92
-[e E3352 . `uc
+[e E2983 . `uc
 LED_NONE 0
 LED_D1 1
 LED_D2 2
@@ -86,13 +88,14 @@ LED_D3 3
 LED_D4 4
 ]
 "94
-[e E3343 . `uc
+[e E2973 . `uc
 BUTTON_NONE 0
 BUTTON_S2 1
 BUTTON_S3 2
+BUTTON_S4 3
 ]
 "141 D:\OneDrive\Documents\Microchip\Projects\VolumeControlHID.X\usb_device.c
-[e E3772 . `uc
+[e E3402 . `uc
 DETACHED_STATE 0
 ATTACHED_STATE 1
 POWERED_STATE 2
@@ -102,7 +105,7 @@ ADDRESS_STATE 16
 CONFIGURED_STATE 32
 ]
 "717
-[e E3713 . `ui
+[e E3343 . `ui
 EVENT_NONE 0
 EVENT_DEVICE_STACK_BASE 1
 EVENT_HOST_STACK_BASE 100
@@ -141,7 +144,7 @@ EVENT_USER_BASE 10000
 EVENT_BUS_ERROR 32767
 ]
 "2021
-[e E3781 . `uc
+[e E3411 . `uc
 EVENT_CONFIGURED 1
 EVENT_SET_DESCRIPTOR 2
 EVENT_EP0_REQUEST 3
@@ -149,7 +152,7 @@ EVENT_ATTACH 4
 EVENT_TRANSFER_TERMINATED 5
 ]
 "67 D:\OneDrive\Documents\Microchip\Projects\VolumeControlHID.X\usb_events.c
-[e E3578 . `ui
+[e E3209 . `ui
 EVENT_NONE 0
 EVENT_DEVICE_STACK_BASE 1
 EVENT_HOST_STACK_BASE 100
@@ -188,21 +191,21 @@ EVENT_USER_BASE 10000
 EVENT_BUS_ERROR 32767
 ]
 "98
-[e E3561 . `uc
+[e E3192 . `uc
 SYSTEM_STATE_USB_START 0
 SYSTEM_STATE_USB_SUSPEND 1
 SYSTEM_STATE_USB_RESUME 2
 ]
 "135
-[e E3646 . `uc
+[e E3277 . `uc
 EVENT_CONFIGURED 1
 EVENT_SET_DESCRIPTOR 2
 EVENT_EP0_REQUEST 3
 EVENT_ATTACH 4
 EVENT_TRANSFER_TERMINATED 5
 ]
-"121 D:\OneDrive\Documents\Microchip\Projects\VolumeControlHID.X\encoder.c
-[e E3343 . `uc
+"122 D:\OneDrive\Documents\Microchip\Projects\VolumeControlHID.X\encoder.c
+[e E2973 . `uc
 ENCODER_NONE 0
 ENCODER_CW 1
 ENCODER_CCW 2
@@ -211,14 +214,14 @@ ENCODER_CCW 2
 [v _APP_KeyboardInit APP_KeyboardInit `(v  1 e 1 0 ]
 "366
 [v _APP_KeyboardTasks APP_KeyboardTasks `(v  1 e 1 0 ]
-"627
+"635
 [v _APP_KeyboardProcessOutputReport APP_KeyboardProcessOutputReport `(v  1 s 1 APP_KeyboardProcessOutputReport ]
 [v i2_APP_KeyboardProcessOutputReport APP_KeyboardProcessOutputReport `(v  1 s 1 i2_APP_KeyboardProcessOutputReport ]
-"639
+"647
 [v _USBHIDCBSetReportComplete USBHIDCBSetReportComplete `(v  1 s 1 USBHIDCBSetReportComplete ]
-"649
+"657
 [v _USBHIDCBSetReportHandler USBHIDCBSetReportHandler `(v  1 e 1 0 ]
-"660
+"668
 [v _USBHIDCBSetIdleRateHandler USBHIDCBSetIdleRateHandler `(v  1 e 1 0 ]
 "49 D:\OneDrive\Documents\Microchip\Projects\VolumeControlHID.X\app_led_usb_status.c
 [v _APP_LEDUpdateUSBStatus APP_LEDUpdateUSBStatus `(v  1 e 1 0 ]
@@ -258,9 +261,9 @@ ENCODER_CCW 2
 [v ___omul __omul `(uo  1 e 8 0 ]
 "92 D:\OneDrive\Documents\Microchip\Projects\VolumeControlHID.X\encoder.c
 [v _ENCODER_Initialize ENCODER_Initialize `(v  1 e 1 0 ]
-"121
-[v _ENCODER_GetDirection ENCODER_GetDirection `(E4048  1 e 1 0 ]
-"150
+"122
+[v _ENCODER_GetDirection ENCODER_GetDirection `(E3679  1 e 1 0 ]
+"151
 [v _ENCODER_Task ENCODER_Task `(v  1 e 1 0 ]
 "96 D:\OneDrive\Documents\Microchip\Projects\VolumeControlHID.X\leds.c
 [v _LED_On LED_On `(v  1 e 1 0 ]
@@ -414,9 +417,9 @@ ENCODER_CCW 2
 [v _lastConsumerTransmission lastConsumerTransmission `*.39v  1 s 2 lastConsumerTransmission ]
 "321
 [v _consumerWaitingForRelease consumerWaitingForRelease `a  1 s 1 consumerWaitingForRelease ]
-"372 C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h
+"175 C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h
 [v _UIR UIR `VEuc  1 e 1 @3944 ]
-[s S973 . 1 `uc 1 URSTIF 1 0 :1:0 
+[s S966 . 1 `uc 1 URSTIF 1 0 :1:0 
 `uc 1 UERRIF 1 0 :1:1 
 `uc 1 ACTVIF 1 0 :1:2 
 `uc 1 TRNIF 1 0 :1:3 
@@ -424,12 +427,12 @@ ENCODER_CCW 2
 `uc 1 STALLIF 1 0 :1:5 
 `uc 1 SOFIF 1 0 :1:6 
 ]
-"388
-[u S981 . 1 `S973 1 . 1 0 ]
-[v _UIRbits UIRbits `VES981  1 e 1 @3944 ]
-"428
+"191
+[u S974 . 1 `S966 1 . 1 0 ]
+[v _UIRbits UIRbits `VES974  1 e 1 @3944 ]
+"231
 [v _UIE UIE `VEuc  1 e 1 @3945 ]
-[s S992 . 1 `uc 1 URSTIE 1 0 :1:0 
+[s S985 . 1 `uc 1 URSTIE 1 0 :1:0 
 `uc 1 UERRIE 1 0 :1:1 
 `uc 1 ACTVIE 1 0 :1:2 
 `uc 1 TRNIE 1 0 :1:3 
@@ -437,16 +440,16 @@ ENCODER_CCW 2
 `uc 1 STALLIE 1 0 :1:5 
 `uc 1 SOFIE 1 0 :1:6 
 ]
-"444
-[u S1000 . 1 `S992 1 . 1 0 ]
-[v _UIEbits UIEbits `VES1000  1 e 1 @3945 ]
-"484
+"247
+[u S993 . 1 `S985 1 . 1 0 ]
+[v _UIEbits UIEbits `VES993  1 e 1 @3945 ]
+"287
 [v _UEIR UEIR `VEuc  1 e 1 @3946 ]
-"535
+"338
 [v _UEIE UEIE `VEuc  1 e 1 @3947 ]
-"586
+"389
 [v _USTAT USTAT `VEuc  1 e 1 @3948 ]
-"646
+"449
 [v _UCON UCON `VEuc  1 e 1 @3949 ]
 [s S164 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 SUSPND 1 0 :1:1 
@@ -456,39 +459,39 @@ ENCODER_CCW 2
 `uc 1 SE0 1 0 :1:5 
 `uc 1 PPBRST 1 0 :1:6 
 ]
-"662
+"465
 [u S172 . 1 `S164 1 . 1 0 ]
 [v _UCONbits UCONbits `VES172  1 e 1 @3949 ]
-"697
+"500
 [v _UADDR UADDR `VEuc  1 e 1 @3950 ]
-"761
+"564
 [v _UCFG UCFG `VEuc  1 e 1 @3951 ]
-"840
+"643
 [v _UEP0 UEP0 `VEuc  1 e 1 @3952 ]
-[s S1301 . 1 `uc 1 EPSTALL 1 0 :1:0 
+[s S1294 . 1 `uc 1 EPSTALL 1 0 :1:0 
 `uc 1 EPINEN 1 0 :1:1 
 `uc 1 EPOUTEN 1 0 :1:2 
 `uc 1 EPCONDIS 1 0 :1:3 
 `uc 1 EPHSHK 1 0 :1:4 
 ]
-"868
-[s S1307 . 1 `uc 1 EP0STALL 1 0 :1:0 
+"671
+[s S1300 . 1 `uc 1 EP0STALL 1 0 :1:0 
 `uc 1 EP0INEN 1 0 :1:1 
 `uc 1 EP0OUTEN 1 0 :1:2 
 `uc 1 EP0CONDIS 1 0 :1:3 
 `uc 1 EP0HSHK 1 0 :1:4 
 ]
-[s S1313 . 1 `uc 1 EPSTALL0 1 0 :1:0 
+[s S1306 . 1 `uc 1 EPSTALL0 1 0 :1:0 
 `uc 1 EPINEN0 1 0 :1:1 
 `uc 1 EPOUTEN0 1 0 :1:2 
 `uc 1 EPCONDIS0 1 0 :1:3 
 `uc 1 EPHSHK0 1 0 :1:4 
 ]
-[u S1319 . 1 `S1301 1 . 1 0 `S1307 1 . 1 0 `S1313 1 . 1 0 ]
-[v _UEP0bits UEP0bits `VES1319  1 e 1 @3952 ]
-"948
+[u S1312 . 1 `S1294 1 . 1 0 `S1300 1 . 1 0 `S1306 1 . 1 0 ]
+[v _UEP0bits UEP0bits `VES1312  1 e 1 @3952 ]
+"751
 [v _UEP1 UEP1 `VEuc  1 e 1 @3953 ]
-[s S436 . 1 `uc 1 RB0 1 0 :1:0 
+[s S438 . 1 `uc 1 RB0 1 0 :1:0 
 `uc 1 RB1 1 0 :1:1 
 `uc 1 RB2 1 0 :1:2 
 `uc 1 RB3 1 0 :1:3 
@@ -497,8 +500,8 @@ ENCODER_CCW 2
 `uc 1 RB6 1 0 :1:6 
 `uc 1 RB7 1 0 :1:7 
 ]
-"2481
-[s S445 . 1 `uc 1 INT0 1 0 :1:0 
+"2284
+[s S447 . 1 `uc 1 INT0 1 0 :1:0 
 `uc 1 INT1 1 0 :1:1 
 `uc 1 INT2 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
@@ -506,33 +509,50 @@ ENCODER_CCW 2
 `uc 1 PGC 1 0 :1:6 
 `uc 1 PGD 1 0 :1:7 
 ]
-[s S453 . 1 `uc 1 . 1 0 :3:0 
+[s S455 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 CCP2_PA2 1 0 :1:3 
 ]
-[u S456 . 1 `S436 1 . 1 0 `S445 1 . 1 0 `S453 1 . 1 0 ]
-[v _PORTBbits PORTBbits `VES456  1 e 1 @3969 ]
-[s S547 . 1 `uc 1 LATD0 1 0 :1:0 
-`uc 1 LATD1 1 0 :1:1 
-`uc 1 LATD2 1 0 :1:2 
-`uc 1 LATD3 1 0 :1:3 
-`uc 1 LATD4 1 0 :1:4 
-`uc 1 LATD5 1 0 :1:5 
-`uc 1 LATD6 1 0 :1:6 
-`uc 1 LATD7 1 0 :1:7 
+[u S458 . 1 `S438 1 . 1 0 `S447 1 . 1 0 `S455 1 . 1 0 ]
+[v _PORTBbits PORTBbits `VES458  1 e 1 @3969 ]
+[s S549 . 1 `uc 1 LATA0 1 0 :1:0 
+`uc 1 LATA1 1 0 :1:1 
+`uc 1 LATA2 1 0 :1:2 
+`uc 1 LATA3 1 0 :1:3 
+`uc 1 LATA4 1 0 :1:4 
+`uc 1 LATA5 1 0 :1:5 
+`uc 1 LATA6 1 0 :1:6 
 ]
-"3288
-[s S556 . 1 `uc 1 LD0 1 0 :1:0 
-`uc 1 LD1 1 0 :1:1 
-`uc 1 LD2 1 0 :1:2 
-`uc 1 LD3 1 0 :1:3 
-`uc 1 LD4 1 0 :1:4 
-`uc 1 LD5 1 0 :1:5 
-`uc 1 LD6 1 0 :1:6 
-`uc 1 LD7 1 0 :1:7 
+"2570
+[s S557 . 1 `uc 1 LA0 1 0 :1:0 
+`uc 1 LA1 1 0 :1:1 
+`uc 1 LA2 1 0 :1:2 
+`uc 1 LA3 1 0 :1:3 
+`uc 1 LA4 1 0 :1:4 
+`uc 1 LA5 1 0 :1:5 
+`uc 1 LA6 1 0 :1:6 
 ]
-[u S565 . 1 `S547 1 . 1 0 `S556 1 . 1 0 ]
-[v _LATDbits LATDbits `VES565  1 e 1 @3980 ]
-[s S481 . 1 `uc 1 TRISB0 1 0 :1:0 
+[u S565 . 1 `S549 1 . 1 0 `S557 1 . 1 0 ]
+[v _LATAbits LATAbits `VES565  1 e 1 @3977 ]
+[s S585 . 1 `uc 1 TRISA0 1 0 :1:0 
+`uc 1 TRISA1 1 0 :1:1 
+`uc 1 TRISA2 1 0 :1:2 
+`uc 1 TRISA3 1 0 :1:3 
+`uc 1 TRISA4 1 0 :1:4 
+`uc 1 TRISA5 1 0 :1:5 
+`uc 1 TRISA6 1 0 :1:6 
+]
+"2865
+[s S593 . 1 `uc 1 RA0 1 0 :1:0 
+`uc 1 RA1 1 0 :1:1 
+`uc 1 RA2 1 0 :1:2 
+`uc 1 RA3 1 0 :1:3 
+`uc 1 RA4 1 0 :1:4 
+`uc 1 RA5 1 0 :1:5 
+`uc 1 RA6 1 0 :1:6 
+]
+[u S601 . 1 `S585 1 . 1 0 `S593 1 . 1 0 ]
+[v _TRISAbits TRISAbits `VES601  1 e 1 @3986 ]
+[s S483 . 1 `uc 1 TRISB0 1 0 :1:0 
 `uc 1 TRISB1 1 0 :1:1 
 `uc 1 TRISB2 1 0 :1:2 
 `uc 1 TRISB3 1 0 :1:3 
@@ -541,31 +561,10 @@ ENCODER_CCW 2
 `uc 1 TRISB6 1 0 :1:6 
 `uc 1 TRISB7 1 0 :1:7 
 ]
-"3655
-[u S499 . 1 `S481 1 . 1 0 `S436 1 . 1 0 ]
-[v _TRISBbits TRISBbits `VES499  1 e 1 @3987 ]
-[s S587 . 1 `uc 1 TRISD0 1 0 :1:0 
-`uc 1 TRISD1 1 0 :1:1 
-`uc 1 TRISD2 1 0 :1:2 
-`uc 1 TRISD3 1 0 :1:3 
-`uc 1 TRISD4 1 0 :1:4 
-`uc 1 TRISD5 1 0 :1:5 
-`uc 1 TRISD6 1 0 :1:6 
-`uc 1 TRISD7 1 0 :1:7 
-]
-"4031
-[s S596 . 1 `uc 1 RD0 1 0 :1:0 
-`uc 1 RD1 1 0 :1:1 
-`uc 1 RD2 1 0 :1:2 
-`uc 1 RD3 1 0 :1:3 
-`uc 1 RD4 1 0 :1:4 
-`uc 1 RD5 1 0 :1:5 
-`uc 1 RD6 1 0 :1:6 
-`uc 1 RD7 1 0 :1:7 
-]
-[u S605 . 1 `S587 1 . 1 0 `S596 1 . 1 0 ]
-[v _TRISDbits TRISDbits `VES605  1 e 1 @3989 ]
-[s S925 . 1 `uc 1 CCP2IE 1 0 :1:0 
+"3065
+[u S501 . 1 `S483 1 . 1 0 `S438 1 . 1 0 ]
+[v _TRISBbits TRISBbits `VES501  1 e 1 @3987 ]
+[s S918 . 1 `uc 1 CCP2IE 1 0 :1:0 
 `uc 1 TMR3IE 1 0 :1:1 
 `uc 1 HLVDIE 1 0 :1:2 
 `uc 1 BCLIE 1 0 :1:3 
@@ -574,13 +573,13 @@ ENCODER_CCW 2
 `uc 1 CMIE 1 0 :1:6 
 `uc 1 OSCFIE 1 0 :1:7 
 ]
-"4655
-[s S934 . 1 `uc 1 . 1 0 :2:0 
+"3702
+[s S927 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 LVDIE 1 0 :1:2 
 ]
-[u S937 . 1 `S925 1 . 1 0 `S934 1 . 1 0 ]
-[v _PIE2bits PIE2bits `VES937  1 e 1 @4000 ]
-[s S1015 . 1 `uc 1 CCP2IF 1 0 :1:0 
+[u S930 . 1 `S918 1 . 1 0 `S927 1 . 1 0 ]
+[v _PIE2bits PIE2bits `VES930  1 e 1 @4000 ]
+[s S1008 . 1 `uc 1 CCP2IF 1 0 :1:0 
 `uc 1 TMR3IF 1 0 :1:1 
 `uc 1 HLVDIF 1 0 :1:2 
 `uc 1 BCLIF 1 0 :1:3 
@@ -589,13 +588,13 @@ ENCODER_CCW 2
 `uc 1 CMIF 1 0 :1:6 
 `uc 1 OSCFIF 1 0 :1:7 
 ]
-"4726
-[s S1024 . 1 `uc 1 . 1 0 :2:0 
+"3773
+[s S1017 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 LVDIF 1 0 :1:2 
 ]
-[u S1027 . 1 `S1015 1 . 1 0 `S1024 1 . 1 0 ]
-[v _PIR2bits PIR2bits `VES1027  1 e 1 @4001 ]
-[s S1193 . 1 `uc 1 CCP2IP 1 0 :1:0 
+[u S1020 . 1 `S1008 1 . 1 0 `S1017 1 . 1 0 ]
+[v _PIR2bits PIR2bits `VES1020  1 e 1 @4001 ]
+[s S1186 . 1 `uc 1 CCP2IP 1 0 :1:0 
 `uc 1 TMR3IP 1 0 :1:1 
 `uc 1 HLVDIP 1 0 :1:2 
 `uc 1 BCLIP 1 0 :1:3 
@@ -604,28 +603,28 @@ ENCODER_CCW 2
 `uc 1 CMIP 1 0 :1:6 
 `uc 1 OSCFIP 1 0 :1:7 
 ]
-"4797
-[s S1202 . 1 `uc 1 . 1 0 :2:0 
+"3844
+[s S1195 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 LVDIP 1 0 :1:2 
 ]
-[u S1205 . 1 `S1193 1 . 1 0 `S1202 1 . 1 0 ]
-[v _IPR2bits IPR2bits `VES1205  1 e 1 @4002 ]
-[s S1115 . 1 `uc 1 NOT_BOR 1 0 :1:0 
+[u S1198 . 1 `S1186 1 . 1 0 `S1195 1 . 1 0 ]
+[v _IPR2bits IPR2bits `VES1198  1 e 1 @4002 ]
+[s S1108 . 1 `uc 1 NOT_BOR 1 0 :1:0 
 ]
-"7586
-[s S1117 . 1 `uc 1 . 1 0 :1:0 
+"6405
+[s S1110 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 NOT_POR 1 0 :1:1 
 ]
-[s S1120 . 1 `uc 1 . 1 0 :2:0 
+[s S1113 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 NOT_PD 1 0 :1:2 
 ]
-[s S1123 . 1 `uc 1 . 1 0 :3:0 
+[s S1116 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 NOT_TO 1 0 :1:3 
 ]
-[s S1126 . 1 `uc 1 . 1 0 :4:0 
+[s S1119 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 NOT_RI 1 0 :1:4 
 ]
-[s S1129 . 1 `uc 1 nBOR 1 0 :1:0 
+[s S1122 . 1 `uc 1 nBOR 1 0 :1:0 
 `uc 1 nPOR 1 0 :1:1 
 `uc 1 nPD 1 0 :1:2 
 `uc 1 nTO 1 0 :1:3 
@@ -634,10 +633,10 @@ ENCODER_CCW 2
 `uc 1 SBOREN 1 0 :1:6 
 `uc 1 IPEN 1 0 :1:7 
 ]
-[s S1138 . 1 `uc 1 . 1 0 :7:0 
+[s S1131 . 1 `uc 1 . 1 0 :7:0 
 `uc 1 NOT_IPEN 1 0 :1:7 
 ]
-[s S1141 . 1 `uc 1 BOR 1 0 :1:0 
+[s S1134 . 1 `uc 1 BOR 1 0 :1:0 
 `uc 1 POR 1 0 :1:1 
 `uc 1 PD 1 0 :1:2 
 `uc 1 TO 1 0 :1:3 
@@ -645,9 +644,29 @@ ENCODER_CCW 2
 `uc 1 . 1 0 :2:5 
 `uc 1 nIPEN 1 0 :1:7 
 ]
-[u S1149 . 1 `S1115 1 . 1 0 `S1117 1 . 1 0 `S1120 1 . 1 0 `S1123 1 . 1 0 `S1126 1 . 1 0 `S1129 1 . 1 0 `S1138 1 . 1 0 `S1141 1 . 1 0 ]
-[v _RCONbits RCONbits `VES1149  1 e 1 @4048 ]
-[s S1221 . 1 `uc 1 RBIF 1 0 :1:0 
+[u S1142 . 1 `S1108 1 . 1 0 `S1110 1 . 1 0 `S1113 1 . 1 0 `S1116 1 . 1 0 `S1119 1 . 1 0 `S1122 1 . 1 0 `S1131 1 . 1 0 `S1134 1 . 1 0 ]
+[v _RCONbits RCONbits `VES1142  1 e 1 @4048 ]
+[s S2683 . 1 `uc 1 . 1 0 :7:0 
+`uc 1 NOT_RBPU 1 0 :1:7 
+]
+"7349
+[s S2686 . 1 `uc 1 RBIP 1 0 :1:0 
+`uc 1 . 1 0 :1:1 
+`uc 1 TMR0IP 1 0 :1:2 
+`uc 1 . 1 0 :1:3 
+`uc 1 INTEDG2 1 0 :1:4 
+`uc 1 INTEDG1 1 0 :1:5 
+`uc 1 INTEDG0 1 0 :1:6 
+`uc 1 nRBPU 1 0 :1:7 
+]
+[s S2695 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 T0IP 1 0 :1:2 
+`uc 1 . 1 0 :4:3 
+`uc 1 RBPU 1 0 :1:7 
+]
+[u S2700 . 1 `S2683 1 . 1 0 `S2686 1 . 1 0 `S2695 1 . 1 0 ]
+[v _INTCON2bits INTCON2bits `VES2700  1 e 1 @4081 ]
+[s S1214 . 1 `uc 1 RBIF 1 0 :1:0 
 `uc 1 INT0IF 1 0 :1:1 
 `uc 1 TMR0IF 1 0 :1:2 
 `uc 1 RBIE 1 0 :1:3 
@@ -656,8 +675,8 @@ ENCODER_CCW 2
 `uc 1 PEIE_GIEL 1 0 :1:6 
 `uc 1 GIE_GIEH 1 0 :1:7 
 ]
-"8612
-[s S1230 . 1 `uc 1 . 1 0 :1:0 
+"7431
+[s S1223 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 INT0F 1 0 :1:1 
 `uc 1 T0IF 1 0 :1:2 
 `uc 1 . 1 0 :1:3 
@@ -666,12 +685,12 @@ ENCODER_CCW 2
 `uc 1 PEIE 1 0 :1:6 
 `uc 1 GIE 1 0 :1:7 
 ]
-[s S1239 . 1 `uc 1 . 1 0 :6:0 
+[s S1232 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 GIEL 1 0 :1:6 
 `uc 1 GIEH 1 0 :1:7 
 ]
-[u S1243 . 1 `S1221 1 . 1 0 `S1230 1 . 1 0 `S1239 1 . 1 0 ]
-[v _INTCONbits INTCONbits `VES1243  1 e 1 @4082 ]
+[u S1236 . 1 `S1214 1 . 1 0 `S1223 1 . 1 0 `S1232 1 . 1 0 ]
+[v _INTCONbits INTCONbits `VES1236  1 e 1 @4082 ]
 "61 D:\OneDrive\Documents\Microchip\Projects\VolumeControlHID.X\encoder.c
 [v _encoder_table encoder_table `C[4][4]c  1 s 16 encoder_table ]
 "69
@@ -701,12 +720,12 @@ ENCODER_CCW 2
 "131
 [v _USB_SD_Ptr USB_SD_Ptr `C[3]*.32Cuc  1 e 6 0 ]
 "141 D:\OneDrive\Documents\Microchip\Projects\VolumeControlHID.X\usb_device.c
-[v _USBDeviceState USBDeviceState `VEE3804  1 e 1 0 ]
+[v _USBDeviceState USBDeviceState `VEE3435  1 e 1 0 ]
 "142
 [v _USBActiveConfiguration USBActiveConfiguration `VEuc  1 e 1 0 ]
 "143
 [v _USBAlternateInterface USBAlternateInterface `VE[1]uc  1 e 1 0 ]
-[s S714 . 1 `uc 1 BC8 1 0 :1:0 
+[s S707 . 1 `uc 1 BC8 1 0 :1:0 
 `uc 1 BC9 1 0 :1:1 
 `uc 1 BSTALL 1 0 :1:2 
 `uc 1 DTSEN 1 0 :1:3 
@@ -716,80 +735,80 @@ ENCODER_CCW 2
 `uc 1 UOWN 1 0 :1:7 
 ]
 "144
-[s S723 . 1 `uc 1 . 1 0 :2:0 
+[s S716 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 PID0 1 0 :1:2 
 `uc 1 PID1 1 0 :1:3 
 `uc 1 PID2 1 0 :1:4 
 `uc 1 PID3 1 0 :1:5 
 `uc 1 . 1 0 :1:6 
 ]
-[s S730 . 1 `uc 1 . 1 0 :2:0 
+[s S723 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 PID 1 0 :4:2 
 `uc 1 . 1 0 :2:6 
 ]
-[u S734 _BD_STAT 1 `uc 1 Val 1 0 `S714 1 . 1 0 `S723 1 . 1 0 `S730 1 . 1 0 ]
-[s S739 . 4 `S734 1 STAT 1 0 `uc 1 CNT 1 1 `uc 1 ADRL 1 2 `uc 1 ADRH 1 3 ]
-[s S744 . 4 `uc 1 . 1 0 :8:0 
+[u S727 _BD_STAT 1 `uc 1 Val 1 0 `S707 1 . 1 0 `S716 1 . 1 0 `S723 1 . 1 0 ]
+[s S732 . 4 `S727 1 STAT 1 0 `uc 1 CNT 1 1 `uc 1 ADRL 1 2 `uc 1 ADRH 1 3 ]
+[s S737 . 4 `uc 1 . 1 0 :8:0 
 `uc 1 . 1 1 :8:0 
 `us 1 ADR 2 2 ]
-[u S748 __BDT 4 `S739 1 . 4 0 `S744 1 . 4 0 `ul 1 Val 4 0 `[4]uc 1 v 4 0 ]
-[v _pBDTEntryEP0OutCurrent pBDTEntryEP0OutCurrent `*.39VES748  1 e 2 0 ]
+[u S741 __BDT 4 `S732 1 . 4 0 `S737 1 . 4 0 `ul 1 Val 4 0 `[4]uc 1 v 4 0 ]
+[v _pBDTEntryEP0OutCurrent pBDTEntryEP0OutCurrent `*.39VES741  1 e 2 0 ]
 "145
-[v _pBDTEntryEP0OutNext pBDTEntryEP0OutNext `*.39VES748  1 e 2 0 ]
+[v _pBDTEntryEP0OutNext pBDTEntryEP0OutNext `*.39VES741  1 e 2 0 ]
 "146
-[v _pBDTEntryOut pBDTEntryOut `[2]*.39VES748  1 e 4 0 ]
+[v _pBDTEntryOut pBDTEntryOut `[2]*.39VES741  1 e 4 0 ]
 "147
-[v _pBDTEntryIn pBDTEntryIn `[2]*.39VES748  1 e 4 0 ]
+[v _pBDTEntryIn pBDTEntryIn `[2]*.39VES741  1 e 4 0 ]
 "148
 [v _shortPacketStatus shortPacketStatus `VEuc  1 e 1 0 ]
 "149
 [v _controlTransferState controlTransferState `VEuc  1 e 1 0 ]
-[u S753 . 2 `*.35uc 1 bRam 2 0 `*.39Cuc 1 bRom 2 0 `*.39us 1 wRam 2 0 `*.39Cus 1 wRom 2 0 ]
+[u S746 . 2 `*.35uc 1 bRam 2 0 `*.39Cuc 1 bRom 2 0 `*.39us 1 wRam 2 0 `*.39Cus 1 wRom 2 0 ]
 "150
-[s S758 . 1 `uc 1 ctrl_trf_mem 1 0 :1:0 
+[s S751 . 1 `uc 1 ctrl_trf_mem 1 0 :1:0 
 `uc 1 reserved 1 0 :5:1 
 `uc 1 includeZero 1 0 :1:6 
 `uc 1 busy 1 0 :1:7 
 ]
-[u S763 . 1 `S758 1 bits 1 0 `uc 1 Val 1 0 ]
-[s S237 . 2 `uc 1 LB 1 0 `uc 1 HB 1 1 ]
-[u S240 . 2 `us 1 Val 2 0 `[2]uc 1 v 2 0 `S237 1 byte 2 0 ]
-[s S773 . 5 `S753 1 pSrc 2 0 `S763 1 info 1 2 `S240 1 wCount 2 3 ]
-[v _inPipes inPipes `VE[1]S773  1 e 5 0 ]
-[u S228 . 2 `*.39uc 1 bRam 2 0 `*.39us 1 wRam 2 0 ]
+[u S756 . 1 `S751 1 bits 1 0 `uc 1 Val 1 0 ]
+[s S238 . 2 `uc 1 LB 1 0 `uc 1 HB 1 1 ]
+[u S241 . 2 `us 1 Val 2 0 `[2]uc 1 v 2 0 `S238 1 byte 2 0 ]
+[s S766 . 5 `S746 1 pSrc 2 0 `S756 1 info 1 2 `S241 1 wCount 2 3 ]
+[v _inPipes inPipes `VE[1]S766  1 e 5 0 ]
+[u S229 . 2 `*.39uc 1 bRam 2 0 `*.39us 1 wRam 2 0 ]
 "151
-[s S231 . 1 `uc 1 reserved 1 0 :7:0 
+[s S232 . 1 `uc 1 reserved 1 0 :7:0 
 `uc 1 busy 1 0 :1:7 
 ]
-[u S234 . 1 `S231 1 bits 1 0 `uc 1 Val 1 0 ]
-[s S245 . 7 `S228 1 pDst 2 0 `S234 1 info 1 2 `S240 1 wCount 2 3 `*.37(v 1 pFunc 2 5 ]
-[v _outPipes outPipes `VE[1]S245  1 e 7 0 ]
+[u S235 . 1 `S232 1 bits 1 0 `uc 1 Val 1 0 ]
+[s S246 . 7 `S229 1 pDst 2 0 `S235 1 info 1 2 `S241 1 wCount 2 3 `*.37(v 1 pFunc 2 5 ]
+[v _outPipes outPipes `VE[1]S246  1 e 7 0 ]
 "152
 [v _pDst pDst `*.39VEuc  1 e 2 0 ]
 "153
 [v _RemoteWakeup RemoteWakeup `VEa  1 e 1 0 ]
 "154
 [v _USBBusIsSuspended USBBusIsSuspended `VEa  1 e 1 0 ]
-[s S792 . 1 `uc 1 filler1 1 0 :1:0 
+[s S785 . 1 `uc 1 filler1 1 0 :1:0 
 `uc 1 ping_pong 1 0 :1:1 
 `uc 1 direction 1 0 :1:2 
 `uc 1 endpoint_number 1 0 :4:3 
 ]
 "155
-[u S797 __USTAT 1 `S792 1 . 1 0 `uc 1 Val 1 0 ]
-[v _USTATcopy USTATcopy `VES797  1 e 1 0 ]
+[u S790 __USTAT 1 `S785 1 . 1 0 `uc 1 Val 1 0 ]
+[v _USTATcopy USTATcopy `VES790  1 e 1 0 ]
 "156
 [v _endpoint_number endpoint_number `VEuc  1 e 1 0 ]
 "157
 [v _BothEP0OutUOWNsSet BothEP0OutUOWNsSet `VEa  1 e 1 0 ]
-[s S800 . 1 `uc 1 ping_pong_state 1 0 :1:0 
+[s S793 . 1 `uc 1 ping_pong_state 1 0 :1:0 
 `uc 1 transfer_terminated 1 0 :1:1 
 ]
 "158
-[u S803 . 1 `S800 1 bits 1 0 `uc 1 Val 1 0 ]
-[v _ep_data_in ep_data_in `VE[2]S803  1 e 2 0 ]
+[u S796 . 1 `S793 1 bits 1 0 `uc 1 Val 1 0 ]
+[v _ep_data_in ep_data_in `VE[2]S796  1 e 2 0 ]
 "159
-[v _ep_data_out ep_data_out `VE[2]S803  1 e 2 0 ]
+[v _ep_data_out ep_data_out `VE[2]S796  1 e 2 0 ]
 "160
 [v _USBStatusStageTimeoutCounter USBStatusStageTimeoutCounter `VEuc  1 e 1 0 ]
 "161
@@ -807,13 +826,13 @@ ENCODER_CCW 2
 "167
 [v _USBTicksSinceSuspendEnd USBTicksSinceSuspendEnd `VEuc  1 e 1 0 ]
 "174
-[v _BDT BDT `VE[8]S748  1 e 32 @1024 ]
-[s S806 . 8 `uc 1 bmRequestType 1 0 `uc 1 bRequest 1 1 `us 1 wValue 2 2 `us 1 wIndex 2 4 `us 1 wLength 2 6 ]
+[v _BDT BDT `VE[8]S741  1 e 32 @1024 ]
+[s S799 . 8 `uc 1 bmRequestType 1 0 `uc 1 bRequest 1 1 `us 1 wValue 2 2 `us 1 wIndex 2 4 `us 1 wLength 2 6 ]
 "179
-[s S833 . 8 `uc 1 . 1 0 :8:0 
+[s S826 . 8 `uc 1 . 1 0 :8:0 
 `uc 1 . 1 1 :8:0 
-`S240 1 W_Value 2 2 `S240 1 W_Index 2 4 `S240 1 W_Length 2 6 ]
-[s S839 . 8 `uc 1 Recipient 1 0 :5:0 
+`S241 1 W_Value 2 2 `S241 1 W_Index 2 4 `S241 1 W_Length 2 6 ]
+[s S832 . 8 `uc 1 Recipient 1 0 :5:0 
 `uc 1 RequestType 1 0 :2:5 
 `uc 1 DataDir 1 0 :1:7 
 `uc 1 . 1 1 :8:0 
@@ -823,44 +842,44 @@ ENCODER_CCW 2
 `uc 1 . 1 6 :8:0 
 `uc 1 . 1 7 :8:0 
 ]
-[s S850 . 1 `uc 1 recipient 1 0 :5:0 
+[s S843 . 1 `uc 1 recipient 1 0 :5:0 
 `uc 1 type 1 0 :2:5 
 `uc 1 direction 1 0 :1:7 
 ]
-[u S854 . 1 `uc 1 bmRequestType 1 0 `S850 1 . 1 0 ]
-[s S857 . 1 `S854 1 requestInfo 1 0 ]
-[s S859 . 8 `uc 1 . 1 0 :8:0 
+[u S847 . 1 `uc 1 bmRequestType 1 0 `S843 1 . 1 0 ]
+[s S850 . 1 `S847 1 requestInfo 1 0 ]
+[s S852 . 8 `uc 1 . 1 0 :8:0 
 `uc 1 . 1 1 :8:0 
 `uc 1 bDscIndex 1 2 `uc 1 bDescriptorType 1 3 `us 1 wLangID 2 4 `uc 1 . 1 6 :8:0 
 `uc 1 . 1 7 :8:0 
 ]
-[s S867 . 8 `uc 1 . 1 0 :8:0 
+[s S860 . 8 `uc 1 . 1 0 :8:0 
 `uc 1 . 1 1 :8:0 
 `uc 1 bDevADR 1 2 `uc 1 bDevADRH 1 3 `uc 1 . 1 4 :8:0 
 `uc 1 . 1 5 :8:0 
 `uc 1 . 1 6 :8:0 
 `uc 1 . 1 7 :8:0 
 ]
-[s S876 . 8 `uc 1 . 1 0 :8:0 
+[s S869 . 8 `uc 1 . 1 0 :8:0 
 `uc 1 . 1 1 :8:0 
 `uc 1 bConfigurationValue 1 2 `uc 1 bCfgRSD 1 3 `uc 1 . 1 4 :8:0 
 `uc 1 . 1 5 :8:0 
 `uc 1 . 1 6 :8:0 
 `uc 1 . 1 7 :8:0 
 ]
-[s S885 . 8 `uc 1 . 1 0 :8:0 
+[s S878 . 8 `uc 1 . 1 0 :8:0 
 `uc 1 . 1 1 :8:0 
 `uc 1 bAltID 1 2 `uc 1 bAltID_H 1 3 `uc 1 bIntfID 1 4 `uc 1 bIntfID_H 1 5 `uc 1 . 1 6 :8:0 
 `uc 1 . 1 7 :8:0 
 ]
-[s S894 . 8 `uc 1 . 1 0 :8:0 
+[s S887 . 8 `uc 1 . 1 0 :8:0 
 `uc 1 . 1 1 :8:0 
 `uc 1 . 1 2 :8:0 
 `uc 1 . 1 3 :8:0 
 `uc 1 bEPID 1 4 `uc 1 bEPID_H 1 5 `uc 1 . 1 6 :8:0 
 `uc 1 . 1 7 :8:0 
 ]
-[s S903 . 8 `uc 1 . 1 0 :8:0 
+[s S896 . 8 `uc 1 . 1 0 :8:0 
 `uc 1 . 1 1 :8:0 
 `uc 1 . 1 2 :8:0 
 `uc 1 . 1 3 :8:0 
@@ -871,8 +890,8 @@ ENCODER_CCW 2
 `uc 1 . 1 6 :8:0 
 `uc 1 . 1 7 :8:0 
 ]
-[u S914 . 8 `S806 1 . 8 0 `S833 1 . 8 0 `S839 1 . 8 0 `S857 1 . 1 0 `S859 1 . 8 0 `S867 1 . 8 0 `S876 1 . 8 0 `S885 1 . 8 0 `S894 1 . 8 0 `S903 1 . 8 0 ]
-[v _SetupPkt SetupPkt `VES914  1 e 8 @1056 ]
+[u S907 . 8 `S799 1 . 8 0 `S826 1 . 8 0 `S832 1 . 8 0 `S850 1 . 1 0 `S852 1 . 8 0 `S860 1 . 8 0 `S869 1 . 8 0 `S878 1 . 8 0 `S887 1 . 8 0 `S896 1 . 8 0 ]
+[v _SetupPkt SetupPkt `VES907  1 e 8 @1056 ]
 "180
 [v _CtrlTrfData CtrlTrfData `VE[8]uc  1 e 8 @1064 ]
 "87 D:\OneDrive\Documents\Microchip\Projects\VolumeControlHID.X\usb_device_hid.c
@@ -901,9 +920,9 @@ ENCODER_CCW 2
 "87 D:\OneDrive\Documents\Microchip\Projects\VolumeControlHID.X\system.c
 [v _SYSTEM_Initialize SYSTEM_Initialize `(v  1 e 1 0 ]
 {
-[v SYSTEM_Initialize@state state `E3561  1 p 1 wreg ]
-[v SYSTEM_Initialize@state state `E3561  1 p 1 wreg ]
-[v SYSTEM_Initialize@state state `E3561  1 p 1 5 ]
+[v SYSTEM_Initialize@state state `E3192  1 p 1 wreg ]
+[v SYSTEM_Initialize@state state `E3192  1 p 1 wreg ]
+[v SYSTEM_Initialize@state state `E3192  1 p 1 5 ]
 "103
 } 0
 "257 D:\OneDrive\Documents\Microchip\Projects\VolumeControlHID.X\leds.c
@@ -917,16 +936,16 @@ ENCODER_CCW 2
 "128 D:\OneDrive\Documents\Microchip\Projects\VolumeControlHID.X\buttons.c
 [v _BUTTON_Enable BUTTON_Enable `(v  1 e 1 0 ]
 {
-[v BUTTON_Enable@button button `E3343  1 p 1 wreg ]
-[v BUTTON_Enable@button button `E3343  1 p 1 wreg ]
-[v BUTTON_Enable@button button `E3343  1 p 1 2 ]
+[v BUTTON_Enable@button button `E2973  1 p 1 wreg ]
+[v BUTTON_Enable@button button `E2973  1 p 1 wreg ]
+[v BUTTON_Enable@button button `E2973  1 p 1 2 ]
 "143
 } 0
 "366 D:\OneDrive\Documents\Microchip\Projects\VolumeControlHID.X\app_device_keyboard.c
 [v _APP_KeyboardTasks APP_KeyboardTasks `(v  1 e 1 0 ]
 {
-"515
-[v APP_KeyboardTasks@encoder_dir encoder_dir `E4048  1 a 1 15 ]
+"537
+[v APP_KeyboardTasks@encoder_dir encoder_dir `E3679  1 a 1 15 ]
 "368
 [v APP_KeyboardTasks@TimeDeltaMilliseconds TimeDeltaMilliseconds `i  1 a 2 16 ]
 "369
@@ -935,7 +954,7 @@ ENCODER_CCW 2
 [v APP_KeyboardTasks@needToSendNewReportPacket needToSendNewReportPacket `a  1 a 1 14 ]
 "371
 [v APP_KeyboardTasks@needToSendNewReportPacket_consumer needToSendNewReportPacket_consumer `a  1 a 1 13 ]
-"625
+"595
 } 0
 "3 C:\Program Files\Microchip\xc8\v3.00\pic\sources\c99\common\memset.c
 [v _memset memset `(*.39v  1 e 2 0 ]
@@ -952,7 +971,7 @@ ENCODER_CCW 2
 [v _USBTransferOnePacket USBTransferOnePacket `(*.39v  1 e 2 0 ]
 {
 [v USBTransferOnePacket@ep ep `uc  1 p 1 wreg ]
-[s S714 . 1 `uc 1 BC8 1 0 :1:0 
+[s S707 . 1 `uc 1 BC8 1 0 :1:0 
 `uc 1 BC9 1 0 :1:1 
 `uc 1 BSTALL 1 0 :1:2 
 `uc 1 DTSEN 1 0 :1:3 
@@ -962,24 +981,24 @@ ENCODER_CCW 2
 `uc 1 UOWN 1 0 :1:7 
 ]
 "1001
-[s S723 . 1 `uc 1 . 1 0 :2:0 
+[s S716 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 PID0 1 0 :1:2 
 `uc 1 PID1 1 0 :1:3 
 `uc 1 PID2 1 0 :1:4 
 `uc 1 PID3 1 0 :1:5 
 `uc 1 . 1 0 :1:6 
 ]
-[s S730 . 1 `uc 1 . 1 0 :2:0 
+[s S723 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 PID 1 0 :4:2 
 `uc 1 . 1 0 :2:6 
 ]
-[u S734 _BD_STAT 1 `uc 1 Val 1 0 `S714 1 . 1 0 `S723 1 . 1 0 `S730 1 . 1 0 ]
-[s S739 . 4 `S734 1 STAT 1 0 `uc 1 CNT 1 1 `uc 1 ADRL 1 2 `uc 1 ADRH 1 3 ]
-[s S744 . 4 `uc 1 . 1 0 :8:0 
+[u S727 _BD_STAT 1 `uc 1 Val 1 0 `S707 1 . 1 0 `S716 1 . 1 0 `S723 1 . 1 0 ]
+[s S732 . 4 `S727 1 STAT 1 0 `uc 1 CNT 1 1 `uc 1 ADRL 1 2 `uc 1 ADRH 1 3 ]
+[s S737 . 4 `uc 1 . 1 0 :8:0 
 `uc 1 . 1 1 :8:0 
 `us 1 ADR 2 2 ]
-[u S748 __BDT 4 `S739 1 . 4 0 `S744 1 . 4 0 `ul 1 Val 4 0 `[4]uc 1 v 4 0 ]
-[v USBTransferOnePacket@handle handle `*.39VES748  1 a 2 9 ]
+[u S741 __BDT 4 `S732 1 . 4 0 `S737 1 . 4 0 `ul 1 Val 4 0 `[4]uc 1 v 4 0 ]
+[v USBTransferOnePacket@handle handle `*.39VES741  1 a 2 9 ]
 "999
 [v USBTransferOnePacket@ep ep `uc  1 p 1 wreg ]
 [v USBTransferOnePacket@dir dir `uc  1 p 1 0 ]
@@ -989,34 +1008,34 @@ ENCODER_CCW 2
 [v USBTransferOnePacket@ep ep `uc  1 p 1 8 ]
 "1051
 } 0
-"150 D:\OneDrive\Documents\Microchip\Projects\VolumeControlHID.X\encoder.c
+"151 D:\OneDrive\Documents\Microchip\Projects\VolumeControlHID.X\encoder.c
 [v _ENCODER_Task ENCODER_Task `(v  1 e 1 0 ]
 {
-"152
-[v ENCODER_Task@current_state current_state `uc  1 a 1 3 ]
 "153
+[v ENCODER_Task@current_state current_state `uc  1 a 1 3 ]
+"154
 [v ENCODER_Task@direction direction `c  1 a 1 2 ]
-"189
+"190
 } 0
-"121
-[v _ENCODER_GetDirection ENCODER_GetDirection `(E4048  1 e 1 0 ]
+"122
+[v _ENCODER_GetDirection ENCODER_GetDirection `(E3679  1 e 1 0 ]
 {
-"123
-[v ENCODER_GetDirection@direction direction `E3343  1 a 1 0 ]
-"136
+"124
+[v ENCODER_GetDirection@direction direction `E2973  1 a 1 0 ]
+"137
 } 0
 "95 D:\OneDrive\Documents\Microchip\Projects\VolumeControlHID.X\buttons.c
 [v _BUTTON_IsPressed BUTTON_IsPressed `(a  1 e 1 0 ]
 {
-[v BUTTON_IsPressed@button button `E3343  1 p 1 wreg ]
-[v BUTTON_IsPressed@button button `E3343  1 p 1 wreg ]
-[v BUTTON_IsPressed@button button `E3343  1 p 1 2 ]
+[v BUTTON_IsPressed@button button `E2973  1 p 1 wreg ]
+[v BUTTON_IsPressed@button button `E2973  1 p 1 wreg ]
+[v BUTTON_IsPressed@button button `E2973  1 p 1 2 ]
 "110
 } 0
-"627 D:\OneDrive\Documents\Microchip\Projects\VolumeControlHID.X\app_device_keyboard.c
+"635 D:\OneDrive\Documents\Microchip\Projects\VolumeControlHID.X\app_device_keyboard.c
 [v _APP_KeyboardProcessOutputReport APP_KeyboardProcessOutputReport `(v  1 s 1 APP_KeyboardProcessOutputReport ]
 {
-"637
+"645
 } 0
 "96 D:\OneDrive\Documents\Microchip\Projects\VolumeControlHID.X\leds.c
 [v _LED_On LED_On `(v  1 e 1 0 ]
@@ -1134,7 +1153,7 @@ ENCODER_CCW 2
 "2133 D:\OneDrive\Documents\Microchip\Projects\VolumeControlHID.X\usb_device.c
 [v _USBStdGetStatusHandler USBStdGetStatusHandler `(v  1 s 1 USBStdGetStatusHandler ]
 {
-[s S714 . 1 `uc 1 BC8 1 0 :1:0 
+[s S707 . 1 `uc 1 BC8 1 0 :1:0 
 `uc 1 BC9 1 0 :1:1 
 `uc 1 BSTALL 1 0 :1:2 
 `uc 1 DTSEN 1 0 :1:3 
@@ -1144,24 +1163,24 @@ ENCODER_CCW 2
 `uc 1 UOWN 1 0 :1:7 
 ]
 "2166
-[s S723 . 1 `uc 1 . 1 0 :2:0 
+[s S716 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 PID0 1 0 :1:2 
 `uc 1 PID1 1 0 :1:3 
 `uc 1 PID2 1 0 :1:4 
 `uc 1 PID3 1 0 :1:5 
 `uc 1 . 1 0 :1:6 
 ]
-[s S730 . 1 `uc 1 . 1 0 :2:0 
+[s S723 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 PID 1 0 :4:2 
 `uc 1 . 1 0 :2:6 
 ]
-[u S734 _BD_STAT 1 `uc 1 Val 1 0 `S714 1 . 1 0 `S723 1 . 1 0 `S730 1 . 1 0 ]
-[s S739 . 4 `S734 1 STAT 1 0 `uc 1 CNT 1 1 `uc 1 ADRL 1 2 `uc 1 ADRH 1 3 ]
-[s S744 . 4 `uc 1 . 1 0 :8:0 
+[u S727 _BD_STAT 1 `uc 1 Val 1 0 `S707 1 . 1 0 `S716 1 . 1 0 `S723 1 . 1 0 ]
+[s S732 . 4 `S727 1 STAT 1 0 `uc 1 CNT 1 1 `uc 1 ADRL 1 2 `uc 1 ADRH 1 3 ]
+[s S737 . 4 `uc 1 . 1 0 :8:0 
 `uc 1 . 1 1 :8:0 
 `us 1 ADR 2 2 ]
-[u S748 __BDT 4 `S739 1 . 4 0 `S744 1 . 4 0 `ul 1 Val 4 0 `[4]uc 1 v 4 0 ]
-[v USBStdGetStatusHandler@p p `*.39S748  1 a 2 0 ]
+[u S741 __BDT 4 `S732 1 . 4 0 `S737 1 . 4 0 `ul 1 Val 4 0 `[4]uc 1 v 4 0 ]
+[v USBStdGetStatusHandler@p p `*.39S741  1 a 2 0 ]
 "2191
 } 0
 "2047
@@ -1172,7 +1191,7 @@ ENCODER_CCW 2
 "2761
 [v _USBStdFeatureReqHandler USBStdFeatureReqHandler `(v  1 s 1 USBStdFeatureReqHandler ]
 {
-[s S714 . 1 `uc 1 BC8 1 0 :1:0 
+[s S707 . 1 `uc 1 BC8 1 0 :1:0 
 `uc 1 BC9 1 0 :1:1 
 `uc 1 BSTALL 1 0 :1:2 
 `uc 1 DTSEN 1 0 :1:3 
@@ -1182,38 +1201,38 @@ ENCODER_CCW 2
 `uc 1 UOWN 1 0 :1:7 
 ]
 "2763
-[s S723 . 1 `uc 1 . 1 0 :2:0 
+[s S716 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 PID0 1 0 :1:2 
 `uc 1 PID1 1 0 :1:3 
 `uc 1 PID2 1 0 :1:4 
 `uc 1 PID3 1 0 :1:5 
 `uc 1 . 1 0 :1:6 
 ]
-[s S730 . 1 `uc 1 . 1 0 :2:0 
+[s S723 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 PID 1 0 :4:2 
 `uc 1 . 1 0 :2:6 
 ]
-[u S734 _BD_STAT 1 `uc 1 Val 1 0 `S714 1 . 1 0 `S723 1 . 1 0 `S730 1 . 1 0 ]
-[s S739 . 4 `S734 1 STAT 1 0 `uc 1 CNT 1 1 `uc 1 ADRL 1 2 `uc 1 ADRH 1 3 ]
-[s S744 . 4 `uc 1 . 1 0 :8:0 
+[u S727 _BD_STAT 1 `uc 1 Val 1 0 `S707 1 . 1 0 `S716 1 . 1 0 `S723 1 . 1 0 ]
+[s S732 . 4 `S727 1 STAT 1 0 `uc 1 CNT 1 1 `uc 1 ADRL 1 2 `uc 1 ADRH 1 3 ]
+[s S737 . 4 `uc 1 . 1 0 :8:0 
 `uc 1 . 1 1 :8:0 
 `us 1 ADR 2 2 ]
-[u S748 __BDT 4 `S739 1 . 4 0 `S744 1 . 4 0 `ul 1 Val 4 0 `[4]uc 1 v 4 0 ]
-[v USBStdFeatureReqHandler@p p `*.39S748  1 a 2 27 ]
+[u S741 __BDT 4 `S732 1 . 4 0 `S737 1 . 4 0 `ul 1 Val 4 0 `[4]uc 1 v 4 0 ]
+[v USBStdFeatureReqHandler@p p `*.39S741  1 a 2 27 ]
 "2768
 [v USBStdFeatureReqHandler@pUEP pUEP `*.39uc  1 a 2 24 ]
-[s S800 . 1 `uc 1 ping_pong_state 1 0 :1:0 
+[s S793 . 1 `uc 1 ping_pong_state 1 0 :1:0 
 `uc 1 transfer_terminated 1 0 :1:1 
 ]
 "2764
-[u S803 . 1 `S800 1 bits 1 0 `uc 1 Val 1 0 ]
-[v USBStdFeatureReqHandler@current_ep_data current_ep_data `S803  1 a 1 26 ]
+[u S796 . 1 `S793 1 bits 1 0 `uc 1 Val 1 0 ]
+[v USBStdFeatureReqHandler@current_ep_data current_ep_data `S796  1 a 1 26 ]
 "2953
 } 0
 "67 D:\OneDrive\Documents\Microchip\Projects\VolumeControlHID.X\usb_events.c
 [v _USER_USB_CALLBACK_EVENT_HANDLER USER_USB_CALLBACK_EVENT_HANDLER `(a  1 e 1 0 ]
 {
-[v USER_USB_CALLBACK_EVENT_HANDLER@event event `E3578  1 p 2 14 ]
+[v USER_USB_CALLBACK_EVENT_HANDLER@event event `E3209  1 p 2 14 ]
 [v USER_USB_CALLBACK_EVENT_HANDLER@pdata pdata `*.39v  1 p 2 16 ]
 [v USER_USB_CALLBACK_EVENT_HANDLER@size size `us  1 p 2 18 ]
 "137
@@ -1221,9 +1240,9 @@ ENCODER_CCW 2
 "87 D:\OneDrive\Documents\Microchip\Projects\VolumeControlHID.X\system.c
 [v i2_SYSTEM_Initialize SYSTEM_Initialize `(v  1 e 1 0 ]
 {
-[v i2SYSTEM_Initialize@state state `E3561  1 p 1 wreg ]
-[v i2SYSTEM_Initialize@state state `E3561  1 p 1 wreg ]
-[v i2SYSTEM_Initialize@state state `E3561  1 p 1 5 ]
+[v i2SYSTEM_Initialize@state state `E3192  1 p 1 wreg ]
+[v i2SYSTEM_Initialize@state state `E3192  1 p 1 wreg ]
+[v i2SYSTEM_Initialize@state state `E3192  1 p 1 5 ]
 "103
 } 0
 "257 D:\OneDrive\Documents\Microchip\Projects\VolumeControlHID.X\leds.c
@@ -1237,9 +1256,9 @@ ENCODER_CCW 2
 "128 D:\OneDrive\Documents\Microchip\Projects\VolumeControlHID.X\buttons.c
 [v i2_BUTTON_Enable BUTTON_Enable `(v  1 e 1 0 ]
 {
-[v i2BUTTON_Enable@button button `E3343  1 p 1 wreg ]
-[v i2BUTTON_Enable@button button `E3343  1 p 1 wreg ]
-[v i2BUTTON_Enable@button button `E3343  1 p 1 2 ]
+[v i2BUTTON_Enable@button button `E2973  1 p 1 wreg ]
+[v i2BUTTON_Enable@button button `E2973  1 p 1 wreg ]
+[v i2BUTTON_Enable@button button `E2973  1 p 1 2 ]
 "143
 } 0
 "161 D:\OneDrive\Documents\Microchip\Projects\VolumeControlHID.X\usb_device_hid.c
@@ -1247,20 +1266,20 @@ ENCODER_CCW 2
 {
 "249
 } 0
-"649 D:\OneDrive\Documents\Microchip\Projects\VolumeControlHID.X\app_device_keyboard.c
+"657 D:\OneDrive\Documents\Microchip\Projects\VolumeControlHID.X\app_device_keyboard.c
 [v _USBHIDCBSetReportHandler USBHIDCBSetReportHandler `(v  1 e 1 0 ]
 {
-"655
+"663
 } 0
-"660
+"668
 [v _USBHIDCBSetIdleRateHandler USBHIDCBSetIdleRateHandler `(v  1 e 1 0 ]
 {
 [v USBHIDCBSetIdleRateHandler@reportID reportID `uc  1 p 1 wreg ]
 [v USBHIDCBSetIdleRateHandler@reportID reportID `uc  1 p 1 wreg ]
 [v USBHIDCBSetIdleRateHandler@newIdleRate newIdleRate `uc  1 p 1 0 ]
-"665
+"673
 [v USBHIDCBSetIdleRateHandler@reportID reportID `uc  1 p 1 1 ]
-"669
+"677
 } 0
 "49 D:\OneDrive\Documents\Microchip\Projects\VolumeControlHID.X\app_led_usb_status.c
 [v _APP_LEDUpdateUSBStatus APP_LEDUpdateUSBStatus `(v  1 e 1 0 ]
@@ -1278,7 +1297,7 @@ ENCODER_CCW 2
 [v i2_USBTransferOnePacket USBTransferOnePacket `(*.39v  1 e 2 0 ]
 {
 [v i2USBTransferOnePacket@ep ep `uc  1 p 1 wreg ]
-[s S714 . 1 `uc 1 BC8 1 0 :1:0 
+[s S707 . 1 `uc 1 BC8 1 0 :1:0 
 `uc 1 BC9 1 0 :1:1 
 `uc 1 BSTALL 1 0 :1:2 
 `uc 1 DTSEN 1 0 :1:3 
@@ -1288,24 +1307,24 @@ ENCODER_CCW 2
 `uc 1 UOWN 1 0 :1:7 
 ]
 "1001
-[s S723 . 1 `uc 1 . 1 0 :2:0 
+[s S716 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 PID0 1 0 :1:2 
 `uc 1 PID1 1 0 :1:3 
 `uc 1 PID2 1 0 :1:4 
 `uc 1 PID3 1 0 :1:5 
 `uc 1 . 1 0 :1:6 
 ]
-[s S730 . 1 `uc 1 . 1 0 :2:0 
+[s S723 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 PID 1 0 :4:2 
 `uc 1 . 1 0 :2:6 
 ]
-[u S734 _BD_STAT 1 `uc 1 Val 1 0 `S714 1 . 1 0 `S723 1 . 1 0 `S730 1 . 1 0 ]
-[s S739 . 4 `S734 1 STAT 1 0 `uc 1 CNT 1 1 `uc 1 ADRL 1 2 `uc 1 ADRH 1 3 ]
-[s S744 . 4 `uc 1 . 1 0 :8:0 
+[u S727 _BD_STAT 1 `uc 1 Val 1 0 `S707 1 . 1 0 `S716 1 . 1 0 `S723 1 . 1 0 ]
+[s S732 . 4 `S727 1 STAT 1 0 `uc 1 CNT 1 1 `uc 1 ADRL 1 2 `uc 1 ADRH 1 3 ]
+[s S737 . 4 `uc 1 . 1 0 :8:0 
 `uc 1 . 1 1 :8:0 
 `us 1 ADR 2 2 ]
-[u S748 __BDT 4 `S739 1 . 4 0 `S744 1 . 4 0 `ul 1 Val 4 0 `[4]uc 1 v 4 0 ]
-[v i2USBTransferOnePacket@handle handle `*.39VES748  1 a 2 9 ]
+[u S741 __BDT 4 `S732 1 . 4 0 `S737 1 . 4 0 `ul 1 Val 4 0 `[4]uc 1 v 4 0 ]
+[v i2USBTransferOnePacket@handle handle `*.39VES741  1 a 2 9 ]
 "999
 [v i2USBTransferOnePacket@ep ep `uc  1 p 1 wreg ]
 [v i2USBTransferOnePacket@dir dir `uc  1 p 1 0 ]
@@ -1332,7 +1351,7 @@ ENCODER_CCW 2
 [v _USBConfigureEndpoint USBConfigureEndpoint `(v  1 s 1 USBConfigureEndpoint ]
 {
 [v USBConfigureEndpoint@EPNum EPNum `uc  1 p 1 wreg ]
-[s S714 . 1 `uc 1 BC8 1 0 :1:0 
+[s S707 . 1 `uc 1 BC8 1 0 :1:0 
 `uc 1 BC9 1 0 :1:1 
 `uc 1 BSTALL 1 0 :1:2 
 `uc 1 DTSEN 1 0 :1:3 
@@ -1342,24 +1361,24 @@ ENCODER_CCW 2
 `uc 1 UOWN 1 0 :1:7 
 ]
 "1549
-[s S723 . 1 `uc 1 . 1 0 :2:0 
+[s S716 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 PID0 1 0 :1:2 
 `uc 1 PID1 1 0 :1:3 
 `uc 1 PID2 1 0 :1:4 
 `uc 1 PID3 1 0 :1:5 
 `uc 1 . 1 0 :1:6 
 ]
-[s S730 . 1 `uc 1 . 1 0 :2:0 
+[s S723 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 PID 1 0 :4:2 
 `uc 1 . 1 0 :2:6 
 ]
-[u S734 _BD_STAT 1 `uc 1 Val 1 0 `S714 1 . 1 0 `S723 1 . 1 0 `S730 1 . 1 0 ]
-[s S739 . 4 `S734 1 STAT 1 0 `uc 1 CNT 1 1 `uc 1 ADRL 1 2 `uc 1 ADRH 1 3 ]
-[s S744 . 4 `uc 1 . 1 0 :8:0 
+[u S727 _BD_STAT 1 `uc 1 Val 1 0 `S707 1 . 1 0 `S716 1 . 1 0 `S723 1 . 1 0 ]
+[s S732 . 4 `S727 1 STAT 1 0 `uc 1 CNT 1 1 `uc 1 ADRL 1 2 `uc 1 ADRH 1 3 ]
+[s S737 . 4 `uc 1 . 1 0 :8:0 
 `uc 1 . 1 1 :8:0 
 `us 1 ADR 2 2 ]
-[u S748 __BDT 4 `S739 1 . 4 0 `S744 1 . 4 0 `ul 1 Val 4 0 `[4]uc 1 v 4 0 ]
-[v USBConfigureEndpoint@handle handle `*.39VES748  1 a 2 8 ]
+[u S741 __BDT 4 `S732 1 . 4 0 `S737 1 . 4 0 `ul 1 Val 4 0 `[4]uc 1 v 4 0 ]
+[v USBConfigureEndpoint@handle handle `*.39VES741  1 a 2 8 ]
 "1547
 [v USBConfigureEndpoint@EPNum EPNum `uc  1 p 1 wreg ]
 [v USBConfigureEndpoint@direction direction `uc  1 p 1 0 ]
@@ -1370,7 +1389,7 @@ ENCODER_CCW 2
 "92 D:\OneDrive\Documents\Microchip\Projects\VolumeControlHID.X\encoder.c
 [v _ENCODER_Initialize ENCODER_Initialize `(v  1 e 1 0 ]
 {
-"107
+"108
 } 0
 "2545 D:\OneDrive\Documents\Microchip\Projects\VolumeControlHID.X\usb_device.c
 [v _USBCtrlTrfOutHandler USBCtrlTrfOutHandler `(v  1 s 1 USBCtrlTrfOutHandler ]
@@ -1398,15 +1417,15 @@ ENCODER_CCW 2
 [v USBCtrlTrfInHandler@lastDTS lastDTS `uc  1 a 1 3 ]
 "2674
 } 0
-"639 D:\OneDrive\Documents\Microchip\Projects\VolumeControlHID.X\app_device_keyboard.c
+"647 D:\OneDrive\Documents\Microchip\Projects\VolumeControlHID.X\app_device_keyboard.c
 [v _USBHIDCBSetReportComplete USBHIDCBSetReportComplete `(v  1 s 1 USBHIDCBSetReportComplete ]
 {
-"647
+"655
 } 0
-"627
+"635
 [v i2_APP_KeyboardProcessOutputReport APP_KeyboardProcessOutputReport `(v  1 s 1 i2_APP_KeyboardProcessOutputReport ]
 {
-"637
+"645
 } 0
 "96 D:\OneDrive\Documents\Microchip\Projects\VolumeControlHID.X\leds.c
 [v i2_LED_On LED_On `(v  1 e 1 0 ]

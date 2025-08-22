@@ -54,15 +54,15 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 // Section: File Scope or Global Constants
 // *****************************************************************************
 // *****************************************************************************
-#define LED_D1_LAT LATDbits.LATD3   //was 0
-#define LED_D2_LAT LATDbits.LATD1
-#define LED_D3_LAT LATDbits.LATD2
-#define LED_D4_LAT LATDbits.LATD3
+#define LED_D1_LAT LATAbits.LATA3   //was 0
+#define LED_D2_LAT LATAbits.LATA1
+#define LED_D3_LAT LATAbits.LATA2
+#define LED_D4_LAT LATAbits.LATA3
 
-#define LED_D1_TRIS TRISDbits.TRISD3    //was 0
-#define LED_D2_TRIS TRISDbits.TRISD1
-#define LED_D3_TRIS TRISDbits.TRISD2
-#define LED_D4_TRIS TRISDbits.TRISD3
+#define LED_D1_TRIS TRISAbits.TRISA3    //was 0
+#define LED_D2_TRIS TRISAbits.TRISA1
+#define LED_D3_TRIS TRISAbits.TRISA2
+#define LED_D4_TRIS TRISAbits.TRISA3
 
 #define LED_ON  1
 #define LED_OFF 0

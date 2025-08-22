@@ -1,271 +1,271 @@
 Version 4.0 HI-TECH Software Intermediate Code
 "141 usb_device.c
-[c E3772 0 1 2 4 8 16 32 .. ]
-[n E3772 . DETACHED_STATE ATTACHED_STATE POWERED_STATE DEFAULT_STATE ADR_PENDING_STATE ADDRESS_STATE CONFIGURED_STATE  ]
+[c E3402 0 1 2 4 8 16 32 .. ]
+[n E3402 . DETACHED_STATE ATTACHED_STATE POWERED_STATE DEFAULT_STATE ADR_PENDING_STATE ADDRESS_STATE CONFIGURED_STATE  ]
 "271 ./usb_hal_pic18.h
 [; ;./usb_hal_pic18.h: 271:     struct{
-[s S435 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S435 . BC8 BC9 BSTALL DTSEN INCDIS KEN DTS UOWN ]
+[s S395 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S395 . BC8 BC9 BSTALL DTSEN INCDIS KEN DTS UOWN ]
 "282
 [; ;./usb_hal_pic18.h: 282:     struct{
-[s S436 :2 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S436 . . PID0 PID1 PID2 PID3 . ]
+[s S396 :2 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S396 . . PID0 PID1 PID2 PID3 . ]
 "292
 [; ;./usb_hal_pic18.h: 292:     struct{
-[s S437 :2 `uc 1 :4 `uc 1 :2 `uc 1 ]
-[n S437 . . PID . ]
+[s S397 :2 `uc 1 :4 `uc 1 :2 `uc 1 ]
+[n S397 . . PID . ]
 "269
 [; ;./usb_hal_pic18.h: 269: {
-[u S434 `uc 1 `S435 1 `S436 1 `S437 1 ]
-[n S434 _BD_STAT Val . . . ]
+[u S394 `uc 1 `S395 1 `S396 1 `S397 1 ]
+[n S394 _BD_STAT Val . . . ]
 "303
 [; ;./usb_hal_pic18.h: 303:     {
-[s S439 `S434 1 `uc 1 `uc 1 `uc 1 ]
-[n S439 . STAT CNT ADRL ADRH ]
+[s S399 `S394 1 `uc 1 `uc 1 `uc 1 ]
+[n S399 . STAT CNT ADRL ADRH ]
 "310
 [; ;./usb_hal_pic18.h: 310:     {
-[s S440 :8 `uc 1 :8 `uc 1 `us 1 ]
-[n S440 . . . ADR ]
+[s S400 :8 `uc 1 :8 `uc 1 `us 1 ]
+[n S400 . . . ADR ]
 "301
 [; ;./usb_hal_pic18.h: 301: {
-[u S438 `S439 1 `S440 1 `ul 1 `uc -> 4 `i ]
-[n S438 __BDT . . Val v ]
+[u S398 `S399 1 `S400 1 `ul 1 `uc -> 4 `i ]
+[n S398 __BDT . . Val v ]
 "1997 ./usb_device.h
 [; ;./usb_device.h: 1997:     {
-[u S427 `*uc 1 `*Cuc 1 `*us 1 `*Cus 1 ]
-[n S427 . bRam bRom wRam wRom ]
+[u S387 `*uc 1 `*Cuc 1 `*us 1 `*Cus 1 ]
+[n S387 . bRam bRom wRam wRom ]
 "2008
 [; ;./usb_device.h: 2008:         {
-[s S429 :1 `uc 1 :5 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S429 . ctrl_trf_mem reserved includeZero busy ]
+[s S389 :1 `uc 1 :5 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S389 . ctrl_trf_mem reserved includeZero busy ]
 "2006
 [; ;./usb_device.h: 2006:     {
-[u S428 `S429 1 `uc 1 ]
-[n S428 . bits Val ]
+[u S388 `S389 1 `uc 1 ]
+[n S388 . bits Val ]
 "1985
 [; ;./usb_device.h: 1985:     {
-[s S425 `uc 1 `uc 1 ]
-[n S425 . LB HB ]
+[s S385 `uc 1 `uc 1 ]
+[n S385 . LB HB ]
 "1981
 [; ;./usb_device.h: 1981: {
-[u S424 `us 1 `uc -> 2 `i `S425 1 ]
-[n S424 . Val v byte ]
+[u S384 `us 1 `uc -> 2 `i `S385 1 ]
+[n S384 . Val v byte ]
 "1995
 [; ;./usb_device.h: 1995: {
-[s S426 `S427 1 `S428 1 `S424 1 ]
-[n S426 . pSrc info wCount ]
+[s S386 `S387 1 `S388 1 `S384 1 ]
+[n S386 . pSrc info wCount ]
 "2028
 [; ;./usb_device.h: 2028:     {
-[u S431 `*uc 1 `*us 1 ]
-[n S431 . bRam wRam ]
+[u S391 `*uc 1 `*us 1 ]
+[n S391 . bRam wRam ]
 "2037
 [; ;./usb_device.h: 2037:         {
-[s S433 :7 `uc 1 :1 `uc 1 ]
-[n S433 . reserved busy ]
+[s S393 :7 `uc 1 :1 `uc 1 ]
+[n S393 . reserved busy ]
 "2035
 [; ;./usb_device.h: 2035:     {
-[u S432 `S433 1 `uc 1 ]
-[n S432 . bits Val ]
-[v F3901 `(v ~T0 @X0 0 tf ]
+[u S392 `S393 1 `uc 1 ]
+[n S392 . bits Val ]
+[v F3531 `(v ~T0 @X0 0 tf ]
 "2026
 [; ;./usb_device.h: 2026: {
-[s S430 `S431 1 `S432 1 `S424 1 `*F3901 1 ]
-[n S430 . pDst info wCount pFunc ]
+[s S390 `S391 1 `S392 1 `S384 1 `*F3531 1 ]
+[n S390 . pDst info wCount pFunc ]
 "323 ./usb_hal_pic18.h
 [; ;./usb_hal_pic18.h: 323:     {
-[s S442 :1 `uc 1 :1 `uc 1 :1 `uc 1 :4 `uc 1 ]
-[n S442 . filler1 ping_pong direction endpoint_number ]
+[s S402 :1 `uc 1 :1 `uc 1 :1 `uc 1 :4 `uc 1 ]
+[n S402 . filler1 ping_pong direction endpoint_number ]
 "321
 [; ;./usb_hal_pic18.h: 321: {
-[u S441 `S442 1 `uc 1 ]
-[n S441 __USTAT . Val ]
+[u S401 `S402 1 `uc 1 ]
+[n S401 __USTAT . Val ]
 "38 ./usb_device_local.h
 [; ;./usb_device_local.h: 38:     {
-[s S446 :1 `uc 1 :1 `uc 1 ]
-[n S446 . ping_pong_state transfer_terminated ]
+[s S406 :1 `uc 1 :1 `uc 1 ]
+[n S406 . ping_pong_state transfer_terminated ]
 "36
 [; ;./usb_device_local.h: 36: {
-[u S445 `S446 1 `uc 1 ]
-[n S445 . bits Val ]
+[u S405 `S406 1 `uc 1 ]
+[n S405 . bits Val ]
 "272 ./usb_ch9.h
 [; ;./usb_ch9.h: 272:     {
-[s S401 `uc 1 `uc 1 `us 1 `us 1 `us 1 ]
-[n S401 . bmRequestType bRequest wValue wIndex wLength ]
+[s S361 `uc 1 `uc 1 `us 1 `us 1 `us 1 ]
+[n S361 . bmRequestType bRequest wValue wIndex wLength ]
 "288
 [; ;./usb_ch9.h: 288:             {
-[s S404 `uc 1 `uc 1 ]
-[n S404 . LB HB ]
+[s S364 `uc 1 `uc 1 ]
+[n S364 . LB HB ]
 "284
 [; ;./usb_ch9.h: 284:         {
-[u S403 `us 1 `uc -> 2 `i `S404 1 ]
-[n S403 . Val v byte ]
+[u S363 `us 1 `uc -> 2 `i `S364 1 ]
+[n S363 . Val v byte ]
 "299
 [; ;./usb_ch9.h: 299:             {
-[s S406 `uc 1 `uc 1 ]
-[n S406 . LB HB ]
+[s S366 `uc 1 `uc 1 ]
+[n S366 . LB HB ]
 "295
 [; ;./usb_ch9.h: 295:         {
-[u S405 `us 1 `uc -> 2 `i `S406 1 ]
-[n S405 . Val v byte ]
+[u S365 `us 1 `uc -> 2 `i `S366 1 ]
+[n S365 . Val v byte ]
 "310
 [; ;./usb_ch9.h: 310:             {
-[s S408 `uc 1 `uc 1 ]
-[n S408 . LB HB ]
+[s S368 `uc 1 `uc 1 ]
+[n S368 . LB HB ]
 "306
 [; ;./usb_ch9.h: 306:         {
-[u S407 `us 1 `uc -> 2 `i `S408 1 ]
-[n S407 . Val v byte ]
+[u S367 `us 1 `uc -> 2 `i `S368 1 ]
+[n S367 . Val v byte ]
 "280
 [; ;./usb_ch9.h: 280:     {
-[s S402 :8 `uc 1 :8 `uc 1 `S403 1 `S405 1 `S407 1 ]
-[n S402 . . . W_Value W_Index W_Length ]
+[s S362 :8 `uc 1 :8 `uc 1 `S363 1 `S365 1 `S367 1 ]
+[n S362 . . . W_Value W_Index W_Length ]
 "317
 [; ;./usb_ch9.h: 317:     {
-[s S409 :5 `uc 1 :2 `uc 1 :1 `uc 1 :8 `uc 1 `uc 1 :8 `uc 1 :8 `uc 1 :8 `uc 1 :8 `uc 1 :8 `uc 1 ]
-[n S409 . Recipient RequestType DataDir . bFeature . . . . . ]
+[s S369 :5 `uc 1 :2 `uc 1 :1 `uc 1 :8 `uc 1 `uc 1 :8 `uc 1 :8 `uc 1 :8 `uc 1 :8 `uc 1 :8 `uc 1 ]
+[n S369 . Recipient RequestType DataDir . bFeature . . . . . ]
 "335
 [; ;./usb_ch9.h: 335:             {
-[s S412 :5 `uc 1 :2 `uc 1 :1 `uc 1 ]
-[n S412 . recipient type direction ]
+[s S372 :5 `uc 1 :2 `uc 1 :1 `uc 1 ]
+[n S372 . recipient type direction ]
 "332
 [; ;./usb_ch9.h: 332:         {
-[u S411 `uc 1 `S412 1 ]
-[n S411 . bmRequestType . ]
+[u S371 `uc 1 `S372 1 ]
+[n S371 . bmRequestType . ]
 "330
 [; ;./usb_ch9.h: 330:     {
-[s S410 `S411 1 ]
-[n S410 . requestInfo ]
+[s S370 `S371 1 ]
+[n S370 . requestInfo ]
 "343
 [; ;./usb_ch9.h: 343:     {
-[s S413 :8 `uc 1 :8 `uc 1 `uc 1 `uc 1 `us 1 :8 `uc 1 :8 `uc 1 ]
-[n S413 . . . bDscIndex bDescriptorType wLangID . . ]
+[s S373 :8 `uc 1 :8 `uc 1 `uc 1 `uc 1 `us 1 :8 `uc 1 :8 `uc 1 ]
+[n S373 . . . bDscIndex bDescriptorType wLangID . . ]
 "353
 [; ;./usb_ch9.h: 353:     {
-[s S414 :8 `uc 1 :8 `uc 1 `uc 1 `uc 1 :8 `uc 1 :8 `uc 1 :8 `uc 1 :8 `uc 1 ]
-[n S414 . . . bDevADR bDevADRH . . . . ]
+[s S374 :8 `uc 1 :8 `uc 1 `uc 1 `uc 1 :8 `uc 1 :8 `uc 1 :8 `uc 1 :8 `uc 1 ]
+[n S374 . . . bDevADR bDevADRH . . . . ]
 "364
 [; ;./usb_ch9.h: 364:     {
-[s S415 :8 `uc 1 :8 `uc 1 `uc 1 `uc 1 :8 `uc 1 :8 `uc 1 :8 `uc 1 :8 `uc 1 ]
-[n S415 . . . bConfigurationValue bCfgRSD . . . . ]
+[s S375 :8 `uc 1 :8 `uc 1 `uc 1 `uc 1 :8 `uc 1 :8 `uc 1 :8 `uc 1 :8 `uc 1 ]
+[n S375 . . . bConfigurationValue bCfgRSD . . . . ]
 "375
 [; ;./usb_ch9.h: 375:     {
-[s S416 :8 `uc 1 :8 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 :8 `uc 1 :8 `uc 1 ]
-[n S416 . . . bAltID bAltID_H bIntfID bIntfID_H . . ]
+[s S376 :8 `uc 1 :8 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 :8 `uc 1 :8 `uc 1 ]
+[n S376 . . . bAltID bAltID_H bIntfID bIntfID_H . . ]
 "386
 [; ;./usb_ch9.h: 386:     {
-[s S417 :8 `uc 1 :8 `uc 1 :8 `uc 1 :8 `uc 1 `uc 1 `uc 1 :8 `uc 1 :8 `uc 1 ]
-[n S417 . . . . . bEPID bEPID_H . . ]
+[s S377 :8 `uc 1 :8 `uc 1 :8 `uc 1 :8 `uc 1 `uc 1 `uc 1 :8 `uc 1 :8 `uc 1 ]
+[n S377 . . . . . bEPID bEPID_H . . ]
 "397
 [; ;./usb_ch9.h: 397:     {
-[s S418 :8 `uc 1 :8 `uc 1 :8 `uc 1 :8 `uc 1 :4 `uc 1 :3 `uc 1 :1 `uc 1 :8 `uc 1 :8 `uc 1 :8 `uc 1 ]
-[n S418 . . . . . EPNum . EPDir . . . ]
+[s S378 :8 `uc 1 :8 `uc 1 :8 `uc 1 :8 `uc 1 :4 `uc 1 :3 `uc 1 :1 `uc 1 :8 `uc 1 :8 `uc 1 :8 `uc 1 ]
+[n S378 . . . . . EPNum . EPDir . . . ]
 "269
 [; ;./usb_ch9.h: 269: {
-[u S400 `S401 1 `S402 1 `S409 1 `S410 1 `S413 1 `S414 1 `S415 1 `S416 1 `S417 1 `S418 1 ]
-[n S400 . . . . . . . . . . . ]
-"4640 C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 4640:     struct {
-[s S184 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S184 . CCP2IE TMR3IE HLVDIE BCLIE EEIE USBIE CMIE OSCFIE ]
-"4650
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 4650:     struct {
-[s S185 :2 `uc 1 :1 `uc 1 ]
-[n S185 . . LVDIE ]
-"4639
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 4639: typedef union {
-[u S183 `S184 1 `S185 1 ]
-[n S183 . . . ]
-"4655
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 4655: extern volatile PIE2bits_t PIE2bits __attribute__((address(0xFA0)));
-[v _PIE2bits `VS183 ~T0 @X0 0 e@4000 ]
-"484
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 484: extern volatile unsigned char UEIR __attribute__((address(0xF6A)));
+[u S360 `S361 1 `S362 1 `S369 1 `S370 1 `S373 1 `S374 1 `S375 1 `S376 1 `S377 1 `S378 1 ]
+[n S360 . . . . . . . . . . . ]
+"3687 C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 3687:     struct {
+[s S149 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S149 . CCP2IE TMR3IE HLVDIE BCLIE EEIE USBIE CMIE OSCFIE ]
+"3697
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 3697:     struct {
+[s S150 :2 `uc 1 :1 `uc 1 ]
+[n S150 . . LVDIE ]
+"3686
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 3686: typedef union {
+[u S148 `S149 1 `S150 1 ]
+[n S148 . . . ]
+"3702
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 3702: extern volatile PIE2bits_t PIE2bits __attribute__((address(0xFA0)));
+[v _PIE2bits `VS148 ~T0 @X0 0 e@4000 ]
+"287
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 287: extern volatile unsigned char UEIR __attribute__((address(0xF6A)));
 [v _UEIR `Vuc ~T0 @X0 0 e@3946 ]
-"372
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 372: extern volatile unsigned char UIR __attribute__((address(0xF68)));
+"175
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 175: extern volatile unsigned char UIR __attribute__((address(0xF68)));
 [v _UIR `Vuc ~T0 @X0 0 e@3944 ]
-"840
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 840: extern volatile unsigned char UEP0 __attribute__((address(0xF70)));
+"643
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 643: extern volatile unsigned char UEP0 __attribute__((address(0xF70)));
 [v _UEP0 `Vuc ~T0 @X0 0 e@3952 ]
 "29 C:\Program Files\Microchip\xc8\v3.00\pic\include\c99/string.h
 [; ;C:\Program Files\Microchip\xc8\v3.00\pic\include\c99/string.h: 29: void *memset (void *, int, size_t);
 [v _memset `(*v ~T0 @X0 0 ef3`*v`i`ui ]
-"948 C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 948: extern volatile unsigned char UEP1 __attribute__((address(0xF71)));
+"751 C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 751: extern volatile unsigned char UEP1 __attribute__((address(0xF71)));
 [v _UEP1 `Vuc ~T0 @X0 0 e@3953 ]
-"761
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 761: extern volatile unsigned char UCFG __attribute__((address(0xF6F)));
+"564
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 564: extern volatile unsigned char UCFG __attribute__((address(0xF6F)));
 [v _UCFG `Vuc ~T0 @X0 0 e@3951 ]
-"535
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 535: extern volatile unsigned char UEIE __attribute__((address(0xF6B)));
+"338
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 338: extern volatile unsigned char UEIE __attribute__((address(0xF6B)));
 [v _UEIE `Vuc ~T0 @X0 0 e@3947 ]
-"428
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 428: extern volatile unsigned char UIE __attribute__((address(0xF69)));
+"231
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 231: extern volatile unsigned char UIE __attribute__((address(0xF69)));
 [v _UIE `Vuc ~T0 @X0 0 e@3945 ]
-"652
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 652:     struct {
-[s S36 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S36 . . SUSPND RESUME USBEN PKTDIS SE0 PPBRST ]
-"651
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 651: typedef union {
-[u S35 `S36 1 ]
-[n S35 . . ]
-"662
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 662: extern volatile UCONbits_t UCONbits __attribute__((address(0xF6D)));
-[v _UCONbits `VS35 ~T0 @X0 0 e@3949 ]
-"697
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 697: extern volatile unsigned char UADDR __attribute__((address(0xF6E)));
-[v _UADDR `Vuc ~T0 @X0 0 e@3950 ]
-"378
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 378:     struct {
+"455
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 455:     struct {
 [s S25 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S25 . URSTIF UERRIF ACTVIF TRNIF IDLEIF STALLIF SOFIF ]
-"377
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 377: typedef union {
+[n S25 . . SUSPND RESUME USBEN PKTDIS SE0 PPBRST ]
+"454
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 454: typedef union {
 [u S24 `S25 1 ]
 [n S24 . . ]
-"388
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 388: extern volatile UIRbits_t UIRbits __attribute__((address(0xF68)));
-[v _UIRbits `VS24 ~T0 @X0 0 e@3944 ]
-"434
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 434:     struct {
-[s S27 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S27 . URSTIE UERRIE ACTVIE TRNIE IDLEIE STALLIE SOFIE ]
-"433
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 433: typedef union {
-[u S26 `S27 1 ]
-[n S26 . . ]
-"444
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 444: extern volatile UIEbits_t UIEbits __attribute__((address(0xF69)));
-[v _UIEbits `VS26 ~T0 @X0 0 e@3945 ]
+"465
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 465: extern volatile UCONbits_t UCONbits __attribute__((address(0xF6D)));
+[v _UCONbits `VS24 ~T0 @X0 0 e@3949 ]
+"500
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 500: extern volatile unsigned char UADDR __attribute__((address(0xF6E)));
+[v _UADDR `Vuc ~T0 @X0 0 e@3950 ]
+"181
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 181:     struct {
+[s S14 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S14 . URSTIF UERRIF ACTVIF TRNIF IDLEIF STALLIF SOFIF ]
+"180
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 180: typedef union {
+[u S13 `S14 1 ]
+[n S13 . . ]
+"191
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 191: extern volatile UIRbits_t UIRbits __attribute__((address(0xF68)));
+[v _UIRbits `VS13 ~T0 @X0 0 e@3944 ]
+"237
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 237:     struct {
+[s S16 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S16 . URSTIE UERRIE ACTVIE TRNIE IDLEIE STALLIE SOFIE ]
+"236
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 236: typedef union {
+[u S15 `S16 1 ]
+[n S15 . . ]
+"247
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 247: extern volatile UIEbits_t UIEbits __attribute__((address(0xF69)));
+[v _UIEbits `VS15 ~T0 @X0 0 e@3945 ]
 "248 usb_device.c
 [; ;usb_device.c: 248: static void USBWakeFromSuspend(void);
 [v _USBWakeFromSuspend `(v ~T0 @X0 0 sf ]
-"4711 C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 4711:     struct {
-[s S187 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S187 . CCP2IF TMR3IF HLVDIF BCLIF EEIF USBIF CMIF OSCFIF ]
-"4721
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 4721:     struct {
-[s S188 :2 `uc 1 :1 `uc 1 ]
-[n S188 . . LVDIF ]
-"4710
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 4710: typedef union {
-[u S186 `S187 1 `S188 1 ]
-[n S186 . . . ]
-"4726
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 4726: extern volatile PIR2bits_t PIR2bits __attribute__((address(0xFA1)));
-[v _PIR2bits `VS186 ~T0 @X0 0 e@4001 ]
+"3758 C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 3758:     struct {
+[s S152 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S152 . CCP2IF TMR3IF HLVDIF BCLIF EEIF USBIF CMIF OSCFIF ]
+"3768
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 3768:     struct {
+[s S153 :2 `uc 1 :1 `uc 1 ]
+[n S153 . . LVDIF ]
+"3757
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 3757: typedef union {
+[u S151 `S152 1 `S153 1 ]
+[n S151 . . . ]
+"3773
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 3773: extern volatile PIR2bits_t PIR2bits __attribute__((address(0xFA1)));
+[v _PIR2bits `VS151 ~T0 @X0 0 e@4001 ]
 "249 usb_device.c
 [; ;usb_device.c: 249: static void USBSuspend(void);
 [v _USBSuspend `(v ~T0 @X0 0 sf ]
 "717
 [; ;usb_device.c: 717:             USER_USB_CALLBACK_EVENT_HANDLER((USB_EVENT)EVENT_SOF,0,1);
-[c E3713 0 1 100 101 102 103 104 105 106 107 108 109 110 111 112 113 114 115 116 117 118 119 120 121 122 123 124 400 500 600 700 800 900 1000 10000 32767 .. ]
-[n E3713 . EVENT_NONE EVENT_DEVICE_STACK_BASE EVENT_HOST_STACK_BASE EVENT_HUB_ATTACH EVENT_STALL EVENT_VBUS_SES_REQUEST EVENT_VBUS_OVERCURRENT EVENT_VBUS_REQUEST_POWER EVENT_VBUS_RELEASE_POWER EVENT_VBUS_POWER_AVAILABLE EVENT_UNSUPPORTED_DEVICE EVENT_CANNOT_ENUMERATE EVENT_CLIENT_INIT_ERROR EVENT_OUT_OF_MEMORY EVENT_UNSPECIFIED_ERROR EVENT_DETACH EVENT_TRANSFER EVENT_SOF EVENT_RESUME EVENT_SUSPEND EVENT_RESET EVENT_DATA_ISOC_READ EVENT_DATA_ISOC_WRITE EVENT_OVERRIDE_CLIENT_DRIVER_SELECTION EVENT_1MS EVENT_ALT_INTERFACE EVENT_HOLD_BEFORE_CONFIGURATION EVENT_GENERIC_BASE EVENT_MSD_BASE EVENT_HID_BASE EVENT_PRINTER_BASE EVENT_CDC_BASE EVENT_CHARGER_BASE EVENT_AUDIO_BASE EVENT_USER_BASE EVENT_BUS_ERROR  ]
+[c E3343 0 1 100 101 102 103 104 105 106 107 108 109 110 111 112 113 114 115 116 117 118 119 120 121 122 123 124 400 500 600 700 800 900 1000 10000 32767 .. ]
+[n E3343 . EVENT_NONE EVENT_DEVICE_STACK_BASE EVENT_HOST_STACK_BASE EVENT_HUB_ATTACH EVENT_STALL EVENT_VBUS_SES_REQUEST EVENT_VBUS_OVERCURRENT EVENT_VBUS_REQUEST_POWER EVENT_VBUS_RELEASE_POWER EVENT_VBUS_POWER_AVAILABLE EVENT_UNSUPPORTED_DEVICE EVENT_CANNOT_ENUMERATE EVENT_CLIENT_INIT_ERROR EVENT_OUT_OF_MEMORY EVENT_UNSPECIFIED_ERROR EVENT_DETACH EVENT_TRANSFER EVENT_SOF EVENT_RESUME EVENT_SUSPEND EVENT_RESET EVENT_DATA_ISOC_READ EVENT_DATA_ISOC_WRITE EVENT_OVERRIDE_CLIENT_DRIVER_SELECTION EVENT_1MS EVENT_ALT_INTERFACE EVENT_HOLD_BEFORE_CONFIGURATION EVENT_GENERIC_BASE EVENT_MSD_BASE EVENT_HID_BASE EVENT_PRINTER_BASE EVENT_CDC_BASE EVENT_CHARGER_BASE EVENT_AUDIO_BASE EVENT_USER_BASE EVENT_BUS_ERROR  ]
 "233
 [; ;usb_device.c: 233: extern _Bool USER_USB_CALLBACK_EVENT_HANDLER(USB_EVENT event, void *pdata, uint16_t size);
-[v _USER_USB_CALLBACK_EVENT_HANDLER `(a ~T0 @X0 0 ef3`E3713`*v`us ]
+[v _USER_USB_CALLBACK_EVENT_HANDLER `(a ~T0 @X0 0 ef3`E3343`*v`us ]
 "1808 ./usb_device.h
 [; ;./usb_device.h: 1808: void USBIncrement1msInternalTimers(void);
 [v _USBIncrement1msInternalTimers `(v ~T0 @X0 0 ef ]
@@ -275,8 +275,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "250 usb_device.c
 [; ;usb_device.c: 250: static void USBStallHandler(void);
 [v _USBStallHandler `(v ~T0 @X0 0 sf ]
-"586 C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 586: extern volatile unsigned char USTAT __attribute__((address(0xF6C)));
+"389 C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 389: extern volatile unsigned char USTAT __attribute__((address(0xF6C)));
 [v _USTAT `Vuc ~T0 @X0 0 e@3948 ]
 "235 usb_device.c
 [; ;usb_device.c: 235: static void USBCtrlEPService(void);
@@ -284,124 +284,124 @@ Version 4.0 HI-TECH Software Intermediate Code
 "247
 [; ;usb_device.c: 247: static void USBConfigureEndpoint(uint8_t EPNum, uint8_t direction);
 [v _USBConfigureEndpoint `(v ~T0 @X0 0 sf2`uc`uc ]
-"646 C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 646: extern volatile unsigned char UCON __attribute__((address(0xF6D)));
+"449 C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 449: extern volatile unsigned char UCON __attribute__((address(0xF6D)));
 [v _UCON `Vuc ~T0 @X0 0 e@3949 ]
-"7543
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 7543:     struct {
-[s S322 :1 `uc 1 ]
-[n S322 . NOT_BOR ]
-"7546
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 7546:     struct {
-[s S323 :1 `uc 1 :1 `uc 1 ]
-[n S323 . . NOT_POR ]
-"7550
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 7550:     struct {
-[s S324 :2 `uc 1 :1 `uc 1 ]
-[n S324 . . NOT_PD ]
-"7554
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 7554:     struct {
-[s S325 :3 `uc 1 :1 `uc 1 ]
-[n S325 . . NOT_TO ]
-"7558
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 7558:     struct {
-[s S326 :4 `uc 1 :1 `uc 1 ]
-[n S326 . . NOT_RI ]
-"7562
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 7562:     struct {
-[s S327 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S327 . nBOR nPOR nPD nTO nRI . SBOREN IPEN ]
-"7572
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 7572:     struct {
-[s S328 :7 `uc 1 :1 `uc 1 ]
-[n S328 . . NOT_IPEN ]
-"7576
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 7576:     struct {
-[s S329 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 ]
-[n S329 . BOR POR PD TO RI . nIPEN ]
-"7542
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 7542: typedef union {
-[u S321 `S322 1 `S323 1 `S324 1 `S325 1 `S326 1 `S327 1 `S328 1 `S329 1 ]
-[n S321 . . . . . . . . . ]
-"7586
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 7586: extern volatile RCONbits_t RCONbits __attribute__((address(0xFD0)));
-[v _RCONbits `VS321 ~T0 @X0 0 e@4048 ]
-"4782
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 4782:     struct {
-[s S190 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S190 . CCP2IP TMR3IP HLVDIP BCLIP EEIP USBIP CMIP OSCFIP ]
-"4792
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 4792:     struct {
-[s S191 :2 `uc 1 :1 `uc 1 ]
-[n S191 . . LVDIP ]
-"4781
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 4781: typedef union {
-[u S189 `S190 1 `S191 1 ]
-[n S189 . . . ]
-"4797
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 4797: extern volatile IPR2bits_t IPR2bits __attribute__((address(0xFA2)));
-[v _IPR2bits `VS189 ~T0 @X0 0 e@4002 ]
-"8586
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 8586:     struct {
-[s S360 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S360 . RBIF INT0IF TMR0IF RBIE INT0IE TMR0IE PEIE_GIEL GIE_GIEH ]
-"8596
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 8596:     struct {
-[s S361 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S361 . . INT0F T0IF . INT0E T0IE PEIE GIE ]
-"8606
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 8606:     struct {
-[s S362 :6 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S362 . . GIEL GIEH ]
-"8585
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 8585: typedef union {
-[u S359 `S360 1 `S361 1 `S362 1 ]
-[n S359 . . . . ]
-"8612
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 8612: extern volatile INTCONbits_t INTCONbits __attribute__((address(0xFF2)));
-[v _INTCONbits `VS359 ~T0 @X0 0 e@4082 ]
+"6362
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 6362:     struct {
+[s S282 :1 `uc 1 ]
+[n S282 . NOT_BOR ]
+"6365
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 6365:     struct {
+[s S283 :1 `uc 1 :1 `uc 1 ]
+[n S283 . . NOT_POR ]
+"6369
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 6369:     struct {
+[s S284 :2 `uc 1 :1 `uc 1 ]
+[n S284 . . NOT_PD ]
+"6373
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 6373:     struct {
+[s S285 :3 `uc 1 :1 `uc 1 ]
+[n S285 . . NOT_TO ]
+"6377
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 6377:     struct {
+[s S286 :4 `uc 1 :1 `uc 1 ]
+[n S286 . . NOT_RI ]
+"6381
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 6381:     struct {
+[s S287 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S287 . nBOR nPOR nPD nTO nRI . SBOREN IPEN ]
+"6391
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 6391:     struct {
+[s S288 :7 `uc 1 :1 `uc 1 ]
+[n S288 . . NOT_IPEN ]
+"6395
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 6395:     struct {
+[s S289 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 ]
+[n S289 . BOR POR PD TO RI . nIPEN ]
+"6361
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 6361: typedef union {
+[u S281 `S282 1 `S283 1 `S284 1 `S285 1 `S286 1 `S287 1 `S288 1 `S289 1 ]
+[n S281 . . . . . . . . . ]
+"6405
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 6405: extern volatile RCONbits_t RCONbits __attribute__((address(0xFD0)));
+[v _RCONbits `VS281 ~T0 @X0 0 e@4048 ]
+"3829
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 3829:     struct {
+[s S155 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S155 . CCP2IP TMR3IP HLVDIP BCLIP EEIP USBIP CMIP OSCFIP ]
+"3839
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 3839:     struct {
+[s S156 :2 `uc 1 :1 `uc 1 ]
+[n S156 . . LVDIP ]
+"3828
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 3828: typedef union {
+[u S154 `S155 1 `S156 1 ]
+[n S154 . . . ]
+"3844
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 3844: extern volatile IPR2bits_t IPR2bits __attribute__((address(0xFA2)));
+[v _IPR2bits `VS154 ~T0 @X0 0 e@4002 ]
+"7405
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 7405:     struct {
+[s S320 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S320 . RBIF INT0IF TMR0IF RBIE INT0IE TMR0IE PEIE_GIEL GIE_GIEH ]
+"7415
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 7415:     struct {
+[s S321 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S321 . . INT0F T0IF . INT0E T0IE PEIE GIE ]
+"7425
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 7425:     struct {
+[s S322 :6 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S322 . . GIEL GIEH ]
+"7404
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 7404: typedef union {
+[u S319 `S320 1 `S321 1 `S322 1 ]
+[n S319 . . . . ]
+"7431
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 7431: extern volatile INTCONbits_t INTCONbits __attribute__((address(0xFF2)));
+[v _INTCONbits `VS319 ~T0 @X0 0 e@4082 ]
 "241 usb_device.c
 [; ;usb_device.c: 241: static void USBCtrlTrfTxService(void);
 [v _USBCtrlTrfTxService `(v ~T0 @X0 0 sf ]
-[v F4125 `(v ~T0 @X0 0 tf ]
+[v F3755 `(v ~T0 @X0 0 tf ]
 "2021
 [; ;usb_device.c: 2021:         USER_USB_CALLBACK_EVENT_HANDLER((USB_EVENT)EVENT_CONFIGURED,(void*)&USBActiveConfiguration,1);
-[c E3781 1 2 3 4 5 .. ]
-[n E3781 . EVENT_CONFIGURED EVENT_SET_DESCRIPTOR EVENT_EP0_REQUEST EVENT_ATTACH EVENT_TRANSFER_TERMINATED  ]
+[c E3411 1 2 3 4 5 .. ]
+[n E3411 . EVENT_CONFIGURED EVENT_SET_DESCRIPTOR EVENT_EP0_REQUEST EVENT_ATTACH EVENT_TRANSFER_TERMINATED  ]
 "72 ./usb_ch9.h
 [; ;./usb_ch9.h: 72: {
-[s S392 `uc 1 `uc 1 `us 1 `uc 1 `uc 1 `uc 1 `uc 1 `us 1 `us 1 `us 1 `uc 1 `uc 1 `uc 1 `uc 1 ]
-[n S392 _USB_DEVICE_DESCRIPTOR bLength bDescriptorType bcdUSB bDeviceClass bDeviceSubClass bDeviceProtocol bMaxPacketSize0 idVendor idProduct bcdDevice iManufacturer iProduct iSerialNumber bNumConfigurations ]
+[s S352 `uc 1 `uc 1 `us 1 `uc 1 `uc 1 `uc 1 `uc 1 `us 1 `us 1 `us 1 `uc 1 `uc 1 `uc 1 `uc 1 ]
+[n S352 _USB_DEVICE_DESCRIPTOR bLength bDescriptorType bcdUSB bDeviceClass bDeviceSubClass bDeviceProtocol bMaxPacketSize0 idVendor idProduct bcdDevice iManufacturer iProduct iSerialNumber bNumConfigurations ]
 "213 usb_device.c
 [; ;usb_device.c: 213:     extern const USB_DEVICE_DESCRIPTOR device_dsc;
-[v _device_dsc `CS392 ~T0 @X0 0 e ]
-[v F4054 `*Cuc ~T0 @X0 1 t ]
+[v _device_dsc `CS352 ~T0 @X0 0 e ]
+[v F3684 `*Cuc ~T0 @X0 1 t ]
 "220
 [; ;usb_device.c: 220:     extern const uint8_t *const USB_CD_Ptr[];
 [v _USB_CD_Ptr `C*Cuc ~T0 @X0 -> 0 `x e ]
-[v F4057 `*Cuc ~T0 @X0 1 t ]
+[v F3687 `*Cuc ~T0 @X0 1 t ]
 "225
 [; ;usb_device.c: 225: extern const uint8_t *const USB_SD_Ptr[];
 [v _USB_SD_Ptr `C*Cuc ~T0 @X0 -> 0 `x e ]
-"846 C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 846:     struct {
-[s S45 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S45 . EPSTALL EPINEN EPOUTEN EPCONDIS EPHSHK ]
-"853
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 853:     struct {
-[s S46 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S46 . EP0STALL EP0INEN EP0OUTEN EP0CONDIS EP0HSHK ]
-"860
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 860:     struct {
-[s S47 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S47 . EPSTALL0 EPINEN0 EPOUTEN0 EPCONDIS0 EPHSHK0 ]
-"845
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 845: typedef union {
-[u S44 `S45 1 `S46 1 `S47 1 ]
-[n S44 . . . . ]
-"868
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 868: extern volatile UEP0bits_t UEP0bits __attribute__((address(0xF70)));
-[v _UEP0bits `VS44 ~T0 @X0 0 e@3952 ]
+"649 C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 649:     struct {
+[s S34 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S34 . EPSTALL EPINEN EPOUTEN EPCONDIS EPHSHK ]
+"656
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 656:     struct {
+[s S35 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S35 . EP0STALL EP0INEN EP0OUTEN EP0CONDIS EP0HSHK ]
+"663
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 663:     struct {
+[s S36 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S36 . EPSTALL0 EPINEN0 EPOUTEN0 EPCONDIS0 EPHSHK0 ]
+"648
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 648: typedef union {
+[u S33 `S34 1 `S35 1 `S36 1 ]
+[n S33 . . . . ]
+"671
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 671: extern volatile UEP0bits_t UEP0bits __attribute__((address(0xF70)));
+[v _UEP0bits `VS33 ~T0 @X0 0 e@3952 ]
 "27 C:\Program Files\Microchip\xc8\v3.00\pic\include\c99/string.h
 [; ;C:\Program Files\Microchip\xc8\v3.00\pic\include\c99/string.h: 27: void *memcpy (void *restrict, const void *restrict, size_t);
 [v _memcpy `(*v ~T0 @X0 0 ef3`*v`*Cv`ui ]
@@ -417,546 +417,510 @@ Version 4.0 HI-TECH Software Intermediate Code
 "238
 [; ;usb_device.c: 238: static void USBCheckStdRequest(void);
 [v _USBCheckStdRequest `(v ~T0 @X0 0 sf ]
-[v F4160 `(v ~T0 @X0 0 tf ]
+[v F3790 `(v ~T0 @X0 0 tf ]
 "245
 [; ;usb_device.c: 245: static void USBStdFeatureReqHandler(void);
 [v _USBStdFeatureReqHandler `(v ~T0 @X0 0 sf ]
-"52 C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 52: __asm("SPPDATA equ 0F62h");
-[; <" SPPDATA equ 0F62h ;# ">
-"72
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 72: __asm("SPPCFG equ 0F63h");
-[; <" SPPCFG equ 0F63h ;# ">
-"149
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 149: __asm("SPPEPS equ 0F64h");
-[; <" SPPEPS equ 0F64h ;# ">
-"223
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 223: __asm("SPPCON equ 0F65h");
-[; <" SPPCON equ 0F65h ;# ">
-"249
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 249: __asm("UFRM equ 0F66h");
+"52 C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 52: __asm("UFRM equ 0F66h");
 [; <" UFRM equ 0F66h ;# ">
-"256
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 256: __asm("UFRML equ 0F66h");
+"59
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 59: __asm("UFRML equ 0F66h");
 [; <" UFRML equ 0F66h ;# ">
-"334
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 334: __asm("UFRMH equ 0F67h");
+"137
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 137: __asm("UFRMH equ 0F67h");
 [; <" UFRMH equ 0F67h ;# ">
-"374
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 374: __asm("UIR equ 0F68h");
+"177
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 177: __asm("UIR equ 0F68h");
 [; <" UIR equ 0F68h ;# ">
-"430
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 430: __asm("UIE equ 0F69h");
+"233
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 233: __asm("UIE equ 0F69h");
 [; <" UIE equ 0F69h ;# ">
-"486
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 486: __asm("UEIR equ 0F6Ah");
+"289
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 289: __asm("UEIR equ 0F6Ah");
 [; <" UEIR equ 0F6Ah ;# ">
-"537
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 537: __asm("UEIE equ 0F6Bh");
+"340
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 340: __asm("UEIE equ 0F6Bh");
 [; <" UEIE equ 0F6Bh ;# ">
-"588
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 588: __asm("USTAT equ 0F6Ch");
+"391
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 391: __asm("USTAT equ 0F6Ch");
 [; <" USTAT equ 0F6Ch ;# ">
-"648
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 648: __asm("UCON equ 0F6Dh");
+"451
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 451: __asm("UCON equ 0F6Dh");
 [; <" UCON equ 0F6Dh ;# ">
-"699
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 699: __asm("UADDR equ 0F6Eh");
+"502
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 502: __asm("UADDR equ 0F6Eh");
 [; <" UADDR equ 0F6Eh ;# ">
-"763
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 763: __asm("UCFG equ 0F6Fh");
+"566
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 566: __asm("UCFG equ 0F6Fh");
 [; <" UCFG equ 0F6Fh ;# ">
-"842
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 842: __asm("UEP0 equ 0F70h");
+"645
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 645: __asm("UEP0 equ 0F70h");
 [; <" UEP0 equ 0F70h ;# ">
-"950
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 950: __asm("UEP1 equ 0F71h");
+"753
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 753: __asm("UEP1 equ 0F71h");
 [; <" UEP1 equ 0F71h ;# ">
-"1058
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 1058: __asm("UEP2 equ 0F72h");
+"861
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 861: __asm("UEP2 equ 0F72h");
 [; <" UEP2 equ 0F72h ;# ">
-"1166
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 1166: __asm("UEP3 equ 0F73h");
+"969
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 969: __asm("UEP3 equ 0F73h");
 [; <" UEP3 equ 0F73h ;# ">
-"1274
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 1274: __asm("UEP4 equ 0F74h");
+"1077
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 1077: __asm("UEP4 equ 0F74h");
 [; <" UEP4 equ 0F74h ;# ">
-"1382
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 1382: __asm("UEP5 equ 0F75h");
+"1185
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 1185: __asm("UEP5 equ 0F75h");
 [; <" UEP5 equ 0F75h ;# ">
-"1490
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 1490: __asm("UEP6 equ 0F76h");
+"1293
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 1293: __asm("UEP6 equ 0F76h");
 [; <" UEP6 equ 0F76h ;# ">
-"1598
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 1598: __asm("UEP7 equ 0F77h");
+"1401
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 1401: __asm("UEP7 equ 0F77h");
 [; <" UEP7 equ 0F77h ;# ">
-"1706
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 1706: __asm("UEP8 equ 0F78h");
+"1509
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 1509: __asm("UEP8 equ 0F78h");
 [; <" UEP8 equ 0F78h ;# ">
-"1782
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 1782: __asm("UEP9 equ 0F79h");
+"1585
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 1585: __asm("UEP9 equ 0F79h");
 [; <" UEP9 equ 0F79h ;# ">
-"1858
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 1858: __asm("UEP10 equ 0F7Ah");
+"1661
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 1661: __asm("UEP10 equ 0F7Ah");
 [; <" UEP10 equ 0F7Ah ;# ">
-"1934
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 1934: __asm("UEP11 equ 0F7Bh");
+"1737
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 1737: __asm("UEP11 equ 0F7Bh");
 [; <" UEP11 equ 0F7Bh ;# ">
-"2010
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 2010: __asm("UEP12 equ 0F7Ch");
+"1813
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 1813: __asm("UEP12 equ 0F7Ch");
 [; <" UEP12 equ 0F7Ch ;# ">
-"2086
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 2086: __asm("UEP13 equ 0F7Dh");
+"1889
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 1889: __asm("UEP13 equ 0F7Dh");
 [; <" UEP13 equ 0F7Dh ;# ">
-"2162
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 2162: __asm("UEP14 equ 0F7Eh");
+"1965
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 1965: __asm("UEP14 equ 0F7Eh");
 [; <" UEP14 equ 0F7Eh ;# ">
-"2238
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 2238: __asm("UEP15 equ 0F7Fh");
+"2041
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 2041: __asm("UEP15 equ 0F7Fh");
 [; <" UEP15 equ 0F7Fh ;# ">
-"2314
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 2314: __asm("PORTA equ 0F80h");
+"2117
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 2117: __asm("PORTA equ 0F80h");
 [; <" PORTA equ 0F80h ;# ">
-"2453
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 2453: __asm("PORTB equ 0F81h");
+"2256
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 2256: __asm("PORTB equ 0F81h");
 [; <" PORTB equ 0F81h ;# ">
-"2563
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 2563: __asm("PORTC equ 0F82h");
+"2366
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 2366: __asm("PORTC equ 0F82h");
 [; <" PORTC equ 0F82h ;# ">
-"2705
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 2705: __asm("PORTD equ 0F83h");
-[; <" PORTD equ 0F83h ;# ">
-"2826
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 2826: __asm("PORTE equ 0F84h");
+"2508
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 2508: __asm("PORTE equ 0F84h");
 [; <" PORTE equ 0F84h ;# ">
-"2973
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 2973: __asm("LATA equ 0F89h");
+"2547
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 2547: __asm("LATA equ 0F89h");
 [; <" LATA equ 0F89h ;# ">
-"3073
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 3073: __asm("LATB equ 0F8Ah");
+"2647
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 2647: __asm("LATB equ 0F8Ah");
 [; <" LATB equ 0F8Ah ;# ">
-"3185
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 3185: __asm("LATC equ 0F8Bh");
+"2759
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 2759: __asm("LATC equ 0F8Bh");
 [; <" LATC equ 0F8Bh ;# ">
-"3263
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 3263: __asm("LATD equ 0F8Ch");
-[; <" LATD equ 0F8Ch ;# ">
-"3375
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 3375: __asm("LATE equ 0F8Dh");
-[; <" LATE equ 0F8Dh ;# ">
-"3427
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 3427: __asm("TRISA equ 0F92h");
+"2837
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 2837: __asm("TRISA equ 0F92h");
 [; <" TRISA equ 0F92h ;# ">
-"3432
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 3432: __asm("DDRA equ 0F92h");
+"2842
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 2842: __asm("DDRA equ 0F92h");
 [; <" DDRA equ 0F92h ;# ">
-"3625
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 3625: __asm("TRISB equ 0F93h");
+"3035
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 3035: __asm("TRISB equ 0F93h");
 [; <" TRISB equ 0F93h ;# ">
-"3630
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 3630: __asm("DDRB equ 0F93h");
+"3040
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 3040: __asm("DDRB equ 0F93h");
 [; <" DDRB equ 0F93h ;# ">
-"3847
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 3847: __asm("TRISC equ 0F94h");
+"3257
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 3257: __asm("TRISC equ 0F94h");
 [; <" TRISC equ 0F94h ;# ">
-"3852
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 3852: __asm("DDRC equ 0F94h");
+"3262
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 3262: __asm("DDRC equ 0F94h");
 [; <" DDRC equ 0F94h ;# ">
-"4001
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 4001: __asm("TRISD equ 0F95h");
-[; <" TRISD equ 0F95h ;# ">
-"4006
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 4006: __asm("DDRD equ 0F95h");
-[; <" DDRD equ 0F95h ;# ">
-"4223
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 4223: __asm("TRISE equ 0F96h");
-[; <" TRISE equ 0F96h ;# ">
-"4228
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 4228: __asm("DDRE equ 0F96h");
-[; <" DDRE equ 0F96h ;# ">
-"4325
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 4325: __asm("OSCTUNE equ 0F9Bh");
+"3411
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 3411: __asm("OSCTUNE equ 0F9Bh");
 [; <" OSCTUNE equ 0F9Bh ;# ">
-"4384
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 4384: __asm("PIE1 equ 0F9Dh");
+"3470
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 3470: __asm("PIE1 equ 0F9Dh");
 [; <" PIE1 equ 0F9Dh ;# ">
-"4468
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 4468: __asm("PIR1 equ 0F9Eh");
+"3541
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 3541: __asm("PIR1 equ 0F9Eh");
 [; <" PIR1 equ 0F9Eh ;# ">
-"4552
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 4552: __asm("IPR1 equ 0F9Fh");
+"3612
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 3612: __asm("IPR1 equ 0F9Fh");
 [; <" IPR1 equ 0F9Fh ;# ">
-"4636
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 4636: __asm("PIE2 equ 0FA0h");
+"3683
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 3683: __asm("PIE2 equ 0FA0h");
 [; <" PIE2 equ 0FA0h ;# ">
-"4707
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 4707: __asm("PIR2 equ 0FA1h");
+"3754
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 3754: __asm("PIR2 equ 0FA1h");
 [; <" PIR2 equ 0FA1h ;# ">
-"4778
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 4778: __asm("IPR2 equ 0FA2h");
+"3825
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 3825: __asm("IPR2 equ 0FA2h");
 [; <" IPR2 equ 0FA2h ;# ">
-"4849
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 4849: __asm("EECON1 equ 0FA6h");
+"3896
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 3896: __asm("EECON1 equ 0FA6h");
 [; <" EECON1 equ 0FA6h ;# ">
-"4915
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 4915: __asm("EECON2 equ 0FA7h");
+"3962
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 3962: __asm("EECON2 equ 0FA7h");
 [; <" EECON2 equ 0FA7h ;# ">
-"4922
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 4922: __asm("EEDATA equ 0FA8h");
+"3969
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 3969: __asm("EEDATA equ 0FA8h");
 [; <" EEDATA equ 0FA8h ;# ">
-"4929
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 4929: __asm("EEADR equ 0FA9h");
+"3976
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 3976: __asm("EEADR equ 0FA9h");
 [; <" EEADR equ 0FA9h ;# ">
-"4936
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 4936: __asm("RCSTA equ 0FABh");
+"3983
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 3983: __asm("RCSTA equ 0FABh");
 [; <" RCSTA equ 0FABh ;# ">
-"4941
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 4941: __asm("RCSTA1 equ 0FABh");
+"3988
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 3988: __asm("RCSTA1 equ 0FABh");
 [; <" RCSTA1 equ 0FABh ;# ">
-"5146
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 5146: __asm("TXSTA equ 0FACh");
+"4193
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 4193: __asm("TXSTA equ 0FACh");
 [; <" TXSTA equ 0FACh ;# ">
-"5151
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 5151: __asm("TXSTA1 equ 0FACh");
+"4198
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 4198: __asm("TXSTA1 equ 0FACh");
 [; <" TXSTA1 equ 0FACh ;# ">
-"5402
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 5402: __asm("TXREG equ 0FADh");
+"4449
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 4449: __asm("TXREG equ 0FADh");
 [; <" TXREG equ 0FADh ;# ">
-"5407
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 5407: __asm("TXREG1 equ 0FADh");
+"4454
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 4454: __asm("TXREG1 equ 0FADh");
 [; <" TXREG1 equ 0FADh ;# ">
-"5414
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 5414: __asm("RCREG equ 0FAEh");
+"4461
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 4461: __asm("RCREG equ 0FAEh");
 [; <" RCREG equ 0FAEh ;# ">
-"5419
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 5419: __asm("RCREG1 equ 0FAEh");
+"4466
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 4466: __asm("RCREG1 equ 0FAEh");
 [; <" RCREG1 equ 0FAEh ;# ">
-"5426
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 5426: __asm("SPBRG equ 0FAFh");
+"4473
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 4473: __asm("SPBRG equ 0FAFh");
 [; <" SPBRG equ 0FAFh ;# ">
-"5431
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 5431: __asm("SPBRG1 equ 0FAFh");
+"4478
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 4478: __asm("SPBRG1 equ 0FAFh");
 [; <" SPBRG1 equ 0FAFh ;# ">
-"5438
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 5438: __asm("SPBRGH equ 0FB0h");
+"4485
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 4485: __asm("SPBRGH equ 0FB0h");
 [; <" SPBRGH equ 0FB0h ;# ">
-"5445
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 5445: __asm("T3CON equ 0FB1h");
+"4492
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 4492: __asm("T3CON equ 0FB1h");
 [; <" T3CON equ 0FB1h ;# ">
-"5566
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 5566: __asm("TMR3 equ 0FB2h");
+"4613
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 4613: __asm("TMR3 equ 0FB2h");
 [; <" TMR3 equ 0FB2h ;# ">
-"5573
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 5573: __asm("TMR3L equ 0FB2h");
+"4620
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 4620: __asm("TMR3L equ 0FB2h");
 [; <" TMR3L equ 0FB2h ;# ">
-"5580
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 5580: __asm("TMR3H equ 0FB3h");
+"4627
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 4627: __asm("TMR3H equ 0FB3h");
 [; <" TMR3H equ 0FB3h ;# ">
-"5587
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 5587: __asm("CMCON equ 0FB4h");
+"4634
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 4634: __asm("CMCON equ 0FB4h");
 [; <" CMCON equ 0FB4h ;# ">
-"5677
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 5677: __asm("CVRCON equ 0FB5h");
+"4724
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 4724: __asm("CVRCON equ 0FB5h");
 [; <" CVRCON equ 0FB5h ;# ">
-"5762
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 5762: __asm("ECCP1AS equ 0FB6h");
+"4809
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 4809: __asm("ECCP1AS equ 0FB6h");
 [; <" ECCP1AS equ 0FB6h ;# ">
-"5767
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 5767: __asm("CCP1AS equ 0FB6h");
+"4814
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 4814: __asm("CCP1AS equ 0FB6h");
 [; <" CCP1AS equ 0FB6h ;# ">
-"5924
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 5924: __asm("ECCP1DEL equ 0FB7h");
+"4939
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 4939: __asm("ECCP1DEL equ 0FB7h");
 [; <" ECCP1DEL equ 0FB7h ;# ">
-"5929
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 5929: __asm("CCP1DEL equ 0FB7h");
+"4944
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 4944: __asm("CCP1DEL equ 0FB7h");
 [; <" CCP1DEL equ 0FB7h ;# ">
-"6062
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 6062: __asm("BAUDCON equ 0FB8h");
+"4979
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 4979: __asm("BAUDCON equ 0FB8h");
 [; <" BAUDCON equ 0FB8h ;# ">
-"6067
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 6067: __asm("BAUDCTL equ 0FB8h");
+"4984
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 4984: __asm("BAUDCTL equ 0FB8h");
 [; <" BAUDCTL equ 0FB8h ;# ">
-"6242
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 6242: __asm("CCP2CON equ 0FBAh");
+"5159
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 5159: __asm("CCP2CON equ 0FBAh");
 [; <" CCP2CON equ 0FBAh ;# ">
-"6306
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 6306: __asm("CCPR2 equ 0FBBh");
+"5223
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 5223: __asm("CCPR2 equ 0FBBh");
 [; <" CCPR2 equ 0FBBh ;# ">
-"6313
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 6313: __asm("CCPR2L equ 0FBBh");
+"5230
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 5230: __asm("CCPR2L equ 0FBBh");
 [; <" CCPR2L equ 0FBBh ;# ">
-"6320
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 6320: __asm("CCPR2H equ 0FBCh");
+"5237
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 5237: __asm("CCPR2H equ 0FBCh");
 [; <" CCPR2H equ 0FBCh ;# ">
-"6327
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 6327: __asm("CCP1CON equ 0FBDh");
+"5244
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 5244: __asm("CCP1CON equ 0FBDh");
 [; <" CCP1CON equ 0FBDh ;# ">
-"6332
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 6332: __asm("ECCP1CON equ 0FBDh");
-[; <" ECCP1CON equ 0FBDh ;# ">
-"6489
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 6489: __asm("CCPR1 equ 0FBEh");
+"5308
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 5308: __asm("CCPR1 equ 0FBEh");
 [; <" CCPR1 equ 0FBEh ;# ">
-"6496
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 6496: __asm("CCPR1L equ 0FBEh");
+"5315
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 5315: __asm("CCPR1L equ 0FBEh");
 [; <" CCPR1L equ 0FBEh ;# ">
-"6503
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 6503: __asm("CCPR1H equ 0FBFh");
+"5322
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 5322: __asm("CCPR1H equ 0FBFh");
 [; <" CCPR1H equ 0FBFh ;# ">
-"6510
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 6510: __asm("ADCON2 equ 0FC0h");
+"5329
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 5329: __asm("ADCON2 equ 0FC0h");
 [; <" ADCON2 equ 0FC0h ;# ">
-"6581
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 6581: __asm("ADCON1 equ 0FC1h");
+"5400
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 5400: __asm("ADCON1 equ 0FC1h");
 [; <" ADCON1 equ 0FC1h ;# ">
-"6666
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 6666: __asm("ADCON0 equ 0FC2h");
+"5485
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 5485: __asm("ADCON0 equ 0FC2h");
 [; <" ADCON0 equ 0FC2h ;# ">
-"6785
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 6785: __asm("ADRES equ 0FC3h");
+"5604
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 5604: __asm("ADRES equ 0FC3h");
 [; <" ADRES equ 0FC3h ;# ">
-"6792
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 6792: __asm("ADRESL equ 0FC3h");
+"5611
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 5611: __asm("ADRESL equ 0FC3h");
 [; <" ADRESL equ 0FC3h ;# ">
-"6799
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 6799: __asm("ADRESH equ 0FC4h");
+"5618
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 5618: __asm("ADRESH equ 0FC4h");
 [; <" ADRESH equ 0FC4h ;# ">
-"6806
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 6806: __asm("SSPCON2 equ 0FC5h");
+"5625
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 5625: __asm("SSPCON2 equ 0FC5h");
 [; <" SSPCON2 equ 0FC5h ;# ">
-"6868
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 6868: __asm("SSPCON1 equ 0FC6h");
+"5687
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 5687: __asm("SSPCON1 equ 0FC6h");
 [; <" SSPCON1 equ 0FC6h ;# ">
-"6938
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 6938: __asm("SSPSTAT equ 0FC7h");
+"5757
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 5757: __asm("SSPSTAT equ 0FC7h");
 [; <" SSPSTAT equ 0FC7h ;# ">
-"7186
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 7186: __asm("SSPADD equ 0FC8h");
+"6005
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 6005: __asm("SSPADD equ 0FC8h");
 [; <" SSPADD equ 0FC8h ;# ">
-"7193
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 7193: __asm("SSPBUF equ 0FC9h");
+"6012
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 6012: __asm("SSPBUF equ 0FC9h");
 [; <" SSPBUF equ 0FC9h ;# ">
-"7200
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 7200: __asm("T2CON equ 0FCAh");
+"6019
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 6019: __asm("T2CON equ 0FCAh");
 [; <" T2CON equ 0FCAh ;# ">
-"7298
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 7298: __asm("PR2 equ 0FCBh");
+"6117
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 6117: __asm("PR2 equ 0FCBh");
 [; <" PR2 equ 0FCBh ;# ">
-"7303
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 7303: __asm("MEMCON equ 0FCBh");
+"6122
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 6122: __asm("MEMCON equ 0FCBh");
 [; <" MEMCON equ 0FCBh ;# ">
-"7408
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 7408: __asm("TMR2 equ 0FCCh");
+"6227
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 6227: __asm("TMR2 equ 0FCCh");
 [; <" TMR2 equ 0FCCh ;# ">
-"7415
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 7415: __asm("T1CON equ 0FCDh");
+"6234
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 6234: __asm("T1CON equ 0FCDh");
 [; <" T1CON equ 0FCDh ;# ">
-"7518
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 7518: __asm("TMR1 equ 0FCEh");
+"6337
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 6337: __asm("TMR1 equ 0FCEh");
 [; <" TMR1 equ 0FCEh ;# ">
-"7525
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 7525: __asm("TMR1L equ 0FCEh");
+"6344
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 6344: __asm("TMR1L equ 0FCEh");
 [; <" TMR1L equ 0FCEh ;# ">
-"7532
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 7532: __asm("TMR1H equ 0FCFh");
+"6351
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 6351: __asm("TMR1H equ 0FCFh");
 [; <" TMR1H equ 0FCFh ;# ">
-"7539
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 7539: __asm("RCON equ 0FD0h");
+"6358
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 6358: __asm("RCON equ 0FD0h");
 [; <" RCON equ 0FD0h ;# ">
-"7688
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 7688: __asm("WDTCON equ 0FD1h");
+"6507
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 6507: __asm("WDTCON equ 0FD1h");
 [; <" WDTCON equ 0FD1h ;# ">
-"7716
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 7716: __asm("HLVDCON equ 0FD2h");
+"6535
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 6535: __asm("HLVDCON equ 0FD2h");
 [; <" HLVDCON equ 0FD2h ;# ">
-"7721
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 7721: __asm("LVDCON equ 0FD2h");
+"6540
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 6540: __asm("LVDCON equ 0FD2h");
 [; <" LVDCON equ 0FD2h ;# ">
-"7986
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 7986: __asm("OSCCON equ 0FD3h");
+"6805
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 6805: __asm("OSCCON equ 0FD3h");
 [; <" OSCCON equ 0FD3h ;# ">
-"8069
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 8069: __asm("T0CON equ 0FD5h");
+"6888
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 6888: __asm("T0CON equ 0FD5h");
 [; <" T0CON equ 0FD5h ;# ">
-"8139
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 8139: __asm("TMR0 equ 0FD6h");
+"6958
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 6958: __asm("TMR0 equ 0FD6h");
 [; <" TMR0 equ 0FD6h ;# ">
-"8146
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 8146: __asm("TMR0L equ 0FD6h");
+"6965
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 6965: __asm("TMR0L equ 0FD6h");
 [; <" TMR0L equ 0FD6h ;# ">
-"8153
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 8153: __asm("TMR0H equ 0FD7h");
+"6972
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 6972: __asm("TMR0H equ 0FD7h");
 [; <" TMR0H equ 0FD7h ;# ">
-"8160
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 8160: __asm("STATUS equ 0FD8h");
+"6979
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 6979: __asm("STATUS equ 0FD8h");
 [; <" STATUS equ 0FD8h ;# ">
-"8231
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 8231: __asm("FSR2 equ 0FD9h");
+"7050
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 7050: __asm("FSR2 equ 0FD9h");
 [; <" FSR2 equ 0FD9h ;# ">
-"8238
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 8238: __asm("FSR2L equ 0FD9h");
+"7057
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 7057: __asm("FSR2L equ 0FD9h");
 [; <" FSR2L equ 0FD9h ;# ">
-"8245
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 8245: __asm("FSR2H equ 0FDAh");
+"7064
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 7064: __asm("FSR2H equ 0FDAh");
 [; <" FSR2H equ 0FDAh ;# ">
-"8252
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 8252: __asm("PLUSW2 equ 0FDBh");
+"7071
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 7071: __asm("PLUSW2 equ 0FDBh");
 [; <" PLUSW2 equ 0FDBh ;# ">
-"8259
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 8259: __asm("PREINC2 equ 0FDCh");
+"7078
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 7078: __asm("PREINC2 equ 0FDCh");
 [; <" PREINC2 equ 0FDCh ;# ">
-"8266
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 8266: __asm("POSTDEC2 equ 0FDDh");
+"7085
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 7085: __asm("POSTDEC2 equ 0FDDh");
 [; <" POSTDEC2 equ 0FDDh ;# ">
-"8273
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 8273: __asm("POSTINC2 equ 0FDEh");
+"7092
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 7092: __asm("POSTINC2 equ 0FDEh");
 [; <" POSTINC2 equ 0FDEh ;# ">
-"8280
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 8280: __asm("INDF2 equ 0FDFh");
+"7099
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 7099: __asm("INDF2 equ 0FDFh");
 [; <" INDF2 equ 0FDFh ;# ">
-"8287
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 8287: __asm("BSR equ 0FE0h");
+"7106
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 7106: __asm("BSR equ 0FE0h");
 [; <" BSR equ 0FE0h ;# ">
-"8294
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 8294: __asm("FSR1 equ 0FE1h");
+"7113
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 7113: __asm("FSR1 equ 0FE1h");
 [; <" FSR1 equ 0FE1h ;# ">
-"8301
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 8301: __asm("FSR1L equ 0FE1h");
+"7120
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 7120: __asm("FSR1L equ 0FE1h");
 [; <" FSR1L equ 0FE1h ;# ">
-"8308
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 8308: __asm("FSR1H equ 0FE2h");
+"7127
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 7127: __asm("FSR1H equ 0FE2h");
 [; <" FSR1H equ 0FE2h ;# ">
-"8315
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 8315: __asm("PLUSW1 equ 0FE3h");
+"7134
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 7134: __asm("PLUSW1 equ 0FE3h");
 [; <" PLUSW1 equ 0FE3h ;# ">
-"8322
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 8322: __asm("PREINC1 equ 0FE4h");
+"7141
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 7141: __asm("PREINC1 equ 0FE4h");
 [; <" PREINC1 equ 0FE4h ;# ">
-"8329
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 8329: __asm("POSTDEC1 equ 0FE5h");
+"7148
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 7148: __asm("POSTDEC1 equ 0FE5h");
 [; <" POSTDEC1 equ 0FE5h ;# ">
-"8336
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 8336: __asm("POSTINC1 equ 0FE6h");
+"7155
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 7155: __asm("POSTINC1 equ 0FE6h");
 [; <" POSTINC1 equ 0FE6h ;# ">
-"8343
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 8343: __asm("INDF1 equ 0FE7h");
+"7162
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 7162: __asm("INDF1 equ 0FE7h");
 [; <" INDF1 equ 0FE7h ;# ">
-"8350
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 8350: __asm("WREG equ 0FE8h");
+"7169
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 7169: __asm("WREG equ 0FE8h");
 [; <" WREG equ 0FE8h ;# ">
-"8357
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 8357: __asm("FSR0 equ 0FE9h");
+"7176
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 7176: __asm("FSR0 equ 0FE9h");
 [; <" FSR0 equ 0FE9h ;# ">
-"8364
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 8364: __asm("FSR0L equ 0FE9h");
+"7183
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 7183: __asm("FSR0L equ 0FE9h");
 [; <" FSR0L equ 0FE9h ;# ">
-"8371
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 8371: __asm("FSR0H equ 0FEAh");
+"7190
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 7190: __asm("FSR0H equ 0FEAh");
 [; <" FSR0H equ 0FEAh ;# ">
-"8378
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 8378: __asm("PLUSW0 equ 0FEBh");
+"7197
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 7197: __asm("PLUSW0 equ 0FEBh");
 [; <" PLUSW0 equ 0FEBh ;# ">
-"8385
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 8385: __asm("PREINC0 equ 0FECh");
+"7204
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 7204: __asm("PREINC0 equ 0FECh");
 [; <" PREINC0 equ 0FECh ;# ">
-"8392
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 8392: __asm("POSTDEC0 equ 0FEDh");
+"7211
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 7211: __asm("POSTDEC0 equ 0FEDh");
 [; <" POSTDEC0 equ 0FEDh ;# ">
-"8399
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 8399: __asm("POSTINC0 equ 0FEEh");
+"7218
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 7218: __asm("POSTINC0 equ 0FEEh");
 [; <" POSTINC0 equ 0FEEh ;# ">
-"8406
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 8406: __asm("INDF0 equ 0FEFh");
+"7225
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 7225: __asm("INDF0 equ 0FEFh");
 [; <" INDF0 equ 0FEFh ;# ">
-"8413
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 8413: __asm("INTCON3 equ 0FF0h");
+"7232
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 7232: __asm("INTCON3 equ 0FF0h");
 [; <" INTCON3 equ 0FF0h ;# ">
-"8505
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 8505: __asm("INTCON2 equ 0FF1h");
+"7324
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 7324: __asm("INTCON2 equ 0FF1h");
 [; <" INTCON2 equ 0FF1h ;# ">
-"8582
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 8582: __asm("INTCON equ 0FF2h");
+"7401
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 7401: __asm("INTCON equ 0FF2h");
 [; <" INTCON equ 0FF2h ;# ">
-"8699
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 8699: __asm("PROD equ 0FF3h");
+"7518
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 7518: __asm("PROD equ 0FF3h");
 [; <" PROD equ 0FF3h ;# ">
-"8706
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 8706: __asm("PRODL equ 0FF3h");
+"7525
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 7525: __asm("PRODL equ 0FF3h");
 [; <" PRODL equ 0FF3h ;# ">
-"8713
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 8713: __asm("PRODH equ 0FF4h");
+"7532
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 7532: __asm("PRODH equ 0FF4h");
 [; <" PRODH equ 0FF4h ;# ">
-"8720
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 8720: __asm("TABLAT equ 0FF5h");
+"7539
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 7539: __asm("TABLAT equ 0FF5h");
 [; <" TABLAT equ 0FF5h ;# ">
-"8729
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 8729: __asm("TBLPTR equ 0FF6h");
+"7548
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 7548: __asm("TBLPTR equ 0FF6h");
 [; <" TBLPTR equ 0FF6h ;# ">
-"8736
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 8736: __asm("TBLPTRL equ 0FF6h");
+"7555
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 7555: __asm("TBLPTRL equ 0FF6h");
 [; <" TBLPTRL equ 0FF6h ;# ">
-"8743
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 8743: __asm("TBLPTRH equ 0FF7h");
+"7562
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 7562: __asm("TBLPTRH equ 0FF7h");
 [; <" TBLPTRH equ 0FF7h ;# ">
-"8750
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 8750: __asm("TBLPTRU equ 0FF8h");
+"7569
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 7569: __asm("TBLPTRU equ 0FF8h");
 [; <" TBLPTRU equ 0FF8h ;# ">
-"8759
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 8759: __asm("PCLAT equ 0FF9h");
+"7578
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 7578: __asm("PCLAT equ 0FF9h");
 [; <" PCLAT equ 0FF9h ;# ">
-"8766
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 8766: __asm("PC equ 0FF9h");
+"7585
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 7585: __asm("PC equ 0FF9h");
 [; <" PC equ 0FF9h ;# ">
-"8773
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 8773: __asm("PCL equ 0FF9h");
+"7592
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 7592: __asm("PCL equ 0FF9h");
 [; <" PCL equ 0FF9h ;# ">
-"8780
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 8780: __asm("PCLATH equ 0FFAh");
+"7599
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 7599: __asm("PCLATH equ 0FFAh");
 [; <" PCLATH equ 0FFAh ;# ">
-"8787
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 8787: __asm("PCLATU equ 0FFBh");
+"7606
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 7606: __asm("PCLATU equ 0FFBh");
 [; <" PCLATU equ 0FFBh ;# ">
-"8794
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 8794: __asm("STKPTR equ 0FFCh");
+"7613
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 7613: __asm("STKPTR equ 0FFCh");
 [; <" STKPTR equ 0FFCh ;# ">
-"8870
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 8870: __asm("TOS equ 0FFDh");
+"7689
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 7689: __asm("TOS equ 0FFDh");
 [; <" TOS equ 0FFDh ;# ">
-"8877
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 8877: __asm("TOSL equ 0FFDh");
+"7696
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 7696: __asm("TOSL equ 0FFDh");
 [; <" TOSL equ 0FFDh ;# ">
-"8884
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 8884: __asm("TOSH equ 0FFEh");
+"7703
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 7703: __asm("TOSH equ 0FFEh");
 [; <" TOSH equ 0FFEh ;# ">
-"8891
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 8891: __asm("TOSU equ 0FFFh");
+"7710
+[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 7710: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
 "109 usb_device.c
 [p n 1090 ]
 "111
 [p n 1471 ]
 "141
-[v _USBDeviceState `VE3772 ~T0 @X0 1 e ]
+[v _USBDeviceState `VE3402 ~T0 @X0 1 e ]
 "142
 [v _USBActiveConfiguration `Vuc ~T0 @X0 1 e ]
 "143
 [v _USBAlternateInterface `Vuc ~T0 @X0 -> -> 1 `i `ux e ]
 "144
-[v _pBDTEntryEP0OutCurrent `*VS438 ~T0 @X0 1 e ]
+[v _pBDTEntryEP0OutCurrent `*VS398 ~T0 @X0 1 e ]
 "145
-[v _pBDTEntryEP0OutNext `*VS438 ~T0 @X0 1 e ]
+[v _pBDTEntryEP0OutNext `*VS398 ~T0 @X0 1 e ]
 "146
-[v _pBDTEntryOut `*VS438 ~T0 @X0 -> 2 `i e ]
+[v _pBDTEntryOut `*VS398 ~T0 @X0 -> 2 `i e ]
 "147
-[v _pBDTEntryIn `*VS438 ~T0 @X0 -> 2 `i e ]
+[v _pBDTEntryIn `*VS398 ~T0 @X0 -> 2 `i e ]
 "148
 [v _shortPacketStatus `Vuc ~T0 @X0 1 e ]
 "149
 [v _controlTransferState `Vuc ~T0 @X0 1 e ]
 "150
-[v _inPipes `VS426 ~T0 @X0 -> -> 1 `i `ux e ]
+[v _inPipes `VS386 ~T0 @X0 -> -> 1 `i `ux e ]
 "151
-[v _outPipes `VS430 ~T0 @X0 -> -> 1 `i `ux e ]
+[v _outPipes `VS390 ~T0 @X0 -> -> 1 `i `ux e ]
 "152
 [v _pDst `*Vuc ~T0 @X0 1 e ]
 "153
@@ -964,15 +928,15 @@ Version 4.0 HI-TECH Software Intermediate Code
 "154
 [v _USBBusIsSuspended `Va ~T0 @X0 1 e ]
 "155
-[v _USTATcopy `VS441 ~T0 @X0 1 e ]
+[v _USTATcopy `VS401 ~T0 @X0 1 e ]
 "156
 [v _endpoint_number `Vuc ~T0 @X0 1 e ]
 "157
 [v _BothEP0OutUOWNsSet `Va ~T0 @X0 1 e ]
 "158
-[v _ep_data_in `VS445 ~T0 @X0 -> 2 `i e ]
+[v _ep_data_in `VS405 ~T0 @X0 -> 2 `i e ]
 "159
-[v _ep_data_out `VS445 ~T0 @X0 -> 2 `i e ]
+[v _ep_data_out `VS405 ~T0 @X0 -> 2 `i e ]
 "160
 [v _USBStatusStageTimeoutCounter `Vuc ~T0 @X0 1 e ]
 "161
@@ -990,9 +954,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "167
 [v _USBTicksSinceSuspendEnd `Vuc ~T0 @X0 1 e ]
 "174
-[v _BDT `VS438 ~T0 @X0 -> 8 `i e@1024 ]
+[v _BDT `VS398 ~T0 @X0 -> 8 `i e@1024 ]
 "179
-[v _SetupPkt `VS400 ~T0 @X0 1 e@1056 ]
+[v _SetupPkt `VS360 ~T0 @X0 1 e@1056 ]
 "180
 [v _CtrlTrfData `Vuc ~T0 @X0 -> 8 `i e@1064 ]
 "281
@@ -1038,9 +1002,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;usb_device.c: 311:     for(i = 0; i < (sizeof(BDT)/sizeof(BDT_ENTRY)); i++)
 {
 [e = _i -> -> 0 `i `uc ]
-[e $ < -> _i `ui / -> # _BDT `ui -> # `S438 `ui 450  ]
-[e $U 451  ]
-[e :U 450 ]
+[e $ < -> _i `ui / -> # _BDT `ui -> # `S398 `ui 410  ]
+[e $U 411  ]
+[e :U 410 ]
 "312
 [; ;usb_device.c: 312:     {
 {
@@ -1051,8 +1015,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;usb_device.c: 314:     }
 }
 [e ++ _i -> -> 1 `i `uc ]
-[e $ < -> _i `ui / -> # _BDT `ui -> # `S438 `ui 450  ]
-[e :U 451 ]
+[e $ < -> _i `ui / -> # _BDT `ui -> # `S398 `ui 410  ]
+[e :U 411 ]
 }
 "317
 [; ;usb_device.c: 317:     UCONbits.PPBRST = 1;
@@ -1068,7 +1032,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = . . _UCONbits 0 6 -> -> 0 `i `uc ]
 "329
 [; ;usb_device.c: 329:     do
-[e :U 455 ]
+[e :U 415 ]
 "330
 [; ;usb_device.c: 330:     {
 {
@@ -1087,8 +1051,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "336
 [; ;usb_device.c: 336:     }while(UIRbits.TRNIF == 1);
 }
-[e $ == -> . . _UIRbits 0 3 `i -> 1 `i 455  ]
-[e :U 454 ]
+[e $ == -> . . _UIRbits 0 3 `i -> 1 `i 415  ]
+[e :U 414 ]
 "340
 [; ;usb_device.c: 340:     USBStatusStageEnabledFlag1 = 1;
 [e = _USBStatusStageEnabledFlag1 -> -> 1 `i `a ]
@@ -1108,18 +1072,18 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;usb_device.c: 349:     for(i = 0; i < (uint8_t)(1 +1u); i++)
 {
 [e = _i -> -> 0 `i `uc ]
-[e $ < -> _i `i -> -> + -> -> 1 `i `ui -> 1 `ui `uc `i 456  ]
-[e $U 457  ]
-[e :U 456 ]
+[e $ < -> _i `i -> -> + -> -> 1 `i `ui -> 1 `ui `uc `i 416  ]
+[e $U 417  ]
+[e :U 416 ]
 "350
 [; ;usb_device.c: 350:     {
 {
 "351
 [; ;usb_device.c: 351:         pBDTEntryIn[i] = 0u;
-[e = *U + &U _pBDTEntryIn * -> _i `ux -> -> # *U &U _pBDTEntryIn `ui `ux -> -> 0 `ui `*VS438 ]
+[e = *U + &U _pBDTEntryIn * -> _i `ux -> -> # *U &U _pBDTEntryIn `ui `ux -> -> 0 `ui `*VS398 ]
 "352
 [; ;usb_device.c: 352:         pBDTEntryOut[i] = 0u;
-[e = *U + &U _pBDTEntryOut * -> _i `ux -> -> # *U &U _pBDTEntryOut `ui `ux -> -> 0 `ui `*VS438 ]
+[e = *U + &U _pBDTEntryOut * -> _i `ux -> -> # *U &U _pBDTEntryOut `ui `ux -> -> 0 `ui `*VS398 ]
 "353
 [; ;usb_device.c: 353:         ep_data_in[i].Val = 0u;
 [e = . *U + &U _ep_data_in * -> _i `ux -> -> # *U &U _ep_data_in `ui `ux 1 -> -> 0 `ui `uc ]
@@ -1130,8 +1094,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;usb_device.c: 355:     }
 }
 [e ++ _i -> -> 1 `i `uc ]
-[e $ < -> _i `i -> -> + -> -> 1 `i `ui -> 1 `ui `uc `i 456  ]
-[e :U 457 ]
+[e $ < -> _i `i -> -> + -> -> 1 `i `ui -> 1 `ui `uc `i 416  ]
+[e :U 417 ]
 }
 "358
 [; ;usb_device.c: 358:     pBDTEntryIn[0] = (volatile BDT_ENTRY*)&BDT[2];
@@ -1162,10 +1126,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _USBTicksSinceSuspendEnd -> -> 0 `i `uc ]
 "374
 [; ;usb_device.c: 374:     USBDeviceState = DETACHED_STATE;
-[e = _USBDeviceState . `E3772 0 ]
+[e = _USBDeviceState . `E3402 0 ]
 "375
 [; ;usb_device.c: 375: }
-[e :UE 449 ]
+[e :UE 409 ]
 }
 "481
 [; ;usb_device.c: 481: void USBDeviceTasks(void)
@@ -1180,13 +1144,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _i `uc ~T0 @X0 1 a ]
 "594
 [; ;usb_device.c: 594:     if(USBDeviceState == ATTACHED_STATE)
-[e $ ! == -> _USBDeviceState `ui -> . `E3772 1 `ui 460  ]
+[e $ ! == -> _USBDeviceState `ui -> . `E3402 1 `ui 420  ]
 "595
 [; ;usb_device.c: 595:     {
 {
 "605
 [; ;usb_device.c: 605:         if(!UCONbits.SE0)
-[e $ ! ! != -> . . _UCONbits 0 5 `i -> 0 `i 461  ]
+[e $ ! ! != -> . . _UCONbits 0 5 `i -> 0 `i 421  ]
 "606
 [; ;usb_device.c: 606:         {
 {
@@ -1203,18 +1167,18 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = . . _UIEbits 0 4 -> -> 1 `i `uc ]
 "620
 [; ;usb_device.c: 620:             USBDeviceState = POWERED_STATE;
-[e = _USBDeviceState . `E3772 2 ]
+[e = _USBDeviceState . `E3402 2 ]
 "621
 [; ;usb_device.c: 621:         }
 }
-[e :U 461 ]
+[e :U 421 ]
 "622
 [; ;usb_device.c: 622:     }
 }
-[e :U 460 ]
+[e :U 420 ]
 "638
 [; ;usb_device.c: 638:     if(UIRbits.ACTVIF && UIEbits.ACTVIE)
-[e $ ! && != -> . . _UIRbits 0 2 `i -> 0 `i != -> . . _UIEbits 0 2 `i -> 0 `i 462  ]
+[e $ ! && != -> . . _UIRbits 0 2 `i -> 0 `i != -> . . _UIEbits 0 2 `i -> 0 `i 422  ]
 "639
 [; ;usb_device.c: 639:     {
 {
@@ -1227,10 +1191,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "646
 [; ;usb_device.c: 646:     }
 }
-[e :U 462 ]
+[e :U 422 ]
 "651
 [; ;usb_device.c: 651:     if(UCONbits.SUSPND==1)
-[e $ ! == -> . . _UCONbits 0 1 `i -> 1 `i 463  ]
+[e $ ! == -> . . _UCONbits 0 1 `i -> 1 `i 423  ]
 "652
 [; ;usb_device.c: 652:     {
 {
@@ -1241,14 +1205,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 "654
 [; ;usb_device.c: 654:         return;
-[e $UE 459  ]
+[e $UE 419  ]
 "655
 [; ;usb_device.c: 655:     }
 }
-[e :U 463 ]
+[e :U 423 ]
 "667
 [; ;usb_device.c: 667:     if(UIRbits.URSTIF && UIEbits.URSTIE)
-[e $ ! && != -> . . _UIRbits 0 0 `i -> 0 `i != -> . . _UIEbits 0 0 `i -> 0 `i 464  ]
+[e $ ! && != -> . . _UIRbits 0 0 `i -> 0 `i != -> . . _UIEbits 0 0 `i -> 0 `i 424  ]
 "668
 [; ;usb_device.c: 668:     {
 {
@@ -1262,17 +1226,17 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 "675
 [; ;usb_device.c: 675:         USBDeviceState = DEFAULT_STATE;
-[e = _USBDeviceState . `E3772 3 ]
+[e = _USBDeviceState . `E3402 3 ]
 "685
 [; ;usb_device.c: 685:         (UIR &= 0xFE);
 [e =& _UIR -> -> 254 `i `Vuc ]
 "686
 [; ;usb_device.c: 686:     }
 }
-[e :U 464 ]
+[e :U 424 ]
 "691
 [; ;usb_device.c: 691:     if(UIRbits.IDLEIF && UIEbits.IDLEIE)
-[e $ ! && != -> . . _UIRbits 0 4 `i -> 0 `i != -> . . _UIEbits 0 4 `i -> 0 `i 465  ]
+[e $ ! && != -> . . _UIRbits 0 4 `i -> 0 `i != -> . . _UIEbits 0 4 `i -> 0 `i 425  ]
 "692
 [; ;usb_device.c: 692:     {
 {
@@ -1282,26 +1246,26 @@ Version 4.0 HI-TECH Software Intermediate Code
 "700
 [; ;usb_device.c: 700:     }
 }
-[e :U 465 ]
+[e :U 425 ]
 "712
 [; ;usb_device.c: 712:     if(UIRbits.SOFIF)
-[e $ ! != -> . . _UIRbits 0 6 `i -> 0 `i 466  ]
+[e $ ! != -> . . _UIRbits 0 6 `i -> 0 `i 426  ]
 "713
 [; ;usb_device.c: 713:     {
 {
 "715
 [; ;usb_device.c: 715:         if(UIEbits.SOFIE)
-[e $ ! != -> . . _UIEbits 0 6 `i -> 0 `i 467  ]
+[e $ ! != -> . . _UIEbits 0 6 `i -> 0 `i 427  ]
 "716
 [; ;usb_device.c: 716:         {
 {
 "717
 [; ;usb_device.c: 717:             USER_USB_CALLBACK_EVENT_HANDLER((USB_EVENT)EVENT_SOF,0,1);
-[e ( _USER_USB_CALLBACK_EVENT_HANDLER (3 , , -> . `E3713 17 `E3713 -> -> 0 `i `*v -> -> 1 `i `us ]
+[e ( _USER_USB_CALLBACK_EVENT_HANDLER (3 , , -> . `E3343 17 `E3343 -> -> 0 `i `*v -> -> 1 `i `us ]
 "718
 [; ;usb_device.c: 718:         }
 }
-[e :U 467 ]
+[e :U 427 ]
 "719
 [; ;usb_device.c: 719:         (UIR &= 0xBF);
 [e =& _UIR -> -> 191 `i `Vuc ]
@@ -1310,7 +1274,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _USBIncrement1msInternalTimers ..  ]
 "739
 [; ;usb_device.c: 739:             if(USBStatusStageTimeoutCounter != 0u)
-[e $ ! != -> _USBStatusStageTimeoutCounter `ui -> 0 `ui 468  ]
+[e $ ! != -> _USBStatusStageTimeoutCounter `ui -> 0 `ui 428  ]
 "740
 [; ;usb_device.c: 740:             {
 {
@@ -1320,10 +1284,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "742
 [; ;usb_device.c: 742:             }
 }
-[e :U 468 ]
+[e :U 428 ]
 "748
 [; ;usb_device.c: 748:             if(USBStatusStageTimeoutCounter == 0)
-[e $ ! == -> _USBStatusStageTimeoutCounter `i -> 0 `i 469  ]
+[e $ ! == -> _USBStatusStageTimeoutCounter `i -> 0 `i 429  ]
 "749
 [; ;usb_device.c: 749:             {
 {
@@ -1333,14 +1297,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 "751
 [; ;usb_device.c: 751:             }
 }
-[e :U 469 ]
+[e :U 429 ]
 "753
 [; ;usb_device.c: 753:     }
 }
-[e :U 466 ]
+[e :U 426 ]
 "755
 [; ;usb_device.c: 755:     if(UIRbits.STALLIF && UIEbits.STALLIE)
-[e $ ! && != -> . . _UIRbits 0 5 `i -> 0 `i != -> . . _UIEbits 0 5 `i -> 0 `i 470  ]
+[e $ ! && != -> . . _UIRbits 0 5 `i -> 0 `i != -> . . _UIEbits 0 5 `i -> 0 `i 430  ]
 "756
 [; ;usb_device.c: 756:     {
 {
@@ -1350,16 +1314,16 @@ Version 4.0 HI-TECH Software Intermediate Code
 "758
 [; ;usb_device.c: 758:     }
 }
-[e :U 470 ]
+[e :U 430 ]
 "760
 [; ;usb_device.c: 760:     if(UIRbits.UERRIF && UIEbits.UERRIE)
-[e $ ! && != -> . . _UIRbits 0 1 `i -> 0 `i != -> . . _UIEbits 0 1 `i -> 0 `i 471  ]
+[e $ ! && != -> . . _UIRbits 0 1 `i -> 0 `i != -> . . _UIEbits 0 1 `i -> 0 `i 431  ]
 "761
 [; ;usb_device.c: 761:     {
 {
 "762
 [; ;usb_device.c: 762:         USER_USB_CALLBACK_EVENT_HANDLER((USB_EVENT)EVENT_BUS_ERROR,0,1);
-[e ( _USER_USB_CALLBACK_EVENT_HANDLER (3 , , -> . `E3713 35 `E3713 -> -> 0 `i `*v -> -> 1 `i `us ]
+[e ( _USER_USB_CALLBACK_EVENT_HANDLER (3 , , -> . `E3343 35 `E3343 -> -> 0 `i `*v -> -> 1 `i `us ]
 "763
 [; ;usb_device.c: 763:         {UEIR = 0;};
 {
@@ -1368,10 +1332,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "771
 [; ;usb_device.c: 771:     }
 }
-[e :U 471 ]
+[e :U 431 ]
 "778
 [; ;usb_device.c: 778:     if(USBDeviceState < DEFAULT_STATE)
-[e $ ! < -> _USBDeviceState `ui -> . `E3772 3 `ui 472  ]
+[e $ ! < -> _USBDeviceState `ui -> . `E3402 3 `ui 432  ]
 "779
 [; ;usb_device.c: 779:     {
 {
@@ -1382,14 +1346,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 "781
 [; ;usb_device.c: 781:         return;
-[e $UE 459  ]
+[e $UE 419  ]
 "782
 [; ;usb_device.c: 782:     }
 }
-[e :U 472 ]
+[e :U 432 ]
 "787
 [; ;usb_device.c: 787:     if(UIEbits.TRNIE)
-[e $ ! != -> . . _UIEbits 0 3 `i -> 0 `i 473  ]
+[e $ ! != -> . . _UIEbits 0 3 `i -> 0 `i 433  ]
 "788
 [; ;usb_device.c: 788:     {
 {
@@ -1397,15 +1361,15 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;usb_device.c: 789:         for(i = 0; i < 4u; i++)
 {
 [e = _i -> -> 0 `i `uc ]
-[e $ < -> _i `ui -> 4 `ui 474  ]
-[e $U 475  ]
-[e :U 474 ]
+[e $ < -> _i `ui -> 4 `ui 434  ]
+[e $U 435  ]
+[e :U 434 ]
 "790
 [; ;usb_device.c: 790:         {
 {
 "791
 [; ;usb_device.c: 791:             if(UIRbits.TRNIF)
-[e $ ! != -> . . _UIRbits 0 3 `i -> 0 `i 477  ]
+[e $ ! != -> . . _UIRbits 0 3 `i -> 0 `i 437  ]
 "792
 [; ;usb_device.c: 792:             {
 {
@@ -1420,7 +1384,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e =& _UIR -> -> 247 `i `Vuc ]
 "802
 [; ;usb_device.c: 802:                 if(USTATcopy.direction == 0)
-[e $ ! == -> . . _USTATcopy 0 2 `i -> 0 `i 478  ]
+[e $ ! == -> . . _USTATcopy 0 2 `i -> 0 `i 438  ]
 "803
 [; ;usb_device.c: 803:                 {
 {
@@ -1430,10 +1394,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "805
 [; ;usb_device.c: 805:                 }
 }
-[e $U 479  ]
+[e $U 439  ]
 "806
 [; ;usb_device.c: 806:                 else
-[e :U 478 ]
+[e :U 438 ]
 "807
 [; ;usb_device.c: 807:                 {
 {
@@ -1443,10 +1407,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "809
 [; ;usb_device.c: 809:                 }
 }
-[e :U 479 ]
+[e :U 439 ]
 "814
 [; ;usb_device.c: 814:                 if(endpoint_number == 0)
-[e $ ! == -> _endpoint_number `i -> 0 `i 480  ]
+[e $ ! == -> _endpoint_number `i -> 0 `i 440  ]
 "815
 [; ;usb_device.c: 815:                 {
 {
@@ -1456,48 +1420,48 @@ Version 4.0 HI-TECH Software Intermediate Code
 "817
 [; ;usb_device.c: 817:                 }
 }
-[e $U 481  ]
+[e $U 441  ]
 "818
 [; ;usb_device.c: 818:                 else
-[e :U 480 ]
+[e :U 440 ]
 "819
 [; ;usb_device.c: 819:                 {
 {
 "820
 [; ;usb_device.c: 820:                     USER_USB_CALLBACK_EVENT_HANDLER((USB_EVENT)EVENT_TRANSFER,(uint8_t*)&USTATcopy.Val,0);
-[e ( _USER_USB_CALLBACK_EVENT_HANDLER (3 , , -> . `E3713 16 `E3713 -> &U . _USTATcopy 1 `*v -> -> 0 `i `us ]
+[e ( _USER_USB_CALLBACK_EVENT_HANDLER (3 , , -> . `E3343 16 `E3343 -> &U . _USTATcopy 1 `*v -> -> 0 `i `us ]
 "821
 [; ;usb_device.c: 821:                 }
 }
-[e :U 481 ]
+[e :U 441 ]
 "822
 [; ;usb_device.c: 822:             }
 }
-[e $U 482  ]
+[e $U 442  ]
 "823
 [; ;usb_device.c: 823:             else
-[e :U 477 ]
+[e :U 437 ]
 "824
 [; ;usb_device.c: 824:             {
 {
 "825
 [; ;usb_device.c: 825:                 break;
-[e $U 475  ]
+[e $U 435  ]
 "826
 [; ;usb_device.c: 826:             }
 }
-[e :U 482 ]
+[e :U 442 ]
 "827
 [; ;usb_device.c: 827:         }
 }
 [e ++ _i -> -> 1 `i `uc ]
-[e $ < -> _i `ui -> 4 `ui 474  ]
-[e :U 475 ]
+[e $ < -> _i `ui -> 4 `ui 434  ]
+[e :U 435 ]
 }
 "828
 [; ;usb_device.c: 828:     }
 }
-[e :U 473 ]
+[e :U 433 ]
 "830
 [; ;usb_device.c: 830:     {PIR2bits.USBIF = 0;};
 {
@@ -1505,7 +1469,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 "831
 [; ;usb_device.c: 831: }
-[e :UE 459 ]
+[e :UE 419 ]
 }
 "882
 [; ;usb_device.c: 882: void USBEnableEndpoint(uint8_t ep, uint8_t options)
@@ -1526,7 +1490,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _p `*uc ~T0 @X0 1 a ]
 "888
 [; ;usb_device.c: 888:     if(options & 0x04)
-[e $ ! != & -> _options `i -> 4 `i -> 0 `i 484  ]
+[e $ ! != & -> _options `i -> 4 `i -> 0 `i 444  ]
 "889
 [; ;usb_device.c: 889:     {
 {
@@ -1536,10 +1500,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "891
 [; ;usb_device.c: 891:     }
 }
-[e :U 484 ]
+[e :U 444 ]
 "892
 [; ;usb_device.c: 892:     if(options & 0x02)
-[e $ ! != & -> _options `i -> 2 `i -> 0 `i 485  ]
+[e $ ! != & -> _options `i -> 2 `i -> 0 `i 445  ]
 "893
 [; ;usb_device.c: 893:     {
 {
@@ -1549,7 +1513,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "895
 [; ;usb_device.c: 895:     }
 }
-[e :U 485 ]
+[e :U 445 ]
 "903
 [; ;usb_device.c: 903:         p = (unsigned char*)(&UEP0+ep);
 [e = _p + &U _UEP0 * -> -> _ep `i `x -> -> # *U &U _UEP0 `i `x ]
@@ -1558,7 +1522,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = *U _p _options ]
 "906
 [; ;usb_device.c: 906: }
-[e :UE 483 ]
+[e :UE 443 ]
 }
 "999
 [; ;usb_device.c: 999: void* USBTransferOnePacket(uint8_t ep,uint8_t dir,uint8_t* data,uint8_t len)
@@ -1578,10 +1542,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "1001
 [; ;usb_device.c: 1001:     volatile BDT_ENTRY* handle;
-[v _handle `*VS438 ~T0 @X0 1 a ]
+[v _handle `*VS398 ~T0 @X0 1 a ]
 "1004
 [; ;usb_device.c: 1004:     if(dir != 0)
-[e $ ! != -> _dir `i -> 0 `i 487  ]
+[e $ ! != -> _dir `i -> 0 `i 447  ]
 "1005
 [; ;usb_device.c: 1005:     {
 {
@@ -1591,10 +1555,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "1008
 [; ;usb_device.c: 1008:     }
 }
-[e $U 488  ]
+[e $U 448  ]
 "1009
 [; ;usb_device.c: 1009:     else
-[e :U 487 ]
+[e :U 447 ]
 "1010
 [; ;usb_device.c: 1010:     {
 {
@@ -1604,21 +1568,21 @@ Version 4.0 HI-TECH Software Intermediate Code
 "1013
 [; ;usb_device.c: 1013:     }
 }
-[e :U 488 ]
+[e :U 448 ]
 "1017
 [; ;usb_device.c: 1017:     if(handle == 0)
-[e $ ! == _handle -> -> 0 `i `*VS438 489  ]
+[e $ ! == _handle -> -> 0 `i `*VS398 449  ]
 "1018
 [; ;usb_device.c: 1018:     {
 {
 "1019
 [; ;usb_device.c: 1019:         return 0;
 [e ) -> -> 0 `i `*v ]
-[e $UE 486  ]
+[e $UE 446  ]
 "1020
 [; ;usb_device.c: 1020:     }
 }
-[e :U 489 ]
+[e :U 449 ]
 "1033
 [; ;usb_device.c: 1033:     handle->ADR = ((uint16_t)(data));
 [e = . . *U _handle 1 2 -> _data `us ]
@@ -1636,37 +1600,37 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e =| . . . *U _handle 0 0 0 -> -> 128 `i `Vuc ]
 "1040
 [; ;usb_device.c: 1040:     if(dir != 0)
-[e $ ! != -> _dir `i -> 0 `i 490  ]
+[e $ ! != -> _dir `i -> 0 `i 450  ]
 "1041
 [; ;usb_device.c: 1041:     {
 {
 "1043
 [; ;usb_device.c: 1043:         pBDTEntryIn[ep] = (BDT_ENTRY*)(((uint16_t)pBDTEntryIn[ep]) ^ 0x0004);
-[e = *U + &U _pBDTEntryIn * -> _ep `ux -> -> # *U &U _pBDTEntryIn `ui `ux -> -> ^ -> -> *U + &U _pBDTEntryIn * -> _ep `ux -> -> # *U &U _pBDTEntryIn `ui `ux `us `ui -> -> 4 `i `ui `*S438 `*VS438 ]
+[e = *U + &U _pBDTEntryIn * -> _ep `ux -> -> # *U &U _pBDTEntryIn `ui `ux -> -> ^ -> -> *U + &U _pBDTEntryIn * -> _ep `ux -> -> # *U &U _pBDTEntryIn `ui `ux `us `ui -> -> 4 `i `ui `*S398 `*VS398 ]
 "1044
 [; ;usb_device.c: 1044:     }
 }
-[e $U 491  ]
+[e $U 451  ]
 "1045
 [; ;usb_device.c: 1045:     else
-[e :U 490 ]
+[e :U 450 ]
 "1046
 [; ;usb_device.c: 1046:     {
 {
 "1048
 [; ;usb_device.c: 1048:         pBDTEntryOut[ep] = (BDT_ENTRY*)(((uint16_t)pBDTEntryOut[ep]) ^ 0x0004);
-[e = *U + &U _pBDTEntryOut * -> _ep `ux -> -> # *U &U _pBDTEntryOut `ui `ux -> -> ^ -> -> *U + &U _pBDTEntryOut * -> _ep `ux -> -> # *U &U _pBDTEntryOut `ui `ux `us `ui -> -> 4 `i `ui `*S438 `*VS438 ]
+[e = *U + &U _pBDTEntryOut * -> _ep `ux -> -> # *U &U _pBDTEntryOut `ui `ux -> -> ^ -> -> *U + &U _pBDTEntryOut * -> _ep `ux -> -> # *U &U _pBDTEntryOut `ui `ux `us `ui -> -> 4 `i `ui `*S398 `*VS398 ]
 "1049
 [; ;usb_device.c: 1049:     }
 }
-[e :U 491 ]
+[e :U 451 ]
 "1050
 [; ;usb_device.c: 1050:     return (void*)handle;
 [e ) -> _handle `*v ]
-[e $UE 486  ]
+[e $UE 446  ]
 "1051
 [; ;usb_device.c: 1051: }
-[e :UE 486 ]
+[e :UE 446 ]
 }
 "1077
 [; ;usb_device.c: 1077: void USBStallEndpoint(uint8_t ep, uint8_t dir)
@@ -1684,10 +1648,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "1079
 [; ;usb_device.c: 1079:     BDT_ENTRY *p;
-[v _p `*S438 ~T0 @X0 1 a ]
+[v _p `*S398 ~T0 @X0 1 a ]
 "1081
 [; ;usb_device.c: 1081:     if(ep == 0)
-[e $ ! == -> _ep `i -> 0 `i 493  ]
+[e $ ! == -> _ep `i -> 0 `i 453  ]
 "1082
 [; ;usb_device.c: 1082:     {
 {
@@ -1712,10 +1676,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "1093
 [; ;usb_device.c: 1093:     }
 }
-[e $U 494  ]
+[e $U 454  ]
 "1094
 [; ;usb_device.c: 1094:     else
-[e :U 493 ]
+[e :U 453 ]
 "1095
 [; ;usb_device.c: 1095:     {
 {
@@ -1740,10 +1704,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "1107
 [; ;usb_device.c: 1107:     }
 }
-[e :U 494 ]
+[e :U 454 ]
 "1108
 [; ;usb_device.c: 1108: }
-[e :UE 492 ]
+[e :UE 452 ]
 }
 "1133
 [; ;usb_device.c: 1133: void USBCancelIO(uint8_t endpoint)
@@ -1760,7 +1724,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "1135
 [; ;usb_device.c: 1135:     if(UCONbits.PKTDIS == 1)
-[e $ ! == -> . . _UCONbits 0 4 `i -> 1 `i 496  ]
+[e $ ! == -> . . _UCONbits 0 4 `i -> 1 `i 456  ]
 "1136
 [; ;usb_device.c: 1136:     {
 {
@@ -1772,7 +1736,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e =^ . *U *U + &U _pBDTEntryIn * -> _endpoint `ux -> -> # *U &U _pBDTEntryIn `ui `ux 2 -> -> 64 `i `Vul ]
 "1147
 [; ;usb_device.c: 1147:         pBDTEntryIn[endpoint] = (BDT_ENTRY*)(((uint16_t)pBDTEntryIn[endpoint]) ^ 0x0004);
-[e = *U + &U _pBDTEntryIn * -> _endpoint `ux -> -> # *U &U _pBDTEntryIn `ui `ux -> -> ^ -> -> *U + &U _pBDTEntryIn * -> _endpoint `ux -> -> # *U &U _pBDTEntryIn `ui `ux `us `ui -> -> 4 `i `ui `*S438 `*VS438 ]
+[e = *U + &U _pBDTEntryIn * -> _endpoint `ux -> -> # *U &U _pBDTEntryIn `ui `ux -> -> ^ -> -> *U + &U _pBDTEntryIn * -> _endpoint `ux -> -> # *U &U _pBDTEntryIn `ui `ux `us `ui -> -> 4 `i `ui `*S398 `*VS398 ]
 "1149
 [; ;usb_device.c: 1149:      pBDTEntryIn[endpoint]->STAT.Val &= 0x40;
 [e =& . . . *U *U + &U _pBDTEntryIn * -> _endpoint `ux -> -> # *U &U _pBDTEntryIn `ui `ux 0 0 0 -> -> 64 `i `Vuc ]
@@ -1782,10 +1746,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "1152
 [; ;usb_device.c: 1152:     }
 }
-[e :U 496 ]
+[e :U 456 ]
 "1153
 [; ;usb_device.c: 1153: }
-[e :UE 495 ]
+[e :UE 455 ]
 }
 "1251
 [; ;usb_device.c: 1251: void USBDeviceDetach(void)
@@ -1806,16 +1770,16 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _UIE -> -> 0 `i `uc ]
 "1267
 [; ;usb_device.c: 1267:          USBDeviceState = DETACHED_STATE;
-[e = _USBDeviceState . `E3772 0 ]
+[e = _USBDeviceState . `E3402 0 ]
 "1295
 [; ;usb_device.c: 1295:           return;
-[e $UE 497  ]
+[e $UE 457  ]
 "1296
 [; ;usb_device.c: 1296:     }
 }
 "1316
 [; ;usb_device.c: 1316: }
-[e :UE 497 ]
+[e :UE 457 ]
 }
 "1356
 [; ;usb_device.c: 1356: void USBDeviceAttach(void)
@@ -1827,13 +1791,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "1359
 [; ;usb_device.c: 1359:     if(USBDeviceState == DETACHED_STATE)
-[e $ ! == -> _USBDeviceState `ui -> . `E3772 0 `ui 499  ]
+[e $ ! == -> _USBDeviceState `ui -> . `E3402 0 `ui 459  ]
 "1360
 [; ;usb_device.c: 1360:     {
 {
 "1361
 [; ;usb_device.c: 1361:         if(1 == 1)
-[e $ ! == -> 1 `i -> 1 `i 500  ]
+[e $ ! == -> 1 `i -> 1 `i 460  ]
 "1362
 [; ;usb_device.c: 1362:         {
 {
@@ -1860,28 +1824,28 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 "1376
 [; ;usb_device.c: 1376:             while(!UCONbits.USBEN){UCONbits.USBEN = 1;}
-[e $U 501  ]
-[e :U 502 ]
+[e $U 461  ]
+[e :U 462 ]
 {
 [e = . . _UCONbits 0 3 -> -> 1 `i `uc ]
 }
-[e :U 501 ]
-[e $ ! != -> . . _UCONbits 0 3 `i -> 0 `i 502  ]
-[e :U 503 ]
+[e :U 461 ]
+[e $ ! != -> . . _UCONbits 0 3 `i -> 0 `i 462  ]
+[e :U 463 ]
 "1379
 [; ;usb_device.c: 1379:             USBDeviceState = ATTACHED_STATE;
-[e = _USBDeviceState . `E3772 1 ]
+[e = _USBDeviceState . `E3402 1 ]
 "1384
 [; ;usb_device.c: 1384:         }
 }
-[e :U 500 ]
+[e :U 460 ]
 "1385
 [; ;usb_device.c: 1385:     }
 }
-[e :U 499 ]
+[e :U 459 ]
 "1386
 [; ;usb_device.c: 1386: }
-[e :UE 498 ]
+[e :UE 458 ]
 }
 "1420
 [; ;usb_device.c: 1420: void USBCtrlEPAllowStatusStage(void)
@@ -1893,7 +1857,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "1427
 [; ;usb_device.c: 1427:     if(USBStatusStageEnabledFlag1 == 0)
-[e $ ! == -> _USBStatusStageEnabledFlag1 `i -> 0 `i 505  ]
+[e $ ! == -> _USBStatusStageEnabledFlag1 `i -> 0 `i 465  ]
 "1428
 [; ;usb_device.c: 1428:     {
 {
@@ -1902,7 +1866,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _USBStatusStageEnabledFlag1 -> -> 1 `i `a ]
 "1430
 [; ;usb_device.c: 1430:         if(USBStatusStageEnabledFlag2 == 0)
-[e $ ! == -> _USBStatusStageEnabledFlag2 `i -> 0 `i 506  ]
+[e $ ! == -> _USBStatusStageEnabledFlag2 `i -> 0 `i 466  ]
 "1431
 [; ;usb_device.c: 1431:         {
 {
@@ -1911,7 +1875,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _USBStatusStageEnabledFlag2 -> -> 1 `i `a ]
 "1436
 [; ;usb_device.c: 1436:             if(controlTransferState == 2)
-[e $ ! == -> _controlTransferState `i -> 2 `i 507  ]
+[e $ ! == -> _controlTransferState `i -> 2 `i 467  ]
 "1437
 [; ;usb_device.c: 1437:             {
 {
@@ -1927,11 +1891,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 "1441
 [; ;usb_device.c: 1441:             }
 }
-[e $U 508  ]
+[e $U 468  ]
 "1442
 [; ;usb_device.c: 1442:             else if(controlTransferState == 1)
-[e :U 507 ]
-[e $ ! == -> _controlTransferState `i -> 1 `i 509  ]
+[e :U 467 ]
+[e $ ! == -> _controlTransferState `i -> 1 `i 469  ]
 "1443
 [; ;usb_device.c: 1443:             {
 {
@@ -1965,19 +1929,19 @@ Version 4.0 HI-TECH Software Intermediate Code
 "1460
 [; ;usb_device.c: 1460:             }
 }
-[e :U 509 ]
-[e :U 508 ]
+[e :U 469 ]
+[e :U 468 ]
 "1461
 [; ;usb_device.c: 1461:         }
 }
-[e :U 506 ]
+[e :U 466 ]
 "1462
 [; ;usb_device.c: 1462:     }
 }
-[e :U 505 ]
+[e :U 465 ]
 "1463
 [; ;usb_device.c: 1463: }
-[e :UE 504 ]
+[e :UE 464 ]
 }
 "1492
 [; ;usb_device.c: 1492: void USBCtrlEPAllowDataStage(void)
@@ -1995,7 +1959,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _USBDeferOUTDataStagePackets -> -> 0 `i `a ]
 "1497
 [; ;usb_device.c: 1497:     if(controlTransferState == 2)
-[e $ ! == -> _controlTransferState `i -> 2 `i 511  ]
+[e $ ! == -> _controlTransferState `i -> 2 `i 471  ]
 "1498
 [; ;usb_device.c: 1498:     {
 {
@@ -2014,16 +1978,16 @@ Version 4.0 HI-TECH Software Intermediate Code
 "1504
 [; ;usb_device.c: 1504:     }
 }
-[e $U 512  ]
+[e $U 472  ]
 "1505
 [; ;usb_device.c: 1505:     else
-[e :U 511 ]
+[e :U 471 ]
 "1506
 [; ;usb_device.c: 1506:     {
 {
 "1509
 [; ;usb_device.c: 1509:   if(SetupPkt.wLength < inPipes[0].wCount.Val)
-[e $ ! < -> . . _SetupPkt 0 4 `ui -> . . *U + &U _inPipes * -> -> -> 0 `i `ui `ux -> -> # *U &U _inPipes `ui `ux 2 0 `ui 513  ]
+[e $ ! < -> . . _SetupPkt 0 4 `ui -> . . *U + &U _inPipes * -> -> -> 0 `i `ui `ux -> -> # *U &U _inPipes `ui `ux 2 0 `ui 473  ]
 "1510
 [; ;usb_device.c: 1510:   {
 {
@@ -2033,7 +1997,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "1512
 [; ;usb_device.c: 1512:   }
 }
-[e :U 513 ]
+[e :U 473 ]
 "1513
 [; ;usb_device.c: 1513:   USBCtrlTrfTxService();
 [e ( _USBCtrlTrfTxService ..  ]
@@ -2049,10 +2013,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "1521
 [; ;usb_device.c: 1521:     }
 }
-[e :U 512 ]
+[e :U 472 ]
 "1522
 [; ;usb_device.c: 1522: }
-[e :UE 510 ]
+[e :UE 470 ]
 }
 "1547
 [; ;usb_device.c: 1547: static void USBConfigureEndpoint(uint8_t EPNum, uint8_t direction)
@@ -2070,7 +2034,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "1549
 [; ;usb_device.c: 1549:     volatile BDT_ENTRY* handle;
-[v _handle `*VS438 ~T0 @X0 1 a ]
+[v _handle `*VS398 ~T0 @X0 1 a ]
 "1553
 [; ;usb_device.c: 1553:     handle = (volatile BDT_ENTRY*)&BDT[0];
 [e = _handle &U *U + &U _BDT * -> -> -> 0 `i `ui `ux -> -> # *U &U _BDT `ui `ux ]
@@ -2082,7 +2046,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = . . . . *U _handle 0 0 1 7 -> -> 0 `i `uc ]
 "1561
 [; ;usb_device.c: 1561:     if(direction == 0)
-[e $ ! == -> _direction `i -> 0 `i 515  ]
+[e $ ! == -> _direction `i -> 0 `i 475  ]
 "1562
 [; ;usb_device.c: 1562:     {
 {
@@ -2092,10 +2056,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "1564
 [; ;usb_device.c: 1564:     }
 }
-[e $U 516  ]
+[e $U 476  ]
 "1565
 [; ;usb_device.c: 1565:     else
-[e :U 515 ]
+[e :U 475 ]
 "1566
 [; ;usb_device.c: 1566:     {
 {
@@ -2105,7 +2069,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "1568
 [; ;usb_device.c: 1568:     }
 }
-[e :U 516 ]
+[e :U 476 ]
 "1571
 [; ;usb_device.c: 1571:         handle->STAT.DTS = 0;
 [e = . . . . *U _handle 0 0 1 6 -> -> 0 `i `uc ]
@@ -2114,7 +2078,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = . . . . *U + _handle * -> -> 1 `i `x -> -> # *U _handle `i `x 0 0 1 6 -> -> 1 `i `uc ]
 "1589
 [; ;usb_device.c: 1589: }
-[e :UE 514 ]
+[e :UE 474 ]
 }
 "1620
 [; ;usb_device.c: 1620: static void USBCtrlEPServiceComplete(void)
@@ -2129,13 +2093,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = . . _UCONbits 0 4 -> -> 0 `i `uc ]
 "1632
 [; ;usb_device.c: 1632:     if(inPipes[0].info.bits.busy == 0)
-[e $ ! == -> . . . *U + &U _inPipes * -> -> -> 0 `i `ui `ux -> -> # *U &U _inPipes `ui `ux 1 0 3 `i -> 0 `i 518  ]
+[e $ ! == -> . . . *U + &U _inPipes * -> -> -> 0 `i `ui `ux -> -> # *U &U _inPipes `ui `ux 1 0 3 `i -> 0 `i 478  ]
 "1633
 [; ;usb_device.c: 1633:     {
 {
 "1634
 [; ;usb_device.c: 1634:         if(outPipes[0].info.bits.busy == 1)
-[e $ ! == -> . . . *U + &U _outPipes * -> -> -> 0 `i `ui `ux -> -> # *U &U _outPipes `ui `ux 1 0 1 `i -> 1 `i 519  ]
+[e $ ! == -> . . . *U + &U _outPipes * -> -> -> 0 `i `ui `ux -> -> # *U &U _outPipes `ui `ux 1 0 1 `i -> 1 `i 479  ]
 "1635
 [; ;usb_device.c: 1635:         {
 {
@@ -2144,7 +2108,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _controlTransferState -> -> 2 `i `uc ]
 "1647
 [; ;usb_device.c: 1647:             if(USBDeferOUTDataStagePackets == 0)
-[e $ ! == -> _USBDeferOUTDataStagePackets `i -> 0 `i 520  ]
+[e $ ! == -> _USBDeferOUTDataStagePackets `i -> 0 `i 480  ]
 "1648
 [; ;usb_device.c: 1648:             {
 {
@@ -2154,7 +2118,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "1650
 [; ;usb_device.c: 1650:             }
 }
-[e :U 520 ]
+[e :U 480 ]
 "1654
 [; ;usb_device.c: 1654:             USBStatusStageEnabledFlag2 = 0;
 [e = _USBStatusStageEnabledFlag2 -> -> 0 `i `a ]
@@ -2164,10 +2128,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "1656
 [; ;usb_device.c: 1656:         }
 }
-[e $U 521  ]
+[e $U 481  ]
 "1657
 [; ;usb_device.c: 1657:         else
-[e :U 519 ]
+[e :U 479 ]
 "1658
 [; ;usb_device.c: 1658:         {
 {
@@ -2192,20 +2156,20 @@ Version 4.0 HI-TECH Software Intermediate Code
 "1669
 [; ;usb_device.c: 1669:         }
 }
-[e :U 521 ]
+[e :U 481 ]
 "1670
 [; ;usb_device.c: 1670:     }
 }
-[e $U 522  ]
+[e $U 482  ]
 "1671
 [; ;usb_device.c: 1671:     else
-[e :U 518 ]
+[e :U 478 ]
 "1672
 [; ;usb_device.c: 1672:     {
 {
 "1673
 [; ;usb_device.c: 1673:   if(SetupPkt.DataDir == (0x80>>7))
-[e $ ! == -> . . _SetupPkt 2 2 `i >> -> 128 `i -> 7 `i 523  ]
+[e $ ! == -> . . _SetupPkt 2 2 `i >> -> 128 `i -> 7 `i 483  ]
 "1674
 [; ;usb_device.c: 1674:   {
 {
@@ -2214,7 +2178,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _controlTransferState -> -> 1 `i `uc ]
 "1689
 [; ;usb_device.c: 1689:    if(USBDeferINDataStagePackets == 0)
-[e $ ! == -> _USBDeferINDataStagePackets `i -> 0 `i 524  ]
+[e $ ! == -> _USBDeferINDataStagePackets `i -> 0 `i 484  ]
 "1690
 [; ;usb_device.c: 1690:             {
 {
@@ -2224,7 +2188,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "1692
 [; ;usb_device.c: 1692:    }
 }
-[e :U 524 ]
+[e :U 484 ]
 "1714
 [; ;usb_device.c: 1714:             USBStatusStageEnabledFlag2 = 0;
 [e = _USBStatusStageEnabledFlag2 -> -> 0 `i `a ]
@@ -2233,7 +2197,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _USBStatusStageEnabledFlag1 -> -> 0 `i `a ]
 "1716
 [; ;usb_device.c: 1716:             if(USBDeferStatusStagePacket == 0)
-[e $ ! == -> _USBDeferStatusStagePacket `i -> 0 `i 525  ]
+[e $ ! == -> _USBDeferStatusStagePacket `i -> 0 `i 485  ]
 "1717
 [; ;usb_device.c: 1717:             {
 {
@@ -2243,14 +2207,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 "1719
 [; ;usb_device.c: 1719:             }
 }
-[e :U 525 ]
+[e :U 485 ]
 "1720
 [; ;usb_device.c: 1720:   }
 }
-[e $U 526  ]
+[e $U 486  ]
 "1721
 [; ;usb_device.c: 1721:   else
-[e :U 523 ]
+[e :U 483 ]
 "1722
 [; ;usb_device.c: 1722:   {
 {
@@ -2277,7 +2241,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _USBStatusStageEnabledFlag1 -> -> 0 `i `a ]
 "1744
 [; ;usb_device.c: 1744:    if(USBDeferStatusStagePacket == 0)
-[e $ ! == -> _USBDeferStatusStagePacket `i -> 0 `i 527  ]
+[e $ ! == -> _USBDeferStatusStagePacket `i -> 0 `i 487  ]
 "1745
 [; ;usb_device.c: 1745:             {
 {
@@ -2287,18 +2251,18 @@ Version 4.0 HI-TECH Software Intermediate Code
 "1747
 [; ;usb_device.c: 1747:             }
 }
-[e :U 527 ]
+[e :U 487 ]
 "1748
 [; ;usb_device.c: 1748:   }
 }
-[e :U 526 ]
+[e :U 486 ]
 "1750
 [; ;usb_device.c: 1750:     }
 }
-[e :U 522 ]
+[e :U 482 ]
 "1752
 [; ;usb_device.c: 1752: }
-[e :UE 517 ]
+[e :UE 477 ]
 }
 "1775
 [; ;usb_device.c: 1775: static void USBCtrlTrfTxService(void)
@@ -2316,7 +2280,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _byteToSend -> -> 8 `i `uc ]
 "1782
 [; ;usb_device.c: 1782:     if(inPipes[0].wCount.Val < (uint8_t)8)
-[e $ ! < -> . . *U + &U _inPipes * -> -> -> 0 `i `ui `ux -> -> # *U &U _inPipes `ui `ux 2 0 `ui -> -> -> 8 `i `uc `ui 529  ]
+[e $ ! < -> . . *U + &U _inPipes * -> -> -> 0 `i `ui `ux -> -> # *U &U _inPipes `ui `ux 2 0 `ui -> -> -> 8 `i `uc `ui 489  ]
 "1783
 [; ;usb_device.c: 1783:     {
 {
@@ -2325,7 +2289,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _byteToSend -> . . *U + &U _inPipes * -> -> -> 0 `i `ui `ux -> -> # *U &U _inPipes `ui `ux 2 0 `uc ]
 "1791
 [; ;usb_device.c: 1791:         if(shortPacketStatus == 0)
-[e $ ! == -> _shortPacketStatus `i -> 0 `i 530  ]
+[e $ ! == -> _shortPacketStatus `i -> 0 `i 490  ]
 "1792
 [; ;usb_device.c: 1792:         {
 {
@@ -2335,11 +2299,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 "1794
 [; ;usb_device.c: 1794:         }
 }
-[e $U 531  ]
+[e $U 491  ]
 "1795
 [; ;usb_device.c: 1795:         else if(shortPacketStatus == 1)
-[e :U 530 ]
-[e $ ! == -> _shortPacketStatus `i -> 1 `i 532  ]
+[e :U 490 ]
+[e $ ! == -> _shortPacketStatus `i -> 1 `i 492  ]
 "1796
 [; ;usb_device.c: 1796:         {
 {
@@ -2349,12 +2313,12 @@ Version 4.0 HI-TECH Software Intermediate Code
 "1798
 [; ;usb_device.c: 1798:         }
 }
-[e :U 532 ]
-[e :U 531 ]
+[e :U 492 ]
+[e :U 491 ]
 "1799
 [; ;usb_device.c: 1799:     }
 }
-[e :U 529 ]
+[e :U 489 ]
 "1803
 [; ;usb_device.c: 1803:     inPipes[0].wCount.Val -= byteToSend;
 [e =- . . *U + &U _inPipes * -> -> -> 0 `i `ui `ux -> -> # *U &U _inPipes `ui `ux 2 0 -> _byteToSend `Vus ]
@@ -2366,14 +2330,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _pDst &U _CtrlTrfData ]
 "1813
 [; ;usb_device.c: 1813:     if(inPipes[0].info.bits.ctrl_trf_mem == 0x00)
-[e $ ! == -> . . . *U + &U _inPipes * -> -> -> 0 `i `ui `ux -> -> # *U &U _inPipes `ui `ux 1 0 0 `i -> 0 `i 533  ]
+[e $ ! == -> . . . *U + &U _inPipes * -> -> -> 0 `i `ui `ux -> -> # *U &U _inPipes `ui `ux 1 0 0 `i -> 0 `i 493  ]
 "1814
 [; ;usb_device.c: 1814:     {
 {
 "1815
 [; ;usb_device.c: 1815:         while(byteToSend)
-[e $U 534  ]
-[e :U 535 ]
+[e $U 494  ]
+[e :U 495 ]
 "1816
 [; ;usb_device.c: 1816:         {
 {
@@ -2386,25 +2350,25 @@ Version 4.0 HI-TECH Software Intermediate Code
 "1819
 [; ;usb_device.c: 1819:         }
 }
-[e :U 534 ]
+[e :U 494 ]
 "1815
 [; ;usb_device.c: 1815:         while(byteToSend)
-[e $ != -> _byteToSend `i -> 0 `i 535  ]
-[e :U 536 ]
+[e $ != -> _byteToSend `i -> 0 `i 495  ]
+[e :U 496 ]
 "1820
 [; ;usb_device.c: 1820:     }
 }
-[e $U 537  ]
+[e $U 497  ]
 "1821
 [; ;usb_device.c: 1821:     else
-[e :U 533 ]
+[e :U 493 ]
 "1822
 [; ;usb_device.c: 1822:     {
 {
 "1823
 [; ;usb_device.c: 1823:         while(byteToSend)
-[e $U 538  ]
-[e :U 539 ]
+[e $U 498  ]
+[e :U 499 ]
 "1824
 [; ;usb_device.c: 1824:         {
 {
@@ -2417,18 +2381,18 @@ Version 4.0 HI-TECH Software Intermediate Code
 "1827
 [; ;usb_device.c: 1827:         }
 }
-[e :U 538 ]
+[e :U 498 ]
 "1823
 [; ;usb_device.c: 1823:         while(byteToSend)
-[e $ != -> _byteToSend `i -> 0 `i 539  ]
-[e :U 540 ]
+[e $ != -> _byteToSend `i -> 0 `i 499  ]
+[e :U 500 ]
 "1828
 [; ;usb_device.c: 1828:     }
 }
-[e :U 537 ]
+[e :U 497 ]
 "1829
 [; ;usb_device.c: 1829: }
-[e :UE 528 ]
+[e :UE 488 ]
 }
 "1856
 [; ;usb_device.c: 1856: static void USBCtrlTrfRxService(void)
@@ -2449,7 +2413,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _byteToRead . . *U _pBDTEntryEP0OutCurrent 0 1 ]
 "1869
 [; ;usb_device.c: 1869:     if(byteToRead > outPipes[0].wCount.Val)
-[e $ ! > -> _byteToRead `ui -> . . *U + &U _outPipes * -> -> -> 0 `i `ui `ux -> -> # *U &U _outPipes `ui `ux 2 0 `ui 542  ]
+[e $ ! > -> _byteToRead `ui -> . . *U + &U _outPipes * -> -> -> 0 `i `ui `ux -> -> # *U &U _outPipes `ui `ux 2 0 `ui 502  ]
 "1870
 [; ;usb_device.c: 1870:     {
 {
@@ -2459,7 +2423,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "1872
 [; ;usb_device.c: 1872:     }
 }
-[e :U 542 ]
+[e :U 502 ]
 "1874
 [; ;usb_device.c: 1874:     outPipes[0].wCount.Val -= byteToRead;
 [e =- . . *U + &U _outPipes * -> -> -> 0 `i `ui `ux -> -> # *U &U _outPipes `ui `ux 2 0 -> _byteToRead `Vus ]
@@ -2467,8 +2431,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;usb_device.c: 1878:     for(i=0;i<byteToRead;i++)
 {
 [e = _i -> -> 0 `i `uc ]
-[e $U 546  ]
-[e :U 543 ]
+[e $U 506  ]
+[e :U 503 ]
 "1879
 [; ;usb_device.c: 1879:     {
 {
@@ -2479,13 +2443,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;usb_device.c: 1881:     }
 }
 [e ++ _i -> -> 1 `i `uc ]
-[e :U 546 ]
-[e $ < -> _i `i -> _byteToRead `i 543  ]
-[e :U 544 ]
+[e :U 506 ]
+[e $ < -> _i `i -> _byteToRead `i 503  ]
+[e :U 504 ]
 }
 "1885
 [; ;usb_device.c: 1885:     if(outPipes[0].wCount.Val > 0)
-[e $ ! > -> . . *U + &U _outPipes * -> -> -> 0 `i `ui `ux -> -> # *U &U _outPipes `ui `ux 2 0 `ui -> -> 0 `i `ui 547  ]
+[e $ ! > -> . . *U + &U _outPipes * -> -> -> 0 `i `ui `ux -> -> # *U &U _outPipes `ui `ux 2 0 `ui -> -> 0 `i `ui 507  ]
 "1886
 [; ;usb_device.c: 1886:     {
 {
@@ -2497,7 +2461,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = . . *U _pBDTEntryEP0OutNext 1 2 -> &U _CtrlTrfData `us ]
 "1889
 [; ;usb_device.c: 1889:         if(pBDTEntryEP0OutCurrent->STAT.DTS == 0)
-[e $ ! == -> . . . . *U _pBDTEntryEP0OutCurrent 0 0 1 6 `i -> 0 `i 548  ]
+[e $ ! == -> . . . . *U _pBDTEntryEP0OutCurrent 0 0 1 6 `i -> 0 `i 508  ]
 "1890
 [; ;usb_device.c: 1890:         {
 {
@@ -2510,10 +2474,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "1893
 [; ;usb_device.c: 1893:         }
 }
-[e $U 549  ]
+[e $U 509  ]
 "1894
 [; ;usb_device.c: 1894:         else
-[e :U 548 ]
+[e :U 508 ]
 "1895
 [; ;usb_device.c: 1895:         {
 {
@@ -2526,14 +2490,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 "1898
 [; ;usb_device.c: 1898:         }
 }
-[e :U 549 ]
+[e :U 509 ]
 "1899
 [; ;usb_device.c: 1899:     }
 }
-[e $U 550  ]
+[e $U 510  ]
 "1900
 [; ;usb_device.c: 1900:     else
-[e :U 547 ]
+[e :U 507 ]
 "1901
 [; ;usb_device.c: 1901:     {
 {
@@ -2551,7 +2515,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e =| . . . *U _pBDTEntryEP0OutNext 0 0 0 -> -> 128 `i `Vuc ]
 "1918
 [; ;usb_device.c: 1918:         if(outPipes[0].pFunc != ((void*)0))
-[e $ ! != . *U + &U _outPipes * -> -> -> 0 `i `ui `ux -> -> # *U &U _outPipes `ui `ux 3 -> -> -> 0 `i `*v `*F4125 551  ]
+[e $ ! != . *U + &U _outPipes * -> -> -> 0 `i `ui `ux -> -> # *U &U _outPipes `ui `ux 3 -> -> -> 0 `i `*v `*F3755 511  ]
 "1919
 [; ;usb_device.c: 1919:         {
 {
@@ -2559,12 +2523,12 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( *U . *U + &U _outPipes * -> -> -> 0 `i `ui `ux -> -> # *U &U _outPipes `ui `ux 3 ..  ]
 "1930
 }
-[e :U 551 ]
+[e :U 511 ]
 "1931
 [e = . . . *U + &U _outPipes * -> -> -> 0 `i `ui `ux -> -> # *U &U _outPipes `ui `ux 1 0 1 -> -> 0 `i `uc ]
 "1945
 [; ;usb_device.c: 1945:         if(USBDeferStatusStagePacket == 0)
-[e $ ! == -> _USBDeferStatusStagePacket `i -> 0 `i 552  ]
+[e $ ! == -> _USBDeferStatusStagePacket `i -> 0 `i 512  ]
 "1946
 [; ;usb_device.c: 1946:         {
 {
@@ -2574,14 +2538,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 "1948
 [; ;usb_device.c: 1948:         }
 }
-[e :U 552 ]
+[e :U 512 ]
 "1949
 [; ;usb_device.c: 1949:     }
 }
-[e :U 550 ]
+[e :U 510 ]
 "1951
 [; ;usb_device.c: 1951: }
-[e :UE 541 ]
+[e :UE 501 ]
 }
 "1923
 [p k ]
@@ -2616,9 +2580,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;usb_device.c: 1991:  for(i = 0; i < (uint8_t)(1 +1u); i++)
 {
 [e = _i -> -> 0 `i `uc ]
-[e $ < -> _i `i -> -> + -> -> 1 `i `ui -> 1 `ui `uc `i 554  ]
-[e $U 555  ]
-[e :U 554 ]
+[e $ < -> _i `i -> -> + -> -> 1 `i `ui -> 1 `ui `uc `i 514  ]
+[e $U 515  ]
+[e :U 514 ]
 "1992
 [; ;usb_device.c: 1992:  {
 {
@@ -2632,8 +2596,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;usb_device.c: 1995:  }
 }
 [e ++ _i -> -> 1 `i `uc ]
-[e $ < -> _i `i -> -> + -> -> 1 `i `ui -> 1 `ui `uc `i 554  ]
-[e :U 555 ]
+[e $ < -> _i `i -> -> + -> -> 1 `i `ui -> 1 `ui `uc `i 514  ]
+[e :U 515 ]
 }
 "1998
 [; ;usb_device.c: 1998:     memset((void*)&USBAlternateInterface,0x00,1);
@@ -2655,36 +2619,36 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _USBActiveConfiguration . . _SetupPkt 6 2 ]
 "2013
 [; ;usb_device.c: 2013:     if(USBActiveConfiguration == 0)
-[e $ ! == -> _USBActiveConfiguration `i -> 0 `i 557  ]
+[e $ ! == -> _USBActiveConfiguration `i -> 0 `i 517  ]
 "2014
 [; ;usb_device.c: 2014:     {
 {
 "2016
 [; ;usb_device.c: 2016:         USBDeviceState = ADDRESS_STATE;
-[e = _USBDeviceState . `E3772 5 ]
+[e = _USBDeviceState . `E3402 5 ]
 "2017
 [; ;usb_device.c: 2017:     }
 }
-[e $U 558  ]
+[e $U 518  ]
 "2018
 [; ;usb_device.c: 2018:     else
-[e :U 557 ]
+[e :U 517 ]
 "2019
 [; ;usb_device.c: 2019:     {
 {
 "2021
 [; ;usb_device.c: 2021:         USER_USB_CALLBACK_EVENT_HANDLER((USB_EVENT)EVENT_CONFIGURED,(void*)&USBActiveConfiguration,1);
-[e ( _USER_USB_CALLBACK_EVENT_HANDLER (3 , , -> . `E3781 0 `E3713 -> &U _USBActiveConfiguration `*v -> -> 1 `i `us ]
+[e ( _USER_USB_CALLBACK_EVENT_HANDLER (3 , , -> . `E3411 0 `E3343 -> &U _USBActiveConfiguration `*v -> -> 1 `i `us ]
 "2026
 [; ;usb_device.c: 2026:         USBDeviceState = CONFIGURED_STATE;
-[e = _USBDeviceState . `E3772 6 ]
+[e = _USBDeviceState . `E3402 6 ]
 "2027
 [; ;usb_device.c: 2027:     }
 }
-[e :U 558 ]
+[e :U 518 ]
 "2028
 [; ;usb_device.c: 2028: }
-[e :UE 553 ]
+[e :UE 513 ]
 }
 "2047
 [; ;usb_device.c: 2047: static void USBStdGetDscHandler(void)
@@ -2696,7 +2660,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "2049
 [; ;usb_device.c: 2049:     if(SetupPkt.bmRequestType == 0x80)
-[e $ ! == -> . . _SetupPkt 0 0 `i -> 128 `i 560  ]
+[e $ ! == -> . . _SetupPkt 0 0 `i -> 128 `i 520  ]
 "2050
 [; ;usb_device.c: 2050:     {
 {
@@ -2705,28 +2669,28 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = . . *U + &U _inPipes * -> -> -> 0 `i `ui `ux -> -> # *U &U _inPipes `ui `ux 1 1 -> | | -> 0 `i -> 128 `i -> 64 `i `uc ]
 "2053
 [; ;usb_device.c: 2053:         switch(SetupPkt.bDescriptorType)
-[e $U 562  ]
+[e $U 522  ]
 "2054
 [; ;usb_device.c: 2054:         {
 {
 "2055
 [; ;usb_device.c: 2055:             case 0x01:
-[e :U 563 ]
+[e :U 523 ]
 "2057
 [; ;usb_device.c: 2057:                     inPipes[0].pSrc.bRom = (const uint8_t*)&device_dsc;
 [e = . . *U + &U _inPipes * -> -> -> 0 `i `ui `ux -> -> # *U &U _inPipes `ui `ux 0 1 -> &U _device_dsc `*Cuc ]
 "2061
 [; ;usb_device.c: 2061:                 inPipes[0].wCount.Val = sizeof(device_dsc);
-[e = . . *U + &U _inPipes * -> -> -> 0 `i `ui `ux -> -> # *U &U _inPipes `ui `ux 2 0 -> -> # `CS392 `ui `us ]
+[e = . . *U + &U _inPipes * -> -> -> 0 `i `ui `ux -> -> # *U &U _inPipes `ui `ux 2 0 -> -> # `CS352 `ui `us ]
 "2062
 [; ;usb_device.c: 2062:                 break;
-[e $U 561  ]
+[e $U 521  ]
 "2063
 [; ;usb_device.c: 2063:             case 0x02:
-[e :U 564 ]
+[e :U 524 ]
 "2067
 [; ;usb_device.c: 2067:                 if(SetupPkt.bDscIndex < 1)
-[e $ ! < -> . . _SetupPkt 4 2 `i -> 1 `i 565  ]
+[e $ ! < -> . . _SetupPkt 4 2 `i -> 1 `i 525  ]
 "2068
 [; ;usb_device.c: 2068:                 {
 {
@@ -2742,10 +2706,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "2080
 [; ;usb_device.c: 2080:                 }
 }
-[e $U 566  ]
+[e $U 526  ]
 "2081
 [; ;usb_device.c: 2081:     else
-[e :U 565 ]
+[e :U 525 ]
 "2082
 [; ;usb_device.c: 2082:     {
 {
@@ -2755,16 +2719,16 @@ Version 4.0 HI-TECH Software Intermediate Code
 "2084
 [; ;usb_device.c: 2084:     }
 }
-[e :U 566 ]
+[e :U 526 ]
 "2085
 [; ;usb_device.c: 2085:                 break;
-[e $U 561  ]
+[e $U 521  ]
 "2086
 [; ;usb_device.c: 2086:             case 0x03:
-[e :U 567 ]
+[e :U 527 ]
 "2090
 [; ;usb_device.c: 2090:                 if(SetupPkt.bDscIndex<3)
-[e $ ! < -> . . _SetupPkt 4 2 `i -> 3 `i 568  ]
+[e $ ! < -> . . _SetupPkt 4 2 `i -> 3 `i 528  ]
 "2091
 [; ;usb_device.c: 2091:                 {
 {
@@ -2777,10 +2741,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "2096
 [; ;usb_device.c: 2096:                 }
 }
-[e $U 569  ]
+[e $U 529  ]
 "2106
 [; ;usb_device.c: 2106:                 else
-[e :U 568 ]
+[e :U 528 ]
 "2107
 [; ;usb_device.c: 2107:                 {
 {
@@ -2790,36 +2754,36 @@ Version 4.0 HI-TECH Software Intermediate Code
 "2109
 [; ;usb_device.c: 2109:                 }
 }
-[e :U 569 ]
+[e :U 529 ]
 "2110
 [; ;usb_device.c: 2110:                 break;
-[e $U 561  ]
+[e $U 521  ]
 "2111
 [; ;usb_device.c: 2111:             default:
-[e :U 570 ]
+[e :U 530 ]
 "2112
 [; ;usb_device.c: 2112:                 inPipes[0].info.Val = 0;
 [e = . . *U + &U _inPipes * -> -> -> 0 `i `ui `ux -> -> # *U &U _inPipes `ui `ux 1 1 -> -> 0 `i `uc ]
 "2113
 [; ;usb_device.c: 2113:                 break;
-[e $U 561  ]
+[e $U 521  ]
 "2114
 [; ;usb_device.c: 2114:         }
 }
-[e $U 561  ]
-[e :U 562 ]
-[e [\ . . _SetupPkt 4 3 , $ -> 1 `i 563
- , $ -> 2 `i 564
- , $ -> 3 `i 567
- 570 ]
-[e :U 561 ]
+[e $U 521  ]
+[e :U 522 ]
+[e [\ . . _SetupPkt 4 3 , $ -> 1 `i 523
+ , $ -> 2 `i 524
+ , $ -> 3 `i 527
+ 530 ]
+[e :U 521 ]
 "2115
 [; ;usb_device.c: 2115:     }
 }
-[e :U 560 ]
+[e :U 520 ]
 "2116
 [; ;usb_device.c: 2116: }
-[e :UE 559 ]
+[e :UE 519 ]
 }
 "2133
 [; ;usb_device.c: 2133: static void USBStdGetStatusHandler(void)
@@ -2837,19 +2801,19 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = *U + &U _CtrlTrfData * -> -> -> 1 `i `ui `ux -> -> # *U &U _CtrlTrfData `ui `ux -> -> 0 `i `uc ]
 "2138
 [; ;usb_device.c: 2138:     switch(SetupPkt.Recipient)
-[e $U 573  ]
+[e $U 533  ]
 "2139
 [; ;usb_device.c: 2139:     {
 {
 "2140
 [; ;usb_device.c: 2140:         case (0x00):
-[e :U 574 ]
+[e :U 534 ]
 "2141
 [; ;usb_device.c: 2141:             inPipes[0].info.bits.busy = 1;
 [e = . . . *U + &U _inPipes * -> -> -> 0 `i `ui `ux -> -> # *U &U _inPipes `ui `ux 1 0 3 -> -> 1 `i `uc ]
 "2146
 [; ;usb_device.c: 2146:             if(0 == 1)
-[e $ ! == -> 0 `i -> 1 `i 575  ]
+[e $ ! == -> 0 `i -> 1 `i 535  ]
 "2147
 [; ;usb_device.c: 2147:             {
 {
@@ -2859,10 +2823,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "2149
 [; ;usb_device.c: 2149:             }
 }
-[e :U 575 ]
+[e :U 535 ]
 "2151
 [; ;usb_device.c: 2151:             if(RemoteWakeup == 1)
-[e $ ! == -> _RemoteWakeup `i -> 1 `i 576  ]
+[e $ ! == -> _RemoteWakeup `i -> 1 `i 536  ]
 "2152
 [; ;usb_device.c: 2152:             {
 {
@@ -2872,37 +2836,37 @@ Version 4.0 HI-TECH Software Intermediate Code
 "2154
 [; ;usb_device.c: 2154:             }
 }
-[e :U 576 ]
+[e :U 536 ]
 "2155
 [; ;usb_device.c: 2155:             break;
-[e $U 572  ]
+[e $U 532  ]
 "2156
 [; ;usb_device.c: 2156:         case (0x01):
-[e :U 577 ]
+[e :U 537 ]
 "2157
 [; ;usb_device.c: 2157:             inPipes[0].info.bits.busy = 1;
 [e = . . . *U + &U _inPipes * -> -> -> 0 `i `ui `ux -> -> # *U &U _inPipes `ui `ux 1 0 3 -> -> 1 `i `uc ]
 "2158
 [; ;usb_device.c: 2158:             break;
-[e $U 572  ]
+[e $U 532  ]
 "2159
 [; ;usb_device.c: 2159:         case (0x02):
-[e :U 578 ]
+[e :U 538 ]
 "2160
 [; ;usb_device.c: 2160:             inPipes[0].info.bits.busy = 1;
 [e = . . . *U + &U _inPipes * -> -> -> 0 `i `ui `ux -> -> # *U &U _inPipes `ui `ux 1 0 3 -> -> 1 `i `uc ]
 "2164
 [; ;usb_device.c: 2164:             if(SetupPkt.EPNum != 0)
-[e $ ! != -> . . _SetupPkt 9 4 `i -> 0 `i 579  ]
+[e $ ! != -> . . _SetupPkt 9 4 `i -> 0 `i 539  ]
 "2165
 [; ;usb_device.c: 2165:             {
 {
 "2166
 [; ;usb_device.c: 2166:                 BDT_ENTRY *p;
-[v _p `*S438 ~T0 @X0 1 a ]
+[v _p `*S398 ~T0 @X0 1 a ]
 "2168
 [; ;usb_device.c: 2168:                 if(SetupPkt.EPDir == 0)
-[e $ ! == -> . . _SetupPkt 9 6 `i -> 0 `i 580  ]
+[e $ ! == -> . . _SetupPkt 9 6 `i -> 0 `i 540  ]
 "2169
 [; ;usb_device.c: 2169:                 {
 {
@@ -2912,10 +2876,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "2171
 [; ;usb_device.c: 2171:                 }
 }
-[e $U 581  ]
+[e $U 541  ]
 "2172
 [; ;usb_device.c: 2172:                 else
-[e :U 580 ]
+[e :U 540 ]
 "2173
 [; ;usb_device.c: 2173:                 {
 {
@@ -2925,10 +2889,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "2175
 [; ;usb_device.c: 2175:                 }
 }
-[e :U 581 ]
+[e :U 541 ]
 "2177
 [; ;usb_device.c: 2177:                 if((p->STAT.UOWN == 1) && (p->STAT.BSTALL == 1))
-[e $ ! && == -> . . . . *U _p 0 0 1 7 `i -> 1 `i == -> . . . . *U _p 0 0 1 2 `i -> 1 `i 582  ]
+[e $ ! && == -> . . . . *U _p 0 0 1 7 `i -> 1 `i == -> . . . . *U _p 0 0 1 2 `i -> 1 `i 542  ]
 "2178
 [; ;usb_device.c: 2178:                 {
 {
@@ -2938,27 +2902,27 @@ Version 4.0 HI-TECH Software Intermediate Code
 "2180
 [; ;usb_device.c: 2180:                 }
 }
-[e :U 582 ]
+[e :U 542 ]
 "2181
 [; ;usb_device.c: 2181:             }
 }
-[e :U 579 ]
+[e :U 539 ]
 "2182
 [; ;usb_device.c: 2182:             break;
-[e $U 572  ]
+[e $U 532  ]
 "2183
 [; ;usb_device.c: 2183:     }
 }
-[e $U 572  ]
-[e :U 573 ]
-[e [\ . . _SetupPkt 2 0 , $ -> 0 `i 574
- , $ -> 1 `i 577
- , $ -> 2 `i 578
- 572 ]
-[e :U 572 ]
+[e $U 532  ]
+[e :U 533 ]
+[e [\ . . _SetupPkt 2 0 , $ -> 0 `i 534
+ , $ -> 1 `i 537
+ , $ -> 2 `i 538
+ 532 ]
+[e :U 532 ]
 "2185
 [; ;usb_device.c: 2185:     if(inPipes[0].info.bits.busy == 1)
-[e $ ! == -> . . . *U + &U _inPipes * -> -> -> 0 `i `ui `ux -> -> # *U &U _inPipes `ui `ux 1 0 3 `i -> 1 `i 583  ]
+[e $ ! == -> . . . *U + &U _inPipes * -> -> -> 0 `i `ui `ux -> -> # *U &U _inPipes `ui `ux 1 0 3 `i -> 1 `i 543  ]
 "2186
 [; ;usb_device.c: 2186:     {
 {
@@ -2974,10 +2938,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "2190
 [; ;usb_device.c: 2190:     }
 }
-[e :U 583 ]
+[e :U 543 ]
 "2191
 [; ;usb_device.c: 2191: }
-[e :UE 571 ]
+[e :UE 531 ]
 }
 "2209
 [; ;usb_device.c: 2209: static void USBStallHandler(void)
@@ -2989,13 +2953,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "2221
 [; ;usb_device.c: 2221:     if(UEP0bits.EPSTALL == 1)
-[e $ ! == -> . . _UEP0bits 0 0 `i -> 1 `i 585  ]
+[e $ ! == -> . . _UEP0bits 0 0 `i -> 1 `i 545  ]
 "2222
 [; ;usb_device.c: 2222:     {
 {
 "2224
 [; ;usb_device.c: 2224:         if((pBDTEntryEP0OutCurrent->STAT.Val == 0x80) && (pBDTEntryIn[0]->STAT.Val == (0x80|0x04)))
-[e $ ! && == -> . . . *U _pBDTEntryEP0OutCurrent 0 0 0 `i -> 128 `i == -> . . . *U *U + &U _pBDTEntryIn * -> -> -> 0 `i `ui `ux -> -> # *U &U _pBDTEntryIn `ui `ux 0 0 0 `i | -> 128 `i -> 4 `i 586  ]
+[e $ ! && == -> . . . *U _pBDTEntryEP0OutCurrent 0 0 0 `i -> 128 `i == -> . . . *U *U + &U _pBDTEntryIn * -> -> -> 0 `i `ui `ux -> -> # *U &U _pBDTEntryIn `ui `ux 0 0 0 `i | -> 128 `i -> 4 `i 546  ]
 "2225
 [; ;usb_device.c: 2225:         {
 {
@@ -3008,20 +2972,20 @@ Version 4.0 HI-TECH Software Intermediate Code
 "2229
 [; ;usb_device.c: 2229:         }
 }
-[e :U 586 ]
+[e :U 546 ]
 "2230
 [; ;usb_device.c: 2230:         UEP0bits.EPSTALL = 0;
 [e = . . _UEP0bits 0 0 -> -> 0 `i `uc ]
 "2231
 [; ;usb_device.c: 2231:     }
 }
-[e :U 585 ]
+[e :U 545 ]
 "2233
 [; ;usb_device.c: 2233:     (UIR &= 0xDF);
 [e =& _UIR -> -> 223 `i `Vuc ]
 "2234
 [; ;usb_device.c: 2234: }
-[e :UE 584 ]
+[e :UE 544 ]
 }
 "2252
 [; ;usb_device.c: 2252: static void USBSuspend(void)
@@ -3048,10 +3012,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _USBTicksSinceSuspendEnd -> -> 0 `i `uc ]
 "2292
 [; ;usb_device.c: 2292:     USER_USB_CALLBACK_EVENT_HANDLER((USB_EVENT)EVENT_SUSPEND,0,0);
-[e ( _USER_USB_CALLBACK_EVENT_HANDLER (3 , , -> . `E3713 19 `E3713 -> -> 0 `i `*v -> -> 0 `i `us ]
+[e ( _USER_USB_CALLBACK_EVENT_HANDLER (3 , , -> . `E3343 19 `E3343 -> -> 0 `i `*v -> -> 0 `i `us ]
 "2293
 [; ;usb_device.c: 2293: }
-[e :UE 587 ]
+[e :UE 547 ]
 }
 "2310
 [; ;usb_device.c: 2310: static void USBWakeFromSuspend(void)
@@ -3066,7 +3030,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _USBBusIsSuspended -> -> 0 `i `a ]
 "2318
 [; ;usb_device.c: 2318:     USER_USB_CALLBACK_EVENT_HANDLER((USB_EVENT)EVENT_RESUME,0,0);
-[e ( _USER_USB_CALLBACK_EVENT_HANDLER (3 , , -> . `E3713 18 `E3713 -> -> 0 `i `*v -> -> 0 `i `us ]
+[e ( _USER_USB_CALLBACK_EVENT_HANDLER (3 , , -> . `E3343 18 `E3343 -> -> 0 `i `*v -> -> 0 `i `us ]
 "2325
 [; ;usb_device.c: 2325:         UCONbits.SUSPND = 0;
 [e = . . _UCONbits 0 1 -> -> 0 `i `uc ]
@@ -3075,8 +3039,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = . . _UIEbits 0 2 -> -> 0 `i `uc ]
 "2348
 [; ;usb_device.c: 2348:     while(UIRbits.ACTVIF)
-[e $U 589  ]
-[e :U 590 ]
+[e $U 549  ]
+[e :U 550 ]
 "2350
 [; ;usb_device.c: 2350:     {
 {
@@ -3086,17 +3050,17 @@ Version 4.0 HI-TECH Software Intermediate Code
 "2352
 [; ;usb_device.c: 2352:     }
 }
-[e :U 589 ]
+[e :U 549 ]
 "2348
 [; ;usb_device.c: 2348:     while(UIRbits.ACTVIF)
-[e $ != -> . . _UIRbits 0 2 `i -> 0 `i 590  ]
-[e :U 591 ]
+[e $ != -> . . _UIRbits 0 2 `i -> 0 `i 550  ]
+[e :U 551 ]
 "2354
 [; ;usb_device.c: 2354:     USBTicksSinceSuspendEnd = 0;
 [e = _USBTicksSinceSuspendEnd -> -> 0 `i `uc ]
 "2356
 [; ;usb_device.c: 2356: }
-[e :UE 588 ]
+[e :UE 548 ]
 }
 "2379
 [; ;usb_device.c: 2379: static void USBCtrlEPService(void)
@@ -3111,7 +3075,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _USBStatusStageTimeoutCounter -> -> 45 `i `uc ]
 "2389
 [; ;usb_device.c: 2389:     if((USTATcopy.Val & ~0x02) == 0x00)
-[e $ ! == & -> . _USTATcopy 1 `i ~ -> 2 `i -> 0 `i 593  ]
+[e $ ! == & -> . _USTATcopy 1 `i ~ -> 2 `i -> 0 `i 553  ]
 "2390
 [; ;usb_device.c: 2390:     {
 {
@@ -3123,10 +3087,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _pBDTEntryEP0OutNext _pBDTEntryEP0OutCurrent ]
 "2403
 [; ;usb_device.c: 2403:         pBDTEntryEP0OutNext = (volatile BDT_ENTRY*)(((uint16_t)pBDTEntryEP0OutNext) ^ 0x0004);
-[e = _pBDTEntryEP0OutNext -> ^ -> -> _pBDTEntryEP0OutNext `us `ui -> -> 4 `i `ui `*VS438 ]
+[e = _pBDTEntryEP0OutNext -> ^ -> -> _pBDTEntryEP0OutNext `us `ui -> -> 4 `i `ui `*VS398 ]
 "2406
 [; ;usb_device.c: 2406:         if(pBDTEntryEP0OutCurrent->STAT.PID == 0xD)
-[e $ ! == -> . . . . *U _pBDTEntryEP0OutCurrent 0 0 3 1 `i -> 13 `i 594  ]
+[e $ ! == -> . . . . *U _pBDTEntryEP0OutCurrent 0 0 3 1 `i -> 13 `i 554  ]
 "2407
 [; ;usb_device.c: 2407:         {
 {
@@ -3139,10 +3103,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "2416
 [; ;usb_device.c: 2416:         }
 }
-[e $U 595  ]
+[e $U 555  ]
 "2417
 [; ;usb_device.c: 2417:         else
-[e :U 594 ]
+[e :U 554 ]
 "2418
 [; ;usb_device.c: 2418:         {
 {
@@ -3152,15 +3116,15 @@ Version 4.0 HI-TECH Software Intermediate Code
 "2421
 [; ;usb_device.c: 2421:         }
 }
-[e :U 595 ]
+[e :U 555 ]
 "2422
 [; ;usb_device.c: 2422:     }
 }
-[e $U 596  ]
+[e $U 556  ]
 "2423
 [; ;usb_device.c: 2423:     else if((USTATcopy.Val & ~0x02) == 0x04)
-[e :U 593 ]
-[e $ ! == & -> . _USTATcopy 1 `i ~ -> 2 `i -> 4 `i 597  ]
+[e :U 553 ]
+[e $ ! == & -> . _USTATcopy 1 `i ~ -> 2 `i -> 4 `i 557  ]
 "2424
 [; ;usb_device.c: 2424:     {
 {
@@ -3170,11 +3134,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 "2428
 [; ;usb_device.c: 2428:     }
 }
-[e :U 597 ]
-[e :U 596 ]
+[e :U 557 ]
+[e :U 556 ]
 "2430
 [; ;usb_device.c: 2430: }
-[e :UE 592 ]
+[e :UE 552 ]
 }
 "2472
 [; ;usb_device.c: 2472: static void USBCtrlTrfSetupHandler(void)
@@ -3207,13 +3171,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e =& . . . *U *U + &U _pBDTEntryIn * -> -> -> 0 `i `ui `ux -> -> # *U &U _pBDTEntryIn `ui `ux 0 0 0 -> ~ -> 128 `i `Vuc ]
 "2493
 [; ;usb_device.c: 2493:     pBDTEntryIn[0] = (volatile BDT_ENTRY*)(((uint16_t)pBDTEntryIn[0]) ^ 0x0004);
-[e = *U + &U _pBDTEntryIn * -> -> -> 0 `i `ui `ux -> -> # *U &U _pBDTEntryIn `ui `ux -> ^ -> -> *U + &U _pBDTEntryIn * -> -> -> 0 `i `ui `ux -> -> # *U &U _pBDTEntryIn `ui `ux `us `ui -> -> 4 `i `ui `*VS438 ]
+[e = *U + &U _pBDTEntryIn * -> -> -> 0 `i `ui `ux -> -> # *U &U _pBDTEntryIn `ui `ux -> ^ -> -> *U + &U _pBDTEntryIn * -> -> -> 0 `i `ui `ux -> -> # *U &U _pBDTEntryIn `ui `ux `us `ui -> -> 4 `i `ui `*VS398 ]
 "2494
 [; ;usb_device.c: 2494:     pBDTEntryIn[0]->STAT.Val &= ~(0x80);
 [e =& . . . *U *U + &U _pBDTEntryIn * -> -> -> 0 `i `ui `ux -> -> # *U &U _pBDTEntryIn `ui `ux 0 0 0 -> ~ -> 128 `i `Vuc ]
 "2495
 [; ;usb_device.c: 2495:     pBDTEntryIn[0] = (volatile BDT_ENTRY*)(((uint16_t)pBDTEntryIn[0]) ^ 0x0004);
-[e = *U + &U _pBDTEntryIn * -> -> -> 0 `i `ui `ux -> -> # *U &U _pBDTEntryIn `ui `ux -> ^ -> -> *U + &U _pBDTEntryIn * -> -> -> 0 `i `ui `ux -> -> # *U &U _pBDTEntryIn `ui `ux `us `ui -> -> 4 `i `ui `*VS438 ]
+[e = *U + &U _pBDTEntryIn * -> -> -> 0 `i `ui `ux -> -> # *U &U _pBDTEntryIn `ui `ux -> ^ -> -> *U + &U _pBDTEntryIn * -> -> -> 0 `i `ui `ux -> -> # *U &U _pBDTEntryIn `ui `ux `us `ui -> -> 4 `i `ui `*VS398 ]
 "2496
 [; ;usb_device.c: 2496:     pBDTEntryEP0OutNext->STAT.Val &= ~(0x80);
 [e =& . . . *U _pBDTEntryEP0OutNext 0 0 0 -> ~ -> 128 `i `Vuc ]
@@ -3234,13 +3198,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _USBCheckStdRequest ..  ]
 "2508
 [; ;usb_device.c: 2508:     USER_USB_CALLBACK_EVENT_HANDLER((USB_EVENT)EVENT_EP0_REQUEST,0,0);
-[e ( _USER_USB_CALLBACK_EVENT_HANDLER (3 , , -> . `E3781 2 `E3713 -> -> 0 `i `*v -> -> 0 `i `us ]
+[e ( _USER_USB_CALLBACK_EVENT_HANDLER (3 , , -> . `E3411 2 `E3343 -> -> 0 `i `*v -> -> 0 `i `us ]
 "2521
 [; ;usb_device.c: 2521:     USBCtrlEPServiceComplete();
 [e ( _USBCtrlEPServiceComplete ..  ]
 "2522
 [; ;usb_device.c: 2522: }
-[e :UE 598 ]
+[e :UE 558 ]
 }
 "2545
 [; ;usb_device.c: 2545: static void USBCtrlTrfOutHandler(void)
@@ -3252,7 +3216,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "2547
 [; ;usb_device.c: 2547:     if(controlTransferState == 2)
-[e $ ! == -> _controlTransferState `i -> 2 `i 600  ]
+[e $ ! == -> _controlTransferState `i -> 2 `i 560  ]
 "2548
 [; ;usb_device.c: 2548:     {
 {
@@ -3262,10 +3226,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "2550
 [; ;usb_device.c: 2550:     }
 }
-[e $U 601  ]
+[e $U 561  ]
 "2551
 [; ;usb_device.c: 2551:     else
-[e :U 600 ]
+[e :U 560 ]
 "2552
 [; ;usb_device.c: 2552:     {
 {
@@ -3274,7 +3238,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _controlTransferState -> -> 0 `i `uc ]
 "2562
 [; ;usb_device.c: 2562:         if(BothEP0OutUOWNsSet == 0)
-[e $ ! == -> _BothEP0OutUOWNsSet `i -> 0 `i 602  ]
+[e $ ! == -> _BothEP0OutUOWNsSet `i -> 0 `i 562  ]
 "2563
 [; ;usb_device.c: 2563:         {
 {
@@ -3293,10 +3257,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "2568
 [; ;usb_device.c: 2568:         }
 }
-[e $U 603  ]
+[e $U 563  ]
 "2569
 [; ;usb_device.c: 2569:         else
-[e :U 602 ]
+[e :U 562 ]
 "2570
 [; ;usb_device.c: 2570:         {
 {
@@ -3306,14 +3270,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 "2572
 [; ;usb_device.c: 2572:         }
 }
-[e :U 603 ]
+[e :U 563 ]
 "2573
 [; ;usb_device.c: 2573:     }
 }
-[e :U 601 ]
+[e :U 561 ]
 "2574
 [; ;usb_device.c: 2574: }
-[e :UE 599 ]
+[e :UE 559 ]
 }
 "2599
 [; ;usb_device.c: 2599: static void USBCtrlTrfInHandler(void)
@@ -3331,10 +3295,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _lastDTS . . . . *U *U + &U _pBDTEntryIn * -> -> -> 0 `i `ui `ux -> -> # *U &U _pBDTEntryIn `ui `ux 0 0 1 6 ]
 "2606
 [; ;usb_device.c: 2606:     pBDTEntryIn[0] = (volatile BDT_ENTRY*)(((uint16_t)pBDTEntryIn[0]) ^ 0x0004);
-[e = *U + &U _pBDTEntryIn * -> -> -> 0 `i `ui `ux -> -> # *U &U _pBDTEntryIn `ui `ux -> ^ -> -> *U + &U _pBDTEntryIn * -> -> -> 0 `i `ui `ux -> -> # *U &U _pBDTEntryIn `ui `ux `us `ui -> -> 4 `i `ui `*VS438 ]
+[e = *U + &U _pBDTEntryIn * -> -> -> 0 `i `ui `ux -> -> # *U &U _pBDTEntryIn `ui `ux -> ^ -> -> *U + &U _pBDTEntryIn * -> -> -> 0 `i `ui `ux -> -> # *U &U _pBDTEntryIn `ui `ux `us `ui -> -> 4 `i `ui `*VS398 ]
 "2611
 [; ;usb_device.c: 2611:     if(USBDeviceState == ADR_PENDING_STATE)
-[e $ ! == -> _USBDeviceState `ui -> . `E3772 4 `ui 605  ]
+[e $ ! == -> _USBDeviceState `ui -> . `E3402 4 `ui 565  ]
 "2612
 [; ;usb_device.c: 2612:     {
 {
@@ -3343,37 +3307,37 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _UADDR -> & -> . . _SetupPkt 5 2 `i -> 127 `i `uc ]
 "2614
 [; ;usb_device.c: 2614:         if(UADDR != 0u)
-[e $ ! != -> _UADDR `ui -> 0 `ui 606  ]
+[e $ ! != -> _UADDR `ui -> 0 `ui 566  ]
 "2615
 [; ;usb_device.c: 2615:         {
 {
 "2616
 [; ;usb_device.c: 2616:             USBDeviceState=ADDRESS_STATE;
-[e = _USBDeviceState . `E3772 5 ]
+[e = _USBDeviceState . `E3402 5 ]
 "2617
 [; ;usb_device.c: 2617:         }
 }
-[e $U 607  ]
+[e $U 567  ]
 "2618
 [; ;usb_device.c: 2618:         else
-[e :U 606 ]
+[e :U 566 ]
 "2619
 [; ;usb_device.c: 2619:         {
 {
 "2620
 [; ;usb_device.c: 2620:             USBDeviceState=DEFAULT_STATE;
-[e = _USBDeviceState . `E3772 3 ]
+[e = _USBDeviceState . `E3402 3 ]
 "2621
 [; ;usb_device.c: 2621:         }
 }
-[e :U 607 ]
+[e :U 567 ]
 "2622
 [; ;usb_device.c: 2622:     }
 }
-[e :U 605 ]
+[e :U 565 ]
 "2625
 [; ;usb_device.c: 2625:     if(controlTransferState == 1)
-[e $ ! == -> _controlTransferState `i -> 1 `i 608  ]
+[e $ ! == -> _controlTransferState `i -> 1 `i 568  ]
 "2626
 [; ;usb_device.c: 2626:     {
 {
@@ -3385,7 +3349,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _USBCtrlTrfTxService ..  ]
 "2634
 [; ;usb_device.c: 2634:         if(shortPacketStatus == 2)
-[e $ ! == -> _shortPacketStatus `i -> 2 `i 609  ]
+[e $ ! == -> _shortPacketStatus `i -> 2 `i 569  ]
 "2635
 [; ;usb_device.c: 2635:         {
 {
@@ -3398,16 +3362,16 @@ Version 4.0 HI-TECH Software Intermediate Code
 "2640
 [; ;usb_device.c: 2640:         }
 }
-[e $U 610  ]
+[e $U 570  ]
 "2641
 [; ;usb_device.c: 2641:         else
-[e :U 609 ]
+[e :U 569 ]
 "2642
 [; ;usb_device.c: 2642:         {
 {
 "2643
 [; ;usb_device.c: 2643:             if(lastDTS == 0)
-[e $ ! == -> _lastDTS `i -> 0 `i 611  ]
+[e $ ! == -> _lastDTS `i -> 0 `i 571  ]
 "2644
 [; ;usb_device.c: 2644:             {
 {
@@ -3420,10 +3384,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "2647
 [; ;usb_device.c: 2647:             }
 }
-[e $U 612  ]
+[e $U 572  ]
 "2648
 [; ;usb_device.c: 2648:             else
-[e :U 611 ]
+[e :U 571 ]
 "2649
 [; ;usb_device.c: 2649:             {
 {
@@ -3436,30 +3400,30 @@ Version 4.0 HI-TECH Software Intermediate Code
 "2652
 [; ;usb_device.c: 2652:             }
 }
-[e :U 612 ]
+[e :U 572 ]
 "2653
 [; ;usb_device.c: 2653:         }
 }
-[e :U 610 ]
+[e :U 570 ]
 "2654
 [; ;usb_device.c: 2654:     }
 }
-[e $U 613  ]
+[e $U 573  ]
 "2655
 [; ;usb_device.c: 2655:  else
-[e :U 608 ]
+[e :U 568 ]
 "2656
 [; ;usb_device.c: 2656:  {
 {
 "2660
 [; ;usb_device.c: 2660:         if(outPipes[0].info.bits.busy == 1)
-[e $ ! == -> . . . *U + &U _outPipes * -> -> -> 0 `i `ui `ux -> -> # *U &U _outPipes `ui `ux 1 0 1 `i -> 1 `i 614  ]
+[e $ ! == -> . . . *U + &U _outPipes * -> -> -> 0 `i `ui `ux -> -> # *U &U _outPipes `ui `ux 1 0 1 `i -> 1 `i 574  ]
 "2661
 [; ;usb_device.c: 2661:         {
 {
 "2662
 [; ;usb_device.c: 2662:             if(outPipes[0].pFunc != ((void*)0))
-[e $ ! != . *U + &U _outPipes * -> -> -> 0 `i `ui `ux -> -> # *U &U _outPipes `ui `ux 3 -> -> -> 0 `i `*v `*F4160 615  ]
+[e $ ! != . *U + &U _outPipes * -> -> -> 0 `i `ui `ux -> -> # *U &U _outPipes `ui `ux 3 -> -> -> 0 `i `*v `*F3790 575  ]
 "2663
 [; ;usb_device.c: 2663:             {
 {
@@ -3469,24 +3433,24 @@ Version 4.0 HI-TECH Software Intermediate Code
 "2665
 [; ;usb_device.c: 2665:             }
 }
-[e :U 615 ]
+[e :U 575 ]
 "2666
 [; ;usb_device.c: 2666:             outPipes[0].info.bits.busy = 0;
 [e = . . . *U + &U _outPipes * -> -> -> 0 `i `ui `ux -> -> # *U &U _outPipes `ui `ux 1 0 1 -> -> 0 `i `uc ]
 "2667
 [; ;usb_device.c: 2667:         }
 }
-[e :U 614 ]
+[e :U 574 ]
 "2669
 [; ;usb_device.c: 2669:         controlTransferState = 0;
 [e = _controlTransferState -> -> 0 `i `uc ]
 "2672
 [; ;usb_device.c: 2672:  }
 }
-[e :U 613 ]
+[e :U 573 ]
 "2674
 [; ;usb_device.c: 2674: }
-[e :UE 604 ]
+[e :UE 564 ]
 }
 "2693
 [; ;usb_device.c: 2693: static void USBCheckStdRequest(void)
@@ -3498,48 +3462,48 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "2695
 [; ;usb_device.c: 2695:     if(SetupPkt.RequestType != (0x00>>5)) return;
-[e $ ! != -> . . _SetupPkt 2 1 `i >> -> 0 `i -> 5 `i 617  ]
-[e $UE 616  ]
-[e :U 617 ]
+[e $ ! != -> . . _SetupPkt 2 1 `i >> -> 0 `i -> 5 `i 577  ]
+[e $UE 576  ]
+[e :U 577 ]
 "2697
 [; ;usb_device.c: 2697:     switch(SetupPkt.bRequest)
-[e $U 619  ]
+[e $U 579  ]
 "2698
 [; ;usb_device.c: 2698:     {
 {
 "2699
 [; ;usb_device.c: 2699:         case 5:
-[e :U 620 ]
+[e :U 580 ]
 "2700
 [; ;usb_device.c: 2700:             inPipes[0].info.bits.busy = 1;
 [e = . . . *U + &U _inPipes * -> -> -> 0 `i `ui `ux -> -> # *U &U _inPipes `ui `ux 1 0 3 -> -> 1 `i `uc ]
 "2701
 [; ;usb_device.c: 2701:             USBDeviceState = ADR_PENDING_STATE;
-[e = _USBDeviceState . `E3772 4 ]
+[e = _USBDeviceState . `E3402 4 ]
 "2703
 [; ;usb_device.c: 2703:             break;
-[e $U 618  ]
+[e $U 578  ]
 "2704
 [; ;usb_device.c: 2704:         case 6:
-[e :U 621 ]
+[e :U 581 ]
 "2705
 [; ;usb_device.c: 2705:             USBStdGetDscHandler();
 [e ( _USBStdGetDscHandler ..  ]
 "2706
 [; ;usb_device.c: 2706:             break;
-[e $U 618  ]
+[e $U 578  ]
 "2707
 [; ;usb_device.c: 2707:         case 9:
-[e :U 622 ]
+[e :U 582 ]
 "2708
 [; ;usb_device.c: 2708:             USBStdSetCfgHandler();
 [e ( _USBStdSetCfgHandler ..  ]
 "2709
 [; ;usb_device.c: 2709:             break;
-[e $U 618  ]
+[e $U 578  ]
 "2710
 [; ;usb_device.c: 2710:         case 8:
-[e :U 623 ]
+[e :U 583 ]
 "2711
 [; ;usb_device.c: 2711:             inPipes[0].pSrc.bRam = (uint8_t*)&USBActiveConfiguration;
 [e = . . *U + &U _inPipes * -> -> -> 0 `i `ui `ux -> -> # *U &U _inPipes `ui `ux 0 0 &U _USBActiveConfiguration ]
@@ -3554,31 +3518,31 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = . . . *U + &U _inPipes * -> -> -> 0 `i `ui `ux -> -> # *U &U _inPipes `ui `ux 1 0 3 -> -> 1 `i `uc ]
 "2715
 [; ;usb_device.c: 2715:             break;
-[e $U 618  ]
+[e $U 578  ]
 "2716
 [; ;usb_device.c: 2716:         case 0:
-[e :U 624 ]
+[e :U 584 ]
 "2717
 [; ;usb_device.c: 2717:             USBStdGetStatusHandler();
 [e ( _USBStdGetStatusHandler ..  ]
 "2718
 [; ;usb_device.c: 2718:             break;
-[e $U 618  ]
+[e $U 578  ]
 "2719
 [; ;usb_device.c: 2719:         case 1:
-[e :U 625 ]
+[e :U 585 ]
 "2720
 [; ;usb_device.c: 2720:         case 3:
-[e :U 626 ]
+[e :U 586 ]
 "2721
 [; ;usb_device.c: 2721:             USBStdFeatureReqHandler();
 [e ( _USBStdFeatureReqHandler ..  ]
 "2722
 [; ;usb_device.c: 2722:             break;
-[e $U 618  ]
+[e $U 578  ]
 "2723
 [; ;usb_device.c: 2723:         case 10:
-[e :U 627 ]
+[e :U 587 ]
 "2724
 [; ;usb_device.c: 2724:             inPipes[0].pSrc.bRam = (uint8_t*)&USBAlternateInterface[SetupPkt.bIntfID];
 [e = . . *U + &U _inPipes * -> -> -> 0 `i `ui `ux -> -> # *U &U _inPipes `ui `ux 0 0 &U *U + &U _USBAlternateInterface * -> . . _SetupPkt 7 4 `ux -> -> # *U &U _USBAlternateInterface `ui `ux ]
@@ -3593,10 +3557,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = . . . *U + &U _inPipes * -> -> -> 0 `i `ui `ux -> -> # *U &U _inPipes `ui `ux 1 0 3 -> -> 1 `i `uc ]
 "2728
 [; ;usb_device.c: 2728:             break;
-[e $U 618  ]
+[e $U 578  ]
 "2729
 [; ;usb_device.c: 2729:         case 11:
-[e :U 628 ]
+[e :U 588 ]
 "2730
 [; ;usb_device.c: 2730:             inPipes[0].info.bits.busy = 1;
 [e = . . . *U + &U _inPipes * -> -> -> 0 `i `ui `ux -> -> # *U &U _inPipes `ui `ux 1 0 3 -> -> 1 `i `uc ]
@@ -3605,46 +3569,46 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = *U + &U _USBAlternateInterface * -> . . _SetupPkt 7 4 `ux -> -> # *U &U _USBAlternateInterface `ui `ux . . _SetupPkt 7 2 ]
 "2732
 [; ;usb_device.c: 2732:             break;
-[e $U 618  ]
+[e $U 578  ]
 "2733
 [; ;usb_device.c: 2733:         case 7:
-[e :U 629 ]
+[e :U 589 ]
 "2734
 [; ;usb_device.c: 2734:             USER_USB_CALLBACK_EVENT_HANDLER((USB_EVENT)EVENT_SET_DESCRIPTOR,0,0);
-[e ( _USER_USB_CALLBACK_EVENT_HANDLER (3 , , -> . `E3781 1 `E3713 -> -> 0 `i `*v -> -> 0 `i `us ]
+[e ( _USER_USB_CALLBACK_EVENT_HANDLER (3 , , -> . `E3411 1 `E3343 -> -> 0 `i `*v -> -> 0 `i `us ]
 "2735
 [; ;usb_device.c: 2735:             break;
-[e $U 618  ]
+[e $U 578  ]
 "2736
 [; ;usb_device.c: 2736:         case 12:
-[e :U 630 ]
+[e :U 590 ]
 "2737
 [; ;usb_device.c: 2737:         default:
-[e :U 631 ]
+[e :U 591 ]
 "2738
 [; ;usb_device.c: 2738:             break;
-[e $U 618  ]
+[e $U 578  ]
 "2739
 [; ;usb_device.c: 2739:     }
 }
-[e $U 618  ]
-[e :U 619 ]
-[e [\ . . _SetupPkt 0 1 , $ -> 5 `i 620
- , $ -> 6 `i 621
- , $ -> 9 `i 622
- , $ -> 8 `i 623
- , $ -> 0 `i 624
- , $ -> 1 `i 625
- , $ -> 3 `i 626
- , $ -> 10 `i 627
- , $ -> 11 `i 628
- , $ -> 7 `i 629
- , $ -> 12 `i 630
- 631 ]
-[e :U 618 ]
+[e $U 578  ]
+[e :U 579 ]
+[e [\ . . _SetupPkt 0 1 , $ -> 5 `i 580
+ , $ -> 6 `i 581
+ , $ -> 9 `i 582
+ , $ -> 8 `i 583
+ , $ -> 0 `i 584
+ , $ -> 1 `i 585
+ , $ -> 3 `i 586
+ , $ -> 10 `i 587
+ , $ -> 11 `i 588
+ , $ -> 7 `i 589
+ , $ -> 12 `i 590
+ 591 ]
+[e :U 578 ]
 "2740
 [; ;usb_device.c: 2740: }
-[e :UE 616 ]
+[e :UE 576 ]
 }
 "2761
 [; ;usb_device.c: 2761: static void USBStdFeatureReqHandler(void)
@@ -3656,16 +3620,16 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "2763
 [; ;usb_device.c: 2763:     BDT_ENTRY *p;
-[v _p `*S438 ~T0 @X0 1 a ]
+[v _p `*S398 ~T0 @X0 1 a ]
 "2764
 [; ;usb_device.c: 2764:     EP_STATUS current_ep_data;
-[v _current_ep_data `S445 ~T0 @X0 1 a ]
+[v _current_ep_data `S405 ~T0 @X0 1 a ]
 "2768
 [; ;usb_device.c: 2768:         unsigned char* pUEP;
 [v _pUEP `*uc ~T0 @X0 1 a ]
 "2772
 [; ;usb_device.c: 2772:     if((SetupPkt.bFeature == 1)&&
-[e $ ! && == -> . . _SetupPkt 2 4 `i -> 1 `i == -> . . _SetupPkt 2 0 `i -> 0 `i 633  ]
+[e $ ! && == -> . . _SetupPkt 2 4 `i -> 1 `i == -> . . _SetupPkt 2 0 `i -> 0 `i 593  ]
 "2774
 [; ;usb_device.c: 2774:     {
 {
@@ -3674,25 +3638,25 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = . . . *U + &U _inPipes * -> -> -> 0 `i `ui `ux -> -> # *U &U _inPipes `ui `ux 1 0 3 -> -> 1 `i `uc ]
 "2776
 [; ;usb_device.c: 2776:         if(SetupPkt.bRequest == 3)
-[e $ ! == -> . . _SetupPkt 0 1 `i -> 3 `i 634  ]
+[e $ ! == -> . . _SetupPkt 0 1 `i -> 3 `i 594  ]
 "2777
 [; ;usb_device.c: 2777:             RemoteWakeup = 1;
 [e = _RemoteWakeup -> -> 1 `i `a ]
-[e $U 635  ]
+[e $U 595  ]
 "2778
 [; ;usb_device.c: 2778:         else
-[e :U 634 ]
+[e :U 594 ]
 "2779
 [; ;usb_device.c: 2779:             RemoteWakeup = 0;
 [e = _RemoteWakeup -> -> 0 `i `a ]
-[e :U 635 ]
+[e :U 595 ]
 "2780
 [; ;usb_device.c: 2780:     }
 }
-[e :U 633 ]
+[e :U 593 ]
 "2783
 [; ;usb_device.c: 2783:     if((SetupPkt.bFeature == 0)&&
-[e $ ! && && && && == -> . . _SetupPkt 2 4 `i -> 0 `i == -> . . _SetupPkt 2 0 `i -> 2 `i != -> . . _SetupPkt 9 4 `i -> 0 `i <= -> . . _SetupPkt 9 4 `i -> 1 `i == -> _USBDeviceState `ui -> . `E3772 6 `ui 636  ]
+[e $ ! && && && && == -> . . _SetupPkt 2 4 `i -> 0 `i == -> . . _SetupPkt 2 0 `i -> 2 `i != -> . . _SetupPkt 9 4 `i -> 0 `i <= -> . . _SetupPkt 9 4 `i -> 1 `i == -> _USBDeviceState `ui -> . `E3402 6 `ui 596  ]
 "2787
 [; ;usb_device.c: 2787:     {
 {
@@ -3701,7 +3665,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = . . . *U + &U _inPipes * -> -> -> 0 `i `ui `ux -> -> # *U &U _inPipes `ui `ux 1 0 3 -> -> 1 `i `uc ]
 "2793
 [; ;usb_device.c: 2793:         if(SetupPkt.EPDir == 0)
-[e $ ! == -> . . _SetupPkt 9 6 `i -> 0 `i 637  ]
+[e $ ! == -> . . _SetupPkt 9 6 `i -> 0 `i 597  ]
 "2794
 [; ;usb_device.c: 2794:         {
 {
@@ -3714,10 +3678,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "2797
 [; ;usb_device.c: 2797:         }
 }
-[e $U 638  ]
+[e $U 598  ]
 "2798
 [; ;usb_device.c: 2798:         else
-[e :U 637 ]
+[e :U 597 ]
 "2799
 [; ;usb_device.c: 2799:         {
 {
@@ -3730,36 +3694,36 @@ Version 4.0 HI-TECH Software Intermediate Code
 "2802
 [; ;usb_device.c: 2802:         }
 }
-[e :U 638 ]
+[e :U 598 ]
 "2808
 [; ;usb_device.c: 2808:             if(current_ep_data.bits.ping_pong_state == 0)
-[e $ ! == -> . . _current_ep_data 0 0 `i -> 0 `i 639  ]
+[e $ ! == -> . . _current_ep_data 0 0 `i -> 0 `i 599  ]
 "2809
 [; ;usb_device.c: 2809:             {
 {
 "2810
 [; ;usb_device.c: 2810:                 p = (BDT_ENTRY*)(((uint16_t)p) & (~0x0004));
-[e = _p -> & -> -> _p `us `ui -> ~ -> 4 `i `ui `*S438 ]
+[e = _p -> & -> -> _p `us `ui -> ~ -> 4 `i `ui `*S398 ]
 "2811
 [; ;usb_device.c: 2811:             }
 }
-[e $U 640  ]
+[e $U 600  ]
 "2812
 [; ;usb_device.c: 2812:             else
-[e :U 639 ]
+[e :U 599 ]
 "2813
 [; ;usb_device.c: 2813:             {
 {
 "2814
 [; ;usb_device.c: 2814:                 p = (BDT_ENTRY*)(((uint16_t)p) | 0x0004);
-[e = _p -> | -> -> _p `us `ui -> -> 4 `i `ui `*S438 ]
+[e = _p -> | -> -> _p `us `ui -> -> 4 `i `ui `*S398 ]
 "2815
 [; ;usb_device.c: 2815:             }
 }
-[e :U 640 ]
+[e :U 600 ]
 "2820
 [; ;usb_device.c: 2820:         if(SetupPkt.EPDir == 0)
-[e $ ! == -> . . _SetupPkt 9 6 `i -> 0 `i 641  ]
+[e $ ! == -> . . _SetupPkt 9 6 `i -> 0 `i 601  ]
 "2821
 [; ;usb_device.c: 2821:         {
 {
@@ -3769,10 +3733,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "2823
 [; ;usb_device.c: 2823:         }
 }
-[e $U 642  ]
+[e $U 602  ]
 "2824
 [; ;usb_device.c: 2824:         else
-[e :U 641 ]
+[e :U 601 ]
 "2825
 [; ;usb_device.c: 2825:         {
 {
@@ -3782,22 +3746,22 @@ Version 4.0 HI-TECH Software Intermediate Code
 "2827
 [; ;usb_device.c: 2827:         }
 }
-[e :U 642 ]
+[e :U 602 ]
 "2830
 [; ;usb_device.c: 2830:         if(SetupPkt.bRequest == 3)
-[e $ ! == -> . . _SetupPkt 0 1 `i -> 3 `i 643  ]
+[e $ ! == -> . . _SetupPkt 0 1 `i -> 3 `i 603  ]
 "2831
 [; ;usb_device.c: 2831:         {
 {
 "2832
 [; ;usb_device.c: 2832:             if(p->STAT.UOWN == 1)
-[e $ ! == -> . . . . *U _p 0 0 1 7 `i -> 1 `i 644  ]
+[e $ ! == -> . . . . *U _p 0 0 1 7 `i -> 1 `i 604  ]
 "2833
 [; ;usb_device.c: 2833:             {
 {
 "2836
 [; ;usb_device.c: 2836:                 if(SetupPkt.EPDir == 0)
-[e $ ! == -> . . _SetupPkt 9 6 `i -> 0 `i 645  ]
+[e $ ! == -> . . _SetupPkt 9 6 `i -> 0 `i 605  ]
 "2837
 [; ;usb_device.c: 2837:                 {
 {
@@ -3807,10 +3771,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "2839
 [; ;usb_device.c: 2839:                 }
 }
-[e $U 646  ]
+[e $U 606  ]
 "2840
 [; ;usb_device.c: 2840:                 else
-[e :U 645 ]
+[e :U 605 ]
 "2841
 [; ;usb_device.c: 2841:                 {
 {
@@ -3820,11 +3784,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 "2843
 [; ;usb_device.c: 2843:                 }
 }
-[e :U 646 ]
+[e :U 606 ]
 "2844
 [; ;usb_device.c: 2844:             }
 }
-[e :U 644 ]
+[e :U 604 ]
 "2847
 [; ;usb_device.c: 2847:             p->STAT.Val |= 0x04;
 [e =| . . . *U _p 0 0 0 -> -> 4 `i `uc ]
@@ -3834,19 +3798,19 @@ Version 4.0 HI-TECH Software Intermediate Code
 "2849
 [; ;usb_device.c: 2849:         }
 }
-[e $U 647  ]
+[e $U 607  ]
 "2850
 [; ;usb_device.c: 2850:         else
-[e :U 643 ]
+[e :U 603 ]
 "2851
 [; ;usb_device.c: 2851:         {
 {
 "2855
 [; ;usb_device.c: 2855:                 p = (BDT_ENTRY*)(((uint16_t)p) ^ 0x0004);
-[e = _p -> ^ -> -> _p `us `ui -> -> 4 `i `ui `*S438 ]
+[e = _p -> ^ -> -> _p `us `ui -> -> 4 `i `ui `*S398 ]
 "2857
 [; ;usb_device.c: 2857:                 if(p->STAT.UOWN == 1)
-[e $ ! == -> . . . . *U _p 0 0 1 7 `i -> 1 `i 648  ]
+[e $ ! == -> . . . . *U _p 0 0 1 7 `i -> 1 `i 608  ]
 "2858
 [; ;usb_device.c: 2858:                 {
 {
@@ -3858,14 +3822,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e =| . . . *U _p 0 0 0 -> -> 64 `i `uc ]
 "2863
 [; ;usb_device.c: 2863:                     USER_USB_CALLBACK_EVENT_HANDLER((USB_EVENT)EVENT_TRANSFER_TERMINATED,p,sizeof(p));
-[e ( _USER_USB_CALLBACK_EVENT_HANDLER (3 , , -> . `E3781 4 `E3713 -> _p `*v -> -> # _p `ui `us ]
+[e ( _USER_USB_CALLBACK_EVENT_HANDLER (3 , , -> . `E3411 4 `E3343 -> _p `*v -> -> # _p `ui `us ]
 "2864
 [; ;usb_device.c: 2864:                 }
 }
-[e $U 649  ]
+[e $U 609  ]
 "2865
 [; ;usb_device.c: 2865:                 else
-[e :U 648 ]
+[e :U 608 ]
 "2866
 [; ;usb_device.c: 2866:                 {
 {
@@ -3875,19 +3839,19 @@ Version 4.0 HI-TECH Software Intermediate Code
 "2869
 [; ;usb_device.c: 2869:                 }
 }
-[e :U 649 ]
+[e :U 609 ]
 "2873
 [; ;usb_device.c: 2873:                 p = (BDT_ENTRY*)(((uint16_t)p) ^ 0x0004);
-[e = _p -> ^ -> -> _p `us `ui -> -> 4 `i `ui `*S438 ]
+[e = _p -> ^ -> -> _p `us `ui -> -> 4 `i `ui `*S398 ]
 "2879
 [; ;usb_device.c: 2879:                 if((current_ep_data.bits.transfer_terminated != 0) || (p->STAT.UOWN == 1))
-[e $ ! || != -> . . _current_ep_data 0 1 `i -> 0 `i == -> . . . . *U _p 0 0 1 7 `i -> 1 `i 650  ]
+[e $ ! || != -> . . _current_ep_data 0 1 `i -> 0 `i == -> . . . . *U _p 0 0 1 7 `i -> 1 `i 610  ]
 "2880
 [; ;usb_device.c: 2880:                 {
 {
 "2881
 [; ;usb_device.c: 2881:                     if(SetupPkt.EPDir == 0)
-[e $ ! == -> . . _SetupPkt 9 6 `i -> 0 `i 651  ]
+[e $ ! == -> . . _SetupPkt 9 6 `i -> 0 `i 611  ]
 "2882
 [; ;usb_device.c: 2882:                     {
 {
@@ -3897,10 +3861,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "2884
 [; ;usb_device.c: 2884:                     }
 }
-[e $U 652  ]
+[e $U 612  ]
 "2885
 [; ;usb_device.c: 2885:                     else
-[e :U 651 ]
+[e :U 611 ]
 "2886
 [; ;usb_device.c: 2886:                     {
 {
@@ -3910,20 +3874,20 @@ Version 4.0 HI-TECH Software Intermediate Code
 "2888
 [; ;usb_device.c: 2888:                     }
 }
-[e :U 652 ]
+[e :U 612 ]
 "2890
 [; ;usb_device.c: 2890:                     p->STAT.Val &= ~(0x80 | 0x40 | 0x04);
 [e =& . . . *U _p 0 0 0 -> ~ | | -> 128 `i -> 64 `i -> 4 `i `uc ]
 "2893
 [; ;usb_device.c: 2893:                     USER_USB_CALLBACK_EVENT_HANDLER((USB_EVENT)EVENT_TRANSFER_TERMINATED,p,sizeof(p));
-[e ( _USER_USB_CALLBACK_EVENT_HANDLER (3 , , -> . `E3781 4 `E3713 -> _p `*v -> -> # _p `ui `us ]
+[e ( _USER_USB_CALLBACK_EVENT_HANDLER (3 , , -> . `E3411 4 `E3343 -> _p `*v -> -> # _p `ui `us ]
 "2894
 [; ;usb_device.c: 2894:                 }
 }
-[e $U 653  ]
+[e $U 613  ]
 "2895
 [; ;usb_device.c: 2895:                 else
-[e :U 650 ]
+[e :U 610 ]
 "2896
 [; ;usb_device.c: 2896:                 {
 {
@@ -3933,7 +3897,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "2899
 [; ;usb_device.c: 2899:                 }
 }
-[e :U 653 ]
+[e :U 613 ]
 "2946
 [; ;usb_device.c: 2946:                 pUEP = (unsigned char*)(&UEP0+SetupPkt.EPNum);
 [e = _pUEP + &U _UEP0 * -> -> . . _SetupPkt 9 4 `i `x -> -> # *U &U _UEP0 `i `x ]
@@ -3943,14 +3907,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 "2951
 [; ;usb_device.c: 2951:         }
 }
-[e :U 647 ]
+[e :U 607 ]
 "2952
 [; ;usb_device.c: 2952:     }
 }
-[e :U 636 ]
+[e :U 596 ]
 "2953
 [; ;usb_device.c: 2953: }
-[e :UE 632 ]
+[e :UE 592 ]
 }
 "2998
 [; ;usb_device.c: 2998: void USBIncrement1msInternalTimers(void)
@@ -3965,7 +3929,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ++ _USB1msTickCount -> -> 1 `i `Vul ]
 "3007
 [; ;usb_device.c: 3007:     if(USBBusIsSuspended == 0)
-[e $ ! == -> _USBBusIsSuspended `i -> 0 `i 655  ]
+[e $ ! == -> _USBBusIsSuspended `i -> 0 `i 615  ]
 "3008
 [; ;usb_device.c: 3008:     {
 {
@@ -3974,7 +3938,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ++ _USBTicksSinceSuspendEnd -> -> 1 `i `Vuc ]
 "3011
 [; ;usb_device.c: 3011:         if(USBTicksSinceSuspendEnd == 0)
-[e $ ! == -> _USBTicksSinceSuspendEnd `i -> 0 `i 656  ]
+[e $ ! == -> _USBTicksSinceSuspendEnd `i -> 0 `i 616  ]
 "3012
 [; ;usb_device.c: 3012:         {
 {
@@ -3984,14 +3948,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 "3014
 [; ;usb_device.c: 3014:         }
 }
-[e :U 656 ]
+[e :U 616 ]
 "3015
 [; ;usb_device.c: 3015:     }
 }
-[e :U 655 ]
+[e :U 615 ]
 "3016
 [; ;usb_device.c: 3016: }
-[e :UE 654 ]
+[e :UE 614 ]
 }
 "3077
 [; ;usb_device.c: 3077: uint32_t USBGet1msTickCount(void)
@@ -4006,7 +3970,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _localContextValue `ul ~T0 @X0 1 a ]
 "3085
 [; ;usb_device.c: 3085:         do
-[e :U 660 ]
+[e :U 620 ]
 "3086
 [; ;usb_device.c: 3086:         {
 {
@@ -4016,13 +3980,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 "3088
 [; ;usb_device.c: 3088:         }while(localContextValue != USB1msTickCount);
 }
-[e $ != _localContextValue _USB1msTickCount 660  ]
-[e :U 659 ]
+[e $ != _localContextValue _USB1msTickCount 620  ]
+[e :U 619 ]
 "3090
 [; ;usb_device.c: 3090:         return localContextValue;
 [e ) _localContextValue ]
-[e $UE 657  ]
+[e $UE 617  ]
 "3095
 [; ;usb_device.c: 3095: }
-[e :UE 657 ]
+[e :UE 617 ]
 }

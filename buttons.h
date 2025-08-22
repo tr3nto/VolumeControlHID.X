@@ -30,7 +30,8 @@ typedef enum
 {
     BUTTON_NONE,
     BUTTON_S2,
-    BUTTON_S3
+    BUTTON_S3,
+    BUTTON_S4
     //S1 is MCLR
     //Note: S2 and S3 are now used for quadrature encoder channels A and B
 } BUTTON;

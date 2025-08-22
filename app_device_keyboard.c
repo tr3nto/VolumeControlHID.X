@@ -432,7 +432,8 @@ void APP_KeyboardTasks(void)
         memset(&inputReport, 0, sizeof(inputReport));
         inputReport.reportID = 0x01;  // Add this line after memset
 
-        if(BUTTON_IsPressed(BUTTON_USB_DEVICE_HID_KEYBOARD_KEY) == true)
+        if(BUTTON_IsPressed(BUTTON_USB_DEVICE_HID_KEYBOARD_KEY) == true && BUTTON_IsPressed(BUTTON_USB_DEVICE_HID_KEYBOARD_KEY) == false) //make impossible
+            
         {
             if(keyboard.waitingForRelease == false)
             {
@@ -502,66 +503,66 @@ void APP_KeyboardTasks(void)
         /*********************************************************************************************************************************/
         /*********************************************************************************************************************************/
         /*********************************************************************************************************************************/
-        
+    
         /* Check if the IN endpoint is busy, and if it isn't check if we want to send
      * keystroke data to the host. */
-    if(HIDTxHandleBusy(consumer.lastINTransmission) == false)
-    {
-        /* Clear the INPUT report buffer.  Set to all zeros. */
-        memset(&consumerReport, 0, sizeof(consumerReport));
-        consumerReport.reportID = 0x02;  // Add this line after memset
-
-        // Handle quadrature encoder for volume control
-        ENCODER_DIRECTION encoder_dir = ENCODER_GetDirection();
-        
-        if(encoder_dir == ENCODER_CW)
+        if(HIDTxHandleBusy(consumer.lastINTransmission) == false)
         {
-            /* Set volume up */
-            consumerReport.reportID = 0x02;
-            consumerReport.controls.value = 0;  // Clear all bits first
-            consumerReport.controls.bits.volumeUp = 1;  // Set volume up bit
-        }
-        else if(encoder_dir == ENCODER_CCW)
-        {
-            /* Set volume down */
-            consumerReport.reportID = 0x02;
-            consumerReport.controls.value = 0;  // Clear all bits first
-            consumerReport.controls.bits.volumeDown = 1;  // Set volume down bit
-        }
+            /* Clear the INPUT report buffer.  Set to all zeros. */
+            memset(&consumerReport, 0, sizeof(consumerReport));
+            consumerReport.reportID = 0x02;  // Add this line after memset
 
+            // Handle quadrature encoder for volume control
+            ENCODER_DIRECTION encoder_dir = ENCODER_GetDirection();
 
-        //Check to see if the new packet contents are somehow different from the most
-        //recently sent packet contents.
-        needToSendNewReportPacket_consumer = false;
-        for(i = 0; i < sizeof(consumerReport); i++)
-        {
-            if(*((uint8_t*)&oldconsumerReport + i) != *((uint8_t*)&consumerReport + i))
+            if(encoder_dir == ENCODER_CW)
             {
-                needToSendNewReportPacket_consumer = true;
-                break;
+                /* Set volume up */
+                consumerReport.reportID = 0x02;
+                consumerReport.controls.value = 0;  // Clear all bits first
+                consumerReport.controls.bits.volumeUp = 1;  // Set volume up bit
             }
-        }
+            else if(encoder_dir == ENCODER_CCW)
+            {
+                /* Set volume down */
+                consumerReport.reportID = 0x02;
+                consumerReport.controls.value = 0;  // Clear all bits first
+                consumerReport.controls.bits.volumeDown = 1;  // Set volume down bit
+            }
 
-        
 
-        //Now send the new input report packet, if it is appropriate to do so (ex: new data is
-        //present or the idle rate limit was met).
-        if(needToSendNewReportPacket_consumer == true)
-        {
-            //Save the old input report packet contents.  We do this so we can detect changes in report packet content
-            //useful for determining when something has changed and needs to get re-sent to the host when using
-            //infinite idle rate setting.
-            oldconsumerReport = consumerReport;
+            //Check to see if the new packet contents are somehow different from the most
+            //recently sent packet contents.
+            needToSendNewReportPacket_consumer = false;
+            for(i = 0; i < sizeof(consumerReport); i++)
+            {
+                if(*((uint8_t*)&oldconsumerReport + i) != *((uint8_t*)&consumerReport + i))
+                {
+                    needToSendNewReportPacket_consumer = true;
+                    break;
+                }
+            }
 
-            /* Send the 8 byte packet over USB to the host. */
-            consumer.lastINTransmission = HIDTxPacket(HID_EP, (uint8_t*)&consumerReport, sizeof(consumerReport)); //---------------------------CONSUMER SEND
-            
-            
-            
-            //OldSOFCount = LocalSOFCount;    //Save the current time, so we know when to send the next packet (which depends in part on the idle rate setting)
-        }
-        
-    }//if(HIDTxHandleBusy(consumer.lastINTransmission) == false)        
+
+
+            //Now send the new input report packet, if it is appropriate to do so (ex: new data is
+            //present or the idle rate limit was met).
+            if(needToSendNewReportPacket_consumer == true)
+            {
+                //Save the old input report packet contents.  We do this so we can detect changes in report packet content
+                //useful for determining when something has changed and needs to get re-sent to the host when using
+                //infinite idle rate setting.
+                oldconsumerReport = consumerReport;
+
+                /* Send the 8 byte packet over USB to the host. */
+                consumer.lastINTransmission = HIDTxPacket(HID_EP, (uint8_t*)&consumerReport, sizeof(consumerReport)); //---------------------------CONSUMER SEND
+
+
+
+                //OldSOFCount = LocalSOFCount;    //Save the current time, so we know when to send the next packet (which depends in part on the idle rate setting)
+            }
+
+        }//if(HIDTxHandleBusy(consumer.lastINTransmission) == false)        
         
         
         
