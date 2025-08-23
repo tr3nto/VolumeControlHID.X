@@ -5337,7 +5337,7 @@ void ENCODER_Initialize(void)
 
 
 
-    INTCON2bits.RBPU = 0;
+
 
 
     encoder_prev_state = (PORTBbits.RB3 << 1) | PORTBbits.RB4;

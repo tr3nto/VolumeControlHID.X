@@ -23,7 +23,10 @@ please contact mla_licensing@microchip.com
 // *****************************************************************************
 // *****************************************************************************
 /* Standard C includes */
+#define _XTAL_FREQ 20000000
+
 #include <stdint.h>
+#include <xc.h>
 
 /* Microchip library includes */
 #include "system.h"
@@ -39,9 +42,11 @@ int main(void)
 {
     SYSTEM_Initialize( SYSTEM_STATE_USB_START );
 
+    __delay_ms(500);
+
     USBDeviceInit();
     USBDeviceAttach();
-
+    
     while(1)
     {
         SYSTEM_Tasks();

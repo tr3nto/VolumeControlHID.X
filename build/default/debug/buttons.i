@@ -5312,10 +5312,10 @@ _Bool BUTTON_IsPressed(BUTTON button)
     switch(button)
     {
         case BUTTON_S2:
-            return ( (PORTBbits.RB4 == 0) ? 1 : 0);
+            return ( (PORTBbits.RB3 == 0) ? 1 : 0);
 
         case BUTTON_S3:
-            return ( (PORTBbits.RB5 == 0) ? 1 : 0);
+            return ( (PORTBbits.RB4 == 0) ? 1 : 0);
 
         case BUTTON_NONE:
             return 0;
@@ -5329,11 +5329,11 @@ void BUTTON_Enable(BUTTON button)
     switch(button)
     {
         case BUTTON_S2:
-            TRISBbits.TRISB4 = 1;
+            TRISBbits.TRISB3 = 1;
             break;
 
         case BUTTON_S3:
-            TRISBbits.TRISB5 = 1;
+            TRISBbits.TRISB4 = 1;
             break;
 
         case BUTTON_NONE:

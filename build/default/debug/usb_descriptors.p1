@@ -525,7 +525,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> -> 1 `i `uc
 -> -> 0 `i `uc
 -> | << -> 1 `i -> 7 `i << -> 1 `i -> 6 `i `uc
--> -> 50 `i `uc
+-> -> 100 `i `uc
 -> -> 9 `i `uc
 -> -> 4 `i `uc
 -> -> 0 `i `uc

@@ -534,15 +534,15 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;buttons.c: 99:         case BUTTON_S2:
 [e :U 354 ]
 "100
-[; ;buttons.c: 100:             return ( (PORTBbits.RB4 == 0) ? 1 : 0);
-[e ) -> ? == -> . . _PORTBbits 0 4 `i -> 0 `i : -> 1 `i -> 0 `i `a ]
+[; ;buttons.c: 100:             return ( (PORTBbits.RB3 == 0) ? 1 : 0);
+[e ) -> ? == -> . . _PORTBbits 0 3 `i -> 0 `i : -> 1 `i -> 0 `i `a ]
 [e $UE 351  ]
 "102
 [; ;buttons.c: 102:         case BUTTON_S3:
 [e :U 355 ]
 "103
-[; ;buttons.c: 103:             return ( (PORTBbits.RB5 == 0) ? 1 : 0);
-[e ) -> ? == -> . . _PORTBbits 0 5 `i -> 0 `i : -> 1 `i -> 0 `i `a ]
+[; ;buttons.c: 103:             return ( (PORTBbits.RB4 == 0) ? 1 : 0);
+[e ) -> ? == -> . . _PORTBbits 0 4 `i -> 0 `i : -> 1 `i -> 0 `i `a ]
 [e $UE 351  ]
 "105
 [; ;buttons.c: 105:         case BUTTON_NONE:
@@ -592,8 +592,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;buttons.c: 132:         case BUTTON_S2:
 [e :U 360 ]
 "133
-[; ;buttons.c: 133:             TRISBbits.TRISB4 = 1;
-[e = . . _TRISBbits 0 4 -> -> 1 `i `uc ]
+[; ;buttons.c: 133:             TRISBbits.TRISB3 = 1;
+[e = . . _TRISBbits 0 3 -> -> 1 `i `uc ]
 "134
 [; ;buttons.c: 134:             break;
 [e $U 358  ]
@@ -601,8 +601,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;buttons.c: 136:         case BUTTON_S3:
 [e :U 361 ]
 "137
-[; ;buttons.c: 137:             TRISBbits.TRISB5 = 1;
-[e = . . _TRISBbits 0 5 -> -> 1 `i `uc ]
+[; ;buttons.c: 137:             TRISBbits.TRISB4 = 1;
+[e = . . _TRISBbits 0 4 -> -> 1 `i `uc ]
 "138
 [; ;buttons.c: 138:             break;
 [e $U 358  ]

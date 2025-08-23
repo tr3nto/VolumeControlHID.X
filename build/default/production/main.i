@@ -7,7 +7,7 @@
 # 1 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include/language_support.h" 1 3
 # 2 "<built-in>" 2
 # 1 "main.c" 2
-# 26 "main.c"
+# 28 "main.c"
 # 1 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/stdint.h" 1 3
 
 
@@ -113,11 +113,7 @@ typedef int32_t int_fast32_t;
 typedef uint16_t uint_fast16_t;
 typedef uint32_t uint_fast32_t;
 # 149 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/stdint.h" 2 3
-# 27 "main.c" 2
-
-
-# 1 "./system.h" 1
-# 23 "./system.h"
+# 29 "main.c" 2
 # 1 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include/xc.h" 1 3
 # 18 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include/xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -5300,7 +5296,11 @@ __attribute__((__unsupported__("The " "Write_b_eep" " routine is no longer suppo
 unsigned char __t1rd16on(void);
 unsigned char __t3rd16on(void);
 # 34 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include/xc.h" 2 3
-# 24 "./system.h" 2
+# 30 "main.c" 2
+
+
+# 1 "./system.h" 1
+# 24 "./system.h"
 # 1 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/stdbool.h" 1 3
 # 25 "./system.h" 2
 
@@ -5616,7 +5616,7 @@ typedef enum
 } SYSTEM_STATE;
 # 56 "./system.h"
 void SYSTEM_Initialize( SYSTEM_STATE state );
-# 30 "main.c" 2
+# 33 "main.c" 2
 
 # 1 "./usb.h" 1
 # 47 "./usb.h"
@@ -6222,7 +6222,7 @@ _Bool USBHALSetEpConfiguration ( uint8_t ep_num, uint16_t max_pkt_size, uint16_t
 _Bool USBHALInitialize ( unsigned long flags );
 # 2057 "./usb_device.h" 2
 # 52 "./usb.h" 2
-# 32 "main.c" 2
+# 35 "main.c" 2
 # 1 "./usb_device_hid.h" 1
 # 98 "./usb_device_hid.h"
 void USBCheckHIDRequest(void);
@@ -6253,22 +6253,24 @@ typedef struct _USB_HID_DSC
 extern volatile CTRL_TRF_SETUP SetupPkt;
 extern const uint8_t configDescriptor1[];
 extern volatile uint8_t CtrlTrfData[8];
-# 33 "main.c" 2
+# 36 "main.c" 2
 
 
 # 1 "./app_led_usb_status.h" 1
 # 37 "./app_led_usb_status.h"
 void APP_LEDUpdateUSBStatus(void);
-# 36 "main.c" 2
+# 39 "main.c" 2
 # 1 "./app_device_consumer.h" 1
 # 23 "./app_device_consumer.h"
 void APP_ConsumerInit(void);
 void APP_ConsumerTasks(void);
-# 37 "main.c" 2
+# 40 "main.c" 2
 
 int main(void)
 {
     SYSTEM_Initialize( SYSTEM_STATE_USB_START );
+
+    _delay((unsigned long)((500)*(20000000/4000.0)));
 
     USBDeviceInit();
     USBDeviceAttach();
@@ -6276,7 +6278,7 @@ int main(void)
     while(1)
     {
                       ;
-# 65 "main.c"
+# 70 "main.c"
         APP_ConsumerTasks();
     }
 }

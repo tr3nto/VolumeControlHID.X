@@ -98,7 +98,7 @@ void ENCODER_Initialize(void)
     // Enable weak pull-ups for encoder pins
     // Note: RB3 and RB4 have weak pull-ups enabled by default on most PIC18s
     // If your specific chip requires explicit pull-up configuration, add it here
-    INTCON2bits.RBPU = 0;  // Enable PORTB weak pull-ups
+    // INTCON2bits.RBPU = 0;  // Enable PORTB weak pull-ups - DISABLED FOR USB TESTING
     
     // Initialize state machine
     encoder_prev_state = (ENCODER_A_PORT << 1) | ENCODER_B_PORT;

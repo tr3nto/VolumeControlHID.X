@@ -1,7 +1,7 @@
 
 18F2550 Memory Summary:
-    Program space        used  2122h (  8482) of  8000h bytes   ( 25.9%)
-    Data space           used    B2h (   178) of   800h bytes   (  8.7%)
+    Program space        used  213Ah (  8506) of  8000h bytes   ( 26.0%)
+    Data space           used    B4h (   180) of   800h bytes   (  8.8%)
     Configuration bits   used     7h (     7) of     7h words   (100.0%)
     EEPROM space         used     0h (     0) of   100h bytes   (  0.0%)
     ID Location space    used     0h (     0) of     8h bytes   (  0.0%)

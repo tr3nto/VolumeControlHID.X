@@ -14,25 +14,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 "3065
 [; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 3065: extern volatile TRISBbits_t TRISBbits __attribute__((address(0xF93)));
 [v _TRISBbits `VS124 ~T0 @X0 0 e@3987 ]
-"7328
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 7328:     struct {
-[s S316 :7 `uc 1 :1 `uc 1 ]
-[n S316 . . NOT_RBPU ]
-"7332
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 7332:     struct {
-[s S317 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S317 . RBIP . TMR0IP . INTEDG2 INTEDG1 INTEDG0 nRBPU ]
-"7342
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 7342:     struct {
-[s S318 :2 `uc 1 :1 `uc 1 :4 `uc 1 :1 `uc 1 ]
-[n S318 . . T0IP . RBPU ]
-"7327
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 7327: typedef union {
-[u S315 `S316 1 `S317 1 `S318 1 ]
-[n S315 . . . . ]
-"7349
-[; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 7349: extern volatile INTCON2bits_t INTCON2bits __attribute__((address(0xFF1)));
-[v _INTCON2bits `VS315 ~T0 @X0 0 e@4081 ]
 "2260
 [; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 2260:     struct {
 [s S96 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
@@ -600,9 +581,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 "96
 [; ;encoder.c: 96:     TRISBbits.TRISB4 = 1;
 [e = . . _TRISBbits 0 4 -> -> 1 `i `uc ]
-"101
-[; ;encoder.c: 101:     INTCON2bits.RBPU = 0;
-[e = . . _INTCON2bits 2 3 -> -> 0 `i `uc ]
 "104
 [; ;encoder.c: 104:     encoder_prev_state = (PORTBbits.RB3 << 1) | PORTBbits.RB4;
 [e = _encoder_prev_state -> | << -> . . _PORTBbits 0 3 `i -> 1 `i -> . . _PORTBbits 0 4 `i `uc ]

@@ -1,12 +1,16 @@
 Version 4.0 HI-TECH Software Intermediate Code
 [p mainexit ]
-"40 main.c
-[; ;main.c: 40:     SYSTEM_Initialize( SYSTEM_STATE_USB_START );
+"43 main.c
+[; ;main.c: 43:     SYSTEM_Initialize( SYSTEM_STATE_USB_START );
 [c E3192 0 1 2 .. ]
 [n E3192 . SYSTEM_STATE_USB_START SYSTEM_STATE_USB_SUSPEND SYSTEM_STATE_USB_RESUME  ]
 "56 ./system.h
 [; ;./system.h: 56: void SYSTEM_Initialize( SYSTEM_STATE state );
 [v _SYSTEM_Initialize `(v ~T0 @X0 0 ef1`E3192 ]
+[v F205 `(v ~T0 @X0 1 tf1`ul ]
+"20 C:\Program Files\Microchip\xc8\v3.00\pic\include/builtins.h
+[v __delay `JF205 ~T0 @X0 0 e ]
+[p i __delay ]
 "199 ./usb_device.h
 [; ;./usb_device.h: 199: void USBDeviceInit(void);
 [v _USBDeviceInit `(v ~T0 @X0 0 ef ]
@@ -491,39 +495,42 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 7710: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
 [v $root$_main `(v ~T0 @X0 0 e ]
-"38 main.c
-[; ;main.c: 38: int main(void)
+"41 main.c
+[; ;main.c: 41: int main(void)
 [v _main `(i ~T0 @X0 1 ef ]
-"39
-[; ;main.c: 39: {
+"42
+[; ;main.c: 42: {
 {
 [e :U _main ]
 [f ]
-"40
-[; ;main.c: 40:     SYSTEM_Initialize( SYSTEM_STATE_USB_START );
-[e ( _SYSTEM_Initialize (1 . `E3192 0 ]
-"42
-[; ;main.c: 42:     USBDeviceInit();
-[e ( _USBDeviceInit ..  ]
 "43
-[; ;main.c: 43:     USBDeviceAttach();
-[e ( _USBDeviceAttach ..  ]
+[; ;main.c: 43:     SYSTEM_Initialize( SYSTEM_STATE_USB_START );
+[e ( _SYSTEM_Initialize (1 . `E3192 0 ]
 "45
-[; ;main.c: 45:     while(1)
+[; ;main.c: 45:     _delay((unsigned long)((500)*(20000000/4000.0)));
+[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
+"47
+[; ;main.c: 47:     USBDeviceInit();
+[e ( _USBDeviceInit ..  ]
+"48
+[; ;main.c: 48:     USBDeviceAttach();
+[e ( _USBDeviceAttach ..  ]
+"50
+[; ;main.c: 50:     while(1)
 [e :U 409 ]
-"46
-[; ;main.c: 46:     {
+"51
+[; ;main.c: 51:     {
 {
-"65
-[; ;main.c: 65:         APP_ConsumerTasks();
+"70
+[; ;main.c: 70:         APP_ConsumerTasks();
 [e ( _APP_ConsumerTasks ..  ]
-"66
-[; ;main.c: 66:     }
+"71
+[; ;main.c: 71:     }
 }
 [e :U 408 ]
 [e $U 409  ]
 [e :U 410 ]
-"67
-[; ;main.c: 67: }
+"72
+[; ;main.c: 72: }
 [e :UE 407 ]
 }
