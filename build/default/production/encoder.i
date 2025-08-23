@@ -5331,8 +5331,8 @@ static uint8_t last_stable_state = 0;
 void ENCODER_Initialize(void)
 {
 
+    TRISBbits.TRISB3 = 1;
     TRISBbits.TRISB4 = 1;
-    TRISBbits.TRISB5 = 1;
 
 
 
@@ -5340,7 +5340,7 @@ void ENCODER_Initialize(void)
     INTCON2bits.RBPU = 0;
 
 
-    encoder_prev_state = (PORTBbits.RB4 << 1) | PORTBbits.RB5;
+    encoder_prev_state = (PORTBbits.RB3 << 1) | PORTBbits.RB4;
     last_stable_state = encoder_prev_state;
     encoder_count = 0;
     debounce_count = 0;
@@ -5369,7 +5369,7 @@ void ENCODER_Task(void)
     int8_t direction;
 
 
-    current_state = (PORTBbits.RB4 << 1) | PORTBbits.RB5;
+    current_state = (PORTBbits.RB3 << 1) | PORTBbits.RB4;
 
 
     if (current_state == last_stable_state) {

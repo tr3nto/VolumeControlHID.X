@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V3.00 build 20241204225717 
-                                                                                               Fri Aug 22 11:46:39 2025
+                                                                                               Fri Aug 22 22:40:34 2025
 
 Microchip MPLAB XC8 C Compiler v3.00 (Free license) build 20241204225717 Og1 
      1                           	processor	18F2550
@@ -3230,16 +3230,16 @@ Microchip MPLAB XC8 C Compiler v3.00 (Free license) build 20241204225717 Og1
   3209   0025E0                     l58:
   3210                           
   3211                           ; BSR set to: 0
-  3212                           ;buttons.c: 133:             TRISBbits.TRISB4 = 1;
-  3213   0025E0  8893               	bsf	147,4,c	;volatile
+  3212                           ;buttons.c: 133:             TRISBbits.TRISB3 = 1;
+  3213   0025E0  8693               	bsf	147,3,c	;volatile
   3214                           
   3215                           ;buttons.c: 134:             break;
   3216   0025E2  EF10  F013         	goto	l62
   3217   0025E6                     l60:
   3218                           
   3219                           ; BSR set to: 0
-  3220                           ;buttons.c: 137:             TRISBbits.TRISB5 = 1;
-  3221   0025E6  8A93               	bsf	147,5,c	;volatile
+  3220                           ;buttons.c: 137:             TRISBbits.TRISB4 = 1;
+  3221   0025E6  8893               	bsf	147,4,c	;volatile
   3222                           
   3223                           ;buttons.c: 138:             break;
   3224   0025E8  EF10  F013         	goto	l62
@@ -3887,8 +3887,8 @@ Microchip MPLAB XC8 C Compiler v3.00 (Free license) build 20241204225717 Og1
   3850                           	callstack 19
   3851   001EEC                     
   3852                           ;encoder.c: 153:     uint8_t current_state;;encoder.c: 154:     int8_t direction;;encode
-      +                          r.c: 157:     current_state = (PORTBbits.RB4 << 1) | PORTBbits.RB5;
-  3853   001EEC  BA81               	btfsc	129,5,c	;volatile
+      +                          r.c: 157:     current_state = (PORTBbits.RB3 << 1) | PORTBbits.RB4;
+  3853   001EEC  B881               	btfsc	129,4,c	;volatile
   3854   001EEE  EF7B  F00F         	goto	u3071
   3855   001EF2  EF80  F00F         	goto	u3070
   3856   001EF6                     u3071:
@@ -3900,7 +3900,7 @@ Microchip MPLAB XC8 C Compiler v3.00 (Free license) build 20241204225717 Og1
   3862   001F00  0100               	movlb	0	; () banked
   3863   001F02  6B7A               	clrf	??_ENCODER_Task& (0+255),b
   3864   001F04                     u3078:
-  3865   001F04  B881               	btfsc	129,4,c	;volatile
+  3865   001F04  B681               	btfsc	129,3,c	;volatile
   3866   001F06  EF87  F00F         	goto	u3081
   3867   001F0A  EF8B  F00F         	goto	u3080
   3868   001F0E                     u3081:
@@ -7911,15 +7911,15 @@ Microchip MPLAB XC8 C Compiler v3.00 (Free license) build 20241204225717 Og1
   7800   00266E  EF3F  F013         	goto	i2l2968
   7801   002672                     i2l58:
   7802                           
-  7803                           ;buttons.c: 133:             TRISBbits.TRISB4 = 1;
-  7804   002672  8893               	bsf	147,4,c	;volatile
+  7803                           ;buttons.c: 133:             TRISBbits.TRISB3 = 1;
+  7804   002672  8693               	bsf	147,3,c	;volatile
   7805                           
   7806                           ;buttons.c: 134:             break;
   7807   002674  EF58  F013         	goto	i2l62
   7808   002678                     i2l60:
   7809                           
-  7810                           ;buttons.c: 137:             TRISBbits.TRISB5 = 1;
-  7811   002678  8A93               	bsf	147,5,c	;volatile
+  7810                           ;buttons.c: 137:             TRISBbits.TRISB4 = 1;
+  7811   002678  8893               	bsf	147,4,c	;volatile
   7812                           
   7813                           ;buttons.c: 138:             break;
   7814   00267A  EF58  F013         	goto	i2l62
@@ -9016,17 +9016,17 @@ Microchip MPLAB XC8 C Compiler v3.00 (Free license) build 20241204225717 Og1
   8885   002738                     _ENCODER_Initialize:
   8886                           	callstack 24
   8887   002738                     
-  8888                           ;encoder.c: 95:     TRISBbits.TRISB4 = 1;
-  8889   002738  8893               	bsf	147,4,c	;volatile
+  8888                           ;encoder.c: 95:     TRISBbits.TRISB3 = 1;
+  8889   002738  8693               	bsf	147,3,c	;volatile
   8890                           
-  8891                           ;encoder.c: 96:     TRISBbits.TRISB5 = 1;
-  8892   00273A  8A93               	bsf	147,5,c	;volatile
+  8891                           ;encoder.c: 96:     TRISBbits.TRISB4 = 1;
+  8892   00273A  8893               	bsf	147,4,c	;volatile
   8893                           
   8894                           ;encoder.c: 101:     INTCON2bits.RBPU = 0;
   8895   00273C  9EF1               	bcf	241,7,c	;volatile
   8896   00273E                     
-  8897                           ;encoder.c: 104:     encoder_prev_state = (PORTBbits.RB4 << 1) | PORTBbits.RB5;
-  8898   00273E  BA81               	btfsc	129,5,c	;volatile
+  8897                           ;encoder.c: 104:     encoder_prev_state = (PORTBbits.RB3 << 1) | PORTBbits.RB4;
+  8898   00273E  B881               	btfsc	129,4,c	;volatile
   8899   002740  EFA4  F013         	goto	i2u156_41
   8900   002744  EFA8  F013         	goto	i2u156_40
   8901   002748                     i2u156_41:
@@ -9036,7 +9036,7 @@ Microchip MPLAB XC8 C Compiler v3.00 (Free license) build 20241204225717 Og1
   8905   002750                     i2u156_40:
   8906   002750  6A2C               	clrf	??_ENCODER_Initialize^0,c
   8907   002752                     i2u156_48:
-  8908   002752  B881               	btfsc	129,4,c	;volatile
+  8908   002752  B681               	btfsc	129,3,c	;volatile
   8909   002754  EFAE  F013         	goto	i2u157_41
   8910   002758  EFB2  F013         	goto	i2u157_40
   8911   00275C                     i2u157_41:
@@ -10703,7 +10703,7 @@ DATA                 0      0     128      0.0%
 
 
 Microchip Technology PIC18 Macro Assembler V3.00 build 20241204225717 
-Symbol Table                                                                                   Fri Aug 22 11:46:39 2025
+Symbol Table                                                                                   Fri Aug 22 22:40:34 2025
 
                                          _USB_SD_Ptr 0811                                                   l60 25E6  
                                                  l62 2620                                                   l58 25E0  

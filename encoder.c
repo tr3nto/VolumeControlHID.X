@@ -15,8 +15,8 @@
     clockwise and counter-clockwise rotation for volume control.
     
     Hardware connections:
-    - Channel A: RB4 (previously BUTTON_S2)
-    - Channel B: RB5 (previously BUTTON_S3)
+    - Channel A: RB3 (previously BUTTON_S2)
+    - Channel B: RB4 (previously BUTTON_S3)
 *******************************************************************************/
 
 // *****************************************************************************
@@ -36,11 +36,11 @@
 // *****************************************************************************
 
 // Hardware pin definitions
-#define ENCODER_A_PORT  PORTBbits.RB4      // Channel A
-#define ENCODER_B_PORT  PORTBbits.RB5      // Channel B
+#define ENCODER_A_PORT  PORTBbits.RB3      // Channel A
+#define ENCODER_B_PORT  PORTBbits.RB4      // Channel B
 
-#define ENCODER_A_TRIS  TRISBbits.TRISB4
-#define ENCODER_B_TRIS  TRISBbits.TRISB5
+#define ENCODER_A_TRIS  TRISBbits.TRISB3
+#define ENCODER_B_TRIS  TRISBbits.TRISB4
 
 #define PIN_INPUT       1
 #define PIN_OUTPUT      0
@@ -96,7 +96,7 @@ void ENCODER_Initialize(void)
     ENCODER_B_TRIS = PIN_INPUT;
     
     // Enable weak pull-ups for encoder pins
-    // Note: RB4 and RB5 have weak pull-ups enabled by default on most PIC18s
+    // Note: RB3 and RB4 have weak pull-ups enabled by default on most PIC18s
     // If your specific chip requires explicit pull-up configuration, add it here
     INTCON2bits.RBPU = 0;  // Enable PORTB weak pull-ups
     
