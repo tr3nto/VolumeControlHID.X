@@ -556,7 +556,7 @@ bssCOMRAM 1 56 COMRAM 1 1
 bssBANK0 60 8B BANK0 60 1
 %locals
 dist/default/debug\VolumeControlHID.X.debug.o
-C:\Users\trent\AppData\Local\Temp\xcAs16us.\driver_tmp_1.s
+C:\Users\trent\AppData\Local\Temp\xcAs17n4.\driver_tmp_1.s
 4018 204A 0 CODE 0
 4020 204A 0 CODE 0
 4023 204A 0 CODE 0
@@ -774,7 +774,7 @@ encoder.c
 133 1E40 0 CODE 0
 136 1E44 0 CODE 0
 137 1E46 0 CODE 0
-C:\Users\trent\AppData\Local\Temp\xcAs16us.\driver_tmp_1.s
+C:\Users\trent\AppData\Local\Temp\xcAs17n4.\driver_tmp_1.s
 6970 8 0 CODE 0
 system.c
 110 8 0 CODE 0
