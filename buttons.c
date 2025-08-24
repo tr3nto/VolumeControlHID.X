@@ -53,16 +53,12 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 // Section: File Scope or Global Constants
 // *****************************************************************************
 // *****************************************************************************
-
-
-
+//      S1       MCLR reset
 #define S2_PORT  PORTBbits.RB3      //AN11
-#define S3_PORT  PORTBbits.RB4 
-#define S4_PORT  PORTBbits.RB5
+#define S3_PORT  PORTBbits.RB4      
 
 #define S2_TRIS  TRISBbits.TRISB3
 #define S3_TRIS  TRISBbits.TRISB4
-#define S4_TRIS  TRISBbits.TRISB5
 
 #define BUTTON_PRESSED      0
 #define BUTTON_NOT_PRESSED  1

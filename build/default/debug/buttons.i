@@ -5306,7 +5306,7 @@ _Bool BUTTON_IsPressed(BUTTON button);
 # 74 "./buttons.h"
 void BUTTON_Enable(BUTTON button);
 # 50 "buttons.c" 2
-# 99 "buttons.c"
+# 95 "buttons.c"
 _Bool BUTTON_IsPressed(BUTTON button)
 {
     switch(button)
@@ -5323,7 +5323,7 @@ _Bool BUTTON_IsPressed(BUTTON button)
 
     return 0;
 }
-# 132 "buttons.c"
+# 128 "buttons.c"
 void BUTTON_Enable(BUTTON button)
 {
     switch(button)
