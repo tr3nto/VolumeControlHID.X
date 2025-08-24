@@ -6,10 +6,10 @@ Linker command line:
   --edf=C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\dat\20250117225543_en.msgs \
   -cn -h+dist/default/debug\VolumeControlHID.X.debug.sym \
   --cmf=dist/default/debug\VolumeControlHID.X.debug.cmf -z -Q18F2550 \
-  -oC:\Users\trent\AppData\Local\Temp\xcAs17n4.\driver_tmp_3.o \
+  -oC:\Users\trent\AppData\Local\Temp\xcBs1bpg.1\driver_tmp_3.o \
   --defsym=__MPLAB_BUILD=1 --fixupoverflow=error \
   -Mdist/default/debug/VolumeControlHID.X.debug.map \
-  --md=C:\Users\trent\AppData\Local\Temp\xcAs17n4.\driver_tmp_0.dat -E1 \
+  --md=C:\Users\trent\AppData\Local\Temp\xcBs1bpg.1\driver_tmp_0.dat -E1 \
   -ver=XC8 Compiler -ACODE=00h-07D3Fh -ACONST=00h-07D3Fh \
   -ASMALLCONST=0800h-08FFhx117,07D00h-07D3Fh -AMEDIUMCONST=0800h-07D3Fh \
   -ACOMRAM=01h-05Fh -AABS1=00h-03EEh,0400h-07FFh \
@@ -29,7 +29,7 @@ Linker command line:
   -pfarbss=FARRAM,fardata=FARRAM,nvFARRAM=FARRAM \
   -pintsave_regs=BIGRAM,bigbss=BIGRAM,bigdata=BIGRAM -pbss=RAM \
   -pidata=CODE,irdata=CODE,ibigdata=CODE,ifardata=CODE -prparam=COMRAM \
-  C:\Users\trent\AppData\Local\Temp\xcAs17n4.\driver_tmp_9.o \
+  C:\Users\trent\AppData\Local\Temp\xcBs1bpg.1\driver_tmp_9.o \
   dist/default/debug\VolumeControlHID.X.debug.o 
 
 Object code version is 3.11
@@ -39,7 +39,7 @@ Machine type is 18F2550
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\trent\AppData\Local\Temp\xcAs17n4.\driver_tmp_9.o
+C:\Users\trent\AppData\Local\Temp\xcBs1bpg.1\driver_tmp_9.o
                 config                           300000   300000        E        0       4
                 init                                  E        E        4        4       0
                 reset_vec                             0        0        6        0       0

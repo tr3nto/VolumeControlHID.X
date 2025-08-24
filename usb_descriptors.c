@@ -63,7 +63,7 @@ const uint8_t configDescriptor1[]={
     1,                      // Index value of this configuration
     0,                      // Configuration string index
     _DEFAULT | _SELF,               // Attributes, see usb_device.h
-    100,                    // Max power consumption (2X mA) = 200mA
+    250,                    // Max power consumption (2X mA) = 200mA
 
     /* Interface Descriptor */
     0x09,//sizeof(USB_INTF_DSC),   // Size of this descriptor in bytes
