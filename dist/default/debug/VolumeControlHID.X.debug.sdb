@@ -21,7 +21,7 @@ ADR_PENDING_STATE 8
 ADDRESS_STATE 16
 CONFIGURED_STATE 32
 ]
-"95 D:\OneDrive\Documents\Microchip\Projects\VolumeControlHID.X\buttons.c
+"99 D:\OneDrive\Documents\Microchip\Projects\VolumeControlHID.X\buttons.c
 [e E2973 . `uc
 BUTTON_NONE 0
 BUTTON_S2 1
@@ -201,7 +201,7 @@ ENCODER_CCW 2
 [v _APP_ConsumerTasks APP_ConsumerTasks `(v  1 e 1 0 ]
 "49 D:\OneDrive\Documents\Microchip\Projects\VolumeControlHID.X\app_led_usb_status.c
 [v _APP_LEDUpdateUSBStatus APP_LEDUpdateUSBStatus `(v  1 e 1 0 ]
-"128 D:\OneDrive\Documents\Microchip\Projects\VolumeControlHID.X\buttons.c
+"132 D:\OneDrive\Documents\Microchip\Projects\VolumeControlHID.X\buttons.c
 [v _BUTTON_Enable BUTTON_Enable `(v  1 e 1 0 ]
 [v i2_BUTTON_Enable BUTTON_Enable `(v  1 e 1 0 ]
 "4 C:\Program Files\Microchip\xc8\v3.00\pic\sources\c99\common\fleq.c
@@ -835,13 +835,13 @@ ENCODER_CCW 2
 [v LED_Enable@led led `E2  1 p 1 2 ]
 "280
 } 0
-"128 D:\OneDrive\Documents\Microchip\Projects\VolumeControlHID.X\buttons.c
+"132 D:\OneDrive\Documents\Microchip\Projects\VolumeControlHID.X\buttons.c
 [v _BUTTON_Enable BUTTON_Enable `(v  1 e 1 0 ]
 {
 [v BUTTON_Enable@button button `E2973  1 p 1 wreg ]
 [v BUTTON_Enable@button button `E2973  1 p 1 wreg ]
 [v BUTTON_Enable@button button `E2973  1 p 1 2 ]
-"143
+"147
 } 0
 "154 D:\OneDrive\Documents\Microchip\Projects\VolumeControlHID.X\app_device_consumer.c
 [v _APP_ConsumerTasks APP_ConsumerTasks `(v  1 e 1 0 ]
@@ -1122,13 +1122,13 @@ ENCODER_CCW 2
 [v i2LED_Enable@led led `E2  1 p 1 2 ]
 "280
 } 0
-"128 D:\OneDrive\Documents\Microchip\Projects\VolumeControlHID.X\buttons.c
+"132 D:\OneDrive\Documents\Microchip\Projects\VolumeControlHID.X\buttons.c
 [v i2_BUTTON_Enable BUTTON_Enable `(v  1 e 1 0 ]
 {
 [v i2BUTTON_Enable@button button `E2973  1 p 1 wreg ]
 [v i2BUTTON_Enable@button button `E2973  1 p 1 wreg ]
 [v i2BUTTON_Enable@button button `E2973  1 p 1 2 ]
-"143
+"147
 } 0
 "161 D:\OneDrive\Documents\Microchip\Projects\VolumeControlHID.X\usb_device_hid.c
 [v _USBCheckHIDRequest USBCheckHIDRequest `(v  1 e 1 0 ]

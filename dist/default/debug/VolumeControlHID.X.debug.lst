@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V3.00 build 20241204225717 
-                                                                                               Sat Aug 23 16:33:02 2025
+                                                                                               Sat Aug 23 21:49:53 2025
 
 Microchip MPLAB XC8 C Compiler v3.00 (Free license) build 20241204225717 Og1 
      1                           	processor	18F2550
@@ -3205,7 +3205,7 @@ Microchip MPLAB XC8 C Compiler v3.00 (Free license) build 20241204225717 Og1
   3185                           
   3186 ;; *************** function _BUTTON_Enable *****************
   3187 ;; Defined at:
-  3188 ;;		line 128 in file "buttons.c"
+  3188 ;;		line 132 in file "buttons.c"
   3189 ;; Parameters:    Size  Location     Type
   3190 ;;  button          1    wreg     enum E2973
   3191 ;; Auto vars:     Size  Location     Type
@@ -3245,24 +3245,24 @@ Microchip MPLAB XC8 C Compiler v3.00 (Free license) build 20241204225717 Og1
   3225   001D2A  0100               	movlb	0	; () banked
   3226   001D2C  6F7C               	movwf	BUTTON_Enable@button& (0+255),b
   3227   001D2E                     
-  3228                           ;buttons.c: 128: void BUTTON_Enable(BUTTON button);buttons.c: 129: {;buttons.c: 130:    
+  3228                           ;buttons.c: 132: void BUTTON_Enable(BUTTON button);buttons.c: 133: {;buttons.c: 134:    
       +                           switch(button)
   3229   001D2E  EF9F  F00E         	goto	l4356
   3230   001D32                     l58:
   3231                           
   3232                           ; BSR set to: 0
-  3233                           ;buttons.c: 133:             TRISBbits.TRISB3 = 1;
+  3233                           ;buttons.c: 137:             TRISBbits.TRISB3 = 1;
   3234   001D32  8693               	bsf	147,3,c	;volatile
   3235                           
-  3236                           ;buttons.c: 134:             break;
+  3236                           ;buttons.c: 138:             break;
   3237   001D34  EFB9  F00E         	goto	l62
   3238   001D38                     l60:
   3239                           
   3240                           ; BSR set to: 0
-  3241                           ;buttons.c: 137:             TRISBbits.TRISB4 = 1;
+  3241                           ;buttons.c: 141:             TRISBbits.TRISB4 = 1;
   3242   001D38  8893               	bsf	147,4,c	;volatile
   3243                           
-  3244                           ;buttons.c: 138:             break;
+  3244                           ;buttons.c: 142:             break;
   3245   001D3A  EFB9  F00E         	goto	l62
   3246   001D3E                     l4356:
   3247   001D3E  0100               	movlb	0	; () banked
@@ -7887,7 +7887,7 @@ Microchip MPLAB XC8 C Compiler v3.00 (Free license) build 20241204225717 Og1
   7777                           
   7778 ;; *************** function i2_BUTTON_Enable *****************
   7779 ;; Defined at:
-  7780 ;;		line 128 in file "buttons.c"
+  7780 ;;		line 132 in file "buttons.c"
   7781 ;; Parameters:    Size  Location     Type
   7782 ;;  button          1    wreg     enum E2973
   7783 ;; Auto vars:     Size  Location     Type
@@ -7924,22 +7924,22 @@ Microchip MPLAB XC8 C Compiler v3.00 (Free license) build 20241204225717 Og1
   7814                           ;i2BUTTON_Enable@button stored from wreg
   7815   001DBE  6E2E               	movwf	i2BUTTON_Enable@button^0,c
   7816   001DC0                     
-  7817                           ;buttons.c: 128: void BUTTON_Enable(BUTTON button);buttons.c: 129: {;buttons.c: 130:    
+  7817                           ;buttons.c: 132: void BUTTON_Enable(BUTTON button);buttons.c: 133: {;buttons.c: 134:    
       +                           switch(button)
   7818   001DC0  EFE8  F00E         	goto	i2l2970
   7819   001DC4                     i2l58:
   7820                           
-  7821                           ;buttons.c: 133:             TRISBbits.TRISB3 = 1;
+  7821                           ;buttons.c: 137:             TRISBbits.TRISB3 = 1;
   7822   001DC4  8693               	bsf	147,3,c	;volatile
   7823                           
-  7824                           ;buttons.c: 134:             break;
+  7824                           ;buttons.c: 138:             break;
   7825   001DC6  EF01  F00F         	goto	i2l62
   7826   001DCA                     i2l60:
   7827                           
-  7828                           ;buttons.c: 137:             TRISBbits.TRISB4 = 1;
+  7828                           ;buttons.c: 141:             TRISBbits.TRISB4 = 1;
   7829   001DCA  8893               	bsf	147,4,c	;volatile
   7830                           
-  7831                           ;buttons.c: 138:             break;
+  7831                           ;buttons.c: 142:             break;
   7832   001DCC  EF01  F00F         	goto	i2l62
   7833   001DD0                     i2l2970:
   7834   001DD0  502E               	movf	i2BUTTON_Enable@button^0,w,c
@@ -10721,7 +10721,7 @@ DATA                 0      0     130      0.0%
 
 
 Microchip Technology PIC18 Macro Assembler V3.00 build 20241204225717 
-Symbol Table                                                                                   Sat Aug 23 16:33:02 2025
+Symbol Table                                                                                   Sat Aug 23 21:49:53 2025
 
                                          _USB_SD_Ptr 7C85                                                   l60 1D38  
                                                  l62 1D72                                                   l58 1D32  

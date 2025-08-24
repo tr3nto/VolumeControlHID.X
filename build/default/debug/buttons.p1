@@ -1,6 +1,6 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"95 buttons.c
-[; ;buttons.c: 95: _Bool BUTTON_IsPressed(BUTTON button)
+"99 buttons.c
+[; ;buttons.c: 99: _Bool BUTTON_IsPressed(BUTTON button)
 [c E2973 0 1 2 3 .. ]
 [n E2973 . BUTTON_NONE BUTTON_S2 BUTTON_S3 BUTTON_S4  ]
 "2260 C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h
@@ -511,48 +511,48 @@ Version 4.0 HI-TECH Software Intermediate Code
 "7710
 [; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 7710: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
-"95 buttons.c
-[; ;buttons.c: 95: _Bool BUTTON_IsPressed(BUTTON button)
+"99 buttons.c
+[; ;buttons.c: 99: _Bool BUTTON_IsPressed(BUTTON button)
 [v _BUTTON_IsPressed `(a ~T0 @X0 1 ef1`E2973 ]
-"96
-[; ;buttons.c: 96: {
+"100
+[; ;buttons.c: 100: {
 {
 [e :U _BUTTON_IsPressed ]
-"95
-[; ;buttons.c: 95: _Bool BUTTON_IsPressed(BUTTON button)
-[v _button `E2973 ~T0 @X0 1 r1 ]
-"96
-[; ;buttons.c: 96: {
-[f ]
-"97
-[; ;buttons.c: 97:     switch(button)
-[e $U 353  ]
-"98
-[; ;buttons.c: 98:     {
-{
 "99
-[; ;buttons.c: 99:         case BUTTON_S2:
-[e :U 354 ]
+[; ;buttons.c: 99: _Bool BUTTON_IsPressed(BUTTON button)
+[v _button `E2973 ~T0 @X0 1 r1 ]
 "100
-[; ;buttons.c: 100:             return ( (PORTBbits.RB3 == 0) ? 1 : 0);
+[; ;buttons.c: 100: {
+[f ]
+"101
+[; ;buttons.c: 101:     switch(button)
+[e $U 353  ]
+"102
+[; ;buttons.c: 102:     {
+{
+"103
+[; ;buttons.c: 103:         case BUTTON_S2:
+[e :U 354 ]
+"104
+[; ;buttons.c: 104:             return ( (PORTBbits.RB3 == 0) ? 1 : 0);
 [e ) -> ? == -> . . _PORTBbits 0 3 `i -> 0 `i : -> 1 `i -> 0 `i `a ]
 [e $UE 351  ]
-"102
-[; ;buttons.c: 102:         case BUTTON_S3:
+"106
+[; ;buttons.c: 106:         case BUTTON_S3:
 [e :U 355 ]
-"103
-[; ;buttons.c: 103:             return ( (PORTBbits.RB4 == 0) ? 1 : 0);
+"107
+[; ;buttons.c: 107:             return ( (PORTBbits.RB4 == 0) ? 1 : 0);
 [e ) -> ? == -> . . _PORTBbits 0 4 `i -> 0 `i : -> 1 `i -> 0 `i `a ]
 [e $UE 351  ]
-"105
-[; ;buttons.c: 105:         case BUTTON_NONE:
+"109
+[; ;buttons.c: 109:         case BUTTON_NONE:
 [e :U 356 ]
-"106
-[; ;buttons.c: 106:             return 0;
+"110
+[; ;buttons.c: 110:             return 0;
 [e ) -> -> 0 `i `a ]
 [e $UE 351  ]
-"107
-[; ;buttons.c: 107:     }
+"111
+[; ;buttons.c: 111:     }
 }
 [e $U 352  ]
 [e :U 353 ]
@@ -561,59 +561,59 @@ Version 4.0 HI-TECH Software Intermediate Code
  , $ -> . `E2973 0 `ui 356
  352 ]
 [e :U 352 ]
-"109
-[; ;buttons.c: 109:     return 0;
+"113
+[; ;buttons.c: 113:     return 0;
 [e ) -> -> 0 `i `a ]
 [e $UE 351  ]
-"110
-[; ;buttons.c: 110: }
+"114
+[; ;buttons.c: 114: }
 [e :UE 351 ]
 }
-"128
-[; ;buttons.c: 128: void BUTTON_Enable(BUTTON button)
+"132
+[; ;buttons.c: 132: void BUTTON_Enable(BUTTON button)
 [v _BUTTON_Enable `(v ~T0 @X0 1 ef1`E2973 ]
-"129
-[; ;buttons.c: 129: {
+"133
+[; ;buttons.c: 133: {
 {
 [e :U _BUTTON_Enable ]
-"128
-[; ;buttons.c: 128: void BUTTON_Enable(BUTTON button)
-[v _button `E2973 ~T0 @X0 1 r1 ]
-"129
-[; ;buttons.c: 129: {
-[f ]
-"130
-[; ;buttons.c: 130:     switch(button)
-[e $U 359  ]
-"131
-[; ;buttons.c: 131:     {
-{
 "132
-[; ;buttons.c: 132:         case BUTTON_S2:
-[e :U 360 ]
+[; ;buttons.c: 132: void BUTTON_Enable(BUTTON button)
+[v _button `E2973 ~T0 @X0 1 r1 ]
 "133
-[; ;buttons.c: 133:             TRISBbits.TRISB3 = 1;
-[e = . . _TRISBbits 0 3 -> -> 1 `i `uc ]
+[; ;buttons.c: 133: {
+[f ]
 "134
-[; ;buttons.c: 134:             break;
-[e $U 358  ]
+[; ;buttons.c: 134:     switch(button)
+[e $U 359  ]
+"135
+[; ;buttons.c: 135:     {
+{
 "136
-[; ;buttons.c: 136:         case BUTTON_S3:
-[e :U 361 ]
+[; ;buttons.c: 136:         case BUTTON_S2:
+[e :U 360 ]
 "137
-[; ;buttons.c: 137:             TRISBbits.TRISB4 = 1;
-[e = . . _TRISBbits 0 4 -> -> 1 `i `uc ]
+[; ;buttons.c: 137:             TRISBbits.TRISB3 = 1;
+[e = . . _TRISBbits 0 3 -> -> 1 `i `uc ]
 "138
 [; ;buttons.c: 138:             break;
 [e $U 358  ]
 "140
-[; ;buttons.c: 140:         case BUTTON_NONE:
-[e :U 362 ]
+[; ;buttons.c: 140:         case BUTTON_S3:
+[e :U 361 ]
 "141
-[; ;buttons.c: 141:             break;
-[e $U 358  ]
+[; ;buttons.c: 141:             TRISBbits.TRISB4 = 1;
+[e = . . _TRISBbits 0 4 -> -> 1 `i `uc ]
 "142
-[; ;buttons.c: 142:     }
+[; ;buttons.c: 142:             break;
+[e $U 358  ]
+"144
+[; ;buttons.c: 144:         case BUTTON_NONE:
+[e :U 362 ]
+"145
+[; ;buttons.c: 145:             break;
+[e $U 358  ]
+"146
+[; ;buttons.c: 146:     }
 }
 [e $U 358  ]
 [e :U 359 ]
@@ -622,7 +622,7 @@ Version 4.0 HI-TECH Software Intermediate Code
  , $ -> . `E2973 0 `ui 362
  358 ]
 [e :U 358 ]
-"143
-[; ;buttons.c: 143: }
+"147
+[; ;buttons.c: 147: }
 [e :UE 357 ]
 }
