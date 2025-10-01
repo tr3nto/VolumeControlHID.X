@@ -31,9 +31,11 @@ typedef enum
     BUTTON_NONE,
     BUTTON_S2,
     BUTTON_S3,
-    BUTTON_S4
+    BUTTON_S4,
+    BUTTON_ENCODER_PUSH
     //S1 is MCLR
     //Note: S2 and S3 are now used for quadrature encoder channels A and B
+    //BUTTON_ENCODER_PUSH is the encoder pushbutton on RB5
 } BUTTON;
 
 

@@ -12,21 +12,21 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _UCONbits `VS24 ~T0 @X0 0 e@3949 ]
 "55 app_led_usb_status.c
 [; ;app_led_usb_status.c: 55:         LED_Off(LED_D1);
-[c E2983 0 1 2 3 4 .. ]
-[n E2983 . LED_NONE LED_D1 LED_D2 LED_D3 LED_D4  ]
+[c E2984 0 1 2 3 4 .. ]
+[n E2984 . LED_NONE LED_D1 LED_D2 LED_D3 LED_D4  ]
 "76 ./leds.h
 [; ;./leds.h: 76: void LED_Off(LED led);
-[v _LED_Off `(v ~T0 @X0 0 ef1`E2983 ]
+[v _LED_Off `(v ~T0 @X0 0 ef1`E2984 ]
 "58
 [; ;./leds.h: 58: void LED_On(LED led);
-[v _LED_On `(v ~T0 @X0 0 ef1`E2983 ]
+[v _LED_On `(v ~T0 @X0 0 ef1`E2984 ]
 "94 app_led_usb_status.c
 [; ;app_led_usb_status.c: 94:     }
-[c E3268 0 1 2 4 8 16 32 .. ]
-[n E3268 . DETACHED_STATE ATTACHED_STATE POWERED_STATE DEFAULT_STATE ADR_PENDING_STATE ADDRESS_STATE CONFIGURED_STATE  ]
+[c E3269 0 1 2 4 8 16 32 .. ]
+[n E3269 . DETACHED_STATE ATTACHED_STATE POWERED_STATE DEFAULT_STATE ADR_PENDING_STATE ADDRESS_STATE CONFIGURED_STATE  ]
 "2050 ./usb_device.h
 [; ;./usb_device.h: 2050: extern volatile USB_DEVICE_STATE USBDeviceState;
-[v _USBDeviceState `VE3268 ~T0 @X0 0 e ]
+[v _USBDeviceState `VE3269 ~T0 @X0 0 e ]
 "52 C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 52: __asm("UFRM equ 0F66h");
 [; <" UFRM equ 0F66h ;# ">
@@ -511,8 +511,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "51
 [; ;app_led_usb_status.c: 51:     static uint16_t ledCount = 0;
-[v F3664 `us ~T0 @X0 1 s ledCount ]
-[i F3664
+[v F3665 `us ~T0 @X0 1 s ledCount ]
+[i F3665
 -> -> 0 `i `us
 ]
 "53
@@ -523,7 +523,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 "55
 [; ;app_led_usb_status.c: 55:         LED_Off(LED_D1);
-[e ( _LED_Off (1 . `E2983 1 ]
+[e ( _LED_Off (1 . `E2984 1 ]
 "56
 [; ;app_led_usb_status.c: 56:         return;
 [e $UE 405  ]
@@ -542,13 +542,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 409 ]
 "64
 [; ;app_led_usb_status.c: 64:             if(ledCount == 1)
-[e $ ! == -> F3664 `ui -> -> 1 `i `ui 410  ]
+[e $ ! == -> F3665 `ui -> -> 1 `i `ui 410  ]
 "65
 [; ;app_led_usb_status.c: 65:             {
 {
 "66
 [; ;app_led_usb_status.c: 66:                 LED_On(LED_D1);
-[e ( _LED_On (1 . `E2983 1 ]
+[e ( _LED_On (1 . `E2984 1 ]
 "67
 [; ;app_led_usb_status.c: 67:             }
 }
@@ -556,13 +556,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 "68
 [; ;app_led_usb_status.c: 68:             else if(ledCount == 75)
 [e :U 410 ]
-[e $ ! == -> F3664 `ui -> -> 75 `i `ui 412  ]
+[e $ ! == -> F3665 `ui -> -> 75 `i `ui 412  ]
 "69
 [; ;app_led_usb_status.c: 69:             {
 {
 "70
 [; ;app_led_usb_status.c: 70:                 LED_Off(LED_D1);
-[e ( _LED_Off (1 . `E2983 1 ]
+[e ( _LED_Off (1 . `E2984 1 ]
 "71
 [; ;app_led_usb_status.c: 71:             }
 }
@@ -570,13 +570,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 "72
 [; ;app_led_usb_status.c: 72:             else if(ledCount > 150)
 [e :U 412 ]
-[e $ ! > -> F3664 `ui -> -> 150 `i `ui 414  ]
+[e $ ! > -> F3665 `ui -> -> 150 `i `ui 414  ]
 "73
 [; ;app_led_usb_status.c: 73:             {
 {
 "74
 [; ;app_led_usb_status.c: 74:                 ledCount = 0;
-[e = F3664 -> -> 0 `i `us ]
+[e = F3665 -> -> 0 `i `us ]
 "75
 [; ;app_led_usb_status.c: 75:             }
 }
@@ -591,13 +591,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 415 ]
 "81
 [; ;app_led_usb_status.c: 81:             if(ledCount == 1)
-[e $ ! == -> F3664 `ui -> -> 1 `i `ui 416  ]
+[e $ ! == -> F3665 `ui -> -> 1 `i `ui 416  ]
 "82
 [; ;app_led_usb_status.c: 82:             {
 {
 "83
 [; ;app_led_usb_status.c: 83:                 LED_On(LED_D1);
-[e ( _LED_On (1 . `E2983 1 ]
+[e ( _LED_On (1 . `E2984 1 ]
 "84
 [; ;app_led_usb_status.c: 84:             }
 }
@@ -605,13 +605,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 "85
 [; ;app_led_usb_status.c: 85:             else if(ledCount == 50)
 [e :U 416 ]
-[e $ ! == -> F3664 `ui -> -> 50 `i `ui 418  ]
+[e $ ! == -> F3665 `ui -> -> 50 `i `ui 418  ]
 "86
 [; ;app_led_usb_status.c: 86:             {
 {
 "87
 [; ;app_led_usb_status.c: 87:                 LED_Off(LED_D1);
-[e ( _LED_Off (1 . `E2983 1 ]
+[e ( _LED_Off (1 . `E2984 1 ]
 "88
 [; ;app_led_usb_status.c: 88:             }
 }
@@ -619,13 +619,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 "89
 [; ;app_led_usb_status.c: 89:             else if(ledCount > 950)
 [e :U 418 ]
-[e $ ! > -> F3664 `ui -> -> 950 `i `ui 420  ]
+[e $ ! > -> F3665 `ui -> -> 950 `i `ui 420  ]
 "90
 [; ;app_led_usb_status.c: 90:             {
 {
 "91
 [; ;app_led_usb_status.c: 91:                 ledCount = 0;
-[e = F3664 -> -> 0 `i `us ]
+[e = F3665 -> -> 0 `i `us ]
 "92
 [; ;app_led_usb_status.c: 92:             }
 }
@@ -640,12 +640,12 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e $U 407  ]
 [e :U 408 ]
-[e [\ -> _USBDeviceState `ui , $ -> . `E3268 6 `ui 409
+[e [\ -> _USBDeviceState `ui , $ -> . `E3269 6 `ui 409
  415 ]
 [e :U 407 ]
 "97
 [; ;app_led_usb_status.c: 97:     ledCount++;
-[e ++ F3664 -> -> 1 `i `us ]
+[e ++ F3665 -> -> 1 `i `us ]
 "98
 [; ;app_led_usb_status.c: 98: }
 [e :UE 405 ]

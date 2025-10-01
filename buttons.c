@@ -54,11 +54,13 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 // *****************************************************************************
 // *****************************************************************************
 //      S1       MCLR reset
-#define S2_PORT  PORTBbits.RB3      //AN11
-#define S3_PORT  PORTBbits.RB4      
+#define S2_PORT  PORTBbits.RB3      //AN11 - Encoder Channel A
+#define S3_PORT  PORTBbits.RB4      //Encoder Channel B
+#define ENCODER_PUSH_PORT  PORTBbits.RB5    //Encoder pushbutton
 
 #define S2_TRIS  TRISBbits.TRISB3
 #define S3_TRIS  TRISBbits.TRISB4
+#define ENCODER_PUSH_TRIS  TRISBbits.TRISB5
 
 #define BUTTON_PRESSED      0
 #define BUTTON_NOT_PRESSED  1
@@ -102,6 +104,12 @@ bool BUTTON_IsPressed(BUTTON button)
         case BUTTON_S3:
             return ( (S3_PORT == BUTTON_PRESSED) ? true : false);
 
+        case BUTTON_ENCODER_PUSH:
+            return ( (ENCODER_PUSH_PORT == BUTTON_PRESSED) ? true : false);
+
+        case BUTTON_S4:
+            return false;  // Not implemented
+
         case BUTTON_NONE:
             return false;
     }
@@ -135,6 +143,14 @@ void BUTTON_Enable(BUTTON button)
 			
         case BUTTON_S3:
             S3_TRIS = PIN_INPUT;
+            break;
+
+        case BUTTON_ENCODER_PUSH:
+            ENCODER_PUSH_TRIS = PIN_INPUT;
+            break;
+
+        case BUTTON_S4:
+            // Not implemented
             break;
 
         case BUTTON_NONE:

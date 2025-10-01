@@ -22,6 +22,7 @@ please contact mla_licensing@microchip.com
 #define LED_USB_DEVICE_STATE                            LED_D1
 
 #define BUTTON_USB_DEVICE_REMOTE_WAKEUP                 BUTTON_S3
+#define BUTTON_MODE_SWITCH                              BUTTON_ENCODER_PUSH
 
 /* USB Stack I/O options. */
 #define self_power                                      1

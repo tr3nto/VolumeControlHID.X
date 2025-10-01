@@ -161,7 +161,8 @@ extern const struct{uint8_t report[HID_RPT01_SIZE];}hid_rpt01;
 void USBCheckHIDRequest(void)
 {
     if(SetupPkt.Recipient != USB_SETUP_RECIPIENT_INTERFACE_BITFIELD) return;
-    if(SetupPkt.bIntfID != HID_INTF_ID) return;
+    // Accept requests for both HID interfaces (0 and 1)
+    if(SetupPkt.bIntfID != 0 && SetupPkt.bIntfID != 1) return;
 
     /*
      * There are two standard requests that hid.c may support.
@@ -175,19 +176,44 @@ void USBCheckHIDRequest(void)
             case DSC_HID: //HID Descriptor
                 if(USBActiveConfiguration == 1)
                 {
-                    USBEP0SendROMPtr(
-                        (const uint8_t*)&configDescriptor1 + 18,		//18 is a magic number.  It is the offset from start of the configuration descriptor to the start of the HID descriptor.
-                        sizeof(USB_HID_DSC)+3,
-                        USB_EP0_INCLUDE_ZERO);
+                    if(SetupPkt.bIntfID == 0)
+                    {
+                        // Interface 0 - Consumer Control
+                        USBEP0SendROMPtr(
+                            (const uint8_t*)&configDescriptor1 + 18,		//18 is offset to first HID descriptor
+                            sizeof(USB_HID_DSC)+3,
+                            USB_EP0_INCLUDE_ZERO);
+                    }
+                    else if(SetupPkt.bIntfID == 1)
+                    {
+                        // Interface 1 - Keyboard Scroll Wheel  
+                        USBEP0SendROMPtr(
+                            (const uint8_t*)&configDescriptor1 + 43,		//43 is offset to second HID descriptor
+                            sizeof(USB_HID_DSC)+3,
+                            USB_EP0_INCLUDE_ZERO);
+                    }
                 }
                 break;
             case DSC_RPT:  //Report Descriptor
                 //if(USBActiveConfiguration == 1)
                 {
-                    USBEP0SendROMPtr(
-                        (const uint8_t*)&hid_rpt01,
-                        HID_RPT01_SIZE,     //See usbcfg.h
-                        USB_EP0_INCLUDE_ZERO);
+                    if(SetupPkt.bIntfID == 0)
+                    {
+                        // Interface 0 - Consumer Control Report Descriptor
+                        USBEP0SendROMPtr(
+                            (const uint8_t*)&hid_rpt01,
+                            HID_RPT01_SIZE,     //39 bytes
+                            USB_EP0_INCLUDE_ZERO);
+                    }
+                    else if(SetupPkt.bIntfID == 1)
+                    {
+                        // Interface 1 - Keyboard Report Descriptor
+                        extern const struct{uint8_t report[HID_RPT02_SIZE];}hid_rpt02;
+                        USBEP0SendROMPtr(
+                            (const uint8_t*)&hid_rpt02,
+                            HID_RPT02_SIZE,     // Keyboard report descriptor size
+                            USB_EP0_INCLUDE_ZERO);
+                    }
                 }
                 break;
             case DSC_PHY:  //Physical Descriptor

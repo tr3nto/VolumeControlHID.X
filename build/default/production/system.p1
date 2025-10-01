@@ -1,21 +1,21 @@
 Version 4.0 HI-TECH Software Intermediate Code
 "87 system.c
 [; ;system.c: 87: void SYSTEM_Initialize( SYSTEM_STATE state )
-[c E3192 0 1 2 .. ]
-[n E3192 . SYSTEM_STATE_USB_START SYSTEM_STATE_USB_SUSPEND SYSTEM_STATE_USB_RESUME  ]
+[c E3193 0 1 2 .. ]
+[n E3193 . SYSTEM_STATE_USB_START SYSTEM_STATE_USB_SUSPEND SYSTEM_STATE_USB_RESUME  ]
 "92
 [; ;system.c: 92:             LED_Enable(LED_D1);
-[c E2983 0 1 2 3 4 .. ]
-[n E2983 . LED_NONE LED_D1 LED_D2 LED_D3 LED_D4  ]
+[c E2984 0 1 2 3 4 .. ]
+[n E2984 . LED_NONE LED_D1 LED_D2 LED_D3 LED_D4  ]
 "129 ./leds.h
 [; ;./leds.h: 129: void LED_Enable(LED led);
-[v _LED_Enable `(v ~T0 @X0 0 ef1`E2983 ]
+[v _LED_Enable `(v ~T0 @X0 0 ef1`E2984 ]
 "93 system.c
 [; ;system.c: 93:             BUTTON_Enable(BUTTON_S3);
-[c E2973 0 1 2 3 .. ]
-[n E2973 . BUTTON_NONE BUTTON_S2 BUTTON_S3 BUTTON_S4  ]
-"74 ./buttons.h
-[; ;./buttons.h: 74: void BUTTON_Enable(BUTTON button);
+[c E2973 0 1 2 3 4 .. ]
+[n E2973 . BUTTON_NONE BUTTON_S2 BUTTON_S3 BUTTON_S4 BUTTON_ENCODER_PUSH  ]
+"76 ./buttons.h
+[; ;./buttons.h: 76: void BUTTON_Enable(BUTTON button);
 [v _BUTTON_Enable `(v ~T0 @X0 0 ef1`E2973 ]
 [t ~ __interrupt . k ]
 [t T21 __interrupt ]
@@ -554,14 +554,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 [p x EBTRB        =  OFF ]
 "87
 [; ;system.c: 87: void SYSTEM_Initialize( SYSTEM_STATE state )
-[v _SYSTEM_Initialize `(v ~T0 @X0 1 ef1`E3192 ]
+[v _SYSTEM_Initialize `(v ~T0 @X0 1 ef1`E3193 ]
 "88
 [; ;system.c: 88: {
 {
 [e :U _SYSTEM_Initialize ]
 "87
 [; ;system.c: 87: void SYSTEM_Initialize( SYSTEM_STATE state )
-[v _state `E3192 ~T0 @X0 1 r1 ]
+[v _state `E3193 ~T0 @X0 1 r1 ]
 "88
 [; ;system.c: 88: {
 [f ]
@@ -576,7 +576,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 408 ]
 "92
 [; ;system.c: 92:             LED_Enable(LED_D1);
-[e ( _LED_Enable (1 . `E2983 1 ]
+[e ( _LED_Enable (1 . `E2984 1 ]
 "93
 [; ;system.c: 93:             BUTTON_Enable(BUTTON_S3);
 [e ( _BUTTON_Enable (1 . `E2973 2 ]
@@ -600,9 +600,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e $U 406  ]
 [e :U 407 ]
-[e [\ -> _state `ui , $ -> . `E3192 0 `ui 408
- , $ -> . `E3192 1 `ui 409
- , $ -> . `E3192 2 `ui 410
+[e [\ -> _state `ui , $ -> . `E3193 0 `ui 408
+ , $ -> . `E3193 1 `ui 409
+ , $ -> . `E3193 2 `ui 410
  406 ]
 [e :U 406 ]
 "102

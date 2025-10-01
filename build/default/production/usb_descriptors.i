@@ -6131,8 +6131,8 @@ typedef union _POINTER
     extern volatile OUT_PIPE outPipes[1];
 
 
-extern volatile BDT_ENTRY* pBDTEntryOut[1 +1];
-extern volatile BDT_ENTRY* pBDTEntryIn[1 +1];
+extern volatile BDT_ENTRY* pBDTEntryOut[2 +1];
+extern volatile BDT_ENTRY* pBDTEntryIn[2 +1];
 # 37 "./usb_hal.h" 2
 # 167 "./usb_hal.h"
 void OTGCORE_SetDeviceAddr( uint8_t addr );
@@ -6220,12 +6220,12 @@ const uint8_t configDescriptor1[]={
 
     0x09,
     0x02,
-    (0x0022&0xFF),((0x0022>>8)&0xFF),
-    1,
+    (0x003B&0xFF),((0x003B>>8)&0xFF),
+    2,
     1,
     0,
     (0x01<<7) | (0x01<<6),
-    100,
+    250,
 
 
     0x09,
@@ -6251,6 +6251,34 @@ const uint8_t configDescriptor1[]={
     0x07,
     0x05,
     1 | 0x80,
+    0x03,
+    (2&0xFF),((2>>8)&0xFF),
+    0x01,
+
+
+    0x09,
+    0x04,
+    1,
+    0,
+    1,
+    0x03,
+    0x01,
+    0x01,
+    0,
+
+
+    0x09,
+    0x21,
+    (0x0111&0xFF),((0x0111>>8)&0xFF),
+    0x00,
+    1,
+    0x22,
+    (24&0xFF),((24>>8)&0xFF),
+
+
+    0x07,
+    0x05,
+    2 | 0x80,
     0x03,
     (2&0xFF),((2>>8)&0xFF),
     0x01,

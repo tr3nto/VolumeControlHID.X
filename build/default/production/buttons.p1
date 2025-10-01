@@ -1,8 +1,8 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"95 buttons.c
-[; ;buttons.c: 95: _Bool BUTTON_IsPressed(BUTTON button)
-[c E2973 0 1 2 3 .. ]
-[n E2973 . BUTTON_NONE BUTTON_S2 BUTTON_S3 BUTTON_S4  ]
+"97 buttons.c
+[; ;buttons.c: 97: _Bool BUTTON_IsPressed(BUTTON button)
+[c E2973 0 1 2 3 4 .. ]
+[n E2973 . BUTTON_NONE BUTTON_S2 BUTTON_S3 BUTTON_S4 BUTTON_ENCODER_PUSH  ]
 "2260 C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 2260:     struct {
 [s S96 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
@@ -511,118 +511,151 @@ Version 4.0 HI-TECH Software Intermediate Code
 "7710
 [; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 7710: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
-"95 buttons.c
-[; ;buttons.c: 95: _Bool BUTTON_IsPressed(BUTTON button)
+"97 buttons.c
+[; ;buttons.c: 97: _Bool BUTTON_IsPressed(BUTTON button)
 [v _BUTTON_IsPressed `(a ~T0 @X0 1 ef1`E2973 ]
-"96
-[; ;buttons.c: 96: {
+"98
+[; ;buttons.c: 98: {
 {
 [e :U _BUTTON_IsPressed ]
-"95
-[; ;buttons.c: 95: _Bool BUTTON_IsPressed(BUTTON button)
-[v _button `E2973 ~T0 @X0 1 r1 ]
-"96
-[; ;buttons.c: 96: {
-[f ]
 "97
-[; ;buttons.c: 97:     switch(button)
-[e $U 353  ]
+[; ;buttons.c: 97: _Bool BUTTON_IsPressed(BUTTON button)
+[v _button `E2973 ~T0 @X0 1 r1 ]
 "98
-[; ;buttons.c: 98:     {
-{
+[; ;buttons.c: 98: {
+[f ]
 "99
-[; ;buttons.c: 99:         case BUTTON_S2:
-[e :U 354 ]
+[; ;buttons.c: 99:     switch(button)
+[e $U 353  ]
 "100
-[; ;buttons.c: 100:             return ( (PORTBbits.RB3 == 0) ? 1 : 0);
+[; ;buttons.c: 100:     {
+{
+"101
+[; ;buttons.c: 101:         case BUTTON_S2:
+[e :U 354 ]
+"102
+[; ;buttons.c: 102:             return ( (PORTBbits.RB3 == 0) ? 1 : 0);
 [e ) -> ? == -> . . _PORTBbits 0 3 `i -> 0 `i : -> 1 `i -> 0 `i `a ]
 [e $UE 351  ]
-"102
-[; ;buttons.c: 102:         case BUTTON_S3:
+"104
+[; ;buttons.c: 104:         case BUTTON_S3:
 [e :U 355 ]
-"103
-[; ;buttons.c: 103:             return ( (PORTBbits.RB4 == 0) ? 1 : 0);
+"105
+[; ;buttons.c: 105:             return ( (PORTBbits.RB4 == 0) ? 1 : 0);
 [e ) -> ? == -> . . _PORTBbits 0 4 `i -> 0 `i : -> 1 `i -> 0 `i `a ]
 [e $UE 351  ]
-"105
-[; ;buttons.c: 105:         case BUTTON_NONE:
+"107
+[; ;buttons.c: 107:         case BUTTON_ENCODER_PUSH:
 [e :U 356 ]
-"106
-[; ;buttons.c: 106:             return 0;
+"108
+[; ;buttons.c: 108:             return ( (PORTBbits.RB5 == 0) ? 1 : 0);
+[e ) -> ? == -> . . _PORTBbits 0 5 `i -> 0 `i : -> 1 `i -> 0 `i `a ]
+[e $UE 351  ]
+"110
+[; ;buttons.c: 110:         case BUTTON_S4:
+[e :U 357 ]
+"111
+[; ;buttons.c: 111:             return 0;
 [e ) -> -> 0 `i `a ]
 [e $UE 351  ]
-"107
-[; ;buttons.c: 107:     }
+"113
+[; ;buttons.c: 113:         case BUTTON_NONE:
+[e :U 358 ]
+"114
+[; ;buttons.c: 114:             return 0;
+[e ) -> -> 0 `i `a ]
+[e $UE 351  ]
+"115
+[; ;buttons.c: 115:     }
 }
 [e $U 352  ]
 [e :U 353 ]
 [e [\ -> _button `ui , $ -> . `E2973 1 `ui 354
  , $ -> . `E2973 2 `ui 355
- , $ -> . `E2973 0 `ui 356
+ , $ -> . `E2973 4 `ui 356
+ , $ -> . `E2973 3 `ui 357
+ , $ -> . `E2973 0 `ui 358
  352 ]
 [e :U 352 ]
-"109
-[; ;buttons.c: 109:     return 0;
+"117
+[; ;buttons.c: 117:     return 0;
 [e ) -> -> 0 `i `a ]
 [e $UE 351  ]
-"110
-[; ;buttons.c: 110: }
+"118
+[; ;buttons.c: 118: }
 [e :UE 351 ]
 }
-"128
-[; ;buttons.c: 128: void BUTTON_Enable(BUTTON button)
+"136
+[; ;buttons.c: 136: void BUTTON_Enable(BUTTON button)
 [v _BUTTON_Enable `(v ~T0 @X0 1 ef1`E2973 ]
-"129
-[; ;buttons.c: 129: {
+"137
+[; ;buttons.c: 137: {
 {
 [e :U _BUTTON_Enable ]
-"128
-[; ;buttons.c: 128: void BUTTON_Enable(BUTTON button)
-[v _button `E2973 ~T0 @X0 1 r1 ]
-"129
-[; ;buttons.c: 129: {
-[f ]
-"130
-[; ;buttons.c: 130:     switch(button)
-[e $U 359  ]
-"131
-[; ;buttons.c: 131:     {
-{
-"132
-[; ;buttons.c: 132:         case BUTTON_S2:
-[e :U 360 ]
-"133
-[; ;buttons.c: 133:             TRISBbits.TRISB3 = 1;
-[e = . . _TRISBbits 0 3 -> -> 1 `i `uc ]
-"134
-[; ;buttons.c: 134:             break;
-[e $U 358  ]
 "136
-[; ;buttons.c: 136:         case BUTTON_S3:
-[e :U 361 ]
+[; ;buttons.c: 136: void BUTTON_Enable(BUTTON button)
+[v _button `E2973 ~T0 @X0 1 r1 ]
 "137
-[; ;buttons.c: 137:             TRISBbits.TRISB4 = 1;
-[e = . . _TRISBbits 0 4 -> -> 1 `i `uc ]
+[; ;buttons.c: 137: {
+[f ]
 "138
-[; ;buttons.c: 138:             break;
-[e $U 358  ]
+[; ;buttons.c: 138:     switch(button)
+[e $U 361  ]
+"139
+[; ;buttons.c: 139:     {
+{
 "140
-[; ;buttons.c: 140:         case BUTTON_NONE:
+[; ;buttons.c: 140:         case BUTTON_S2:
 [e :U 362 ]
 "141
-[; ;buttons.c: 141:             break;
-[e $U 358  ]
+[; ;buttons.c: 141:             TRISBbits.TRISB3 = 1;
+[e = . . _TRISBbits 0 3 -> -> 1 `i `uc ]
 "142
-[; ;buttons.c: 142:     }
+[; ;buttons.c: 142:             break;
+[e $U 360  ]
+"144
+[; ;buttons.c: 144:         case BUTTON_S3:
+[e :U 363 ]
+"145
+[; ;buttons.c: 145:             TRISBbits.TRISB4 = 1;
+[e = . . _TRISBbits 0 4 -> -> 1 `i `uc ]
+"146
+[; ;buttons.c: 146:             break;
+[e $U 360  ]
+"148
+[; ;buttons.c: 148:         case BUTTON_ENCODER_PUSH:
+[e :U 364 ]
+"149
+[; ;buttons.c: 149:             TRISBbits.TRISB5 = 1;
+[e = . . _TRISBbits 0 5 -> -> 1 `i `uc ]
+"150
+[; ;buttons.c: 150:             break;
+[e $U 360  ]
+"152
+[; ;buttons.c: 152:         case BUTTON_S4:
+[e :U 365 ]
+"154
+[; ;buttons.c: 154:             break;
+[e $U 360  ]
+"156
+[; ;buttons.c: 156:         case BUTTON_NONE:
+[e :U 366 ]
+"157
+[; ;buttons.c: 157:             break;
+[e $U 360  ]
+"158
+[; ;buttons.c: 158:     }
 }
-[e $U 358  ]
-[e :U 359 ]
-[e [\ -> _button `ui , $ -> . `E2973 1 `ui 360
- , $ -> . `E2973 2 `ui 361
- , $ -> . `E2973 0 `ui 362
- 358 ]
-[e :U 358 ]
-"143
-[; ;buttons.c: 143: }
-[e :UE 357 ]
+[e $U 360  ]
+[e :U 361 ]
+[e [\ -> _button `ui , $ -> . `E2973 1 `ui 362
+ , $ -> . `E2973 2 `ui 363
+ , $ -> . `E2973 4 `ui 364
+ , $ -> . `E2973 3 `ui 365
+ , $ -> . `E2973 0 `ui 366
+ 360 ]
+[e :U 360 ]
+"159
+[; ;buttons.c: 159: }
+[e :UE 359 ]
 }

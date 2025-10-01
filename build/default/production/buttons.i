@@ -5297,16 +5297,18 @@ typedef enum
     BUTTON_NONE,
     BUTTON_S2,
     BUTTON_S3,
-    BUTTON_S4
+    BUTTON_S4,
+    BUTTON_ENCODER_PUSH
+
 
 
 } BUTTON;
-# 56 "./buttons.h"
+# 58 "./buttons.h"
 _Bool BUTTON_IsPressed(BUTTON button);
-# 74 "./buttons.h"
+# 76 "./buttons.h"
 void BUTTON_Enable(BUTTON button);
 # 50 "buttons.c" 2
-# 95 "buttons.c"
+# 97 "buttons.c"
 _Bool BUTTON_IsPressed(BUTTON button)
 {
     switch(button)
@@ -5317,13 +5319,19 @@ _Bool BUTTON_IsPressed(BUTTON button)
         case BUTTON_S3:
             return ( (PORTBbits.RB4 == 0) ? 1 : 0);
 
+        case BUTTON_ENCODER_PUSH:
+            return ( (PORTBbits.RB5 == 0) ? 1 : 0);
+
+        case BUTTON_S4:
+            return 0;
+
         case BUTTON_NONE:
             return 0;
     }
 
     return 0;
 }
-# 128 "buttons.c"
+# 136 "buttons.c"
 void BUTTON_Enable(BUTTON button)
 {
     switch(button)
@@ -5334,6 +5342,14 @@ void BUTTON_Enable(BUTTON button)
 
         case BUTTON_S3:
             TRISBbits.TRISB4 = 1;
+            break;
+
+        case BUTTON_ENCODER_PUSH:
+            TRISBbits.TRISB5 = 1;
+            break;
+
+        case BUTTON_S4:
+
             break;
 
         case BUTTON_NONE:

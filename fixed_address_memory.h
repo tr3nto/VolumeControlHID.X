@@ -26,6 +26,7 @@ please contact mla_licensing@microchip.com
     #define CONSUMER_INPUT_REPORT_DATA_BUFFER_ADDRESS_TAG @0x500
 #else
     #define CONSUMER_INPUT_REPORT_DATA_BUFFER_ADDRESS_TAG     __at(0x500)
+    #define MOUSE_REPORT_DATA_BUFFER_ADDRESS    __at(0x510)
 #endif
 
 #endif //FIXED_MEMORY_ADDRESS

@@ -5368,13 +5368,15 @@ typedef enum
     BUTTON_NONE,
     BUTTON_S2,
     BUTTON_S3,
-    BUTTON_S4
+    BUTTON_S4,
+    BUTTON_ENCODER_PUSH
+
 
 
 } BUTTON;
-# 56 "./buttons.h"
+# 58 "./buttons.h"
 _Bool BUTTON_IsPressed(BUTTON button);
-# 74 "./buttons.h"
+# 76 "./buttons.h"
 void BUTTON_Enable(BUTTON button);
 # 27 "./system.h" 2
 # 1 "./leds.h" 1
@@ -6186,8 +6188,8 @@ typedef union _POINTER
     extern volatile OUT_PIPE outPipes[1];
 
 
-extern volatile BDT_ENTRY* pBDTEntryOut[1 +1];
-extern volatile BDT_ENTRY* pBDTEntryIn[1 +1];
+extern volatile BDT_ENTRY* pBDTEntryOut[2 +1];
+extern volatile BDT_ENTRY* pBDTEntryIn[2 +1];
 # 37 "./usb_hal.h" 2
 # 167 "./usb_hal.h"
 void OTGCORE_SetDeviceAddr( uint8_t addr );
@@ -6271,30 +6273,59 @@ ENCODER_DIRECTION ENCODER_GetDirection(void);
 # 82 "./encoder.h"
 void ENCODER_Task(void);
 # 34 "app_device_consumer.c" 2
-# 48 "app_device_consumer.c"
+# 1 "./buttons.h" 1
+# 35 "app_device_consumer.c" 2
+# 1 "./io_mapping.h" 1
+# 36 "app_device_consumer.c" 2
+# 50 "app_device_consumer.c"
+typedef enum {
+    DEVICE_MODE_VOLUME_CONTROL,
+    DEVICE_MODE_SCROLL_WHEEL
+} DEVICE_MODE;
+
+static DEVICE_MODE currentMode = DEVICE_MODE_VOLUME_CONTROL;
+static _Bool lastButtonState = 0;
+static _Bool buttonPressed = 0;
+# 66 "app_device_consumer.c"
 const struct{uint8_t report[39];}hid_rpt01={
 { 0x05, 0x0C,
- 0x09, 0x01,
- 0xA1, 0x01,
- 0x85, 0x01,
- 0x05, 0x0C,
- 0x15, 0x00,
- 0x25, 0x01,
- 0x75, 0x01,
- 0x95, 0x07,
- 0x09, 0xB5,
- 0x09, 0xB6,
- 0x09, 0xB7,
- 0x09, 0xCD,
- 0x09, 0xE2,
- 0x09, 0xE9,
- 0x09, 0xEA,
- 0x81, 0x02,
- 0x95, 0x01,
- 0x81, 0x01,
- 0xC0}
+    0x09, 0x01,
+    0xA1, 0x01,
+    0x85, 0x01,
+    0x05, 0x0C,
+    0x15, 0x00,
+    0x25, 0x01,
+    0x75, 0x01,
+    0x95, 0x07,
+    0x09, 0xB5,
+    0x09, 0xB6,
+    0x09, 0xB7,
+    0x09, 0xCD,
+    0x09, 0xE2,
+    0x09, 0xE9,
+    0x09, 0xEA,
+    0x81, 0x02,
+    0x95, 0x01,
+    0x81, 0x01,
+    0xC0}
 };
-# 79 "app_device_consumer.c"
+
+
+const struct{uint8_t report[24];}hid_rpt02={
+{ 0x05, 0x01,
+    0x09, 0x06,
+    0xA1, 0x01,
+    0x05, 0x07,
+    0x19, 0x00,
+    0x29, 0xFF,
+    0x15, 0x00,
+    0x26, 0xFF, 0x00,
+    0x75, 0x08,
+    0x95, 0x06,
+    0x81, 0x00,
+    0xC0}
+};
+# 113 "app_device_consumer.c"
 typedef struct
 {
     uint8_t reportID;
@@ -6315,28 +6346,90 @@ typedef struct
     } controls;
 } CONSUMER_INPUT_REPORT;
 
+typedef struct
+{
 
 
 
+    uint8_t keys[6];
+} KEYBOARD_REPORT;
 
+typedef struct
+{
+    _Bool sentStop;
+    _Bool lastButtonState;
+    uint8_t vectorPosition;
+    uint16_t movementCount;
+    _Bool movementMode;
+    _Bool keyPressed;
+    uint8_t keyReleaseCount;
 
+    struct
+    {
+        void* handle;
+        uint8_t idleRate;
+        uint8_t idleRateSofCount;
+    } inputReport[1];
 
+} KEYBOARD;
+# 175 "app_device_consumer.c"
 static CONSUMER_INPUT_REPORT consumerReport __attribute__((address(0x500)));
-# 116 "app_device_consumer.c"
+static KEYBOARD_REPORT keyboardReport ;
+static KEYBOARD keyboard;
+
+
+
+
+
+
+
+static void APP_HandleVolumeControl(void);
+static void APP_HandleScrollWheel(void);
+static void APP_DeviceKeyboardInitialize(void);
+
+
+
 extern volatile signed int SOFCounter;
 
 
 
 CONSUMER_INPUT_REPORT oldconsumerReport;
+KEYBOARD_REPORT oldkeyboardReport;
 signed int LocalSOFCount;
 static signed int OldSOFCount;
 
 static void* lastConsumerTransmission;
-# 134 "app_device_consumer.c"
+static void* lastKeyboardTransmission;
+# 224 "app_device_consumer.c"
+void APP_HandleModeSwitch(void)
+{
+    _Bool currentButtonState = BUTTON_IsPressed(BUTTON_ENCODER_PUSH);
+
+
+    if (currentButtonState && !lastButtonState) {
+
+        if (currentMode == DEVICE_MODE_VOLUME_CONTROL) {
+            currentMode = DEVICE_MODE_SCROLL_WHEEL;
+
+            LED_On(LED_D3);
+            LED_Off(LED_D2);
+        } else {
+            currentMode = DEVICE_MODE_VOLUME_CONTROL;
+
+            LED_Off(LED_D3);
+            LED_On(LED_D2);
+        }
+    }
+
+
+    lastButtonState = currentButtonState;
+}
+
 void APP_ConsumerInit(void)
 {
 
     lastConsumerTransmission = 0;
+    lastKeyboardTransmission = 0;
 
 
 
@@ -6348,9 +6441,24 @@ void APP_ConsumerInit(void)
 
 
     USBEnableEndpoint(1, 0x02|0x10|0x08);
+    USBEnableEndpoint(2, 0x02|0x10|0x08);
 
 
     ENCODER_Initialize();
+
+
+    BUTTON_Enable(BUTTON_ENCODER_PUSH);
+
+
+    APP_DeviceKeyboardInitialize();
+
+
+    LED_Enable(LED_D3);
+    LED_Enable(LED_D2);
+
+
+    LED_Off(LED_D3);
+    LED_On(LED_D2);
 }
 
 void APP_ConsumerTasks(void)
@@ -6370,6 +6478,9 @@ void APP_ConsumerTasks(void)
     ENCODER_Task();
 
 
+    APP_HandleModeSwitch();
+
+
 
 
 
@@ -6377,6 +6488,25 @@ void APP_ConsumerTasks(void)
     {
         return;
     }
+
+
+    if (currentMode == DEVICE_MODE_VOLUME_CONTROL) {
+        APP_HandleVolumeControl();
+    } else {
+        APP_HandleScrollWheel();
+    }
+
+    return;
+}
+# 334 "app_device_consumer.c"
+static void APP_HandleVolumeControl(void)
+{
+    unsigned char i;
+    _Bool needToSendNewReportPacket_consumer;
+
+
+    LED_On(LED_D2);
+    LED_Off(LED_D3);
 
 
 
@@ -6392,14 +6522,12 @@ void APP_ConsumerTasks(void)
         if(encoder_dir == ENCODER_CW)
         {
 
-            consumerReport.reportID = 0x01;
             consumerReport.controls.value = 0;
             consumerReport.controls.bits.volumeUp = 1;
         }
         else if(encoder_dir == ENCODER_CCW)
         {
 
-            consumerReport.reportID = 0x01;
             consumerReport.controls.value = 0;
             consumerReport.controls.bits.volumeDown = 1;
         }
@@ -6427,6 +6555,102 @@ void APP_ConsumerTasks(void)
             lastConsumerTransmission = USBTransferOnePacket(1,1,(uint8_t*)&consumerReport,sizeof(consumerReport));
         }
     }
+}
+# 404 "app_device_consumer.c"
+static void APP_HandleScrollWheel(void)
+{
+    unsigned char i;
+    _Bool needToSendNewReportPacket_keyboard;
 
-    return;
+
+    LED_On(LED_D3);
+    LED_Off(LED_D2);
+
+
+
+    if(((lastKeyboardTransmission != 0x0000) && ((*(volatile uint8_t*)lastKeyboardTransmission & 0x80) != 0x00)) == 0)
+    {
+
+        memset(&keyboardReport, 0, sizeof(keyboardReport));
+
+
+        ENCODER_DIRECTION encoder_dir = ENCODER_GetDirection();
+
+
+        if(encoder_dir != ENCODER_NONE) {
+            LED_Toggle(LED_D2);
+        }
+
+
+
+        memset(keyboardReport.keys, 0, sizeof(keyboardReport.keys));
+        needToSendNewReportPacket_keyboard = 0;
+
+        if(encoder_dir == ENCODER_CW || encoder_dir == ENCODER_CCW)
+        {
+
+            if(!keyboard.keyPressed) {
+
+                if(encoder_dir == ENCODER_CW) {
+                    keyboardReport.keys[0] = 0x52;
+                } else {
+                    keyboardReport.keys[0] = 0x51;
+                }
+                keyboard.keyPressed = 1;
+                keyboard.keyReleaseCount = 3;
+                needToSendNewReportPacket_keyboard = 1;
+            }
+        }
+        else
+        {
+
+            if(keyboard.keyPressed) {
+                if(keyboard.keyReleaseCount > 0) {
+                    keyboard.keyReleaseCount--;
+                    if(keyboard.keyReleaseCount == 0) {
+
+                        keyboard.keyPressed = 0;
+                        needToSendNewReportPacket_keyboard = 1;
+                    }
+                }
+            }
+        }
+
+
+
+        if(needToSendNewReportPacket_keyboard == 1)
+        {
+
+
+            oldkeyboardReport = keyboardReport;
+
+
+            lastKeyboardTransmission = USBTransferOnePacket(2,1,(uint8_t*)&keyboardReport,sizeof(keyboardReport));
+        }
+    }
+}
+
+
+static void APP_DeviceKeyboardInitialize(void)
+{
+
+    keyboard.inputReport[0].handle = ((void*)0);
+    keyboard.sentStop = 0;
+    keyboard.movementCount = 0;
+    keyboard.movementMode = 1;
+    keyboard.keyPressed = 0;
+    keyboard.keyReleaseCount = 0;
+}
+# 502 "app_device_consumer.c"
+void APP_DeviceMouseTasks(void)
+{
+
+
+
+}
+# 521 "app_device_consumer.c"
+void APP_DeviceMouseSOFHandler(void)
+{
+
+
 }

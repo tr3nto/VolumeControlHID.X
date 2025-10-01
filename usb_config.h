@@ -34,8 +34,8 @@ please contact mla_licensing@microchip.com
 								// that use EP0 IN or OUT for sending large amounts of
 								// application related data.
 									
-#define USB_MAX_NUM_INT     	1   //Set this number to match the maximum interface number used in the descriptors for this firmware project
-#define USB_MAX_EP_NUMBER	    1   //Set this number to match the maximum endpoint number used in the descriptors for this firmware project
+#define USB_MAX_NUM_INT     	2   //Set this number to match the maximum interface number used in the descriptors for this firmware project
+#define USB_MAX_EP_NUMBER	    2   //Set this number to match the maximum endpoint number used in the descriptors for this firmware project
 
 //------------------------------------------------------------------------------
 //Select an endpoint ping-pong bufferring mode.  Some microcontrollers only
@@ -159,6 +159,8 @@ please contact mla_licensing@microchip.com
 #define HID_INT_IN_EP_SIZE      2
 #define HID_NUM_OF_DSC          1
 #define HID_RPT01_SIZE          39
+#define HID_RPT02_SIZE          24
+
 //#define USER_GET_REPORT_HANDLER USBHIDCBGetReportHandler	
 //#define USER_SET_REPORT_HANDLER USBHIDCBSetReportHandler	
 //#define USB_DEVICE_HID_IDLE_RATE_CALLBACK(reportID, newIdleRate)    USBHIDCBSetIdleRateHandler(reportID, newIdleRate)

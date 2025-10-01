@@ -6123,8 +6123,8 @@ typedef union _POINTER
     extern volatile OUT_PIPE outPipes[1];
 
 
-extern volatile BDT_ENTRY* pBDTEntryOut[1 +1];
-extern volatile BDT_ENTRY* pBDTEntryIn[1 +1];
+extern volatile BDT_ENTRY* pBDTEntryOut[2 +1];
+extern volatile BDT_ENTRY* pBDTEntryIn[2 +1];
 # 37 "./usb_hal.h" 2
 # 167 "./usb_hal.h"
 void OTGCORE_SetDeviceAddr( uint8_t addr );
@@ -6206,11 +6206,11 @@ typedef union
 
 volatile USB_DEVICE_STATE USBDeviceState;
 volatile uint8_t USBActiveConfiguration;
-volatile uint8_t USBAlternateInterface[1];
+volatile uint8_t USBAlternateInterface[2];
 volatile BDT_ENTRY *pBDTEntryEP0OutCurrent;
 volatile BDT_ENTRY *pBDTEntryEP0OutNext;
-volatile BDT_ENTRY *pBDTEntryOut[1 +1];
-volatile BDT_ENTRY *pBDTEntryIn[1 +1];
+volatile BDT_ENTRY *pBDTEntryOut[2 +1];
+volatile BDT_ENTRY *pBDTEntryIn[2 +1];
 volatile uint8_t shortPacketStatus;
 volatile uint8_t controlTransferState;
 volatile IN_PIPE inPipes[1];
@@ -6221,8 +6221,8 @@ volatile _Bool USBBusIsSuspended;
 volatile USTAT_FIELDS USTATcopy;
 volatile uint8_t endpoint_number;
 volatile _Bool BothEP0OutUOWNsSet;
-volatile EP_STATUS ep_data_in[1 +1];
-volatile EP_STATUS ep_data_out[1 +1];
+volatile EP_STATUS ep_data_in[2 +1];
+volatile EP_STATUS ep_data_out[2 +1];
 volatile uint8_t USBStatusStageTimeoutCounter;
 volatile _Bool USBDeferStatusStagePacket;
 volatile _Bool USBStatusStageEnabledFlag1;
@@ -6237,13 +6237,13 @@ volatile uint8_t USBTicksSinceSuspendEnd;
 
 
 
-volatile BDT_ENTRY BDT[((1 + 1) * 4)] __attribute__((address(0x400)));
+volatile BDT_ENTRY BDT[((2 + 1) * 4)] __attribute__((address(0x400)));
 
 
 
 
-volatile CTRL_TRF_SETUP SetupPkt __attribute__((address((0x400 +(((1 + 1) * 4)*4)))));
-volatile uint8_t CtrlTrfData[8] __attribute__((address(((0x400 +(((1 + 1) * 4)*4)) + 8))));
+volatile CTRL_TRF_SETUP SetupPkt __attribute__((address((0x400 +(((2 + 1) * 4)*4)))));
+volatile uint8_t CtrlTrfData[8] __attribute__((address(((0x400 +(((2 + 1) * 4)*4)) + 8))));
 # 213 "usb_device.c"
     extern const USB_DEVICE_DESCRIPTOR device_dsc;
 
@@ -6303,7 +6303,7 @@ void USBDeviceInit(void)
 
     UEP0 = 0;
 
-    memset((void*)&UEP1,0x00,(1));;
+    memset((void*)&UEP1,0x00,(2));;
 
     { UCFG = 0x10 | 0x00 | 0x04 | 0x02; UEIE = 0x9F; UIE = 0x39 | 0x40 | 0x02; };
 
@@ -6352,7 +6352,7 @@ void USBDeviceInit(void)
 
 
 
-    for(i = 0; i < (uint8_t)(1 +1u); i++)
+    for(i = 0; i < (uint8_t)(2 +1u); i++)
     {
         pBDTEntryIn[i] = 0u;
         pBDTEntryOut[i] = 0u;
@@ -7076,7 +7076,7 @@ static void USBStdSetCfgHandler(void)
     inPipes[0].info.bits.busy = 1;
 
 
-    memset((void*)&UEP1,0x00,(1));;
+    memset((void*)&UEP1,0x00,(2));;
 
 
     memset((void*)&BDT[0], 0x00, sizeof(BDT));
@@ -7087,14 +7087,14 @@ static void USBStdSetCfgHandler(void)
 
 
 
- for(i = 0; i < (uint8_t)(1 +1u); i++)
+ for(i = 0; i < (uint8_t)(2 +1u); i++)
  {
   ep_data_in[i].Val = 0u;
         ep_data_out[i].Val = 0u;
  }
 
 
-    memset((void*)&USBAlternateInterface,0x00,1);
+    memset((void*)&USBAlternateInterface,0x00,2);
 
 
     UCONbits.PPBRST = 0;
@@ -7588,7 +7588,7 @@ static void USBStdFeatureReqHandler(void)
 
     if((SetupPkt.bFeature == 0)&&
        (SetupPkt.Recipient == (0x02))&&
-       (SetupPkt.EPNum != 0) && (SetupPkt.EPNum <= 1)&&
+       (SetupPkt.EPNum != 0) && (SetupPkt.EPNum <= 2)&&
        (USBDeviceState == CONFIGURED_STATE))
     {
 

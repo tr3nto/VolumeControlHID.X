@@ -5320,7 +5320,7 @@ void LED_On(LED led)
     switch(led)
     {
         case LED_D1:
-            LATAbits.LATA3 = 1;
+            LATAbits.LATA0 = 1;
             break;
 
         case LED_D2:
@@ -5345,7 +5345,7 @@ void LED_Off(LED led)
     switch(led)
     {
         case LED_D1:
-            LATAbits.LATA3 = 0;
+            LATAbits.LATA0 = 0;
             break;
 
         case LED_D2:
@@ -5370,7 +5370,7 @@ void LED_Toggle(LED led)
     switch(led)
     {
         case LED_D1:
-            LATAbits.LATA3 ^= 1;
+            LATAbits.LATA0 ^= 1;
             break;
 
         case LED_D2:
@@ -5395,7 +5395,7 @@ _Bool LED_Get(LED led)
     switch(led)
     {
         case LED_D1:
-            return ( (LATAbits.LATA3 == 1) ? 1 : 0 );
+            return ( (LATAbits.LATA0 == 1) ? 1 : 0 );
 
         case LED_D2:
             return ( (LATAbits.LATA1 == 1) ? 1 : 0 );
@@ -5418,7 +5418,7 @@ void LED_Enable(LED led)
     switch(led)
     {
         case LED_D1:
-            TRISAbits.TRISA3 = 0;
+            TRISAbits.TRISA0 = 0;
             break;
 
         case LED_D2:

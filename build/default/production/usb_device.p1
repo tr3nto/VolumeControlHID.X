@@ -904,15 +904,15 @@ Version 4.0 HI-TECH Software Intermediate Code
 "142
 [v _USBActiveConfiguration `Vuc ~T0 @X0 1 e ]
 "143
-[v _USBAlternateInterface `Vuc ~T0 @X0 -> -> 1 `i `ux e ]
+[v _USBAlternateInterface `Vuc ~T0 @X0 -> 2 `i e ]
 "144
 [v _pBDTEntryEP0OutCurrent `*VS398 ~T0 @X0 1 e ]
 "145
 [v _pBDTEntryEP0OutNext `*VS398 ~T0 @X0 1 e ]
 "146
-[v _pBDTEntryOut `*VS398 ~T0 @X0 -> 2 `i e ]
+[v _pBDTEntryOut `*VS398 ~T0 @X0 -> 3 `i e ]
 "147
-[v _pBDTEntryIn `*VS398 ~T0 @X0 -> 2 `i e ]
+[v _pBDTEntryIn `*VS398 ~T0 @X0 -> 3 `i e ]
 "148
 [v _shortPacketStatus `Vuc ~T0 @X0 1 e ]
 "149
@@ -934,9 +934,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "157
 [v _BothEP0OutUOWNsSet `Va ~T0 @X0 1 e ]
 "158
-[v _ep_data_in `VS405 ~T0 @X0 -> 2 `i e ]
+[v _ep_data_in `VS405 ~T0 @X0 -> 3 `i e ]
 "159
-[v _ep_data_out `VS405 ~T0 @X0 -> 2 `i e ]
+[v _ep_data_out `VS405 ~T0 @X0 -> 3 `i e ]
 "160
 [v _USBStatusStageTimeoutCounter `Vuc ~T0 @X0 1 e ]
 "161
@@ -954,11 +954,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 "167
 [v _USBTicksSinceSuspendEnd `Vuc ~T0 @X0 1 e ]
 "174
-[v _BDT `VS398 ~T0 @X0 -> 8 `i e@1024 ]
+[v _BDT `VS398 ~T0 @X0 -> 12 `i e@1024 ]
 "179
-[v _SetupPkt `VS360 ~T0 @X0 1 e@1056 ]
+[v _SetupPkt `VS360 ~T0 @X0 1 e@1072 ]
 "180
-[v _CtrlTrfData `Vuc ~T0 @X0 -> 8 `i e@1064 ]
+[v _CtrlTrfData `Vuc ~T0 @X0 -> 8 `i e@1080 ]
 "281
 [; ;usb_device.c: 281: void USBDeviceInit(void)
 [v _USBDeviceInit `(v ~T0 @X0 1 ef ]
@@ -989,8 +989,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;usb_device.c: 298:     UEP0 = 0;
 [e = _UEP0 -> -> 0 `i `uc ]
 "300
-[; ;usb_device.c: 300:     memset((void*)&UEP1,0x00,(1));;
-[e ( _memset (3 , , -> &U _UEP1 `*v -> 0 `i -> -> 1 `i `ui ]
+[; ;usb_device.c: 300:     memset((void*)&UEP1,0x00,(2));;
+[e ( _memset (3 , , -> &U _UEP1 `*v -> 0 `i -> -> 2 `i `ui ]
 "302
 [; ;usb_device.c: 302:     { UCFG = 0x10 | 0x00 | 0x04 | 0x02; UEIE = 0x9F; UIE = 0x39 | 0x40 | 0x02; };
 {
@@ -1069,10 +1069,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;usb_device.c: 345:     USBBusIsSuspended = 0;
 [e = _USBBusIsSuspended -> -> 0 `i `a ]
 "349
-[; ;usb_device.c: 349:     for(i = 0; i < (uint8_t)(1 +1u); i++)
+[; ;usb_device.c: 349:     for(i = 0; i < (uint8_t)(2 +1u); i++)
 {
 [e = _i -> -> 0 `i `uc ]
-[e $ < -> _i `i -> -> + -> -> 1 `i `ui -> 1 `ui `uc `i 416  ]
+[e $ < -> _i `i -> -> + -> -> 2 `i `ui -> 1 `ui `uc `i 416  ]
 [e $U 417  ]
 [e :U 416 ]
 "350
@@ -1094,7 +1094,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;usb_device.c: 355:     }
 }
 [e ++ _i -> -> 1 `i `uc ]
-[e $ < -> _i `i -> -> + -> -> 1 `i `ui -> 1 `ui `uc `i 416  ]
+[e $ < -> _i `i -> -> + -> -> 2 `i `ui -> 1 `ui `uc `i 416  ]
 [e :U 417 ]
 }
 "358
@@ -2568,8 +2568,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;usb_device.c: 1977:     inPipes[0].info.bits.busy = 1;
 [e = . . . *U + &U _inPipes * -> -> -> 0 `i `ui `ux -> -> # *U &U _inPipes `ui `ux 1 0 3 -> -> 1 `i `uc ]
 "1980
-[; ;usb_device.c: 1980:     memset((void*)&UEP1,0x00,(1));;
-[e ( _memset (3 , , -> &U _UEP1 `*v -> 0 `i -> -> 1 `i `ui ]
+[; ;usb_device.c: 1980:     memset((void*)&UEP1,0x00,(2));;
+[e ( _memset (3 , , -> &U _UEP1 `*v -> 0 `i -> -> 2 `i `ui ]
 "1983
 [; ;usb_device.c: 1983:     memset((void*)&BDT[0], 0x00, sizeof(BDT));
 [e ( _memset (3 , , -> &U *U + &U _BDT * -> -> -> 0 `i `ui `ux -> -> # *U &U _BDT `ui `ux `*v -> 0 `i -> # _BDT `ui ]
@@ -2577,10 +2577,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;usb_device.c: 1986:     UCONbits.PPBRST = 1;
 [e = . . _UCONbits 0 6 -> -> 1 `i `uc ]
 "1991
-[; ;usb_device.c: 1991:  for(i = 0; i < (uint8_t)(1 +1u); i++)
+[; ;usb_device.c: 1991:  for(i = 0; i < (uint8_t)(2 +1u); i++)
 {
 [e = _i -> -> 0 `i `uc ]
-[e $ < -> _i `i -> -> + -> -> 1 `i `ui -> 1 `ui `uc `i 514  ]
+[e $ < -> _i `i -> -> + -> -> 2 `i `ui -> 1 `ui `uc `i 514  ]
 [e $U 515  ]
 [e :U 514 ]
 "1992
@@ -2596,12 +2596,12 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;usb_device.c: 1995:  }
 }
 [e ++ _i -> -> 1 `i `uc ]
-[e $ < -> _i `i -> -> + -> -> 1 `i `ui -> 1 `ui `uc `i 514  ]
+[e $ < -> _i `i -> -> + -> -> 2 `i `ui -> 1 `ui `uc `i 514  ]
 [e :U 515 ]
 }
 "1998
-[; ;usb_device.c: 1998:     memset((void*)&USBAlternateInterface,0x00,1);
-[e ( _memset (3 , , -> &U _USBAlternateInterface `*v -> 0 `i -> -> 1 `i `ui ]
+[; ;usb_device.c: 1998:     memset((void*)&USBAlternateInterface,0x00,2);
+[e ( _memset (3 , , -> &U _USBAlternateInterface `*v -> 0 `i -> -> 2 `i `ui ]
 "2001
 [; ;usb_device.c: 2001:     UCONbits.PPBRST = 0;
 [e = . . _UCONbits 0 6 -> -> 0 `i `uc ]
@@ -3656,7 +3656,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 593 ]
 "2783
 [; ;usb_device.c: 2783:     if((SetupPkt.bFeature == 0)&&
-[e $ ! && && && && == -> . . _SetupPkt 2 4 `i -> 0 `i == -> . . _SetupPkt 2 0 `i -> 2 `i != -> . . _SetupPkt 9 4 `i -> 0 `i <= -> . . _SetupPkt 9 4 `i -> 1 `i == -> _USBDeviceState `ui -> . `E3402 6 `ui 596  ]
+[e $ ! && && && && == -> . . _SetupPkt 2 4 `i -> 0 `i == -> . . _SetupPkt 2 0 `i -> 2 `i != -> . . _SetupPkt 9 4 `i -> 0 `i <= -> . . _SetupPkt 9 4 `i -> 2 `i == -> _USBDeviceState `ui -> . `E3402 6 `ui 596  ]
 "2787
 [; ;usb_device.c: 2787:     {
 {

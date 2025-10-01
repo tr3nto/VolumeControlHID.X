@@ -5311,13 +5311,15 @@ typedef enum
     BUTTON_NONE,
     BUTTON_S2,
     BUTTON_S3,
-    BUTTON_S4
+    BUTTON_S4,
+    BUTTON_ENCODER_PUSH
+
 
 
 } BUTTON;
-# 56 "./buttons.h"
+# 58 "./buttons.h"
 _Bool BUTTON_IsPressed(BUTTON button);
-# 74 "./buttons.h"
+# 76 "./buttons.h"
 void BUTTON_Enable(BUTTON button);
 # 27 "./system.h" 2
 # 1 "./leds.h" 1
@@ -6189,8 +6191,8 @@ typedef union _POINTER
     extern volatile OUT_PIPE outPipes[1];
 
 
-extern volatile BDT_ENTRY* pBDTEntryOut[1 +1];
-extern volatile BDT_ENTRY* pBDTEntryIn[1 +1];
+extern volatile BDT_ENTRY* pBDTEntryOut[2 +1];
+extern volatile BDT_ENTRY* pBDTEntryIn[2 +1];
 # 37 "./usb_hal.h" 2
 # 167 "./usb_hal.h"
 void OTGCORE_SetDeviceAddr( uint8_t addr );
@@ -6264,6 +6266,9 @@ void APP_LEDUpdateUSBStatus(void);
 # 23 "./app_device_consumer.h"
 void APP_ConsumerInit(void);
 void APP_ConsumerTasks(void);
+void APP_DeviceMouseTasks(void);
+void APP_DeviceMouseSOFHandler(void);
+void APP_HandleModeSwitch(void);
 # 37 "usb_events.c" 2
 
 

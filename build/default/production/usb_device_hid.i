@@ -6130,8 +6130,8 @@ typedef union _POINTER
     extern volatile OUT_PIPE outPipes[1];
 
 
-extern volatile BDT_ENTRY* pBDTEntryOut[1 +1];
-extern volatile BDT_ENTRY* pBDTEntryIn[1 +1];
+extern volatile BDT_ENTRY* pBDTEntryOut[2 +1];
+extern volatile BDT_ENTRY* pBDTEntryIn[2 +1];
 # 37 "./usb_hal.h" 2
 # 167 "./usb_hal.h"
 void OTGCORE_SetDeviceAddr( uint8_t addr );
@@ -6224,7 +6224,8 @@ extern const struct{uint8_t report[39];}hid_rpt01;
 void USBCheckHIDRequest(void)
 {
     if(SetupPkt.Recipient != (0x01)) return;
-    if(SetupPkt.bIntfID != 0x00) return;
+
+    if(SetupPkt.bIntfID != 0 && SetupPkt.bIntfID != 1) return;
 
 
 
@@ -6238,23 +6239,48 @@ void USBCheckHIDRequest(void)
             case 0x21:
                 if(USBActiveConfiguration == 1)
                 {
-                    { inPipes[0].pSrc.bRom = (const uint8_t*)&configDescriptor1 + 18; inPipes[0].wCount.Val = sizeof(USB_HID_DSC)+3; inPipes[0].info.Val = 0x40 | 0x80 | 0x00; };
+                    if(SetupPkt.bIntfID == 0)
+                    {
+
+                        { inPipes[0].pSrc.bRom = (const uint8_t*)&configDescriptor1 + 18; inPipes[0].wCount.Val = sizeof(USB_HID_DSC)+3; inPipes[0].info.Val = 0x40 | 0x80 | 0x00; };
 
 
 
+                    }
+                    else if(SetupPkt.bIntfID == 1)
+                    {
+
+                        { inPipes[0].pSrc.bRom = (const uint8_t*)&configDescriptor1 + 43; inPipes[0].wCount.Val = sizeof(USB_HID_DSC)+3; inPipes[0].info.Val = 0x40 | 0x80 | 0x00; };
+
+
+
+                    }
                 }
                 break;
             case 0x22:
 
                 {
-                    { inPipes[0].pSrc.bRom = (const uint8_t*)&hid_rpt01; inPipes[0].wCount.Val = 39; inPipes[0].info.Val = 0x40 | 0x80 | 0x00; };
+                    if(SetupPkt.bIntfID == 0)
+                    {
+
+                        { inPipes[0].pSrc.bRom = (const uint8_t*)&hid_rpt01; inPipes[0].wCount.Val = 39; inPipes[0].info.Val = 0x40 | 0x80 | 0x00; };
 
 
 
+                    }
+                    else if(SetupPkt.bIntfID == 1)
+                    {
+
+                        extern const struct{uint8_t report[24];}hid_rpt02;
+                        { inPipes[0].pSrc.bRom = (const uint8_t*)&hid_rpt02; inPipes[0].wCount.Val = 24; inPipes[0].info.Val = 0x40 | 0x80 | 0x00; };
+
+
+
+                    }
                 }
                 break;
             case 0x23:
-# 205 "usb_device_hid.c"
+# 231 "usb_device_hid.c"
                 break;
         }
     }

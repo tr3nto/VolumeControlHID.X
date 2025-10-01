@@ -1,22 +1,59 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"48 app_device_consumer.c
-[; ;app_device_consumer.c: 48: const struct{uint8_t report[39];}hid_rpt01={
+"55 app_device_consumer.c
+[; ;app_device_consumer.c: 55: static DEVICE_MODE currentMode = DEVICE_MODE_VOLUME_CONTROL;
+[c E3688 0 1 .. ]
+[n E3688 . DEVICE_MODE_VOLUME_CONTROL DEVICE_MODE_SCROLL_WHEEL  ]
+"66
+[; ;app_device_consumer.c: 66: const struct{uint8_t report[39];}hid_rpt01={
 [s S407 `uc -> 39 `i ]
 [n S407 . report ]
-"86
-[; ;app_device_consumer.c: 86:         {
-[s S410 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S410 . scanNextTrack scanPrevTrack stop playPause mute volumeUp volumeDown . ]
-"83
-[; ;app_device_consumer.c: 83:     {
-[u S409 `uc 1 `S410 1 ]
-[n S409 . value bits ]
-"80
-[; ;app_device_consumer.c: 80: {
-[s S408 `uc 1 `S409 1 ]
-[n S408 . reportID controls ]
-"116
-[; ;app_device_consumer.c: 116: extern volatile signed int SOFCounter;
+"90
+[; ;app_device_consumer.c: 90: const struct{uint8_t report[24];}hid_rpt02={
+[s S408 `uc -> 24 `i ]
+[n S408 . report ]
+"120
+[; ;app_device_consumer.c: 120:         {
+[s S411 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S411 . scanNextTrack scanPrevTrack stop playPause mute volumeUp volumeDown . ]
+"117
+[; ;app_device_consumer.c: 117:     {
+[u S410 `uc 1 `S411 1 ]
+[n S410 . value bits ]
+"114
+[; ;app_device_consumer.c: 114: {
+[s S409 `uc 1 `S410 1 ]
+[n S409 . reportID controls ]
+"134
+[; ;app_device_consumer.c: 134: {
+[s S412 `uc -> 6 `i ]
+[n S412 . keys ]
+"152
+[; ;app_device_consumer.c: 152:     {
+[s S414 `*v 1 `uc 1 `uc 1 ]
+[n S414 . handle idleRate idleRateSofCount ]
+"142
+[; ;app_device_consumer.c: 142: {
+[s S413 `a 1 `a 1 `uc 1 `us 1 `a 1 `a 1 `uc 1 `S414 -> -> 1 `i `ux ]
+[n S413 . sentStop lastButtonState vectorPosition movementCount movementMode keyPressed keyReleaseCount inputReport ]
+"226
+[; ;app_device_consumer.c: 226:     _Bool currentButtonState = BUTTON_IsPressed(BUTTON_ENCODER_PUSH);
+[c E3140 0 1 2 3 4 .. ]
+[n E3140 . BUTTON_NONE BUTTON_S2 BUTTON_S3 BUTTON_S4 BUTTON_ENCODER_PUSH  ]
+"58 ./buttons.h
+[; ;./buttons.h: 58: _Bool BUTTON_IsPressed(BUTTON button);
+[v _BUTTON_IsPressed `(a ~T0 @X0 0 ef1`E3140 ]
+"234 app_device_consumer.c
+[; ;app_device_consumer.c: 234:             LED_On(LED_D3);
+[c E3151 0 1 2 3 4 .. ]
+[n E3151 . LED_NONE LED_D1 LED_D2 LED_D3 LED_D4  ]
+"58 ./leds.h
+[; ;./leds.h: 58: void LED_On(LED led);
+[v _LED_On `(v ~T0 @X0 0 ef1`E3151 ]
+"76
+[; ;./leds.h: 76: void LED_Off(LED led);
+[v _LED_Off `(v ~T0 @X0 0 ef1`E3151 ]
+"191 app_device_consumer.c
+[; ;app_device_consumer.c: 191: extern volatile signed int SOFCounter;
 [v _SOFCounter `Vi ~T0 @X0 0 e ]
 "355 ./usb_device.h
 [; ;./usb_device.h: 355: void USBEnableEndpoint(uint8_t ep, uint8_t options);
@@ -24,13 +61,22 @@ Version 4.0 HI-TECH Software Intermediate Code
 "49 ./encoder.h
 [; ;./encoder.h: 49: void ENCODER_Initialize(void);
 [v _ENCODER_Initialize `(v ~T0 @X0 0 ef ]
-"162 app_device_consumer.c
-[; ;app_device_consumer.c: 162:     if( USBDeviceState < CONFIGURED_STATE )
-[c E3435 0 1 2 4 8 16 32 .. ]
-[n E3435 . DETACHED_STATE ATTACHED_STATE POWERED_STATE DEFAULT_STATE ADR_PENDING_STATE ADDRESS_STATE CONFIGURED_STATE  ]
+"76 ./buttons.h
+[; ;./buttons.h: 76: void BUTTON_Enable(BUTTON button);
+[v _BUTTON_Enable `(v ~T0 @X0 0 ef1`E3140 ]
+"187 app_device_consumer.c
+[; ;app_device_consumer.c: 187: static void APP_DeviceKeyboardInitialize(void);
+[v _APP_DeviceKeyboardInitialize `(v ~T0 @X0 0 sf ]
+"129 ./leds.h
+[; ;./leds.h: 129: void LED_Enable(LED led);
+[v _LED_Enable `(v ~T0 @X0 0 ef1`E3151 ]
+"292 app_device_consumer.c
+[; ;app_device_consumer.c: 292:     if( USBDeviceState < CONFIGURED_STATE )
+[c E3436 0 1 2 4 8 16 32 .. ]
+[n E3436 . DETACHED_STATE ATTACHED_STATE POWERED_STATE DEFAULT_STATE ADR_PENDING_STATE ADDRESS_STATE CONFIGURED_STATE  ]
 "2050 ./usb_device.h
 [; ;./usb_device.h: 2050: extern volatile USB_DEVICE_STATE USBDeviceState;
-[v _USBDeviceState `VE3435 ~T0 @X0 0 e ]
+[v _USBDeviceState `VE3436 ~T0 @X0 0 e ]
 "82 ./encoder.h
 [; ;./encoder.h: 82: void ENCODER_Task(void);
 [v _ENCODER_Task `(v ~T0 @X0 0 ef ]
@@ -45,19 +91,28 @@ Version 4.0 HI-TECH Software Intermediate Code
 "465
 [; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 465: extern volatile UCONbits_t UCONbits __attribute__((address(0xF6D)));
 [v _UCONbits `VS25 ~T0 @X0 0 e@3949 ]
+"185 app_device_consumer.c
+[; ;app_device_consumer.c: 185: static void APP_HandleVolumeControl(void);
+[v _APP_HandleVolumeControl `(v ~T0 @X0 0 sf ]
+"186
+[; ;app_device_consumer.c: 186: static void APP_HandleScrollWheel(void);
+[v _APP_HandleScrollWheel `(v ~T0 @X0 0 sf ]
 "29 C:\Program Files\Microchip\xc8\v3.00\pic\include\c99/string.h
 [; ;C:\Program Files\Microchip\xc8\v3.00\pic\include\c99/string.h: 29: void *memset (void *, int, size_t);
 [v _memset `(*v ~T0 @X0 0 ef3`*v`i`ui ]
-"188 app_device_consumer.c
-[; ;app_device_consumer.c: 188:         ENCODER_DIRECTION encoder_dir = ENCODER_GetDirection();
-[c E3679 0 1 2 .. ]
-[n E3679 . ENCODER_NONE ENCODER_CW ENCODER_CCW  ]
+"352 app_device_consumer.c
+[; ;app_device_consumer.c: 352:         ENCODER_DIRECTION encoder_dir = ENCODER_GetDirection();
+[c E3680 0 1 2 .. ]
+[n E3680 . ENCODER_NONE ENCODER_CW ENCODER_CCW  ]
 "67 ./encoder.h
 [; ;./encoder.h: 67: ENCODER_DIRECTION ENCODER_GetDirection(void);
-[v _ENCODER_GetDirection `(E3679 ~T0 @X0 0 ef ]
+[v _ENCODER_GetDirection `(E3680 ~T0 @X0 0 ef ]
 "448 ./usb_device.h
 [; ;./usb_device.h: 448: void* USBTransferOnePacket(uint8_t ep,uint8_t dir,uint8_t* data,uint8_t len);
 [v _USBTransferOnePacket `(*v ~T0 @X0 0 ef4`uc`uc`*uc`uc ]
+"94 ./leds.h
+[; ;./leds.h: 94: void LED_Toggle(LED led);
+[v _LED_Toggle `(v ~T0 @X0 0 ef1`E3151 ]
 "52 C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 52: __asm("UFRM equ 0F66h");
 [; <" UFRM equ 0F66h ;# ">
@@ -532,8 +587,26 @@ Version 4.0 HI-TECH Software Intermediate Code
 "7710
 [; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 7710: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
-"48 app_device_consumer.c
-[; ;app_device_consumer.c: 48: const struct{uint8_t report[39];}hid_rpt01={
+"55 app_device_consumer.c
+[; ;app_device_consumer.c: 55: static DEVICE_MODE currentMode = DEVICE_MODE_VOLUME_CONTROL;
+[v _currentMode `E3688 ~T0 @X0 1 s ]
+[i _currentMode
+. `E3688 0
+]
+"56
+[; ;app_device_consumer.c: 56: static _Bool lastButtonState = 0;
+[v _lastButtonState `a ~T0 @X0 1 s ]
+[i _lastButtonState
+-> -> 0 `i `a
+]
+"57
+[; ;app_device_consumer.c: 57: static _Bool buttonPressed = 0;
+[v _buttonPressed `a ~T0 @X0 1 s ]
+[i _buttonPressed
+-> -> 0 `i `a
+]
+"66
+[; ;app_device_consumer.c: 66: const struct{uint8_t report[39];}hid_rpt01={
 [v _hid_rpt01 `CS407 ~T0 @X0 1 e ]
 [i _hid_rpt01
 :U ..
@@ -582,219 +655,608 @@ Version 4.0 HI-TECH Software Intermediate Code
 ..
 ..
 ]
-"105
-[; ;app_device_consumer.c: 105: static CONSUMER_INPUT_REPORT consumerReport __attribute__((address(0x500)));
-[v _consumerReport `S408 ~T0 @X0 1 s@1280 ]
-"120
-[; ;app_device_consumer.c: 120: CONSUMER_INPUT_REPORT oldconsumerReport;
-[v _oldconsumerReport `S408 ~T0 @X0 1 e ]
-"121
-[; ;app_device_consumer.c: 121: signed int LocalSOFCount;
+"90
+[; ;app_device_consumer.c: 90: const struct{uint8_t report[24];}hid_rpt02={
+[v _hid_rpt02 `CS408 ~T0 @X0 1 e ]
+[i _hid_rpt02
+:U ..
+:U ..
+:U ..
+-> -> 5 `i `uc
+-> -> 1 `i `uc
+-> -> 9 `i `uc
+-> -> 6 `i `uc
+-> -> 161 `i `uc
+-> -> 1 `i `uc
+-> -> 5 `i `uc
+-> -> 7 `i `uc
+-> -> 25 `i `uc
+-> -> 0 `i `uc
+-> -> 41 `i `uc
+-> -> 255 `i `uc
+-> -> 21 `i `uc
+-> -> 0 `i `uc
+-> -> 38 `i `uc
+-> -> 255 `i `uc
+-> -> 0 `i `uc
+-> -> 117 `i `uc
+-> -> 8 `i `uc
+-> -> 149 `i `uc
+-> -> 6 `i `uc
+-> -> 129 `i `uc
+-> -> 0 `i `uc
+-> -> 192 `i `uc
+..
+..
+..
+]
+"175
+[; ;app_device_consumer.c: 175: static CONSUMER_INPUT_REPORT consumerReport __attribute__((address(0x500)));
+[v _consumerReport `S409 ~T0 @X0 1 s@1280 ]
+"176
+[; ;app_device_consumer.c: 176: static KEYBOARD_REPORT keyboardReport ;
+[v _keyboardReport `S412 ~T0 @X0 1 s ]
+"177
+[; ;app_device_consumer.c: 177: static KEYBOARD keyboard;
+[v _keyboard `S413 ~T0 @X0 1 s ]
+"195
+[; ;app_device_consumer.c: 195: CONSUMER_INPUT_REPORT oldconsumerReport;
+[v _oldconsumerReport `S409 ~T0 @X0 1 e ]
+"196
+[; ;app_device_consumer.c: 196: KEYBOARD_REPORT oldkeyboardReport;
+[v _oldkeyboardReport `S412 ~T0 @X0 1 e ]
+"197
+[; ;app_device_consumer.c: 197: signed int LocalSOFCount;
 [v _LocalSOFCount `i ~T0 @X0 1 e ]
-"122
-[; ;app_device_consumer.c: 122: static signed int OldSOFCount;
+"198
+[; ;app_device_consumer.c: 198: static signed int OldSOFCount;
 [v _OldSOFCount `i ~T0 @X0 1 s ]
-"124
-[; ;app_device_consumer.c: 124: static void* lastConsumerTransmission;
+"200
+[; ;app_device_consumer.c: 200: static void* lastConsumerTransmission;
 [v _lastConsumerTransmission `*v ~T0 @X0 1 s ]
-"134
-[; ;app_device_consumer.c: 134: void APP_ConsumerInit(void)
+"201
+[; ;app_device_consumer.c: 201: static void* lastKeyboardTransmission;
+[v _lastKeyboardTransmission `*v ~T0 @X0 1 s ]
+"224
+[; ;app_device_consumer.c: 224: void APP_HandleModeSwitch(void)
+[v _APP_HandleModeSwitch `(v ~T0 @X0 1 ef ]
+"225
+[; ;app_device_consumer.c: 225: {
+{
+[e :U _APP_HandleModeSwitch ]
+[f ]
+"226
+[; ;app_device_consumer.c: 226:     _Bool currentButtonState = BUTTON_IsPressed(BUTTON_ENCODER_PUSH);
+[v _currentButtonState `a ~T0 @X0 1 a ]
+[e = _currentButtonState ( _BUTTON_IsPressed (1 . `E3140 4 ]
+"229
+[; ;app_device_consumer.c: 229:     if (currentButtonState && !lastButtonState) {
+[e $ ! && != -> _currentButtonState `i -> 0 `i ! != -> _lastButtonState `i -> 0 `i 416  ]
+{
+"231
+[; ;app_device_consumer.c: 231:         if (currentMode == DEVICE_MODE_VOLUME_CONTROL) {
+[e $ ! == -> _currentMode `ui -> . `E3688 0 `ui 417  ]
+{
+"232
+[; ;app_device_consumer.c: 232:             currentMode = DEVICE_MODE_SCROLL_WHEEL;
+[e = _currentMode . `E3688 1 ]
+"234
+[; ;app_device_consumer.c: 234:             LED_On(LED_D3);
+[e ( _LED_On (1 . `E3151 3 ]
+"235
+[; ;app_device_consumer.c: 235:             LED_Off(LED_D2);
+[e ( _LED_Off (1 . `E3151 2 ]
+"236
+[; ;app_device_consumer.c: 236:         } else {
+}
+[e $U 418  ]
+[e :U 417 ]
+{
+"237
+[; ;app_device_consumer.c: 237:             currentMode = DEVICE_MODE_VOLUME_CONTROL;
+[e = _currentMode . `E3688 0 ]
+"239
+[; ;app_device_consumer.c: 239:             LED_Off(LED_D3);
+[e ( _LED_Off (1 . `E3151 3 ]
+"240
+[; ;app_device_consumer.c: 240:             LED_On(LED_D2);
+[e ( _LED_On (1 . `E3151 2 ]
+"241
+[; ;app_device_consumer.c: 241:         }
+}
+[e :U 418 ]
+"242
+[; ;app_device_consumer.c: 242:     }
+}
+[e :U 416 ]
+"245
+[; ;app_device_consumer.c: 245:     lastButtonState = currentButtonState;
+[e = _lastButtonState _currentButtonState ]
+"246
+[; ;app_device_consumer.c: 246: }
+[e :UE 415 ]
+}
+"248
+[; ;app_device_consumer.c: 248: void APP_ConsumerInit(void)
 [v _APP_ConsumerInit `(v ~T0 @X0 1 ef ]
-"135
-[; ;app_device_consumer.c: 135: {
+"249
+[; ;app_device_consumer.c: 249: {
 {
 [e :U _APP_ConsumerInit ]
 [f ]
-"137
-[; ;app_device_consumer.c: 137:     lastConsumerTransmission = 0;
+"251
+[; ;app_device_consumer.c: 251:     lastConsumerTransmission = 0;
 [e = _lastConsumerTransmission -> -> 0 `i `*v ]
-"142
-[; ;app_device_consumer.c: 142:     while(OldSOFCount != SOFCounter)
-[e $U 412  ]
-[e :U 413 ]
-"143
-[; ;app_device_consumer.c: 143:     {
+"252
+[; ;app_device_consumer.c: 252:     lastKeyboardTransmission = 0;
+[e = _lastKeyboardTransmission -> -> 0 `i `*v ]
+"257
+[; ;app_device_consumer.c: 257:     while(OldSOFCount != SOFCounter)
+[e $U 420  ]
+[e :U 421 ]
+"258
+[; ;app_device_consumer.c: 258:     {
 {
-"144
-[; ;app_device_consumer.c: 144:         OldSOFCount = SOFCounter;
+"259
+[; ;app_device_consumer.c: 259:         OldSOFCount = SOFCounter;
 [e = _OldSOFCount _SOFCounter ]
-"145
-[; ;app_device_consumer.c: 145:     }
+"260
+[; ;app_device_consumer.c: 260:     }
 }
-[e :U 412 ]
-"142
-[; ;app_device_consumer.c: 142:     while(OldSOFCount != SOFCounter)
-[e $ != _OldSOFCount _SOFCounter 413  ]
-[e :U 414 ]
-"148
-[; ;app_device_consumer.c: 148:     USBEnableEndpoint(1, 0x02|0x10|0x08);
+[e :U 420 ]
+"257
+[; ;app_device_consumer.c: 257:     while(OldSOFCount != SOFCounter)
+[e $ != _OldSOFCount _SOFCounter 421  ]
+[e :U 422 ]
+"263
+[; ;app_device_consumer.c: 263:     USBEnableEndpoint(1, 0x02|0x10|0x08);
 [e ( _USBEnableEndpoint (2 , -> -> 1 `i `uc -> | | -> 2 `i -> 16 `i -> 8 `i `uc ]
-"151
-[; ;app_device_consumer.c: 151:     ENCODER_Initialize();
+"264
+[; ;app_device_consumer.c: 264:     USBEnableEndpoint(2, 0x02|0x10|0x08);
+[e ( _USBEnableEndpoint (2 , -> -> 2 `i `uc -> | | -> 2 `i -> 16 `i -> 8 `i `uc ]
+"267
+[; ;app_device_consumer.c: 267:     ENCODER_Initialize();
 [e ( _ENCODER_Initialize ..  ]
-"152
-[; ;app_device_consumer.c: 152: }
-[e :UE 411 ]
+"270
+[; ;app_device_consumer.c: 270:     BUTTON_Enable(BUTTON_ENCODER_PUSH);
+[e ( _BUTTON_Enable (1 . `E3140 4 ]
+"273
+[; ;app_device_consumer.c: 273:     APP_DeviceKeyboardInitialize();
+[e ( _APP_DeviceKeyboardInitialize ..  ]
+"276
+[; ;app_device_consumer.c: 276:     LED_Enable(LED_D3);
+[e ( _LED_Enable (1 . `E3151 3 ]
+"277
+[; ;app_device_consumer.c: 277:     LED_Enable(LED_D2);
+[e ( _LED_Enable (1 . `E3151 2 ]
+"280
+[; ;app_device_consumer.c: 280:     LED_Off(LED_D3);
+[e ( _LED_Off (1 . `E3151 3 ]
+"281
+[; ;app_device_consumer.c: 281:     LED_On(LED_D2);
+[e ( _LED_On (1 . `E3151 2 ]
+"282
+[; ;app_device_consumer.c: 282: }
+[e :UE 419 ]
 }
-"154
-[; ;app_device_consumer.c: 154: void APP_ConsumerTasks(void)
+"284
+[; ;app_device_consumer.c: 284: void APP_ConsumerTasks(void)
 [v _APP_ConsumerTasks `(v ~T0 @X0 1 ef ]
-"155
-[; ;app_device_consumer.c: 155: {
+"285
+[; ;app_device_consumer.c: 285: {
 {
 [e :U _APP_ConsumerTasks ]
 [f ]
-"156
-[; ;app_device_consumer.c: 156:     unsigned char i;
+"286
+[; ;app_device_consumer.c: 286:     unsigned char i;
 [v _i `uc ~T0 @X0 1 a ]
-"157
-[; ;app_device_consumer.c: 157:     _Bool needToSendNewReportPacket_consumer;
+"287
+[; ;app_device_consumer.c: 287:     _Bool needToSendNewReportPacket_consumer;
 [v _needToSendNewReportPacket_consumer `a ~T0 @X0 1 a ]
-"162
-[; ;app_device_consumer.c: 162:     if( USBDeviceState < CONFIGURED_STATE )
-[e $ ! < -> _USBDeviceState `ui -> . `E3435 6 `ui 416  ]
-"163
-[; ;app_device_consumer.c: 163:     {
+"292
+[; ;app_device_consumer.c: 292:     if( USBDeviceState < CONFIGURED_STATE )
+[e $ ! < -> _USBDeviceState `ui -> . `E3436 6 `ui 424  ]
+"293
+[; ;app_device_consumer.c: 293:     {
 {
-"164
-[; ;app_device_consumer.c: 164:         return;
-[e $UE 415  ]
-"165
-[; ;app_device_consumer.c: 165:     }
+"294
+[; ;app_device_consumer.c: 294:         return;
+[e $UE 423  ]
+"295
+[; ;app_device_consumer.c: 295:     }
 }
-[e :U 416 ]
-"168
-[; ;app_device_consumer.c: 168:     ENCODER_Task();
+[e :U 424 ]
+"298
+[; ;app_device_consumer.c: 298:     ENCODER_Task();
 [e ( _ENCODER_Task ..  ]
-"174
-[; ;app_device_consumer.c: 174:     if( UCONbits.SUSPND== 1 )
-[e $ ! == -> . . _UCONbits 0 1 `i -> 1 `i 417  ]
-"175
-[; ;app_device_consumer.c: 175:     {
+"301
+[; ;app_device_consumer.c: 301:     APP_HandleModeSwitch();
+[e ( _APP_HandleModeSwitch ..  ]
+"307
+[; ;app_device_consumer.c: 307:     if( UCONbits.SUSPND== 1 )
+[e $ ! == -> . . _UCONbits 0 1 `i -> 1 `i 425  ]
+"308
+[; ;app_device_consumer.c: 308:     {
 {
-"176
-[; ;app_device_consumer.c: 176:         return;
-[e $UE 415  ]
-"177
-[; ;app_device_consumer.c: 177:     }
-}
-[e :U 417 ]
-"181
-[; ;app_device_consumer.c: 181:     if(((lastConsumerTransmission != 0x0000) && ((*(volatile uint8_t*)lastConsumerTransmission & 0x80) != 0x00)) == 0)
-[e $ ! == -> && != _lastConsumerTransmission -> -> 0 `i `*v != & -> *U -> _lastConsumerTransmission `*Vuc `i -> 128 `i -> 0 `i `i -> 0 `i 418  ]
-"182
-[; ;app_device_consumer.c: 182:     {
-{
-"184
-[; ;app_device_consumer.c: 184:         memset(&consumerReport, 0, sizeof(consumerReport));
-[e ( _memset (3 , , -> &U _consumerReport `*v -> 0 `i -> # _consumerReport `ui ]
-"185
-[; ;app_device_consumer.c: 185:         consumerReport.reportID = 0x01;
-[e = . _consumerReport 0 -> -> 1 `i `uc ]
-"188
-[; ;app_device_consumer.c: 188:         ENCODER_DIRECTION encoder_dir = ENCODER_GetDirection();
-[v _encoder_dir `E3679 ~T0 @X0 1 a ]
-[e = _encoder_dir ( _ENCODER_GetDirection ..  ]
-"190
-[; ;app_device_consumer.c: 190:         if(encoder_dir == ENCODER_CW)
-[e $ ! == -> _encoder_dir `ui -> . `E3679 1 `ui 419  ]
-"191
-[; ;app_device_consumer.c: 191:         {
-{
-"193
-[; ;app_device_consumer.c: 193:             consumerReport.reportID = 0x01;
-[e = . _consumerReport 0 -> -> 1 `i `uc ]
-"194
-[; ;app_device_consumer.c: 194:             consumerReport.controls.value = 0;
-[e = . . _consumerReport 1 0 -> -> 0 `i `uc ]
-"195
-[; ;app_device_consumer.c: 195:             consumerReport.controls.bits.volumeUp = 1;
-[e = . . . _consumerReport 1 1 5 -> -> 1 `i `uc ]
-"196
-[; ;app_device_consumer.c: 196:         }
-}
-[e $U 420  ]
-"197
-[; ;app_device_consumer.c: 197:         else if(encoder_dir == ENCODER_CCW)
-[e :U 419 ]
-[e $ ! == -> _encoder_dir `ui -> . `E3679 2 `ui 421  ]
-"198
-[; ;app_device_consumer.c: 198:         {
-{
-"200
-[; ;app_device_consumer.c: 200:             consumerReport.reportID = 0x01;
-[e = . _consumerReport 0 -> -> 1 `i `uc ]
-"201
-[; ;app_device_consumer.c: 201:             consumerReport.controls.value = 0;
-[e = . . _consumerReport 1 0 -> -> 0 `i `uc ]
-"202
-[; ;app_device_consumer.c: 202:             consumerReport.controls.bits.volumeDown = 1;
-[e = . . . _consumerReport 1 1 6 -> -> 1 `i `uc ]
-"203
-[; ;app_device_consumer.c: 203:         }
-}
-[e :U 421 ]
-[e :U 420 ]
-"207
-[; ;app_device_consumer.c: 207:         needToSendNewReportPacket_consumer = 0;
-[e = _needToSendNewReportPacket_consumer -> -> 0 `i `a ]
-"208
-[; ;app_device_consumer.c: 208:         for(i = 0; i < sizeof(consumerReport); i++)
-{
-[e = _i -> -> 0 `i `uc ]
-[e $ < -> _i `ui -> # _consumerReport `ui 422  ]
-[e $U 423  ]
-[e :U 422 ]
-"209
-[; ;app_device_consumer.c: 209:         {
-{
-"210
-[; ;app_device_consumer.c: 210:             if(*((uint8_t*)&oldconsumerReport + i) != *((uint8_t*)&consumerReport + i))
-[e $ ! != -> *U + -> &U _oldconsumerReport `*uc * -> -> _i `i `x -> -> # *U -> &U _oldconsumerReport `*uc `i `x `i -> *U + -> &U _consumerReport `*uc * -> -> _i `i `x -> -> # *U -> &U _consumerReport `*uc `i `x `i 425  ]
-"211
-[; ;app_device_consumer.c: 211:             {
-{
-"212
-[; ;app_device_consumer.c: 212:                 needToSendNewReportPacket_consumer = 1;
-[e = _needToSendNewReportPacket_consumer -> -> 1 `i `a ]
-"213
-[; ;app_device_consumer.c: 213:                 break;
-[e $U 423  ]
-"214
-[; ;app_device_consumer.c: 214:             }
+"309
+[; ;app_device_consumer.c: 309:         return;
+[e $UE 423  ]
+"310
+[; ;app_device_consumer.c: 310:     }
 }
 [e :U 425 ]
-"215
-[; ;app_device_consumer.c: 215:         }
+"313
+[; ;app_device_consumer.c: 313:     if (currentMode == DEVICE_MODE_VOLUME_CONTROL) {
+[e $ ! == -> _currentMode `ui -> . `E3688 0 `ui 426  ]
+{
+"314
+[; ;app_device_consumer.c: 314:         APP_HandleVolumeControl();
+[e ( _APP_HandleVolumeControl ..  ]
+"315
+[; ;app_device_consumer.c: 315:     } else {
+}
+[e $U 427  ]
+[e :U 426 ]
+{
+"316
+[; ;app_device_consumer.c: 316:         APP_HandleScrollWheel();
+[e ( _APP_HandleScrollWheel ..  ]
+"317
+[; ;app_device_consumer.c: 317:     }
+}
+[e :U 427 ]
+"319
+[; ;app_device_consumer.c: 319:     return;
+[e $UE 423  ]
+"320
+[; ;app_device_consumer.c: 320: }
+[e :UE 423 ]
+}
+"334
+[; ;app_device_consumer.c: 334: static void APP_HandleVolumeControl(void)
+[v _APP_HandleVolumeControl `(v ~T0 @X0 1 sf ]
+"335
+[; ;app_device_consumer.c: 335: {
+{
+[e :U _APP_HandleVolumeControl ]
+[f ]
+"336
+[; ;app_device_consumer.c: 336:     unsigned char i;
+[v _i `uc ~T0 @X0 1 a ]
+"337
+[; ;app_device_consumer.c: 337:     _Bool needToSendNewReportPacket_consumer;
+[v _needToSendNewReportPacket_consumer `a ~T0 @X0 1 a ]
+"340
+[; ;app_device_consumer.c: 340:     LED_On(LED_D2);
+[e ( _LED_On (1 . `E3151 2 ]
+"341
+[; ;app_device_consumer.c: 341:     LED_Off(LED_D3);
+[e ( _LED_Off (1 . `E3151 3 ]
+"345
+[; ;app_device_consumer.c: 345:     if(((lastConsumerTransmission != 0x0000) && ((*(volatile uint8_t*)lastConsumerTransmission & 0x80) != 0x00)) == 0)
+[e $ ! == -> && != _lastConsumerTransmission -> -> 0 `i `*v != & -> *U -> _lastConsumerTransmission `*Vuc `i -> 128 `i -> 0 `i `i -> 0 `i 429  ]
+"346
+[; ;app_device_consumer.c: 346:     {
+{
+"348
+[; ;app_device_consumer.c: 348:         memset(&consumerReport, 0, sizeof(consumerReport));
+[e ( _memset (3 , , -> &U _consumerReport `*v -> 0 `i -> # _consumerReport `ui ]
+"349
+[; ;app_device_consumer.c: 349:         consumerReport.reportID = 0x01;
+[e = . _consumerReport 0 -> -> 1 `i `uc ]
+"352
+[; ;app_device_consumer.c: 352:         ENCODER_DIRECTION encoder_dir = ENCODER_GetDirection();
+[v _encoder_dir `E3680 ~T0 @X0 1 a ]
+[e = _encoder_dir ( _ENCODER_GetDirection ..  ]
+"354
+[; ;app_device_consumer.c: 354:         if(encoder_dir == ENCODER_CW)
+[e $ ! == -> _encoder_dir `ui -> . `E3680 1 `ui 430  ]
+"355
+[; ;app_device_consumer.c: 355:         {
+{
+"357
+[; ;app_device_consumer.c: 357:             consumerReport.controls.value = 0;
+[e = . . _consumerReport 1 0 -> -> 0 `i `uc ]
+"358
+[; ;app_device_consumer.c: 358:             consumerReport.controls.bits.volumeUp = 1;
+[e = . . . _consumerReport 1 1 5 -> -> 1 `i `uc ]
+"359
+[; ;app_device_consumer.c: 359:         }
+}
+[e $U 431  ]
+"360
+[; ;app_device_consumer.c: 360:         else if(encoder_dir == ENCODER_CCW)
+[e :U 430 ]
+[e $ ! == -> _encoder_dir `ui -> . `E3680 2 `ui 432  ]
+"361
+[; ;app_device_consumer.c: 361:         {
+{
+"363
+[; ;app_device_consumer.c: 363:             consumerReport.controls.value = 0;
+[e = . . _consumerReport 1 0 -> -> 0 `i `uc ]
+"364
+[; ;app_device_consumer.c: 364:             consumerReport.controls.bits.volumeDown = 1;
+[e = . . . _consumerReport 1 1 6 -> -> 1 `i `uc ]
+"365
+[; ;app_device_consumer.c: 365:         }
+}
+[e :U 432 ]
+[e :U 431 ]
+"369
+[; ;app_device_consumer.c: 369:         needToSendNewReportPacket_consumer = 0;
+[e = _needToSendNewReportPacket_consumer -> -> 0 `i `a ]
+"370
+[; ;app_device_consumer.c: 370:         for(i = 0; i < sizeof(consumerReport); i++)
+{
+[e = _i -> -> 0 `i `uc ]
+[e $ < -> _i `ui -> # _consumerReport `ui 433  ]
+[e $U 434  ]
+[e :U 433 ]
+"371
+[; ;app_device_consumer.c: 371:         {
+{
+"372
+[; ;app_device_consumer.c: 372:             if(*((uint8_t*)&oldconsumerReport + i) != *((uint8_t*)&consumerReport + i))
+[e $ ! != -> *U + -> &U _oldconsumerReport `*uc * -> -> _i `i `x -> -> # *U -> &U _oldconsumerReport `*uc `i `x `i -> *U + -> &U _consumerReport `*uc * -> -> _i `i `x -> -> # *U -> &U _consumerReport `*uc `i `x `i 436  ]
+"373
+[; ;app_device_consumer.c: 373:             {
+{
+"374
+[; ;app_device_consumer.c: 374:                 needToSendNewReportPacket_consumer = 1;
+[e = _needToSendNewReportPacket_consumer -> -> 1 `i `a ]
+"375
+[; ;app_device_consumer.c: 375:                 break;
+[e $U 434  ]
+"376
+[; ;app_device_consumer.c: 376:             }
+}
+[e :U 436 ]
+"377
+[; ;app_device_consumer.c: 377:         }
 }
 [e ++ _i -> -> 1 `i `uc ]
-[e $ < -> _i `ui -> # _consumerReport `ui 422  ]
-[e :U 423 ]
+[e $ < -> _i `ui -> # _consumerReport `ui 433  ]
+[e :U 434 ]
 }
-"218
-[; ;app_device_consumer.c: 218:         if(needToSendNewReportPacket_consumer == 1)
-[e $ ! == -> _needToSendNewReportPacket_consumer `i -> 1 `i 426  ]
-"219
-[; ;app_device_consumer.c: 219:         {
+"380
+[; ;app_device_consumer.c: 380:         if(needToSendNewReportPacket_consumer == 1)
+[e $ ! == -> _needToSendNewReportPacket_consumer `i -> 1 `i 437  ]
+"381
+[; ;app_device_consumer.c: 381:         {
 {
-"222
-[; ;app_device_consumer.c: 222:             oldconsumerReport = consumerReport;
+"384
+[; ;app_device_consumer.c: 384:             oldconsumerReport = consumerReport;
 [e = _oldconsumerReport _consumerReport ]
-"225
-[; ;app_device_consumer.c: 225:             lastConsumerTransmission = USBTransferOnePacket(1,1,(uint8_t*)&consumerReport,sizeof(consumerReport));
+"387
+[; ;app_device_consumer.c: 387:             lastConsumerTransmission = USBTransferOnePacket(1,1,(uint8_t*)&consumerReport,sizeof(consumerReport));
 [e = _lastConsumerTransmission ( _USBTransferOnePacket (4 , , , -> -> 1 `i `uc -> -> 1 `i `uc -> &U _consumerReport `*uc -> -> # _consumerReport `ui `uc ]
-"226
-[; ;app_device_consumer.c: 226:         }
+"388
+[; ;app_device_consumer.c: 388:         }
 }
-[e :U 426 ]
-"227
-[; ;app_device_consumer.c: 227:     }
+[e :U 437 ]
+"389
+[; ;app_device_consumer.c: 389:     }
 }
-[e :U 418 ]
-"229
-[; ;app_device_consumer.c: 229:     return;
-[e $UE 415  ]
-"230
-[; ;app_device_consumer.c: 230: }
-[e :UE 415 ]
+[e :U 429 ]
+"390
+[; ;app_device_consumer.c: 390: }
+[e :UE 428 ]
+}
+"404
+[; ;app_device_consumer.c: 404: static void APP_HandleScrollWheel(void)
+[v _APP_HandleScrollWheel `(v ~T0 @X0 1 sf ]
+"405
+[; ;app_device_consumer.c: 405: {
+{
+[e :U _APP_HandleScrollWheel ]
+[f ]
+"406
+[; ;app_device_consumer.c: 406:     unsigned char i;
+[v _i `uc ~T0 @X0 1 a ]
+"407
+[; ;app_device_consumer.c: 407:     _Bool needToSendNewReportPacket_keyboard;
+[v _needToSendNewReportPacket_keyboard `a ~T0 @X0 1 a ]
+"410
+[; ;app_device_consumer.c: 410:     LED_On(LED_D3);
+[e ( _LED_On (1 . `E3151 3 ]
+"411
+[; ;app_device_consumer.c: 411:     LED_Off(LED_D2);
+[e ( _LED_Off (1 . `E3151 2 ]
+"415
+[; ;app_device_consumer.c: 415:     if(((lastKeyboardTransmission != 0x0000) && ((*(volatile uint8_t*)lastKeyboardTransmission & 0x80) != 0x00)) == 0)
+[e $ ! == -> && != _lastKeyboardTransmission -> -> 0 `i `*v != & -> *U -> _lastKeyboardTransmission `*Vuc `i -> 128 `i -> 0 `i `i -> 0 `i 439  ]
+"416
+[; ;app_device_consumer.c: 416:     {
+{
+"418
+[; ;app_device_consumer.c: 418:         memset(&keyboardReport, 0, sizeof(keyboardReport));
+[e ( _memset (3 , , -> &U _keyboardReport `*v -> 0 `i -> # _keyboardReport `ui ]
+"421
+[; ;app_device_consumer.c: 421:         ENCODER_DIRECTION encoder_dir = ENCODER_GetDirection();
+[v _encoder_dir `E3680 ~T0 @X0 1 a ]
+[e = _encoder_dir ( _ENCODER_GetDirection ..  ]
+"424
+[; ;app_device_consumer.c: 424:         if(encoder_dir != ENCODER_NONE) {
+[e $ ! != -> _encoder_dir `ui -> . `E3680 0 `ui 440  ]
+{
+"425
+[; ;app_device_consumer.c: 425:             LED_Toggle(LED_D2);
+[e ( _LED_Toggle (1 . `E3151 2 ]
+"426
+[; ;app_device_consumer.c: 426:         }
+}
+[e :U 440 ]
+"430
+[; ;app_device_consumer.c: 430:         memset(keyboardReport.keys, 0, sizeof(keyboardReport.keys));
+[e ( _memset (3 , , -> &U . _keyboardReport 0 `*v -> 0 `i * -> # *U &U . _keyboardReport 0 `ui -> -> 6 `i `ui ]
+"431
+[; ;app_device_consumer.c: 431:         needToSendNewReportPacket_keyboard = 0;
+[e = _needToSendNewReportPacket_keyboard -> -> 0 `i `a ]
+"433
+[; ;app_device_consumer.c: 433:         if(encoder_dir == ENCODER_CW || encoder_dir == ENCODER_CCW)
+[e $ ! || == -> _encoder_dir `ui -> . `E3680 1 `ui == -> _encoder_dir `ui -> . `E3680 2 `ui 441  ]
+"434
+[; ;app_device_consumer.c: 434:         {
+{
+"436
+[; ;app_device_consumer.c: 436:             if(!keyboard.keyPressed) {
+[e $ ! ! != -> . _keyboard 5 `i -> 0 `i 442  ]
+{
+"438
+[; ;app_device_consumer.c: 438:                 if(encoder_dir == ENCODER_CW) {
+[e $ ! == -> _encoder_dir `ui -> . `E3680 1 `ui 443  ]
+{
+"439
+[; ;app_device_consumer.c: 439:                     keyboardReport.keys[0] = 0x52;
+[e = *U + &U . _keyboardReport 0 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _keyboardReport 0 `ui `ux -> -> 82 `i `uc ]
+"440
+[; ;app_device_consumer.c: 440:                 } else {
+}
+[e $U 444  ]
+[e :U 443 ]
+{
+"441
+[; ;app_device_consumer.c: 441:                     keyboardReport.keys[0] = 0x51;
+[e = *U + &U . _keyboardReport 0 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _keyboardReport 0 `ui `ux -> -> 81 `i `uc ]
+"442
+[; ;app_device_consumer.c: 442:                 }
+}
+[e :U 444 ]
+"443
+[; ;app_device_consumer.c: 443:                 keyboard.keyPressed = 1;
+[e = . _keyboard 5 -> -> 1 `i `a ]
+"444
+[; ;app_device_consumer.c: 444:                 keyboard.keyReleaseCount = 3;
+[e = . _keyboard 6 -> -> 3 `i `uc ]
+"445
+[; ;app_device_consumer.c: 445:                 needToSendNewReportPacket_keyboard = 1;
+[e = _needToSendNewReportPacket_keyboard -> -> 1 `i `a ]
+"446
+[; ;app_device_consumer.c: 446:             }
+}
+[e :U 442 ]
+"447
+[; ;app_device_consumer.c: 447:         }
+}
+[e $U 445  ]
+"448
+[; ;app_device_consumer.c: 448:         else
+[e :U 441 ]
+"449
+[; ;app_device_consumer.c: 449:         {
+{
+"451
+[; ;app_device_consumer.c: 451:             if(keyboard.keyPressed) {
+[e $ ! != -> . _keyboard 5 `i -> 0 `i 446  ]
+{
+"452
+[; ;app_device_consumer.c: 452:                 if(keyboard.keyReleaseCount > 0) {
+[e $ ! > -> . _keyboard 6 `i -> 0 `i 447  ]
+{
+"453
+[; ;app_device_consumer.c: 453:                     keyboard.keyReleaseCount--;
+[e -- . _keyboard 6 -> -> 1 `i `uc ]
+"454
+[; ;app_device_consumer.c: 454:                     if(keyboard.keyReleaseCount == 0) {
+[e $ ! == -> . _keyboard 6 `i -> 0 `i 448  ]
+{
+"456
+[; ;app_device_consumer.c: 456:                         keyboard.keyPressed = 0;
+[e = . _keyboard 5 -> -> 0 `i `a ]
+"457
+[; ;app_device_consumer.c: 457:                         needToSendNewReportPacket_keyboard = 1;
+[e = _needToSendNewReportPacket_keyboard -> -> 1 `i `a ]
+"458
+[; ;app_device_consumer.c: 458:                     }
+}
+[e :U 448 ]
+"459
+[; ;app_device_consumer.c: 459:                 }
+}
+[e :U 447 ]
+"460
+[; ;app_device_consumer.c: 460:             }
+}
+[e :U 446 ]
+"461
+[; ;app_device_consumer.c: 461:         }
+}
+[e :U 445 ]
+"465
+[; ;app_device_consumer.c: 465:         if(needToSendNewReportPacket_keyboard == 1)
+[e $ ! == -> _needToSendNewReportPacket_keyboard `i -> 1 `i 449  ]
+"466
+[; ;app_device_consumer.c: 466:         {
+{
+"469
+[; ;app_device_consumer.c: 469:             oldkeyboardReport = keyboardReport;
+[e = _oldkeyboardReport _keyboardReport ]
+"472
+[; ;app_device_consumer.c: 472:             lastKeyboardTransmission = USBTransferOnePacket(2,1,(uint8_t*)&keyboardReport,sizeof(keyboardReport));
+[e = _lastKeyboardTransmission ( _USBTransferOnePacket (4 , , , -> -> 2 `i `uc -> -> 1 `i `uc -> &U _keyboardReport `*uc -> -> # _keyboardReport `ui `uc ]
+"473
+[; ;app_device_consumer.c: 473:         }
+}
+[e :U 449 ]
+"474
+[; ;app_device_consumer.c: 474:     }
+}
+[e :U 439 ]
+"475
+[; ;app_device_consumer.c: 475: }
+[e :UE 438 ]
+}
+"478
+[; ;app_device_consumer.c: 478: static void APP_DeviceKeyboardInitialize(void)
+[v _APP_DeviceKeyboardInitialize `(v ~T0 @X0 1 sf ]
+"479
+[; ;app_device_consumer.c: 479: {
+{
+[e :U _APP_DeviceKeyboardInitialize ]
+[f ]
+"481
+[; ;app_device_consumer.c: 481:     keyboard.inputReport[0].handle = ((void*)0);
+[e = . *U + &U . _keyboard 7 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _keyboard 7 `ui `ux 0 -> -> 0 `i `*v ]
+"482
+[; ;app_device_consumer.c: 482:     keyboard.sentStop = 0;
+[e = . _keyboard 0 -> -> 0 `i `a ]
+"483
+[; ;app_device_consumer.c: 483:     keyboard.movementCount = 0;
+[e = . _keyboard 3 -> -> 0 `i `us ]
+"484
+[; ;app_device_consumer.c: 484:     keyboard.movementMode = 1;
+[e = . _keyboard 4 -> -> 1 `i `a ]
+"485
+[; ;app_device_consumer.c: 485:     keyboard.keyPressed = 0;
+[e = . _keyboard 5 -> -> 0 `i `a ]
+"486
+[; ;app_device_consumer.c: 486:     keyboard.keyReleaseCount = 0;
+[e = . _keyboard 6 -> -> 0 `i `uc ]
+"487
+[; ;app_device_consumer.c: 487: }
+[e :UE 450 ]
+}
+"502
+[; ;app_device_consumer.c: 502: void APP_DeviceMouseTasks(void)
+[v _APP_DeviceMouseTasks `(v ~T0 @X0 1 ef ]
+"503
+[; ;app_device_consumer.c: 503: {
+{
+[e :U _APP_DeviceMouseTasks ]
+[f ]
+"507
+[; ;app_device_consumer.c: 507: }
+[e :UE 451 ]
+}
+"521
+[; ;app_device_consumer.c: 521: void APP_DeviceMouseSOFHandler(void)
+[v _APP_DeviceMouseSOFHandler `(v ~T0 @X0 1 ef ]
+"522
+[; ;app_device_consumer.c: 522: {
+{
+[e :U _APP_DeviceMouseSOFHandler ]
+[f ]
+"525
+[; ;app_device_consumer.c: 525: }
+[e :UE 452 ]
 }

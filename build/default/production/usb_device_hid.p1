@@ -120,6 +120,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 [s S409 `uc -> 39 `i ]
 [n S409 . report ]
 [v _hid_rpt01 `CS409 ~T0 @X0 0 e ]
+"211
+[; ;usb_device_hid.c: 211:                         extern const struct{uint8_t report[24];}hid_rpt02;
+[s S425 `uc -> 24 `i ]
+[n S425 . report ]
+[v _hid_rpt02 `CS425 ~T0 @X0 0 e ]
 "52 C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f2550.h: 52: __asm("UFRM equ 0F66h");
 [; <" UFRM equ 0F66h ;# ">
@@ -613,180 +618,238 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e $ ! != -> . . _SetupPkt 2 0 `i -> 1 `i 411  ]
 [e $UE 410  ]
 [e :U 411 ]
-"164
-[; ;usb_device_hid.c: 164:     if(SetupPkt.bIntfID != 0x00) return;
-[e $ ! != -> . . _SetupPkt 7 4 `i -> 0 `i 412  ]
+"165
+[; ;usb_device_hid.c: 165:     if(SetupPkt.bIntfID != 0 && SetupPkt.bIntfID != 1) return;
+[e $ ! && != -> . . _SetupPkt 7 4 `i -> 0 `i != -> . . _SetupPkt 7 4 `i -> 1 `i 412  ]
 [e $UE 410  ]
 [e :U 412 ]
-"171
-[; ;usb_device_hid.c: 171:     if(SetupPkt.bRequest == 6)
-[e $ ! == -> . . _SetupPkt 0 1 `i -> 6 `i 413  ]
 "172
-[; ;usb_device_hid.c: 172:     {
-{
+[; ;usb_device_hid.c: 172:     if(SetupPkt.bRequest == 6)
+[e $ ! == -> . . _SetupPkt 0 1 `i -> 6 `i 413  ]
 "173
-[; ;usb_device_hid.c: 173:         switch(SetupPkt.bDescriptorType)
-[e $U 415  ]
+[; ;usb_device_hid.c: 173:     {
+{
 "174
-[; ;usb_device_hid.c: 174:         {
-{
+[; ;usb_device_hid.c: 174:         switch(SetupPkt.bDescriptorType)
+[e $U 415  ]
 "175
-[; ;usb_device_hid.c: 175:             case 0x21:
-[e :U 416 ]
-"176
-[; ;usb_device_hid.c: 176:                 if(USBActiveConfiguration == 1)
-[e $ ! == -> _USBActiveConfiguration `i -> 1 `i 417  ]
-"177
-[; ;usb_device_hid.c: 177:                 {
+[; ;usb_device_hid.c: 175:         {
 {
+"176
+[; ;usb_device_hid.c: 176:             case 0x21:
+[e :U 416 ]
+"177
+[; ;usb_device_hid.c: 177:                 if(USBActiveConfiguration == 1)
+[e $ ! == -> _USBActiveConfiguration `i -> 1 `i 417  ]
 "178
-[; ;usb_device_hid.c: 178:                     { inPipes[0].pSrc.bRom = (const uint8_t*)&configDescriptor1 + 18; inPipes[0].wCount.Val = sizeof(USB_HID_DSC)+3; inPipes[0].info.Val = 0x40 | 0x80 | 0x00; };
+[; ;usb_device_hid.c: 178:                 {
+{
+"179
+[; ;usb_device_hid.c: 179:                     if(SetupPkt.bIntfID == 0)
+[e $ ! == -> . . _SetupPkt 7 4 `i -> 0 `i 418  ]
+"180
+[; ;usb_device_hid.c: 180:                     {
+{
+"182
+[; ;usb_device_hid.c: 182:                         { inPipes[0].pSrc.bRom = (const uint8_t*)&configDescriptor1 + 18; inPipes[0].wCount.Val = sizeof(USB_HID_DSC)+3; inPipes[0].info.Val = 0x40 | 0x80 | 0x00; };
 {
 [e = . . *U + &U _inPipes * -> -> -> 0 `i `ui `ux -> -> # *U &U _inPipes `ui `ux 0 1 + -> &U _configDescriptor1 `*Cuc * -> -> 18 `i `x -> -> # *U -> &U _configDescriptor1 `*Cuc `i `x ]
 [e = . . *U + &U _inPipes * -> -> -> 0 `i `ui `ux -> -> # *U &U _inPipes `ui `ux 2 0 -> + -> # `S406 `ui -> -> 3 `i `ui `us ]
 [e = . . *U + &U _inPipes * -> -> -> 0 `i `ui `ux -> -> # *U &U _inPipes `ui `ux 1 1 -> | | -> 64 `i -> 128 `i -> 0 `i `uc ]
 }
-"182
-[; ;usb_device_hid.c: 182:                 }
+"186
+[; ;usb_device_hid.c: 186:                     }
+}
+[e $U 419  ]
+"187
+[; ;usb_device_hid.c: 187:                     else if(SetupPkt.bIntfID == 1)
+[e :U 418 ]
+[e $ ! == -> . . _SetupPkt 7 4 `i -> 1 `i 420  ]
+"188
+[; ;usb_device_hid.c: 188:                     {
+{
+"190
+[; ;usb_device_hid.c: 190:                         { inPipes[0].pSrc.bRom = (const uint8_t*)&configDescriptor1 + 43; inPipes[0].wCount.Val = sizeof(USB_HID_DSC)+3; inPipes[0].info.Val = 0x40 | 0x80 | 0x00; };
+{
+[e = . . *U + &U _inPipes * -> -> -> 0 `i `ui `ux -> -> # *U &U _inPipes `ui `ux 0 1 + -> &U _configDescriptor1 `*Cuc * -> -> 43 `i `x -> -> # *U -> &U _configDescriptor1 `*Cuc `i `x ]
+[e = . . *U + &U _inPipes * -> -> -> 0 `i `ui `ux -> -> # *U &U _inPipes `ui `ux 2 0 -> + -> # `S406 `ui -> -> 3 `i `ui `us ]
+[e = . . *U + &U _inPipes * -> -> -> 0 `i `ui `ux -> -> # *U &U _inPipes `ui `ux 1 1 -> | | -> 64 `i -> 128 `i -> 0 `i `uc ]
+}
+"194
+[; ;usb_device_hid.c: 194:                     }
+}
+[e :U 420 ]
+[e :U 419 ]
+"195
+[; ;usb_device_hid.c: 195:                 }
 }
 [e :U 417 ]
-"183
-[; ;usb_device_hid.c: 183:                 break;
+"196
+[; ;usb_device_hid.c: 196:                 break;
 [e $U 414  ]
-"184
-[; ;usb_device_hid.c: 184:             case 0x22:
-[e :U 418 ]
-"186
-[; ;usb_device_hid.c: 186:                 {
+"197
+[; ;usb_device_hid.c: 197:             case 0x22:
+[e :U 421 ]
+"199
+[; ;usb_device_hid.c: 199:                 {
 {
-"187
-[; ;usb_device_hid.c: 187:                     { inPipes[0].pSrc.bRom = (const uint8_t*)&hid_rpt01; inPipes[0].wCount.Val = 39; inPipes[0].info.Val = 0x40 | 0x80 | 0x00; };
+"200
+[; ;usb_device_hid.c: 200:                     if(SetupPkt.bIntfID == 0)
+[e $ ! == -> . . _SetupPkt 7 4 `i -> 0 `i 422  ]
+"201
+[; ;usb_device_hid.c: 201:                     {
+{
+"203
+[; ;usb_device_hid.c: 203:                         { inPipes[0].pSrc.bRom = (const uint8_t*)&hid_rpt01; inPipes[0].wCount.Val = 39; inPipes[0].info.Val = 0x40 | 0x80 | 0x00; };
 {
 [e = . . *U + &U _inPipes * -> -> -> 0 `i `ui `ux -> -> # *U &U _inPipes `ui `ux 0 1 -> &U _hid_rpt01 `*Cuc ]
 [e = . . *U + &U _inPipes * -> -> -> 0 `i `ui `ux -> -> # *U &U _inPipes `ui `ux 2 0 -> -> 39 `i `us ]
 [e = . . *U + &U _inPipes * -> -> -> 0 `i `ui `ux -> -> # *U &U _inPipes `ui `ux 1 1 -> | | -> 64 `i -> 128 `i -> 0 `i `uc ]
 }
-"191
-[; ;usb_device_hid.c: 191:                 }
+"207
+[; ;usb_device_hid.c: 207:                     }
 }
-"192
-[; ;usb_device_hid.c: 192:                 break;
+[e $U 423  ]
+"208
+[; ;usb_device_hid.c: 208:                     else if(SetupPkt.bIntfID == 1)
+[e :U 422 ]
+[e $ ! == -> . . _SetupPkt 7 4 `i -> 1 `i 424  ]
+"209
+[; ;usb_device_hid.c: 209:                     {
+{
+"212
+[; ;usb_device_hid.c: 212:                         { inPipes[0].pSrc.bRom = (const uint8_t*)&hid_rpt02; inPipes[0].wCount.Val = 24; inPipes[0].info.Val = 0x40 | 0x80 | 0x00; };
+{
+[e = . . *U + &U _inPipes * -> -> -> 0 `i `ui `ux -> -> # *U &U _inPipes `ui `ux 0 1 -> &U _hid_rpt02 `*Cuc ]
+[e = . . *U + &U _inPipes * -> -> -> 0 `i `ui `ux -> -> # *U &U _inPipes `ui `ux 2 0 -> -> 24 `i `us ]
+[e = . . *U + &U _inPipes * -> -> -> 0 `i `ui `ux -> -> # *U &U _inPipes `ui `ux 1 1 -> | | -> 64 `i -> 128 `i -> 0 `i `uc ]
+}
+"216
+[; ;usb_device_hid.c: 216:                     }
+}
+[e :U 424 ]
+[e :U 423 ]
+"217
+[; ;usb_device_hid.c: 217:                 }
+}
+"218
+[; ;usb_device_hid.c: 218:                 break;
 [e $U 414  ]
-"193
-[; ;usb_device_hid.c: 193:             case 0x23:
-[e :U 419 ]
-"205
-[; ;usb_device_hid.c: 205:                 break;
+"219
+[; ;usb_device_hid.c: 219:             case 0x23:
+[e :U 426 ]
+"231
+[; ;usb_device_hid.c: 231:                 break;
 [e $U 414  ]
-"206
-[; ;usb_device_hid.c: 206:         }
+"232
+[; ;usb_device_hid.c: 232:         }
 }
 [e $U 414  ]
 [e :U 415 ]
 [e [\ . . _SetupPkt 4 3 , $ -> 33 `i 416
- , $ -> 34 `i 418
- , $ -> 35 `i 419
+ , $ -> 34 `i 421
+ , $ -> 35 `i 426
  414 ]
 [e :U 414 ]
-"207
-[; ;usb_device_hid.c: 207:     }
+"233
+[; ;usb_device_hid.c: 233:     }
 }
 [e :U 413 ]
-"209
-[; ;usb_device_hid.c: 209:     if(SetupPkt.RequestType != (0x20>>5))
-[e $ ! != -> . . _SetupPkt 2 1 `i >> -> 32 `i -> 5 `i 420  ]
-"210
-[; ;usb_device_hid.c: 210:     {
+"235
+[; ;usb_device_hid.c: 235:     if(SetupPkt.RequestType != (0x20>>5))
+[e $ ! != -> . . _SetupPkt 2 1 `i >> -> 32 `i -> 5 `i 427  ]
+"236
+[; ;usb_device_hid.c: 236:     {
 {
-"211
-[; ;usb_device_hid.c: 211:         return;
+"237
+[; ;usb_device_hid.c: 237:         return;
 [e $UE 410  ]
-"212
-[; ;usb_device_hid.c: 212:     }
+"238
+[; ;usb_device_hid.c: 238:     }
 }
-[e :U 420 ]
-"214
-[; ;usb_device_hid.c: 214:     switch(SetupPkt.bRequest)
-[e $U 422  ]
-"215
-[; ;usb_device_hid.c: 215:     {
+[e :U 427 ]
+"240
+[; ;usb_device_hid.c: 240:     switch(SetupPkt.bRequest)
+[e $U 429  ]
+"241
+[; ;usb_device_hid.c: 241:     {
 {
-"216
-[; ;usb_device_hid.c: 216:         case 0x01:
-[e :U 423 ]
-"220
-[; ;usb_device_hid.c: 220:             break;
-[e $U 421  ]
-"221
-[; ;usb_device_hid.c: 221:         case 0x09:
-[e :U 424 ]
-"225
-[; ;usb_device_hid.c: 225:             break;
-[e $U 421  ]
-"226
-[; ;usb_device_hid.c: 226:         case 0x02:
-[e :U 425 ]
-"227
-[; ;usb_device_hid.c: 227:             { inPipes[0].pSrc.bRam = (uint8_t*)&idle_rate; inPipes[0].wCount.Val = 1; inPipes[0].info.Val = 0x40 | 0x80 | 0x01; };
+"242
+[; ;usb_device_hid.c: 242:         case 0x01:
+[e :U 430 ]
+"246
+[; ;usb_device_hid.c: 246:             break;
+[e $U 428  ]
+"247
+[; ;usb_device_hid.c: 247:         case 0x09:
+[e :U 431 ]
+"251
+[; ;usb_device_hid.c: 251:             break;
+[e $U 428  ]
+"252
+[; ;usb_device_hid.c: 252:         case 0x02:
+[e :U 432 ]
+"253
+[; ;usb_device_hid.c: 253:             { inPipes[0].pSrc.bRam = (uint8_t*)&idle_rate; inPipes[0].wCount.Val = 1; inPipes[0].info.Val = 0x40 | 0x80 | 0x01; };
 {
 [e = . . *U + &U _inPipes * -> -> -> 0 `i `ui `ux -> -> # *U &U _inPipes `ui `ux 0 0 &U _idle_rate ]
 [e = . . *U + &U _inPipes * -> -> -> 0 `i `ui `ux -> -> # *U &U _inPipes `ui `ux 2 0 -> -> 1 `i `us ]
 [e = . . *U + &U _inPipes * -> -> -> 0 `i `ui `ux -> -> # *U &U _inPipes `ui `ux 1 1 -> | | -> 64 `i -> 128 `i -> 1 `i `uc ]
 }
-"231
-[; ;usb_device_hid.c: 231:             break;
-[e $U 421  ]
-"232
-[; ;usb_device_hid.c: 232:         case 0x0A:
-[e :U 426 ]
-"233
-[; ;usb_device_hid.c: 233:             inPipes[0].info.Val = 0x00 | 0x80;
+"257
+[; ;usb_device_hid.c: 257:             break;
+[e $U 428  ]
+"258
+[; ;usb_device_hid.c: 258:         case 0x0A:
+[e :U 433 ]
+"259
+[; ;usb_device_hid.c: 259:             inPipes[0].info.Val = 0x00 | 0x80;
 [e = . . *U + &U _inPipes * -> -> -> 0 `i `ui `ux -> -> # *U &U _inPipes `ui `ux 1 1 -> | -> 0 `i -> 128 `i `uc ]
-"234
-[; ;usb_device_hid.c: 234:             idle_rate = SetupPkt.W_Value.byte.HB;
+"260
+[; ;usb_device_hid.c: 260:             idle_rate = SetupPkt.W_Value.byte.HB;
 [e = _idle_rate . . . . _SetupPkt 1 2 2 1 ]
-"236
-[; ;usb_device_hid.c: 236:             break;
-[e $U 421  ]
-"237
-[; ;usb_device_hid.c: 237:         case 0x03:
-[e :U 427 ]
-"238
-[; ;usb_device_hid.c: 238:             { inPipes[0].pSrc.bRam = (uint8_t*)&active_protocol; inPipes[0].wCount.Val = 1; inPipes[0].info.Val = 0x00 | 0x80 | 0x01; };
+"262
+[; ;usb_device_hid.c: 262:             break;
+[e $U 428  ]
+"263
+[; ;usb_device_hid.c: 263:         case 0x03:
+[e :U 434 ]
+"264
+[; ;usb_device_hid.c: 264:             { inPipes[0].pSrc.bRam = (uint8_t*)&active_protocol; inPipes[0].wCount.Val = 1; inPipes[0].info.Val = 0x00 | 0x80 | 0x01; };
 {
 [e = . . *U + &U _inPipes * -> -> -> 0 `i `ui `ux -> -> # *U &U _inPipes `ui `ux 0 0 &U _active_protocol ]
 [e = . . *U + &U _inPipes * -> -> -> 0 `i `ui `ux -> -> # *U &U _inPipes `ui `ux 2 0 -> -> 1 `i `us ]
 [e = . . *U + &U _inPipes * -> -> -> 0 `i `ui `ux -> -> # *U &U _inPipes `ui `ux 1 1 -> | | -> 0 `i -> 128 `i -> 1 `i `uc ]
 }
-"242
-[; ;usb_device_hid.c: 242:             break;
-[e $U 421  ]
-"243
-[; ;usb_device_hid.c: 243:         case 0x0B:
-[e :U 428 ]
-"244
-[; ;usb_device_hid.c: 244:             inPipes[0].info.Val = 0x00 | 0x80;
+"268
+[; ;usb_device_hid.c: 268:             break;
+[e $U 428  ]
+"269
+[; ;usb_device_hid.c: 269:         case 0x0B:
+[e :U 435 ]
+"270
+[; ;usb_device_hid.c: 270:             inPipes[0].info.Val = 0x00 | 0x80;
 [e = . . *U + &U _inPipes * -> -> -> 0 `i `ui `ux -> -> # *U &U _inPipes `ui `ux 1 1 -> | -> 0 `i -> 128 `i `uc ]
-"245
-[; ;usb_device_hid.c: 245:             active_protocol = SetupPkt.W_Value.byte.LB;
+"271
+[; ;usb_device_hid.c: 271:             active_protocol = SetupPkt.W_Value.byte.LB;
 [e = _active_protocol . . . . _SetupPkt 1 2 2 0 ]
-"246
-[; ;usb_device_hid.c: 246:             break;
-[e $U 421  ]
-"247
-[; ;usb_device_hid.c: 247:     }
+"272
+[; ;usb_device_hid.c: 272:             break;
+[e $U 428  ]
+"273
+[; ;usb_device_hid.c: 273:     }
 }
-[e $U 421  ]
-[e :U 422 ]
-[e [\ . . _SetupPkt 0 1 , $ -> 1 `i 423
- , $ -> 9 `i 424
- , $ -> 2 `i 425
- , $ -> 10 `i 426
- , $ -> 3 `i 427
- , $ -> 11 `i 428
- 421 ]
-[e :U 421 ]
-"249
-[; ;usb_device_hid.c: 249: }
+[e $U 428  ]
+[e :U 429 ]
+[e [\ . . _SetupPkt 0 1 , $ -> 1 `i 430
+ , $ -> 9 `i 431
+ , $ -> 2 `i 432
+ , $ -> 10 `i 433
+ , $ -> 3 `i 434
+ , $ -> 11 `i 435
+ 428 ]
+[e :U 428 ]
+"275
+[; ;usb_device_hid.c: 275: }
 [e :UE 410 ]
 }

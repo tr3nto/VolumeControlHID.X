@@ -58,14 +58,14 @@ const uint8_t configDescriptor1[]={
     /* Configuration Descriptor */
     0x09,//sizeof(USB_CFG_DSC),    // Size of this descriptor in bytes
     USB_DESCRIPTOR_CONFIGURATION,                // CONFIGURATION descriptor type
-    DESC_CONFIG_WORD(0x0022),   // Total length of data for this cfg (reduced from 0x0029)
-    1,                      // Number of interfaces in this cfg
+    DESC_CONFIG_WORD(0x003B),   // Total length of data for this cfg (59 bytes total)
+    2,                      // Number of interfaces in this cfg
     1,                      // Index value of this configuration
     0,                      // Configuration string index
     _DEFAULT | _SELF,               // Attributes, see usb_device.h
-    250,                    // Max power consumption (2X mA) = 200mA
+    250,                    // Max power consumption (2X mA) = 500mA
 
-    /* Interface Descriptor */
+    /* Interface 0 - Consumer Control */
     0x09,//sizeof(USB_INTF_DSC),   // Size of this descriptor in bytes
     USB_DESCRIPTOR_INTERFACE,               // INTERFACE descriptor type
     0,                      // Interface Number
@@ -83,12 +83,40 @@ const uint8_t configDescriptor1[]={
     0x00,                   // Country Code (0x00 for Not supported)
     HID_NUM_OF_DSC,         // Number of class descriptors, see usbcfg.h
     DSC_RPT,                // Report descriptor type
-    DESC_CONFIG_WORD(39),   //sizeof(hid_rpt01),      // Size of the report descriptor
+    DESC_CONFIG_WORD(39),   // Size of report descriptor
     
     /* Endpoint Descriptor */
     0x07,/*sizeof(USB_EP_DSC)*/
     USB_DESCRIPTOR_ENDPOINT,    //Endpoint Descriptor
     HID_EP | _EP_IN,            //EndpointAddress
+    _INTERRUPT,                       //Attributes
+    DESC_CONFIG_WORD(2),        //size
+    0x01,                        //Interval
+
+    /* Interface 1 - Keyboard Scroll Wheel */
+    0x09,//sizeof(USB_INTF_DSC),   // Size of this descriptor in bytes
+    USB_DESCRIPTOR_INTERFACE,               // INTERFACE descriptor type
+    1,                      // Interface Number
+    0,                      // Alternate Setting Number
+    1,                      // Number of endpoints in this intf
+    HID_INTF,               // Class code
+    0x01,                   // Subclass code (Boot Interface)
+    0x01,                   // Protocol code (Keyboard)
+    0,                      // Interface string index
+
+    /* HID Class-Specific Descriptor */
+    0x09,//sizeof(USB_HID_DSC)+3,    // Size of this descriptor in bytes
+    DSC_HID,                // HID descriptor type
+    DESC_CONFIG_WORD(0x0111),                 // HID Spec Release Number in BCD format (1.11)
+    0x00,                   // Country Code (0x00 for Not supported)
+    1,                      // Number of class descriptors
+    DSC_RPT,                // Report descriptor type
+    DESC_CONFIG_WORD(24),   // Size of keyboard report descriptor
+    
+    /* Endpoint Descriptor */
+    0x07,/*sizeof(USB_EP_DSC)*/
+    USB_DESCRIPTOR_ENDPOINT,    //Endpoint Descriptor
+    2 | _EP_IN,                 //EndpointAddress (EP2 IN)
     _INTERRUPT,                       //Attributes
     DESC_CONFIG_WORD(2),        //size
     0x01,                        //Interval

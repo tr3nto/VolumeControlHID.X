@@ -22,5 +22,8 @@ please contact mla_licensing@microchip.com
 
 void APP_ConsumerInit(void);
 void APP_ConsumerTasks(void);
+void APP_DeviceMouseTasks(void);
+void APP_DeviceMouseSOFHandler(void);
+void APP_HandleModeSwitch(void);
 
 #endif
